@@ -1,7 +1,7 @@
 package subscriber;
 
 import clientConnection.Client;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import javafx.geometry.Pos;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class SmartMirror_Subscriber implements MqttCallback
 {
     private MqttMessage mqttMessage;
-
+    Client client ;
     public SmartMirror_Subscriber(Client client, String topic)
     {
         try
         {
-
+            this.client = client;
             client.getClient().setCallback(this);
             client.getClient().subscribe(topic);
             JSONObject json = new JSONObject();
@@ -58,16 +58,23 @@ public class SmartMirror_Subscriber implements MqttCallback
     public void connectionLost(Throwable throwable) {
         System.out.println("Lost Connection");
         System.out.println(throwable);
+
+        this.client.startReconnect();
+
     }
 
+
     public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-        this.mqttMessage = mqttMessage;
-        JSONParser parser = new JSONParser();
-        JSONObject json = (JSONObject) parser.parse(mqttMessage.toString());
-        JSONArray Postit = (JSONArray ) json.get("Postit");
-        Gson gson = new Gson();
-        //example: final Postit postit = gson.fromJson(Postit, Postit.class);
-        System.out.println(Postit);
+
+            this.mqttMessage = mqttMessage;
+            JSONParser parser = new JSONParser();
+            JSONObject json = (JSONObject) parser.parse(mqttMessage.toString());
+            JSONArray Postit = (JSONArray) json.get("Postit");
+            //Gson gson = new Gson();
+            //example: final Postit postit = gson.fromJson(Postit, Postit.class);
+            System.out.println(Postit);
+
+
     }
 
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {

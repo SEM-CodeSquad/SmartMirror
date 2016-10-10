@@ -1,7 +1,7 @@
 package publisher;
 
 import clientConnection.Client;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
