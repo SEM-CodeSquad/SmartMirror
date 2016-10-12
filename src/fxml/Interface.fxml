@@ -20,7 +20,7 @@
           <RowConstraints maxHeight="187.0" minHeight="0.0" prefHeight="71.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label opacity="0.85" text="16:47" textFill="#e1e1e1" GridPane.columnIndex="1">
+            <Label opacity="0.85" text="16:47" textFill="#e1e1e1">
                <font>
                   <Font name="Microsoft JhengHei UI Light" size="57.0" />
                </font>
@@ -41,7 +41,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: pink;" text="Post-it" textAlignment="CENTER">
+            <Label fx:id="postit" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: pink;" text="Post-it" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>
@@ -68,9 +68,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" opacity="0.85" text="Welcome" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" opacity="0.85" text="Good Morning" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Microsoft YaHei UI Light" size="38.0" />
+                  <Font name="Microsoft YaHei UI Light" size="25.0" />
                </font>
                <GridPane.margin>
                   <Insets />

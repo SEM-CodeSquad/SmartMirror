@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -12,13 +13,12 @@ import java.io.IOException;
 
 public class guiController {
 
-    public TextField textField;
-    public Button button;
+    public Label postit;
     private MqttMessage mqttMessage;
 
     public void mousePressed(MouseEvent event) throws IOException{
 
-        textField.setText("/toString(mqttMessage)");
+        postit.setText("/toString(mqttMessage)");
     }
 
     private void setMqttMessage(MqttMessage msg){
