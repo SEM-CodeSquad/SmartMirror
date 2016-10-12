@@ -12,13 +12,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import publisher.SmartMirror_test_publisher;
+import java.util.Observable;
 
 import java.util.ArrayList;
 
-public class SmartMirror_Subscriber implements MqttCallback
+public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
     private MqttMessage mqttMessage;
     Client client ;
+    private JSONArray Postit;
+
     public SmartMirror_Subscriber(Client client, String topic)
     {
         try
@@ -70,12 +73,14 @@ public class SmartMirror_Subscriber implements MqttCallback
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(mqttMessage.toString());
             JSONArray Postit = (JSONArray) json.get("Postit");
+            setChanged();
+            notifyObservers(Postit);
             //Gson gson = new Gson();
             //example: final Postit postit = gson.fromJson(Postit, Postit.class);
             System.out.println(Postit);
 
-
     }
+
 
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
         // TODO Auto-generated method stub

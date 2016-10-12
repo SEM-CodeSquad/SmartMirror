@@ -5,7 +5,6 @@ package gui;
  */
 
 import clientConnection.Client;
-import javafx.scene.paint.Color;
 import subscriber.SmartMirror_Subscriber;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,14 +16,17 @@ public class Interface extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Client client = new Client("tcp://codehigh.ddns.net:1883", "Tester");
-        new SmartMirror_Subscriber(client, "test");
-
 
         Parent root = FXMLLoader.load(getClass().getResource("../fxml/Interface.fxml"));
         primaryStage.setTitle("SmartMirror");
         primaryStage.setScene(new Scene(root, 480, 640));
         primaryStage.show();
+
+        Client client = new Client("tcp://codehigh.ddns.net:1883", "Tester");
+        guiController guiCont = new guiController();
+        SmartMirror_Subscriber sms = new SmartMirror_Subscriber(client, "test");
+        sms.addObserver(guiCont);
+
         primaryStage.setOnCloseRequest(event -> {
             System.exit(0);
         });
