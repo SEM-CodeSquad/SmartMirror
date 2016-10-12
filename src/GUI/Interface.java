@@ -23,9 +23,13 @@ public class Interface extends Application {
         primaryStage.show();
 
         Client client = new Client("tcp://codehigh.ddns.net:1883", "Tester");
-        guiController guiCont = new guiController();
+        //guiController guiCont = new guiController();
         SmartMirror_Subscriber sms = new SmartMirror_Subscriber(client, "test");
-        sms.addObserver(guiCont);
+        //sms.addObserver(guiCont);
+
+        System.out.println(sms.Color);
+        System.out.println(sms.Text);
+        System.out.println(sms.Title);
 
         primaryStage.setOnCloseRequest(event -> {
             System.exit(0);

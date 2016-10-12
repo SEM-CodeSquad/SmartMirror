@@ -2,6 +2,7 @@ package subscriber;
 
 import clientConnection.Client;
 //import com.google.gson.Gson;
+import com.google.gson.Gson;
 import javafx.geometry.Pos;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -21,6 +22,9 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
     private MqttMessage mqttMessage;
     Client client ;
     private JSONArray Postit;
+    public String Title;
+    public String Text;
+    public String Color;
 
     public SmartMirror_Subscriber(Client client, String topic)
     {
@@ -62,7 +66,7 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
         System.out.println("Lost Connection");
         System.out.println(throwable);
 
-        this.client.startReconnect();
+        //this.client.startReconnect();
 
     }
 
@@ -73,11 +77,27 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(mqttMessage.toString());
             JSONArray Postit = (JSONArray) json.get("Postit");
+            JSONObject obj = (JSONObject) Postit.get(0);
             setChanged();
             notifyObservers(Postit);
-            //Gson gson = new Gson();
-            //example: final Postit postit = gson.fromJson(Postit, Postit.class);
-            System.out.println(Postit);
+            Gson gson = new Gson();
+            Postit postit = gson.fromJson(obj.toJSONString(), Postit.class);
+            this.Title = postit.Title;
+            this.Text = postit.Text;
+            this.Color = postit.Color;
+
+
+    }
+
+    class Postit{
+        String Title;
+        String Text;
+        String Color;
+
+        public String toString() {
+
+            return Title + " "+ Text + " " + Color;
+        }
 
     }
 
