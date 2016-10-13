@@ -12,12 +12,12 @@ import java.util.Observer;
  * Created by Axel on 10/11/2016.
  */
 
-public class guiController implements Observer{
+public class GUIcontroller implements Observer{
 
     @FXML
     private Label postit123;
 
-    public guiController() {
+    public GUIcontroller() {
 
 
     }

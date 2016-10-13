@@ -17,7 +17,7 @@ public class Interface extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        guiController guiCont = new guiController();
+        GUIcontroller guiCont = new GUIcontroller();
 
         Parent root = FXMLLoader.load(getClass().getResource("../fxml/Interface.fxml"));
         primaryStage.setTitle("SmartMirror");

@@ -3,20 +3,15 @@ package subscriber;
 import clientConnection.Client;
 //import com.google.gson.Gson;
 import com.google.gson.Gson;
-import javafx.geometry.Pos;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
-import publisher.SmartMirror_test_publisher;
-import java.util.Observable;
-import guiInterface.guiController;
 
-import java.util.ArrayList;
+import java.util.Observable;
 
 public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
