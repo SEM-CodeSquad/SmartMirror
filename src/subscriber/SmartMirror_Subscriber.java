@@ -12,7 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
-import publisher.SmartMirror_test_publisher;
+
 import java.util.Observable;
 
 import java.util.ArrayList;
