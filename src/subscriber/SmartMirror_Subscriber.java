@@ -12,19 +12,25 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
-
+import publisher.SmartMirror_test_publisher;
 import java.util.Observable;
+import guiInterface.guiController;
 
 import java.util.ArrayList;
 
 public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
     private MqttMessage mqttMessage;
-    Client client ;
+    Client client;
     private JSONArray Postit;
     public String Title;
     public String Text;
     public String Color;
+
+    public SmartMirror_Subscriber(){
+
+
+    }
 
     public SmartMirror_Subscriber(Client client, String topic)
     {
@@ -78,13 +84,13 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
             JSONObject json = (JSONObject) parser.parse(mqttMessage.toString());
             JSONArray Postit = (JSONArray) json.get("Postit");
             JSONObject obj = (JSONObject) Postit.get(0);
-            setChanged();
-            notifyObservers(Postit);
             Gson gson = new Gson();
-            Postit postit = gson.fromJson(obj.toJSONString(), Postit.class);
-            this.Title = postit.Title;
-            this.Text = postit.Text;
-            this.Color = postit.Color;
+            Object obj1 = gson.fromJson(obj.toString(), Object.class);
+            setChanged();
+            notifyObservers(obj);
+        //System.out.println(obj1.toString());
+          //  System.out.println(obj.toString()+"kiss");
+
 
 
     }

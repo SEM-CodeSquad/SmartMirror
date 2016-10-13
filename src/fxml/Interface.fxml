@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -40,7 +41,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="postit" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: pink;" text="Post-it" textAlignment="CENTER">
+            <Label fx:id="postit123" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="65.0" prefWidth="65.0" style="-fx-background-color: pink;" text="Post-it" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>

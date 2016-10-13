@@ -1,6 +1,9 @@
 package guiInterface;
 
+import com.google.gson.Gson;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,20 +14,50 @@ import java.util.Observer;
 
 public class guiController implements Observer{
 
-    public Label postit;
+    @FXML
+    private Label postit123;
+
+    public guiController() {
+
+
+    }
+
 
     public void update(Observable obs, Object obj)
     {
-        System.out.println(obj + "Lols");
-        //TODO:
-        // If the line below is uncommented it gives a weird error message
-        // "MqttException (0) - java.lang.NullPointerException" and loses connection.
-
-        //setPostit(obj);
+        System.out.println(obj.toString()+"asdasd");
+        Gson gson = new Gson();
+        Postit postit22 = gson.fromJson(obj.toString(), Postit.class);
+        System.out.print(postit22.Title+ "banana");
+        setTitle(postit22.Title);
     }
 
-    private void setPostit(Object postitMsg){
-        postit.setText(postitMsg.toString());
+    @FXML
+    private void setTitle(String title){
+
+        postit123.setText(title);
+    }
+
+    private void setColor(String color){
+
+
+    }
+    private void setText(String text){
+
+
+    }
+
+
+}
+
+class Postit{
+    String Title;
+    String Text;
+    String Color;
+
+    public String toString() {
+
+        return Title + " "+ Text + " " + Color;
     }
 
 }
