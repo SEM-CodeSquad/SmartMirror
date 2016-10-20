@@ -1,6 +1,6 @@
 package publisher;
 
-import clientConnection.Client;
+import clientConnection.MQTTClient;
 //import com.google.gson.Gson;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 
@@ -18,28 +18,8 @@ public class SmartMirror_test_publisher {
 
     private MqttMessage mqttMessage;
 
-    public SmartMirror_test_publisher(Client client, String topic) {
-        try {
-            JSONObject json = new JSONObject();
-            JSONArray array = new JSONArray();
-            JSONObject item = new JSONObject();
-            item.put("Color", "Red");
-            item.put("Title", "Dishes");
-            item.put("Text", "We need to do our dishes");
-            array.add(item);
+    public SmartMirror_test_publisher(MQTTClient client, String topic) {
 
-            json.put("Postit", array);
-            mqttMessage = new MqttMessage();
-            mqttMessage.setPayload(
-                    json.toString()
-                            .getBytes());
-
-            client.getClient().publish("test", mqttMessage);
-
-
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
     }
 
     public void connectionLost(Throwable throwable) {
