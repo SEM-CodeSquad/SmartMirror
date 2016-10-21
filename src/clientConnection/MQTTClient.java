@@ -40,11 +40,10 @@ public class MQTTClient
             e.printStackTrace();
         }
     }
-//TODO we might need to figure out a way to do this...
+
     public void startReconnect() {
                 if (!client.isConnected()) {
                     try {
-
                         client.connect(options);
                     } catch (MqttException e) {
                         e.printStackTrace();
