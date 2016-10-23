@@ -1,5 +1,6 @@
 package gui;
 
+import javafx.scene.control.DateCell;
 import mqttHandler.MQTTClient;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -16,8 +17,13 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import mqttHandler.SmartMirror_Subscriber;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -26,7 +32,7 @@ import java.util.Observer;
 
 public class InterfaceController implements Observer {
     @FXML
-    private TextArea postNote;
+    private TextArea postNote,postNote1,postNote2,postNote3,postNote4,postNote5,postNote6;
     @FXML
     private Label time;
     @FXML
@@ -46,8 +52,15 @@ public class InterfaceController implements Observer {
     @Override
     public void update(Observable o, Object obj) {
 
+        Thread newPostitThread = new Thread(()->{
+            parseMessage(obj);
+        });
+        newPostitThread.start();
+    }
+
+    private void parseMessage(Object recievedMessage){
         try {
-            MqttReceivedMessage received = (MqttReceivedMessage) obj;
+            MqttReceivedMessage received = (MqttReceivedMessage) recievedMessage;
 
             String str = received.toString();
             JSONParser parser = new JSONParser();
@@ -58,27 +71,19 @@ public class InterfaceController implements Observer {
 
             String title = jsonObject.get("Title").toString();
             String msg = jsonObject.get("Text").toString();
-            Platform.runLater(() -> setPost(title, msg));
+            String color = jsonObject.get("Color").toString();
+            Platform.runLater(() -> setPost(title, msg, color));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void setPost(String title, String msg){
+    private void setPost(String title, String msg, String color){
         String newLine = System.getProperty("line.separator");
         postNote.setPrefColumnCount(4);
         postNote.setPrefRowCount(4);
-        postNote.setText(title + newLine + msg);
-    }
-
-    private void setColor(String color){
-
-
-    }
-    private void setText(String text){
-
-
+        postNote.setText(title + newLine + msg + newLine + color);
+        postNote.setVisible(true);
     }
 
     private void bindToTime() {
@@ -89,6 +94,4 @@ public class InterfaceController implements Observer {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
-
 }
