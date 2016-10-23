@@ -1,4 +1,4 @@
-package timeDate;
+package gui.timeDate;
 
 /**
  * Created by Axel on 10/13/2016.

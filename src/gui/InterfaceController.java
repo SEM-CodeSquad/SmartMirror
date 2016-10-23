@@ -1,6 +1,6 @@
-package guiInterface;
+package gui;
 
-import clientConnection.MQTTClient;
+import mqttHandler.MQTTClient;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,12 +14,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import subscriber.SmartMirror_Subscriber;
+import mqttHandler.SmartMirror_Subscriber;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Observable;
 import java.util.Observer;
+
+//TODO: pre-construct the post-its and update data + make visible when message arrives.
+//TODO: Dynamically add pictures to the post-it.
 
 public class InterfaceController implements Observer {
     @FXML
@@ -38,11 +41,14 @@ public class InterfaceController implements Observer {
         bindToTime();
     }
 
+    //TODO: Thread the parser of the object
+
     @Override
     public void update(Observable o, Object obj) {
 
         try {
             MqttReceivedMessage received = (MqttReceivedMessage) obj;
+
             String str = received.toString();
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(str);
