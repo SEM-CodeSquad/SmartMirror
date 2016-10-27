@@ -1,13 +1,10 @@
-package publisher;
+package mqttHandler;
 
-import clientConnection.MQTTClient;
+import mqttHandler.MQTTClient;
 //import com.google.gson.Gson;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 
-import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 /**
  * Created by adinH on 2016-10-09.

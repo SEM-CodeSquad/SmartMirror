@@ -1,4 +1,4 @@
-package guiInterface;
+package gui;
 
 public class PostNote {
     String Title;

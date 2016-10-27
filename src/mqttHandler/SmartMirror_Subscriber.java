@@ -1,15 +1,10 @@
-package subscriber;
+package mqttHandler;
 
-import clientConnection.MQTTClient;
-//import com.google.gson.Gson;
-import com.google.gson.*;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
 
 import java.util.Observable;
 
@@ -17,10 +12,7 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
     private MqttMessage mqttMessage;
     private MQTTClient client;
-    private JSONArray Postit;
-    public String Title;
-    public String Text;
-    public String Color;
+
 
     public SmartMirror_Subscriber(MQTTClient client, String topic)
     {
@@ -48,11 +40,16 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
     }
 
 
-    public void messageArrived(String s, MqttMessage mqttMessage) throws Exception
+    public void messageArrived(String s, MqttMessage mqttMessage)
+
     {
         setChanged();
-        notifyObservers(mqttMessage);
+        try {
+            notifyObservers(mqttMessage);
+        }
+        catch(Exception e){
 
+        }
     }
 
 

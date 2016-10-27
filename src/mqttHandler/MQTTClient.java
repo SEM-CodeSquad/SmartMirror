@@ -1,4 +1,4 @@
-package clientConnection;
+package mqttHandler;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -40,11 +40,10 @@ public class MQTTClient
             e.printStackTrace();
         }
     }
-//TODO we might need to figure out a way to do this...
+
     public void startReconnect() {
                 if (!client.isConnected()) {
                     try {
-
                         client.connect(options);
                     } catch (MqttException e) {
                         e.printStackTrace();
