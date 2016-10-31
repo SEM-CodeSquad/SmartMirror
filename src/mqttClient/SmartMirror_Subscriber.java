@@ -1,4 +1,4 @@
-package mqttHandler;
+package mqttClient;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -10,7 +10,6 @@ import java.util.Observable;
 
 public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
-    private MqttMessage mqttMessage;
     private MQTTClient client;
 
 
@@ -21,39 +20,29 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
             this.client = client;
             client.getClient().setCallback(this);
             client.getClient().subscribe(topic);
-
-        } catch (MqttException e) {
+        }
+        catch (MqttException e)
+        {
             e.printStackTrace();
         }
     }
 
-    public MqttMessage getMqttMessage()
+    public void connectionLost(Throwable throwable)
     {
-       return this.mqttMessage;
-    }
-
-    public void connectionLost(Throwable throwable) {
         System.out.println("Lost Connection");
         throwable.printStackTrace();
-        this.client.startReconnect();
+        this.client.reconnect();
 
     }
 
-
-    public void messageArrived(String s, MqttMessage mqttMessage)
-
+    public void messageArrived(String topic, MqttMessage mqttMessage)
     {
         setChanged();
-        try {
-            notifyObservers(mqttMessage);
-        }
-        catch(Exception e){
-
-        }
+        notifyObservers(mqttMessage);
     }
 
-
-    public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
+    public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken)
+    {
         // TODO Auto-generated method stub
     }
 

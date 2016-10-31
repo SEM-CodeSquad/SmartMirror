@@ -1,193 +1,523 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.InterfaceController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1021.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.InterfaceController">
    <children>
-       <GridPane prefHeight="259.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="200.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="0.0" prefWidth="200.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="200.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="187.0" minHeight="0.0" prefHeight="71.0" vgrow="SOMETIMES" />
-           </rowConstraints>
+       <AnchorPane fx:id="mainPane" prefHeight="960.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;">
           <children>
-              <Label fx:id="time" opacity="0.85" textFill="#e1e1e1">
-                  <font>
-                      <Font name="Microsoft JhengHei UI Light" size="57.0" />
-                  </font>
-              </Label>
-            <Label fx:id="date" alignment="TOP_CENTER" prefHeight="51.0" prefWidth="133.0" textFill="#f2f2f2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="25.0" />
-               </GridPane.margin>
-            </Label>
+              <GridPane fx:id="postItsGrid" layoutX="4.0" layoutY="574.0" prefHeight="321.0" prefWidth="957.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="5.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+               <children>
+                  <StackPane fx:id="postPane2" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId2" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText2" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane3" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId3" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText3" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane4" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="postId4" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText4" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId5" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText5" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane6" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId6" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText6" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane7" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label fx:id="postId7" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText7" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane8" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId8" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText8" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane9" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId9" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText9" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane13" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
+                     <children>
+                        <Label fx:id="postId13" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText13" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane10" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
+                     <children>
+                        <Label fx:id="postId10" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText10" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane11" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId11" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText11" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane12" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId12" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText12" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane14" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId14" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText14" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane15" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId15" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText15" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane16" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5">
+                     <children>
+                        <Label fx:id="postId16" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText16" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane17" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="postId17" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText17" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane18" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="postId18" text="  " StackPane.alignment="TOP_LEFT" />
+                        <TextArea fx:id="postText18" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children></StackPane>
+                  <StackPane fx:id="postPane1" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="postText1" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css">
+                           <font>
+                              <Font name="Bookman Old Style" size="18.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </StackPane.margin>
+                        </TextArea>
+                        <Label fx:id="postId1" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0;" text="  " StackPane.alignment="TOP_LEFT" />
+                     </children>
+                  </StackPane>
+               </children>
+              </GridPane>
+              <GridPane layoutY="286.0" prefHeight="406.0" prefWidth="228.0" AnchorPane.bottomAnchor="329.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="286.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="154.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="75.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label fx:id="device1" textFill="WHITE" wrapText="true">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device2" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device3" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device4" textFill="WHITE" wrapText="true" GridPane.rowIndex="3">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device5" textFill="WHITE" wrapText="true" GridPane.rowIndex="4">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device6" textFill="WHITE" wrapText="true" GridPane.rowIndex="5">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device7" textFill="WHITE" wrapText="true" GridPane.rowIndex="6">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device8" textFill="WHITE" wrapText="true" GridPane.rowIndex="7">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device9" textFill="WHITE" wrapText="true" GridPane.rowIndex="8">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="device10" textFill="WHITE" wrapText="true" GridPane.rowIndex="9">
+                         <font>
+                             <Font name="Bookman Old Style" size="18.0" />
+                         </font>
+                     </Label>
+                     <ImageView fx:id="imgDevice1" fitHeight="49.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                     <ImageView fx:id="imgDevice2" fitHeight="52.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <ImageView fx:id="imgDevice3" fitHeight="51.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <ImageView fx:id="imgDevice4" fitHeight="48.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <ImageView fx:id="imgDevice5" fitHeight="49.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     <ImageView fx:id="imgDevice7" fitHeight="49.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     <ImageView fx:id="imgDevice6" fitHeight="52.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     <ImageView fx:id="imgDevice8" fitHeight="51.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     <ImageView fx:id="imgDevice9" fitHeight="51.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <ImageView fx:id="imgDevice10" fitHeight="50.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                 </children>
+              </GridPane>
+              <GridPane layoutX="643.0" layoutY="-17.0" prefHeight="697.0" prefWidth="341.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="-17.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <WebView fx:id="webViewBus" prefHeight="712.0" prefWidth="341.0" visible="false" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                 </children>
+              </GridPane>
+              <GridPane layoutX="5.0" layoutY="1.0" prefHeight="282.0" prefWidth="228.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="1.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label fx:id="time" textFill="WHITE">
+                         <font>
+                             <Font name="Bookman Old Style" size="40.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="date" textFill="WHITE" GridPane.rowIndex="1">
+                         <font>
+                             <Font name="Bookman Old Style" size="28.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="dayName" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                         <GridPane.margin>
+                             <Insets />
+                         </GridPane.margin>
+                         <font>
+                             <Font name="Bookman Old Style" size="21.0" />
+                         </font>
+                     </Label>
+                     <GridPane GridPane.rowIndex="2">
+                         <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                         </columnConstraints>
+                         <rowConstraints>
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         </rowConstraints>
+                        <children>
+                            <Label fx:id="outdoorsTemp" textFill="WHITE">
+                                <font>
+                                    <Font name="Bookman Old Style" size="21.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="indoorsTemp" textFill="WHITE" GridPane.columnIndex="2">
+                                <font>
+                                    <Font name="Bookman Old Style" size="21.0" />
+                                </font>
+                            </Label>
+                            <ImageView fx:id="imgOutdoorsTemp" fitHeight="38.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                            <Label fx:id="forecast1" textFill="WHITE" GridPane.rowIndex="1">
+                                <font>
+                                    <Font name="Bookman Old Style" size="21.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="forecast2" textFill="WHITE" GridPane.rowIndex="2">
+                                <font>
+                                    <Font name="Bookman Old Style" size="21.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="forecast3" textFill="WHITE" GridPane.rowIndex="3">
+                                <font>
+                                    <Font name="Bookman Old Style" size="21.0" />
+                                </font>
+                            </Label>
+                            <ImageView fx:id="imgForecast1" fitHeight="36.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <ImageView fx:id="imgForecast2" fitHeight="33.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <ImageView fx:id="imgForecast3" fitHeight="32.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        </children>
+                     </GridPane>
+                 </children>
+              </GridPane>
+              <GridPane layoutX="234.0" layoutY="2.0" prefHeight="689.0" prefWidth="384.0" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="234.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="2.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label fx:id="newsFeed" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="403.0" text=" News: " textFill="WHITE" wrapText="true" GridPane.valignment="TOP">
+                         <font>
+                             <Font name="Bookman Old Style" size="30.0" />
+                         </font>
+                     </Label>
+                     <GridPane GridPane.rowIndex="2">
+                         <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                         </columnConstraints>
+                         <rowConstraints>
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         </rowConstraints>
+                        <children>
+                            <Label fx:id="greetings" prefHeight="55.0" prefWidth="386.0" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                <font>
+                                    <Font name="Bookman Old Style" size="48.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="secondaryMsg" prefHeight="21.0" prefWidth="384.0" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                                <font>
+                                    <Font name="Bookman Old Style" size="23.0" />
+                                </font>
+                            </Label>
+                        </children>
+                     </GridPane>
+                  <ImageView fx:id="qrCodeView" fitHeight="123.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                 </children>
+              </GridPane>
           </children>
-       </GridPane>
-       <GridPane layoutX="8.0" layoutY="403.0" prefHeight="210.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="10.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="10.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="10.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="10.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="10.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints maxHeight="1.7976931348623157E308" minHeight="70.0" prefHeight="50.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="1.7976931348623157E308" minHeight="70.0" prefHeight="50.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="1.7976931348623157E308" minHeight="70.0" prefHeight="50.0" vgrow="SOMETIMES" />
-           </rowConstraints>
-         <children>
-            <TextArea fx:id="postNote" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font></TextArea>
-            <TextArea fx:id="postNote1" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote2" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote3" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote4" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote5" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote6" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote7" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote8" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote9" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote10" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote11" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote12" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote13" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="postNote14" editable="false" prefHeight="93.0" prefWidth="88.0" visible="false" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="2.0" left="4.0" right="4.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextArea>
-         </children>
-       </GridPane>
-       <GridPane alignment="CENTER" layoutY="260.0" prefHeight="130.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="172.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           </rowConstraints>
+       </AnchorPane>
+       <AnchorPane fx:id="pairingPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1d1d1d;" visible="false">
           <children>
-              <Label alignment="CENTER" opacity="0.85" text="Good Morning" textAlignment="CENTER" textFill="WHITE">
-                  <font>
-                      <Font name="Microsoft YaHei UI Light" size="25.0" />
-                  </font>
-                  <GridPane.margin>
-                      <Insets />
-                  </GridPane.margin>
-                  <padding>
-                      <Insets left="100.0" right="100.0" />
-                  </padding>
-              </Label>
+              <GridPane gridLinesVisible="true" layoutX="2.0" layoutY="5.0" prefHeight="108.0" prefWidth="235.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label fx:id="timePairingScreen" textFill="WHITE">
+                         <font>
+                             <Font name="Bookman Old Style" size="40.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="datePairingScreen" textFill="WHITE" GridPane.rowIndex="1">
+                         <font>
+                             <Font name="Bookman Old Style" size="28.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="dayNamePairingScreen" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                         <font>
+                             <Font name="Bookman Old Style" size="21.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </GridPane>
+              <GridPane layoutX="2.0" layoutY="511.0" prefHeight="172.0" prefWidth="962.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label text="SmartMirror Pairing Code" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                         <font>
+                             <Font name="Bookman Old Style" size="42.0" />
+                         </font>
+                     </Label>
+                     <ImageView fx:id="imgQRCode" fitHeight="123.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                 </children>
+              </GridPane>
+              <GridPane layoutX="1.0" layoutY="683.0" prefHeight="30.0" prefWidth="962.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label fx:id="notificationPairingScreen" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                         <font>
+                             <Font name="Bookman Old Style" size="23.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </GridPane>
           </children>
-       </GridPane>
+       </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

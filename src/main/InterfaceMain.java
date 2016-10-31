@@ -16,7 +16,8 @@ public class InterfaceMain extends Application {
         primaryStage.setTitle("SmartMirror");
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setMaximized(true);
+        //primaryStage.setFullScreen(true);
+
 
         primaryStage.setOnCloseRequest(event -> {
             System.exit(0);
