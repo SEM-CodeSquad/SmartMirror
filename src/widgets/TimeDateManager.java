@@ -23,7 +23,7 @@ public class TimeDateManager
 
     /**
      *
-     * @param time label to be showing the time.
+     * @param time label to be showing the time
      */
     public void bindToTime(Label time)
     {
