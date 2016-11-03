@@ -1,6 +1,6 @@
 package gui;
 
-import dataHandlers.AuthenticationManager;
+import dataHandlers.PairingManager;
 import dataHandlers.JsonMessageParser;
 import dataHandlers.QRCode;
 import dataHandlers.UUID_Generator;
@@ -71,7 +71,7 @@ public class InterfaceController implements Observer {
     public GridPane timetableContainer;
     private PostItGuiManager postitGuiManager;
     private SettingsManager settings;
-    private AuthenticationManager authenticationM;
+    private PairingManager pairingManager;
     private JsonMessageParser parser;
     private boolean systemRunning;
     private PostItComponents postItComponents;
@@ -98,7 +98,7 @@ public class InterfaceController implements Observer {
         imgQRCode.setImage(qrCode.getQRCode());
         qrCodeView.setImage(qrCode.getQRCode());
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
-        this.authenticationM = new AuthenticationManager(this.clientId, this.mqttClient, this);
+        this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
         TimeDateManager timeDateManager = new TimeDateManager();
         timeDateManager.bindToTime(this.timePairingScreen);
         timeDateManager.bindToDate(this.datePairingScreen);
@@ -108,8 +108,8 @@ public class InterfaceController implements Observer {
         timeDateManager.bindToDay(this.dayName);
         timeDateManager.bindGreetings(this.greetings);
         this.settings = new SettingsManager(this.webViewBus, this.timetableContainer);
-        this.authenticationM.listenAuthentication();
-        this.parser = new JsonMessageParser(settings, authenticationM, postitGuiManager);
+        this.pairingManager.listenPairing();
+        this.parser = new JsonMessageParser(settings, pairingManager, postitGuiManager);
         this.postItComponents.addPane(0, postPane1);
         this.postItComponents.addPane(1, postPane2);
         this.postItComponents.addPane(2, postPane3);
@@ -183,7 +183,7 @@ public class InterfaceController implements Observer {
             });
             thread.start();
         }
-        else if (obj instanceof AuthenticationManager)
+        else if (obj instanceof PairingManager)
         {
             changeScene(pairingPane, mainPane);
         }
