@@ -18,9 +18,9 @@ public class QRCode
         this.clientId = clientId;
     }
 
-    public WritableImage getQRCode()
+    public Image getQRCode()
     {
-        ByteArrayOutputStream out = net.glxn.qrgen.QRCode.from(clientId).to(ImageType.PNG).withSize(244, 121).stream();
+        ByteArrayOutputStream out = net.glxn.qrgen.QRCode.from(clientId).to(ImageType.PNG).withSize(250, 180).stream();
         ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
         Image image = new Image(in);
 
@@ -52,6 +52,6 @@ public class QRCode
                 }
             }
         }
-        return newImage;
+        return image;
     }
 }

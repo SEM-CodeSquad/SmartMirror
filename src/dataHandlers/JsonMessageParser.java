@@ -1,14 +1,16 @@
 package dataHandlers;
 
+import gui.PostItGuiManager;
+import gui.SettingsManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Observable;
 
-public class JsonMessageParser
+public class JsonMessageParser extends Observable
 {
     private String message;
     private String contentType;
@@ -17,28 +19,46 @@ public class JsonMessageParser
     private String timestamp;
     private boolean encrypted;
     private String encryptionMethod;
-    private LinkedList<DeviceStatus> deviceList;
-    private PostitNote postitNote;
+    private LinkedList<Content> deviceList;
+    private LinkedList<Content> settingsList;
+    private LinkedList<Content> authenticationList;
+    private LinkedList<PostItNote> postItNotes;
+    private LinkedList<PostItAction> postItActions;
 
-    public JsonMessageParser(String message)
+    public JsonMessageParser(SettingsManager settingsManager, AuthenticationManager authenticationManager,
+                             PostItGuiManager postitGuiManager)
     {
-       this.message = message;
-       deviceList = new LinkedList<>();
+        addObserver(settingsManager);
+        addObserver(authenticationManager);
+        addObserver(postitGuiManager);
+        this.postItNotes = new LinkedList<>();
+        this.postItActions = new LinkedList<>();
     }
 
-    public void parseMessage()
+    public void parseMessage(String message)
     {
         try
         {
+            this.message = message;
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(this.message);
-            this.messageFrom = json.get("messageFrom").toString();
-            this.timestamp = json.get("timestamp").toString();
-            String enc = json.get("encrypted").toString();
-            this.encrypted = enc.equals("true");
-            this.encryptionMethod = json.get("encryptionMethod").toString();
+//            this.messageFrom = json.get("messageFrom").toString();
+//            this.timestamp = json.get("timestamp").toString();
+//            String enc = json.get("encrypted").toString();
+//            this.encrypted = enc.equals("true");
+//            this.encryptionMethod = json.get("encryptionMethod").toString();
             this.contentType = json.get("contentType").toString();
             this.content = json.get("content").toString();
+            if (this.postItNotes.size() > 0)
+            {
+                setChanged();
+                notifyObservers("post-it");
+            }
+            else if (this.postItActions.size() > 0)
+            {
+                setChanged();
+                notifyObservers("post-it action");
+            }
         }
         catch (ParseException e)
         {
@@ -51,38 +71,99 @@ public class JsonMessageParser
     {
         try
         {
-            if (getContentType().equals("postit"))
-            {
-                JSONParser parser = new JSONParser();
-                JSONArray jsonArray = (JSONArray) parser.parse(this.content);
-                JSONObject jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                String title = jso.get("Header").toString();
-                String bodytext = jso.get("Body").toString();
-                String senderId = jso.get("SenderID").toString();
-                boolean important = jso.get("important").toString().equals("true");
-                int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
-                this.postitNote = new PostitNote(title, bodytext, senderId, important, timestamp);
-            }
-            else
-            {
-                JSONParser parser = new JSONParser();
-                JSONArray jsonArray = (JSONArray) parser.parse(this.content);
-                String s = jsonArray.get(0).toString();
-                JSONObject jso = (JSONObject) parser.parse(s);
-                ArrayList<String> arrayList = new ArrayList<>(jso.keySet());
-                System.out.println(arrayList.get(0));
-                DeviceStatus deviceStatus;
-                for (String anArrayList : arrayList) {
-                    String status = jso.get(anArrayList).toString();
-                    deviceStatus = new DeviceStatus(anArrayList, status);
-                    deviceList.add(deviceStatus);
-                }
+            JSONParser parser = new JSONParser();
+            JSONArray jsonArray;
+            JSONObject jso;
+            String postItId;
+
+
+            switch (getContentType()) {
+                case "postIt":
+                    jsonArray = (JSONArray) parser.parse(this.content);
+                    jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
+                    postItId = jso.get("Header").toString();
+                    String bodyText = jso.get("Body").toString();
+                    String senderId = jso.get("SenderID").toString();
+                    boolean important = jso.get("important").toString().equals("true");
+                    int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
+                    PostItNote postItNote = new PostItNote(postItId, bodyText, senderId, important, timestamp);
+                    this.postItNotes.add(postItNote);
+                    setChanged();
+                    notifyObservers("post-it");
+                    break;
+
+                case "device":
+                    this.deviceList = new LinkedList<>();
+                    parseArray(this.deviceList);
+                    break;
+
+                case "settings":
+                    this.settingsList = new LinkedList<>();
+                    parseArray(this.settingsList);
+                    setChanged();
+                    notifyObservers("settings");
+                    break;
+
+                case "authentication":
+                    this.authenticationList = new LinkedList<>();
+                    parseArray(this.authenticationList);
+                    setChanged();
+                    notifyObservers("authentication");
+                    break;
+
+                case "postIt action":
+                    jsonArray = (JSONArray) parser.parse(this.content);
+                    jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
+                    postItId = jso.get("PostItId").toString();
+                    String action = jso.get("Action").toString();
+                    String modification = jso.get("Modification").toString();
+                    PostItAction postItAction = new PostItAction(postItId, action, modification);
+                    this.postItActions.add(postItAction);
+                    setChanged();
+                    notifyObservers("post-it action");
+                    break;
+
+                default:
+
+                    System.out.println("Could Not be Parsed!");
+                    break;
+
             }
         }
         catch (ParseException e)
         {
             e.printStackTrace();
         }
+    }
+
+
+    @SuppressWarnings("unchecked")
+    private void parseArray(LinkedList linkedList)
+    {
+        try {
+            JSONParser parser = new JSONParser();
+            JSONArray jsonArray = (JSONArray) parser.parse(this.content);
+            String s = jsonArray.get(0).toString();
+            JSONObject jso = (JSONObject) parser.parse(s);
+            ArrayList<String> arrayList = new ArrayList<>(jso.keySet());
+            Content content;
+            for (String anArrayList : arrayList)
+            {
+                String value = jso.get(anArrayList).toString();
+                content = new Content(anArrayList, value);
+                linkedList.add(content);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public LinkedList<Content> getSettingsList() {
+        return settingsList;
+    }
+
+    public LinkedList<Content> getAuthenticationList() {
+        return authenticationList;
     }
 
     public String getMessage()
@@ -120,13 +201,19 @@ public class JsonMessageParser
         return encryptionMethod;
     }
 
-    public PostitNote getPostitNote()
+    public PostItNote getPostItNote()
     {
-        return this.postitNote;
+        return postItNotes.remove();
     }
 
-    public LinkedList<DeviceStatus> getDeviceList()
+    public PostItAction getPostItAction()
+    {
+        return postItActions.remove();
+    }
+
+    public LinkedList<Content> getDeviceList()
     {
         return deviceList;
     }
+
 }

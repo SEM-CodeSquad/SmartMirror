@@ -5,6 +5,7 @@ import javafx.scene.web.WebView;
 
 public class BusTimetable
 {
+    //TODO please do not delete this one until we fix the new one
     public void setBusTimetable(String busStop, WebView webViewBus)
     {
         WebEngine web = webViewBus.getEngine();

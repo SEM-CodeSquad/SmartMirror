@@ -1,25 +1,25 @@
 package dataHandlers;
 
-public class PostitNote
+public class PostItNote
 {
-    private String title;
+    private String postItId;
     private String bodyText;
     private String senderId;
     private boolean important;
     private int timestamp;
 
-    public PostitNote(String title, String bodyText, String senderId, boolean important, int timestamp)
+    public PostItNote(String postItId, String bodyText, String senderId, boolean important, int timestamp)
     {
-        this.title = title;
+        this.postItId = postItId;
         this.bodyText = bodyText;
         this.senderId = senderId;
         this.important = important;
         this.timestamp = timestamp;
     }
 
-    public String getTitle()
+    public String getPostItId()
     {
-        return title;
+        return postItId;
     }
 
     public String getBodyText()
@@ -40,5 +40,17 @@ public class PostitNote
     public int getTimestamp()
     {
         return timestamp;
+    }
+
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
+
+    public void setImportant(boolean important) {
+        this.important = important;
+    }
+
+    public void setTimestamp(int timestamp) {
+        this.timestamp = timestamp;
     }
 }

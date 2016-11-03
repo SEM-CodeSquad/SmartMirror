@@ -1,26 +1,20 @@
 package gui;
 
-import com.sun.java.swing.plaf.windows.WindowsBorders;
+import dataHandlers.AuthenticationManager;
+import dataHandlers.JsonMessageParser;
 import dataHandlers.QRCode;
 import dataHandlers.UUID_Generator;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 import mqttClient.MQTTClient;
-import mqttClient.SmartMirror_Subscriber;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import widgets.TimeDateManager;
 
-import java.io.File;
+import java.awt.*;
 import java.util.*;
 
 public class InterfaceController implements Observer {
@@ -28,26 +22,6 @@ public class InterfaceController implements Observer {
     public WebView webViewBus;
     public AnchorPane mainPane;
     public GridPane postItsGrid;
-    public Label device1;
-    public Label device2;
-    public Label device3;
-    public Label device4;
-    public Label device5;
-    public Label device6;
-    public Label device7;
-    public Label device8;
-    public Label device9;
-    public Label device10;
-    public ImageView imgDevice1;
-    public ImageView imgDevice2;
-    public ImageView imgDevice3;
-    public ImageView imgDevice4;
-    public ImageView imgDevice5;
-    public ImageView imgDevice7;
-    public ImageView imgDevice6;
-    public ImageView imgDevice8;
-    public ImageView imgDevice9;
-    public ImageView imgDevice10;
     public Label time;
     public Label dayName;
     public Label date;
@@ -79,17 +53,28 @@ public class InterfaceController implements Observer {
     public StackPane postPane7;
     public StackPane postPane8;
     public StackPane postPane9;
-    public StackPane postPane13;
     public StackPane postPane10;
     public StackPane postPane11;
     public StackPane postPane12;
-    public StackPane postPane14;
-    public StackPane postPane15;
-    public StackPane postPane16;
-    public StackPane postPane17;
-    public StackPane postPane18;
     public TextArea postText1;
-    public Label postId1;
+    public TextArea postText2;
+    public TextArea postText3;
+    public TextArea postText4;
+    public TextArea postText5;
+    public TextArea postText6;
+    public TextArea postText9;
+    public TextArea postText7;
+    public TextArea postText8;
+    public TextArea postText10;
+    public TextArea postText11;
+    public TextArea postText12;
+    public GridPane timetableContainer;
+    private PostItGuiManager postitGuiManager;
+    private SettingsManager settings;
+    private AuthenticationManager authenticationM;
+    private JsonMessageParser parser;
+    private boolean systemRunning;
+    private PostItComponents postItComponents;
 
 
     private String clientId;
@@ -98,17 +83,22 @@ public class InterfaceController implements Observer {
 
     public InterfaceController()
     {
+        systemRunning = true;
+        this.postitGuiManager = new PostItGuiManager(this);
+        this.postItComponents = new PostItComponents();
         Platform.runLater(this::setUp);
-
     }
 
     private void setUp()
     {
+        keepScreenAlive();
         UUID_Generator uuid_generator = new UUID_Generator();
         clientId = uuid_generator.getUUID();
         QRCode qrCode = new QRCode(clientId);
         imgQRCode.setImage(qrCode.getQRCode());
         qrCodeView.setImage(qrCode.getQRCode());
+        this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
+        this.authenticationM = new AuthenticationManager(this.clientId, this.mqttClient, this);
         TimeDateManager timeDateManager = new TimeDateManager();
         timeDateManager.bindToTime(this.timePairingScreen);
         timeDateManager.bindToDate(this.datePairingScreen);
@@ -116,73 +106,93 @@ public class InterfaceController implements Observer {
         timeDateManager.bindToTime(this.time);
         timeDateManager.bindToDate(this.date);
         timeDateManager.bindToDay(this.dayName);
-        File f = new File("resources/post-it-.png");
-        Image i = new Image(f.toURI().toString());
-
-
-
-
-        postId1.setStyle("-fx-background-color: linear-gradient(#329932, #66b266),\n" +
-                "        radial-gradient(center 50% -40%, radius 200%, #008000 45%, #004c00 50%);" +
-                "-fx-border-radius: 10 10 10 10;\n" +
-                "  -fx-background-radius: 10 10 10 10;" +
-                "-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );");
-
-        postPane1.setStyle("-fx-background-image: url('" + i.impl_getUrl() + "'); " +
-                "-fx-background-repeat: stretch;" +
-                "-fx-background-size: 320 101;" +
-                "    -fx-background-position: center center;" +
-                "    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);");
-
-
-
-
-//        Image image = new Image(f.toURI().toString());
-//
-//        BackgroundSize backgroundSize = new BackgroundSize(100, 100, false, false, false, false);
-//        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT,
-//                BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-//        Background background = new Background(backgroundImage);
-//
-//        postIt1.setBackground(background);
-//
-//
-//
-//        authentication();
-
+        timeDateManager.bindGreetings(this.greetings);
+        this.settings = new SettingsManager(this.webViewBus, this.timetableContainer);
+        this.authenticationM.listenAuthentication();
+        this.parser = new JsonMessageParser(settings, authenticationM, postitGuiManager);
+        this.postItComponents.addPane(0, postPane1);
+        this.postItComponents.addPane(1, postPane2);
+        this.postItComponents.addPane(2, postPane3);
+        this.postItComponents.addPane(3, postPane4);
+        this.postItComponents.addPane(4, postPane5);
+        this.postItComponents.addPane(5, postPane6);
+        this.postItComponents.addPane(6, postPane7);
+        this.postItComponents.addPane(7, postPane8);
+        this.postItComponents.addPane(8, postPane9);
+        this.postItComponents.addPane(9, postPane10);
+        this.postItComponents.addPane(10, postPane11);
+        this.postItComponents.addPane(11, postPane12);
+        this.postItComponents.addTextArea(0, postText1);
+        this.postItComponents.addTextArea(1, postText2);
+        this.postItComponents.addTextArea(2, postText3);
+        this.postItComponents.addTextArea(3, postText4);
+        this.postItComponents.addTextArea(4, postText5);
+        this.postItComponents.addTextArea(5, postText6);
+        this.postItComponents.addTextArea(6, postText7);
+        this.postItComponents.addTextArea(7, postText8);
+        this.postItComponents.addTextArea(8, postText9);
+        this.postItComponents.addTextArea(9, postText10);
+        this.postItComponents.addTextArea(10, postText11);
+        this.postItComponents.addTextArea(11, postText12);
     }
 
-    private void changeScene() throws Exception
+    private void changeScene(AnchorPane one, AnchorPane two)
     {
-
+        one.setVisible(false);
+        two.setVisible(true);
     }
 
-    private void authentication()
+    private void keepScreenAlive()
     {
-        //TODO set pairing code back after testing
-        this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
-        SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(mqttClient, "dit029/SmartMirror/" +
-                "authentication");
-        subscriber.addObserver(this);
+        Thread thread = new Thread(()->{
+            while (systemRunning) {
+                try {
+                    Thread.sleep(80000);//this is how long before it moves
+                    Point point = MouseInfo.getPointerInfo().getLocation();
+                    Robot robot = new Robot();
+                    robot.mouseMove(point.x, point.y);
+                } catch (InterruptedException | AWTException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
     }
 
+    public JsonMessageParser getParser()
+    {
+        return this.parser;
+    }
 
+    public PostItComponents getPostItComponents()
+    {
+        return this.postItComponents;
+    }
 
     @Override
-    public void update(Observable o, Object obj) {
+    public void update(Observable o, Object obj)
+    {
+        if (obj instanceof MqttMessage)
+        {
+            Thread thread = new Thread(()->{
+                String str = obj.toString();
+                System.out.println(str);
 
+                parser.parseMessage(str);
+                parser.parseContent();
+            });
+            thread.start();
+        }
+        else if (obj instanceof AuthenticationManager)
+        {
+            changeScene(pairingPane, mainPane);
+        }
 
     }
 
 
 
-    private void setPost(String title, String msg, String color){
-//        String newLine = System.getProperty("line.separator");
-//        postNote.setPrefColumnCount(4);
-//        postNote.setPrefRowCount(4);
-//        postNote.setText(title + newLine + msg + newLine + color);
-//        postNote.setVisible(true);
-    }
+
 
 
 }
