@@ -7,7 +7,6 @@ public class RSSMessage {
 
     String title;
 
-
     public String getTitle() {
         return title;
     }
