@@ -11,6 +11,7 @@ import java.util.Observable;
 public class SmartMirror_Subscriber extends Observable implements MqttCallback
 {
     private MQTTClient client;
+    private SmartMirror_Publisher echoPublisher;
 
 
     public SmartMirror_Subscriber(MQTTClient client, String topic)
@@ -39,6 +40,8 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
     {
         setChanged();
         notifyObservers(mqttMessage);
+        echoPublisher = new SmartMirror_Publisher(client);
+        echoPublisher.echo(topic);
     }
 
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken)
