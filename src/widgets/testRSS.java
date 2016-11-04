@@ -5,6 +5,7 @@ package widgets;
  */
 
 public class testRSS {
+
     public static void main(String[] args) {
         RSSStAXParser parser = new RSSStAXParser("https://www.reddit.com/r/news/.rss");
         RSSFeed feed = parser.RSSParser();
