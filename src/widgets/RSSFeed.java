@@ -13,14 +13,11 @@ public class RSSFeed {
      * Stores an RSS feed
      */
 
-
     final String title;
     final LinkedList<RSSMessage> entries = new LinkedList<>();
 
-
     public RSSFeed(String title) {
         this.title = title;
-
     }
 
 
@@ -34,7 +31,7 @@ public class RSSFeed {
 
     @Override
     public String toString() {
-        return "Feed [title=" + title + "]";
+        return "Feed [title= " + title + " ]";
     }
 
 }

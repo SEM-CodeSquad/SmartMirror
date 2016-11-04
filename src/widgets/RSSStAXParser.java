@@ -17,7 +17,6 @@ import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.*;
 
 
-
 public class RSSStAXParser {
     static final String ITEM = "item";
     static final String TITLE = "title";
@@ -33,13 +32,13 @@ public class RSSStAXParser {
     }
 
 
-    public RSSFeed RSSParser()  {
+    public RSSFeed RSSParser() {
 
         RSSFeed rssFeed = null;
 
         try {
             boolean isFeedHeader = true;
-            String Title ="";
+            String Title = "";
             XMLInputFactory factory = XMLInputFactory.newInstance();
 
             InputStream RSS = read();
@@ -58,34 +57,35 @@ public class RSSStAXParser {
                                 isFeedHeader = false;
                                 rssFeed = new RSSFeed(Title);
                             }
-                            event = eventReader.nextEvent();
-                            StartElement startElement = event.asStartElement();
-                            String qName = startElement.getName().getLocalPart();
+                            // event = eventReader.nextEvent();
+                            // StartElement startElement = event.asStartElement();
+                            // String qName = startElement.getName().getLocalPart();
+                            // if(qName.equalsIgnoreCase("title")){
+                            //     Title = getCharacterData(event, eventReader);
+                            // }
 
                             break;
                         case TITLE:
                             Title = getCharacterData(event, eventReader);
                             break;
                     }
-                }
-                else if (event.isEndElement()) {
+                } else if (event.isEndElement()) {
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
                         RSSMessage rssMsg = new RSSMessage();
                         rssMsg.setTitle(Title);
                         rssFeed.getList().add(rssMsg);
-                        event = eventReader.nextEvent();
+                        // event = eventReader.nextEvent();
                         continue;
                     }
                 }
             }
 
 
-            }catch(XMLStreamException e){
+        } catch (XMLStreamException e) {
 
-            }
-            return rssFeed;
         }
-
+        return rssFeed;
+    }
 
 
     private InputStream read() {
@@ -95,6 +95,7 @@ public class RSSStAXParser {
             throw new RuntimeException(e);
         }
     }
+
     private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
             throws XMLStreamException {
         String result = "";
