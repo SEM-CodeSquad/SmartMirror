@@ -53,27 +53,6 @@ public class PairingManager extends Observable implements Observer
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/device");
     }
 
-    private void sendHeartBeat()
-    {
-        SmartMirror_Publisher publisher = new SmartMirror_Publisher(this.client);
-        String heartbeatTopic = "dit029/SmartMirror/" + this.clientId + "/heartbeat";
-        String msg = clientId;
-        Thread thread = new Thread(()->{
-            while (this.clientPaired) {
-                try
-                {
-                    Thread.sleep(300000);
-                    publisher.publish(heartbeatTopic, msg);
-                }
-                catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
-    }
-
     @Override
     public void update(Observable o, Object arg)
     {
@@ -82,7 +61,7 @@ public class PairingManager extends Observable implements Observer
            if (!this.clientPaired)
            {
                paired();
-               sendHeartBeat();
+
                this.clientPaired = true;
                setChanged();
                notifyObservers(this);
