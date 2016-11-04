@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="timestamp and echo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" />
+    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ProjectWMirror.iws" />
@@ -892,7 +891,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478270117032</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="timestamp and echo">
+      <created>1478270175038</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1478270175038</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -946,7 +952,8 @@
     <MESSAGE value="Restructured" />
     <MESSAGE value="Commit Changes" />
     <MESSAGE value="RSS Parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="RSS Parser" />
+    <MESSAGE value="timestamp and echo" />
+    <option name="LAST_COMMIT_MESSAGE" value="timestamp and echo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
