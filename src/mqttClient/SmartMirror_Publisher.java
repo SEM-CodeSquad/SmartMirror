@@ -1,5 +1,6 @@
 package mqttClient;
 
+import dataHandlers.Timestamp;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONObject;
@@ -9,6 +10,7 @@ import java.util.Observable;
 public class SmartMirror_Publisher extends Observable
 {
     private MQTTClient client;
+    private Timestamp timestamp;
 
     public SmartMirror_Publisher(MQTTClient client)
     {
@@ -31,6 +33,8 @@ public class SmartMirror_Publisher extends Observable
             notifyObservers(this);
         }
     }
+
+
 
     @SuppressWarnings({"unchecked", "MismatchedQueryAndUpdateOfCollection"})
     public void publishPresenceMessage(String version, String groupName, int groupNumber, long timestamp,
@@ -58,6 +62,32 @@ public class SmartMirror_Publisher extends Observable
         {
             e.printStackTrace();
         }
+
+    }
+
+    /**
+     * Method echo sends an echo message to a device that has sent messages to this client
+     *
+     * @param topic
+     */
+    public void echo(String topic){
+        String clientID = topic.substring(7, topic.indexOf('p') - 1); // parse the topic to retrieve clientID
+        String echoTopic = "dit029/" + clientID + "/echo";
+
+        timestamp = new Timestamp();
+        String ts = "\"" + String.valueOf(timestamp.getTime()) + "\"";
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("messageFrom", clientID);
+        jsonObject.put("timestamp", ts);
+        jsonObject.put("contentType", "echo");
+        jsonObject.put("content", clientID);
+
+        String echoMessage = jsonObject.toString();
+
+        publish(echoTopic, echoMessage);
+
+
 
     }
 }
