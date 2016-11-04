@@ -11,26 +11,24 @@ import java.util.Observer;
 
 public class SettingsManager implements Observer
 {
+    private final InterfaceController gui;
     private WebView webView;
     private String busStop;
     private GridPane busPane;
-    //private String newsSource;
-    private LinkedList<Content> contents;
+    private Content settingsContent;
 
-    SettingsManager(WebView webView, GridPane busPane)
+    SettingsManager(WebView webView, GridPane busPane, InterfaceController gui)
     {
         this.webView = webView;
         this.busPane = busPane;
+        this.gui = gui;
     }
 
     private void assignSettings()
     {
-        for (int i = 0; i <= contents.size(); i++)
+        if (this.settingsContent.getKey().equals("busStop"))
         {
-            if (contents.remove(i).getKey().equals("busStop"))
-            {
-                this.busStop = contents.remove(i).getValue();
-            }
+            this.busStop = this.settingsContent.getValue();
         }
     }
 
@@ -46,15 +44,14 @@ public class SettingsManager implements Observer
     private void showTimetable()
     {
         BusTimetable busTimetable = new BusTimetable();
-        this.busPane.setVisible(true);
-        busTimetable.setBusTimetable(this.busStop, this.webView);
+        busTimetable.setBusTimetable(this.busStop, this.webView, this.busPane);
     }
 
     @Override @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg) {
         if (arg.equals("settings"))
         {
-
+            this.settingsContent = gui.getParser().getSettings();
             applySettings();
         }
     }

@@ -9,9 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import mqttClient.MQTTClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import widgets.BusTimetable;
 import widgets.TimeDateManager;
 
 import java.awt.*;
@@ -107,7 +109,7 @@ public class InterfaceController implements Observer {
         timeDateManager.bindToDate(this.date);
         timeDateManager.bindToDay(this.dayName);
         timeDateManager.bindGreetings(this.greetings);
-        this.settings = new SettingsManager(this.webViewBus, this.timetableContainer);
+        this.settings = new SettingsManager(this.webViewBus, this.timetableContainer, this);
         this.pairingManager.listenPairing();
         this.parser = new JsonMessageParser(settings, pairingManager, postitGuiManager);
         this.postItComponents.addPane(0, postPane1);

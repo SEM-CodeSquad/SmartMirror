@@ -57,13 +57,16 @@ public class PairingManager extends Observable implements Observer
     {
         SmartMirror_Publisher publisher = new SmartMirror_Publisher(this.client);
         String heartbeatTopic = "dit029/SmartMirror/" + this.clientId + "/heartbeat";
+        String test = "test";
         String msg = clientId;
         Thread thread = new Thread(()->{
             while (this.clientPaired) {
                 try
                 {
-                    Thread.sleep(300000);
+                    Thread.sleep(10000);
                     publisher.publish(heartbeatTopic, msg);
+
+                    publisher.publish(test, msg);
                 }
                 catch (InterruptedException e)
                 {

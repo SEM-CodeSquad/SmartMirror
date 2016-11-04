@@ -17,8 +17,6 @@ public class JsonMessageParser extends Observable
     private String content;
     private String messageFrom;
     private String timestamp;
-    private boolean encrypted;
-    private String encryptionMethod;
     private LinkedList<Content> deviceList;
     private LinkedList<Content> settingsList;
     private LinkedList<Content> pairingList;
@@ -33,6 +31,7 @@ public class JsonMessageParser extends Observable
         addObserver(postitGuiManager);
         this.postItNotes = new LinkedList<>();
         this.postItActions = new LinkedList<>();
+        this.settingsList = new LinkedList<>();
     }
 
     public void parseMessage(String message)
@@ -75,12 +74,12 @@ public class JsonMessageParser extends Observable
 
 
             switch (getContentType()) {
-                case "postIt":
+                case "post-it":
                     jsonArray = (JSONArray) parser.parse(this.content);
                     jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("PostItID").toString();
-                    String bodyText = jso.get("Body").toString();
-                    String senderId = jso.get("SenderStyle").toString();
+                    postItId = jso.get("postItID").toString();
+                    String bodyText = jso.get("body").toString();
+                    String senderId = jso.get("senderStyle").toString();
                     boolean important = jso.get("important").toString().equals("true");
                     int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
                     PostItNote postItNote = new PostItNote(postItId, bodyText, senderId, important, timestamp);
@@ -95,15 +94,12 @@ public class JsonMessageParser extends Observable
                     break;
 
                 case "settings":
-                    this.settingsList = new LinkedList<>();
                     parseArray(this.settingsList);
                     setChanged();
                     notifyObservers("settings");
                     break;
 
-                case "authentication":
-                    this.pairingList = new LinkedList<>();
-                    parseArray(this.pairingList);
+                case "pairing":
                     setChanged();
                     notifyObservers("pairing");
                     break;
@@ -111,9 +107,9 @@ public class JsonMessageParser extends Observable
                 case "postIt action":
                     jsonArray = (JSONArray) parser.parse(this.content);
                     jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("PostItID").toString();
-                    String action = jso.get("Action").toString();
-                    String modification = jso.get("Modification").toString();
+                    postItId = jso.get("postItID").toString();
+                    String action = jso.get("action").toString();
+                    String modification = jso.get("modification").toString();
                     PostItAction postItAction = new PostItAction(postItId, action, modification);
                     this.postItActions.add(postItAction);
                     setChanged();
@@ -184,16 +180,6 @@ public class JsonMessageParser extends Observable
         return timestamp;
     }
 
-    public boolean isEncrypted()
-    {
-        return encrypted;
-    }
-
-    public String getEncryptionMethod()
-    {
-        return encryptionMethod;
-    }
-
     public PostItNote getPostItNote()
     {
         return postItNotes.remove();
@@ -206,7 +192,7 @@ public class JsonMessageParser extends Observable
 
     public Content getDeviceList()
     {
-        return this.settingsList.remove();
+        return this.deviceList.remove();
     }
 
     public Content getSettings()
