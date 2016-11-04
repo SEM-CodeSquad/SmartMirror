@@ -18,7 +18,7 @@ public class RSSMessage {
 
     @Override
     public String toString() {
-        return "FeedMessage [title=" + title + "]";
+        return "FeedMessage [title= " + title + " ]";
     }
 
 }

@@ -58,10 +58,12 @@ public class RSSStAXParser {
                                 isFeedHeader = false;
                                 rssFeed = new RSSFeed(Title);
                             }
-                            event = eventReader.nextEvent();
-                            StartElement startElement = event.asStartElement();
-                            String qName = startElement.getName().getLocalPart();
-
+                           // event = eventReader.nextEvent();
+                           // StartElement startElement = event.asStartElement();
+                           // String qName = startElement.getName().getLocalPart();
+                           // if(qName.equalsIgnoreCase("title")){
+                           //     Title = getCharacterData(event, eventReader);
+                           // }
                             break;
                         case TITLE:
                             Title = getCharacterData(event, eventReader);
@@ -73,7 +75,7 @@ public class RSSStAXParser {
                         RSSMessage rssMsg = new RSSMessage();
                         rssMsg.setTitle(Title);
                         rssFeed.getList().add(rssMsg);
-                        event = eventReader.nextEvent();
+                       // event = eventReader.nextEvent();
                         continue;
                     }
                 }

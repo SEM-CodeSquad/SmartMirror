@@ -34,7 +34,7 @@ public class RSSFeed {
 
     @Override
     public String toString() {
-        return "Feed [title=" + title + "]";
+        return "Feed [title= " + title + " ]";
     }
 
 }
