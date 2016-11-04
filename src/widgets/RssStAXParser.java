@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.xml.stream.events.Characters;
 
 
 
@@ -36,7 +37,6 @@ public class RssStAXParser {
             throw new RuntimeException(e);
         }
 
-        boolean bTitle = false;
 
         try {
             boolean isFeedHeader = true;
@@ -91,7 +91,15 @@ public class RssStAXParser {
             throw new RuntimeException(e);
         }
     }
-
+    private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
+            throws XMLStreamException {
+        String result = "";
+        event = eventReader.nextEvent();
+        if (event instanceof Characters) {
+            result = event.asCharacters().getData();
+        }
+        return result;
+    }
 
 }
 
