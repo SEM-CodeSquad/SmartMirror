@@ -4,82 +4,99 @@ package widgets;
  * Created by Geoffrey on 2016/11/3.
  */
 
-import java.io.FileInputStream;
-import java.net.URL;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.Characters;
-import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.*;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 
 
 public class RssStAXParser {
-    public static void main(String[] args) {
+    static final String ITEM = "item";
+    static final String TITLE = "title";
 
-        RSSParser();
+    URL url;
 
-    }
-    public static void RSSParser() {
-            boolean bTitle = false;
 
-            try {
-                URL url = new URL("http://www.reddit.com/r/news/.rss");
-                URLConnection connection = url.openConnection();
 
-                XMLInputFactory factory = XMLInputFactory.newInstance();
-                XMLEventReader eventReader =
-                        factory.createXMLEventReader(url);
 
-                while (eventReader.hasNext()) {
-                    XMLEvent event = eventReader.nextEvent();
-                    switch (event.getEventType()) {
-                        case XMLStreamConstants.START_ELEMENT:
-                            StartElement startElement = event.asStartElement();
-                            String qName = startElement.getName().getLocalPart();
-                            if (qName.equalsIgnoreCase("title")) {
-                                bTitle = true;
+    public RSSFeed RssStAXParser(String feedUrl)  {
+
+
+        RSSFeed rssFeed = null;
+        try {
+            this.url = new URL(feedUrl);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
+        boolean bTitle = false;
+
+        try {
+            boolean isFeedHeader = true;
+            String Title ="";
+            XMLInputFactory factory = XMLInputFactory.newInstance();
+
+            InputStream RSS = read();
+            XMLEventReader eventReader = factory.createXMLEventReader(RSS);
+
+            while (eventReader.hasNext()) {
+                XMLEvent event = eventReader.nextEvent();
+                if (event.isStartElement()) {
+                    String localPart = event.asStartElement().getName()
+                            .getLocalPart();
+                    switch (localPart) {
+                        case ITEM:
+                            if (isFeedHeader) {
+                                isFeedHeader = false;
+                                rssFeed = new RSSFeed(Title);
                             }
+                            event = eventReader.nextEvent();
                             break;
-                        case XMLStreamConstants.CHARACTERS:
-                            Characters characters = event.asCharacters();
-                            if (bTitle) {
-                                System.out.println(characters.getData());
-                                bTitle = false;
-                            }
+                        case TITLE:
+                            Title = getCharacterData(event, eventReader);
                             break;
                     }
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (XMLStreamException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                else if (event.isEndElement()) {
+                    if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
+                        RSSMessage rssMsg = new RSSMessage();
+                        rssMsg.setTitle(Title);
+                        rssFeed.getMessages().add(rssMsg);
+                        event = eventReader.nextEvent();
+                        continue;
+                    }
+                }
             }
+
+
+            }catch(XMLStreamException e){
+                throw new RuntimeException(e);
+            }
+            return rssFeed;
         }
 
 
 
-    public static Document getXML(String url) throws Exception {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        return factory.newDocumentBuilder().parse(new URL(url).openStream());
+    private InputStream read() {
+        try {
+            return url.openStream();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
 }
+
+
+
 
 
 
