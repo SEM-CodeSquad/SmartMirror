@@ -21,11 +21,11 @@ public class JsonMessageParser extends Observable
     private String encryptionMethod;
     private LinkedList<Content> deviceList;
     private LinkedList<Content> settingsList;
-    private LinkedList<Content> authenticationList;
+    private LinkedList<Content> pairingList;
     private LinkedList<PostItNote> postItNotes;
     private LinkedList<PostItAction> postItActions;
 
-    public JsonMessageParser(SettingsManager settingsManager, AuthenticationManager authenticationManager,
+    public JsonMessageParser(SettingsManager settingsManager, PairingManager authenticationManager,
                              PostItGuiManager postitGuiManager)
     {
         addObserver(settingsManager);
@@ -42,11 +42,8 @@ public class JsonMessageParser extends Observable
             this.message = message;
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(this.message);
-//            this.messageFrom = json.get("messageFrom").toString();
-//            this.timestamp = json.get("timestamp").toString();
-//            String enc = json.get("encrypted").toString();
-//            this.encrypted = enc.equals("true");
-//            this.encryptionMethod = json.get("encryptionMethod").toString();
+            this.messageFrom = json.get("messageFrom").toString();
+            this.timestamp = json.get("timestamp").toString();
             this.contentType = json.get("contentType").toString();
             this.content = json.get("content").toString();
             if (this.postItNotes.size() > 0)
@@ -81,9 +78,9 @@ public class JsonMessageParser extends Observable
                 case "postIt":
                     jsonArray = (JSONArray) parser.parse(this.content);
                     jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("Header").toString();
+                    postItId = jso.get("PostItID").toString();
                     String bodyText = jso.get("Body").toString();
-                    String senderId = jso.get("SenderID").toString();
+                    String senderId = jso.get("SenderStyle").toString();
                     boolean important = jso.get("important").toString().equals("true");
                     int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
                     PostItNote postItNote = new PostItNote(postItId, bodyText, senderId, important, timestamp);
@@ -105,16 +102,16 @@ public class JsonMessageParser extends Observable
                     break;
 
                 case "authentication":
-                    this.authenticationList = new LinkedList<>();
-                    parseArray(this.authenticationList);
+                    this.pairingList = new LinkedList<>();
+                    parseArray(this.pairingList);
                     setChanged();
-                    notifyObservers("authentication");
+                    notifyObservers("pairing");
                     break;
 
                 case "postIt action":
                     jsonArray = (JSONArray) parser.parse(this.content);
                     jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("PostItId").toString();
+                    postItId = jso.get("PostItID").toString();
                     String action = jso.get("Action").toString();
                     String modification = jso.get("Modification").toString();
                     PostItAction postItAction = new PostItAction(postItId, action, modification);
@@ -158,12 +155,8 @@ public class JsonMessageParser extends Observable
         }
     }
 
-    public LinkedList<Content> getSettingsList() {
-        return settingsList;
-    }
-
-    public LinkedList<Content> getAuthenticationList() {
-        return authenticationList;
+    public Content getPairing() {
+        return this.pairingList.remove();
     }
 
     public String getMessage()
@@ -211,9 +204,14 @@ public class JsonMessageParser extends Observable
         return postItActions.remove();
     }
 
-    public LinkedList<Content> getDeviceList()
+    public Content getDeviceList()
     {
-        return deviceList;
+        return this.settingsList.remove();
+    }
+
+    public Content getSettings()
+    {
+        return this.settingsList.remove();
     }
 
 }
