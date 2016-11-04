@@ -1,7 +1,6 @@
 package widgets;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Created by Geoffrey on 2016/11/4.
@@ -16,7 +15,7 @@ public class RSSFeed {
 
 
     final String title;
-    final List<RSSMessage> entries = new ArrayList<RSSMessage>();
+    final LinkedList<RSSMessage> entries = new LinkedList<>();
 
 
     public RSSFeed(String title) {
@@ -29,7 +28,7 @@ public class RSSFeed {
         return title;
     }
 
-    public List<RSSMessage> getMessages() {
+    public LinkedList getList() {
         return entries;
     }
 

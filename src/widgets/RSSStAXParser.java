@@ -14,29 +14,28 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.stream.events.Characters;
+import javax.xml.stream.events.*;
 
 
 
-
-public class RssStAXParser {
+public class RSSStAXParser {
     static final String ITEM = "item";
     static final String TITLE = "title";
 
     URL url;
 
-
-
-
-    public RSSFeed RssStAXParser(String feedUrl)  {
-
-
-        RSSFeed rssFeed = null;
+    public RSSStAXParser(String feedUrl) {
         try {
             this.url = new URL(feedUrl);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
 
+
+    public RSSFeed RSSParser()  {
+
+        RSSFeed rssFeed = null;
 
         try {
             boolean isFeedHeader = true;
@@ -51,13 +50,18 @@ public class RssStAXParser {
                 if (event.isStartElement()) {
                     String localPart = event.asStartElement().getName()
                             .getLocalPart();
+
                     switch (localPart) {
+
                         case ITEM:
                             if (isFeedHeader) {
                                 isFeedHeader = false;
                                 rssFeed = new RSSFeed(Title);
                             }
                             event = eventReader.nextEvent();
+                            StartElement startElement = event.asStartElement();
+                            String qName = startElement.getName().getLocalPart();
+
                             break;
                         case TITLE:
                             Title = getCharacterData(event, eventReader);
@@ -68,7 +72,7 @@ public class RssStAXParser {
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
                         RSSMessage rssMsg = new RSSMessage();
                         rssMsg.setTitle(Title);
-                        rssFeed.getMessages().add(rssMsg);
+                        rssFeed.getList().add(rssMsg);
                         event = eventReader.nextEvent();
                         continue;
                     }
@@ -77,7 +81,7 @@ public class RssStAXParser {
 
 
             }catch(XMLStreamException e){
-                throw new RuntimeException(e);
+
             }
             return rssFeed;
         }
