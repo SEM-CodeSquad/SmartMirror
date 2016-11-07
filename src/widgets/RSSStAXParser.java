@@ -104,6 +104,7 @@ public class RSSStAXParser {
         try {
             return url.openStream();
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

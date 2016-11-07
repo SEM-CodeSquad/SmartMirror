@@ -40,8 +40,8 @@ public class SmartMirror_Subscriber extends Observable implements MqttCallback
     {
         setChanged();
         notifyObservers(mqttMessage);
-        echoPublisher = new SmartMirror_Publisher(client);
-        echoPublisher.echo(topic);
+//        echoPublisher = new SmartMirror_Publisher(client);
+//        echoPublisher.echo(topic);
     }
 
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken)
