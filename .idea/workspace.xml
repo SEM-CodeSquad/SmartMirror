@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
+    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="Commit db con addition">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-green.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-pink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/post-it-yellow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/postit-blue.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java" afterPath="$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java" />
     </list>
     <ignored path="ProjectWMirror.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,15 +36,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MysqlCon.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MysqlCon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dataHandlers/MysqlCon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding>
                 <element signature="e#666#667#0" expanded="true" />
                 <element signature="e#692#693#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QRCode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dataHandlers/QRCode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UUID_Generator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="48" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dataHandlers/DateChooserSkin.java" />
         <option value="$PROJECT_DIR$/src/main/TestApplication.java" />
         <option value="$PROJECT_DIR$/src/fxml/calendar.css" />
         <option value="$PROJECT_DIR$/src/fxml/lcd.css" />
@@ -101,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/widgets/RssSaxParser.java" />
         <option value="$PROJECT_DIR$/src/widgets/RssStAXParser.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/PairingManager.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/QRCode.java" />
         <option value="$PROJECT_DIR$/src/mqttClient/SmartMirror_Subscriber.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/timestamp.java" />
         <option value="$PROJECT_DIR$/src/mqttClient/SmartMirror_Publisher.java" />
@@ -111,6 +140,8 @@
         <option value="$PROJECT_DIR$/src/widgets/RSSStAXParser.java" />
         <option value="$PROJECT_DIR$/src/widgets/BusTimetable.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/MysqlCon.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/QRCode.java" />
       </list>
     </option>
   </component>
@@ -280,6 +311,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dataHandlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -744,7 +789,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478527180563</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commit db con addition">
+      <created>1478527221542</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1478527221542</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -828,7 +880,8 @@
     <MESSAGE value="RSS Parser" />
     <MESSAGE value="timestamp and echo" />
     <MESSAGE value="RSS Parser test" />
-    <option name="LAST_COMMIT_MESSAGE" value="RSS Parser test" />
+    <MESSAGE value="Commit db con addition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit db con addition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1004,20 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/QRCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dataHandlers/PairingManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1129,12 +1168,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dataHandlers/MysqlCon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
             <element signature="e#666#667#0" expanded="true" />
             <element signature="e#692#693#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/core-3.0.0.jar!/com/google/zxing/qrcode/QRCodeWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-506">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/qrgen-1.4.jar!/net/glxn/qrgen/QRCode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding>
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataHandlers/QRCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/post-it-blue.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/postit-blue.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="48" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
