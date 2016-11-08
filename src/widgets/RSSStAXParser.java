@@ -39,6 +39,7 @@ public class RSSStAXParser {
         try {
             boolean isFeedHeader = true;
             String Title = "";
+
             XMLInputFactory factory = XMLInputFactory.newInstance();
 
             InputStream RSS = read();
@@ -46,37 +47,48 @@ public class RSSStAXParser {
 
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
+
                 if (event.isStartElement()) {
                     String localPart = event.asStartElement().getName()
                             .getLocalPart();
 
                     switch (localPart) {
 
+
                         case ITEM:
+
                             if (isFeedHeader) {
                                 isFeedHeader = false;
                                 rssFeed = new RSSFeed(Title);
                             }
-                            // event = eventReader.nextEvent();
-                            // StartElement startElement = event.asStartElement();
-                            // String qName = startElement.getName().getLocalPart();
-                            // if(qName.equalsIgnoreCase("title")){
-                            //     Title = getCharacterData(event, eventReader);
-                            // }
+                            event = eventReader.nextEvent();
+                            StartElement startElement1 = event.asStartElement();
+                            String qName1 = startElement1.getName().getLocalPart();
+                            if(qName1.equalsIgnoreCase("title")){
+                                Title = getCharacterData(event, eventReader);
+                            }
 
                             break;
+
                         case TITLE:
+
                             Title = getCharacterData(event, eventReader);
                             break;
+
                     }
-                } else if (event.isEndElement()) {
+                }
+
+                else if (event.isEndElement()) {
+
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
                         RSSMessage rssMsg = new RSSMessage();
                         rssMsg.setTitle(Title);
                         rssFeed.getList().add(rssMsg);
-                        // event = eventReader.nextEvent();
+                        event = eventReader.nextEvent();
                         continue;
+
                     }
+
                 }
             }
 
@@ -92,6 +104,7 @@ public class RSSStAXParser {
         try {
             return url.openStream();
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

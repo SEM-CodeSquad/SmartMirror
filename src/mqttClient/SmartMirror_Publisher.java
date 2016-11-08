@@ -70,6 +70,7 @@ public class SmartMirror_Publisher extends Observable
      *
      * @param topic
      */
+    @SuppressWarnings("unchecked")
     public void echo(String topic){
         String clientID = topic.substring(7, topic.indexOf('p') - 1); // parse the topic to retrieve clientID
         String echoTopic = "dit029/" + clientID + "/echo";

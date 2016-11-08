@@ -6,10 +6,11 @@ public class UUID_Generator {
 
     private String uuid;
 
+
     public UUID_Generator()
     {
         UUID id = UUID.randomUUID();
-        this.uuid = "SmartMirror_" + id;
+        this.uuid = id.toString().toUpperCase();
     }
 
     public String getUUID()

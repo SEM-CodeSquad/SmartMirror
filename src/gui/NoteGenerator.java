@@ -41,8 +41,9 @@ class NoteGenerator
 
     private void setPostMessage(TextArea textArea)
     {
-        //String newLine = System.getProperty("line.separator");
-        textArea.setText(this.msg);
+        String newLine = System.getProperty("line.separator");
+        if (this.msg.length() > 40) textArea.setText(newLine + this.msg);
+        else textArea.setText(newLine + newLine + newLine + this.msg);
         System.out.println("Done");
     }
 
