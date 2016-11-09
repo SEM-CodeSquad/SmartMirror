@@ -10,7 +10,7 @@ public class RSSFeed {
 
 
     /*
-     * Stores an RSS feed
+     * Stores an RSSFeed's Title
      */
 
     final String title;
@@ -20,15 +20,30 @@ public class RSSFeed {
         this.title = title;
     }
 
-
+    /**
+     * Title getter
+     *
+     * @return title
+     */
     public String getTitle() {
         return title;
     }
+
+    /**
+     * List Getter
+     *
+     * @return entries
+     */
 
     public LinkedList getList() {
         return entries;
     }
 
+    /**
+     * toString
+     *
+     * @return string
+     */
     @Override
     public String toString() {
         return "Feed [title= " + title + " ]";

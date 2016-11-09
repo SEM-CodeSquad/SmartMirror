@@ -16,13 +16,22 @@ import java.net.URL;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.*;
 
-
+/*
+ *
+ *
+ */
 public class RSSStAXParser {
     static final String ITEM = "item";
     static final String TITLE = "title";
 
     URL url;
 
+
+    /**
+     * constructor
+     *
+     * @param feedUrl
+     */
     public RSSStAXParser(String feedUrl) {
         try {
             this.url = new URL(feedUrl);
@@ -31,6 +40,13 @@ public class RSSStAXParser {
         }
     }
 
+
+    /**
+     * Parse the XML file from given URL and store the Source of the RSS Feed as well as the news title into the linked list
+     *
+     *
+     * @return rssFeed
+     */
 
     public RSSFeed RSSParser() {
 
@@ -78,6 +94,7 @@ public class RSSStAXParser {
                     }
                 }
 
+
                 else if (event.isEndElement()) {
 
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
@@ -99,6 +116,11 @@ public class RSSStAXParser {
         return rssFeed;
     }
 
+    /**
+     * connect to the url and read the RSS feed
+     *
+     * @return an InputStream for reading from that connection (url.openStream())
+     */
 
     private InputStream read() {
         try {
@@ -109,6 +131,14 @@ public class RSSStAXParser {
         }
     }
 
+
+    /**
+     *
+     * @param event
+     * @param eventReader
+     * @return result
+     * @throws XMLStreamException
+     */
     private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
             throws XMLStreamException {
         String result = "";
