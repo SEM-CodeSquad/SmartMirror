@@ -10,6 +10,10 @@ import org.json.JSONObject;
 
 public class JSONWeatherParser {
 
+    // This method takes the whole JSON formatted data returned by the web server when called the fetchWeather() method
+    // from the WeatherFetcher class in the constructor. Then returns 3 instances of the object Weather in an array.
+    // With the first element holding values for the present day, the next element holding the values for the next day
+    // and so on.
     public Weather[] getWeather(String data) throws JSONException {
         Weather[] wArray = new Weather[3];
         JSONObject jObject = new JSONObject(data);
@@ -21,6 +25,8 @@ public class JSONWeatherParser {
         weather1.setTemp(jTempObj1.getDouble("temp"));
         weather1.setMaxTemp(jTempObj1.getDouble("temp_max"));
         weather1.setMinTemp(jTempObj1.getDouble("temp_min"));
+        weather1.setDesc(jArrayObj1.getJSONArray("weather").getJSONObject(0).getString("description"));
+        weather1.setIcon(jArrayObj1.getJSONArray("weather").getJSONObject(0).getString("icon"));
         wArray[0] = weather1;
 
         JSONObject jArrayObj2 = jArray.getJSONObject(1);
@@ -29,6 +35,8 @@ public class JSONWeatherParser {
         weather2.setTemp(jTempObj2.getDouble("temp"));
         weather2.setMaxTemp(jTempObj2.getDouble("temp_max"));
         weather2.setMinTemp(jTempObj2.getDouble("temp_min"));
+        weather2.setDesc(jArrayObj2.getJSONArray("weather").getJSONObject(0).getString("description"));
+        weather2.setIcon(jArrayObj2.getJSONArray("weather").getJSONObject(0).getString("icon"));
         wArray[1] = weather2;
 
         JSONObject jArrayObj3 = jArray.getJSONObject(2);
@@ -37,14 +45,10 @@ public class JSONWeatherParser {
         weather3.setTemp(jTempObj3.getDouble("temp"));
         weather3.setMaxTemp(jTempObj3.getDouble("temp_max"));
         weather3.setMinTemp(jTempObj3.getDouble("temp_min"));
+        weather3.setDesc(jArrayObj3.getJSONArray("weather").getJSONObject(0).getString("description"));
+        weather3.setIcon(jArrayObj3.getJSONArray("weather").getJSONObject(0).getString("icon"));
         wArray[2] = weather3;
 
         return wArray;
     }
-
-
-    private static String getString(String tagName, JSONObject jObj) throws JSONException {
-        return jObj.getString(tagName);
-    }
-
 }
