@@ -1,19 +1,40 @@
 package widgets;
 
+import dataHandlers.BusDepartureParser;
+import dataHandlers.GenerateAccessCode;
 import javafx.concurrent.Worker;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import org.json.simple.JSONObject;
 
-import java.util.concurrent.TimeUnit;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
-public class BusTimetable
-{
+/**
+ * Created by Axel on 8/11/2016.
+ */
+
+public class BusTimetable {
+
     private WebView webView;
     private GridPane gridPane;
+    private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+    private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    String busTime = LocalTime.now().format(SHORT_TIME_FORMATTER);
+    String busDate = LocalDate.now().format(SHORT_DATE_FORMATTER);
+    GenerateAccessCode authCode;
 
     //TODO please do not delete this one until we fix the new one
-    public void setBusTimetable(String busStop, WebView webViewBus, GridPane busGrid)
+    public void INACTIVEsetBusTimetable(String busStop, WebView webViewBus, GridPane busGrid)
     {
         try {
             this.webView = webViewBus;
@@ -42,26 +63,35 @@ public class BusTimetable
         gridPane.setVisible(true);
     }
 
+    public void setBusTimetable(String busStop, GridPane busGrid) {
 
-    //TODO Notes ->
+        authCode = new GenerateAccessCode();
+        String code = authCode.getResult();
+        StringBuilder result = new StringBuilder();
+        URL url;
+        try {
+            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&format=json");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Authorization:", "Bearer " + code);
+            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line;
+            while ((line = rd.readLine()) != null) {
+                result.append(line);
 
-    // TODO GENERATE TOKEN:
+            }
+            rd.close();
 
-    // POST https://api.vasttrafik.se/token HTTP/1.1
-    // Content-Type: application/x-www-form-urlencoded
-    // Authorization: Basic UmJseEkyeTFsWVNFTTZ0Z2J6anBTa2E0R1o6Wk1nSkR0Y0paRGV4OTJldUxpQUdYOFExUnU=
-    // grant_type=client_credentials&scope=<device_id>   --------(device_id needs to be specified)-------
 
-    // TODO Example link that returns a json object containing departures:
-    // NOTE: Needs authentication token, done through Oauth2
 
-    // https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=Brunnsparken%2CG%C3%B6teborg&date=2016-11-04&time=19%3A22&format=json
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    // TODO Fetch the json object with the auth code:
+        System.out.println(result.toString());
 
-    // GET https://api.vasttrafik.se/bin/rest.exe/v2/location.name?input=ols&format=json HTTP/1.1
-    // Authorization: Bearer 766b697f4462ca3878b05597ff19313
+        BusDepartureParser bdp = new BusDepartureParser();
+        bdp.busJsonParser(result.toString());
+    }
 
-    // TODO Here's a link to git where some dude made it work:
-    // https://github.com/vasttrafik/wso2-apim-developer-portal-api/tree/master/java/src
 }

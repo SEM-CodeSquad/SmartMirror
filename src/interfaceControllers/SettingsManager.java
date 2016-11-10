@@ -44,7 +44,7 @@ public class SettingsManager implements Observer
     private void showTimetable()
     {
         BusTimetable busTimetable = new BusTimetable();
-        busTimetable.setBusTimetable(this.busStop, this.webView, this.busPane);
+        busTimetable.setBusTimetable(this.busStop/*, this.webView*/, this.busPane); // Not needed anymore i think / Axel
     }
 
     @Override @SuppressWarnings("unchecked")
