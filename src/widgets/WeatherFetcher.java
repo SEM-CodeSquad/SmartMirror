@@ -11,15 +11,18 @@ import java.net.URL;
  * Created by Nimish on 04/11/2016.
  */
 
-// This class initiates a weather fetcher.
+/*
+ * The WeatherFetcher class fetches the weather of a city that is inputted in the parameters of the method fetchWeather()
+ * It returns a String containing weather information of that city in JSON format.
+ */
 public class WeatherFetcher {
+    private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?q=";        /*Base URL to fetch weather of city */
+    private static String IMG_URL = "http://openweathermap.org/img/w/";                           /* Base URL to fetch weather icon */
 
-    // The base URL is the starting point for any call to get the weather of a place or the icon.
-    private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?q=";
-    private static String IMG_URL = "http://openweathermap.org/img/w/";
-
-    // The fetchWeather method takes the city name as a constructor and returns the JSON formatted text
-    // returned by the web server.
+    /*
+     * The fetchWeather method takes the city name as a constructor and returns the JSON formatted text
+     * returned by the web server. The fetchWeather uses the HTTP GET request method to fetch the weather.
+    */
     public String fetchWeather(String cityName) {
 
             HttpURLConnection connection = null ;
@@ -32,7 +35,7 @@ public class WeatherFetcher {
                 connection.setDoOutput(true);
                 connection.connect();
 
-                // Reading the response got.
+
                 StringBuffer buffer = new StringBuffer();
                 IS = connection.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(IS));
@@ -55,9 +58,12 @@ public class WeatherFetcher {
             return null;
 
         }
-    // The below getImage() method returns a ByteArray code of the icon requested with the variable "code"
-    // coming from the returned weather call requested by fetchWeather().
-    // 'ImageView' could be used to display this icon on the Android end.
+    /*
+     * The below getImage() method returns a ByteArray code of the icon requested with the variable "code"
+     * coming from the returned weather call requested by fetchWeather().
+     * 'ImageView' could be used to display this icon on the Android end.
+    */
+
     /* <ImageView
     android:id="@+id/condIcon"
     android:layout_width="wrap_content"
@@ -74,7 +80,7 @@ public class WeatherFetcher {
             connection.setDoOutput(true);
             connection.connect();
 
-            // Let's read the response
+            /* Response got */
             IS = connection.getInputStream();
             byte[] buffer = new byte[1024];
             ByteArrayOutputStream ByteArray = new ByteArrayOutputStream();

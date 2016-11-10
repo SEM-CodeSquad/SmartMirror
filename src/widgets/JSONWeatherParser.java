@@ -11,10 +11,12 @@ import org.json.simple.parser.ParseException;
 
 public class JSONWeatherParser {
 
-    // This method takes the whole JSON formatted data returned by the web server when called the fetchWeather() method
-    // from the WeatherFetcher class in the constructor. Then returns 3 instances of the object Weather in an array.
-    // With the first element holding values for the present day, the next element holding the values for the next day
-    // and so on.
+    /*
+     * This method takes the whole JSON formatted data returned by the web server when called the fetchWeather() method
+     * from the WeatherFetcher class in the constructor. Then returns 3 instances of the object Weather in an array.
+     * With the first element holding values for the present day, the next element holding the values for the next day
+     * and so on.
+    */
     public Weather[] parseWeather(String data)  {
         JSONParser parser = new JSONParser();
         Weather [] wArray = new Weather[3];
@@ -31,7 +33,6 @@ public class JSONWeatherParser {
             weather1.setDesc(jTempObj2.get("description").toString());
             weather1.setIcon(jTempObj2.get("icon").toString());
             wArray[0] = weather1;
-
 
             JSONObject jArrayObj2 = (JSONObject) jArray.get(1);
             JSONObject jTempObj3 = (JSONObject) jArrayObj2.get("main");

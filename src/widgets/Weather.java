@@ -5,9 +5,10 @@ package widgets;
  */
 
 
-//The weather object here stores the information related to the weather of the city that we call.
-//It will store the current, maximum and minimum temperature along with the description and icon of the weather.
-// Public getters and setters can be used to view any of the above mentioned variables.
+/* The weather object here stores the information related to the weather of the city that we call.
+ * It will store the current, maximum and minimum temperature along with the description and icon of the weather.
+ * Public getters and setters can be used to view any of the above mentioned variables.
+*/
 public class Weather {
     private String currentTemp;
     private String minTemp;
