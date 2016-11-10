@@ -1,11 +1,11 @@
-package gui;
+package interfaceControllers;
 
 import dataHandlers.Content;
 import javafx.application.Platform;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebView;
 import widgets.BusTimetable;
-import java.util.LinkedList;
+
 import java.util.Observable;
 import java.util.Observer;
 

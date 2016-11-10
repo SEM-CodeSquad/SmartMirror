@@ -12,7 +12,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.WebView?>
 
-<StackPane prefHeight="1226.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.InterfaceController">
+<StackPane prefHeight="1226.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaceControllers.InterfaceController">
    <children>
        <AnchorPane fx:id="mainPane" prefHeight="960.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;" visible="false">
           <children>

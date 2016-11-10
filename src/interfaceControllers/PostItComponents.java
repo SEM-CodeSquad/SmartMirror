@@ -1,4 +1,4 @@
-package gui;
+package interfaceControllers;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;

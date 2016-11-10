@@ -1,4 +1,4 @@
-package gui;
+package interfaceControllers;
 
 import dataHandlers.PairingManager;
 import dataHandlers.JsonMessageParser;
@@ -9,11 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import mqttClient.MQTTClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import widgets.BusTimetable;
 import widgets.TimeDateManager;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package gui;
+package interfaceControllers;
 
 import dataHandlers.PostItAction;
 import dataHandlers.PostItNote;

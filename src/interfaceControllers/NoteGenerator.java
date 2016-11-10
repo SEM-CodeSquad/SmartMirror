@@ -1,4 +1,4 @@
-package gui;
+package interfaceControllers;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;

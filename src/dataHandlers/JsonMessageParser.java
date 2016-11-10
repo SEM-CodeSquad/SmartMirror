@@ -1,7 +1,7 @@
 package dataHandlers;
 
-import gui.PostItGuiManager;
-import gui.SettingsManager;
+import interfaceControllers.PostItGuiManager;
+import interfaceControllers.SettingsManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

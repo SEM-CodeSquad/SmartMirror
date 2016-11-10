@@ -1,8 +1,7 @@
 package dataHandlers;
 
-import gui.InterfaceController;
+import interfaceControllers.InterfaceController;
 import mqttClient.MQTTClient;
-import mqttClient.SmartMirror_Publisher;
 import mqttClient.SmartMirror_Subscriber;
 import java.util.Observable;
 import java.util.Observer;
