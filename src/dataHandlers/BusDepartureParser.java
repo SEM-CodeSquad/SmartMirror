@@ -4,7 +4,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.json.*;
+
+import java.io.IOException;
 
 /**
  * Created by Axel on 11/10/2016.
@@ -13,23 +14,46 @@ import org.json.*;
 public class BusDepartureParser {
 
     public String busJson;
-    public BusInfo busData;
 
-    BusInfo[] busArray = new BusInfo[7];
+    BusInfo[] busArray = new BusInfo[35];
 
-    public void busJsonParser(String busJson){
+    public void busJsonParser(String busJson) {
 
-        //jsonObj.getJSONObject("DepartureBoard").getJSONArray("Departure");
         try {
             this.busJson = busJson;
             JSONParser parser = new JSONParser();
-            JSONObject jsonObj = (JSONObject) parser.parse(this.busJson);
-            this.busData.busFrom = jsonObj.get("DepartureBoard").toString();               //Gets the name of the busstop
-            this.busData.busDirection = jsonObj.get("direction").toString();     //Gets the direction displayed on the bus
-            this.busData.busName = jsonObj.get("name").toString();               //Use "sname" for short name instead if preferred.
-            this.busData.busDeparture = jsonObj.get("rtTime").toString();        //Time when the bus leaves
-            //this.busData.busArrival = jsonObj.get("stop").toString();
-            //this.busData.busDuration = jsonObj.get("stop").toString();
+
+            JSONObject jObject = (JSONObject) parser.parse(busJson);
+            JSONObject jObject1 = (JSONObject) jObject.get("DepartureBoard");
+            JSONArray jArray2 = (JSONArray) jObject1.get("Departure");
+
+            System.out.println("Size of the array  = " + (jArray2.size()-1));
+            for (int i = 0; i < jArray2.size() - 1; i++) {
+
+                System.out.println("Search:" + i);
+
+                JSONObject jObjectData = (JSONObject) jArray2.get(i);
+                BusInfo busData = new BusInfo();
+
+                busData.busFrom = jObjectData.get("stop").toString();
+                busData.busDirection = jObjectData.get("direction").toString();
+                busData.busName = jObjectData.get("name").toString();
+                busData.busDeparture = jObjectData.get("rtTime").toString();
+
+                busArray[i] = busData;
+            }
+
+            //Method to extract data from the array.
+//            for (int j = 0; j < jArray2.size() - 1; j++) {
+//
+//                System.out.println("Print:" + j);
+//
+//                System.out.println(busArray[j].getBusFrom());
+//                System.out.println(busArray[j].getBusDirection());
+//                System.out.println(busArray[j].getBusName());
+//                System.out.println(busArray[j].getBusDeparture());
+//
+//            }
 
         } catch (ParseException e) {
             e.printStackTrace();

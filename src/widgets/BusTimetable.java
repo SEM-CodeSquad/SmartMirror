@@ -6,14 +6,11 @@ import javafx.concurrent.Worker;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -70,7 +67,7 @@ public class BusTimetable {
         StringBuilder result = new StringBuilder();
         URL url;
         try {
-            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&format=json");
+            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&timeSpan=60&needJourneyDetail=0&format=json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization:", "Bearer " + code);
@@ -93,5 +90,4 @@ public class BusTimetable {
         BusDepartureParser bdp = new BusDepartureParser();
         bdp.busJsonParser(result.toString());
     }
-
 }
