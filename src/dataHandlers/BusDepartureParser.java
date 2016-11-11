@@ -15,7 +15,8 @@ public class BusDepartureParser {
 
     public String busJson;
 
-    BusInfo[] busArray = new BusInfo[35];
+    //TODO: Sometimes the returned data from VT is way bigger then expected
+    BusInfo[] busArray = new BusInfo[150];
 
     public void busJsonParser(String busJson) {
 

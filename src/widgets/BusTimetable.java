@@ -15,12 +15,15 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by Axel on 8/11/2016.
  */
 
-public class BusTimetable {
+public class BusTimetable implements Observer
+{
 
     private WebView webView;
     private GridPane gridPane;
@@ -29,6 +32,7 @@ public class BusTimetable {
     String busTime = LocalTime.now().format(SHORT_TIME_FORMATTER);
     String busDate = LocalDate.now().format(SHORT_DATE_FORMATTER);
     GenerateAccessCode authCode;
+    BusDepartureParser bdp = new BusDepartureParser();
 
     //TODO please do not delete this one until we fix the new one
     public void INACTIVEsetBusTimetable(String busStop, WebView webViewBus, GridPane busGrid)
@@ -60,6 +64,11 @@ public class BusTimetable {
         gridPane.setVisible(true);
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        System.out.println("Time is now " + arg.toString());
+    }
+
     public void setBusTimetable(String busStop, GridPane busGrid) {
 
         authCode = new GenerateAccessCode();
@@ -86,8 +95,7 @@ public class BusTimetable {
         }
 
         System.out.println(result.toString());
-
-        BusDepartureParser bdp = new BusDepartureParser();
         bdp.busJsonParser(result.toString());
     }
+
 }

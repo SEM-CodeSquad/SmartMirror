@@ -12,6 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.web.WebView;
 import mqttClient.MQTTClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import widgets.BusTimetable;
 import widgets.TimeDateManager;
 
 import java.awt.*;
@@ -75,6 +76,7 @@ public class InterfaceController implements Observer {
     private JsonMessageParser parser;
     private boolean systemRunning;
     private PostItComponents postItComponents;
+    private BusTimetable busTimetable;
 
 
     private String clientId;
@@ -99,7 +101,8 @@ public class InterfaceController implements Observer {
         qrCodeView.setImage(qrCode.getQRCode());
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
         this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
-        TimeDateManager timeDateManager = new TimeDateManager();
+        BusTimetable busTimetable = new BusTimetable();
+        TimeDateManager timeDateManager = new TimeDateManager(busTimetable);
         timeDateManager.bindToTime(this.timePairingScreen);
         timeDateManager.bindToDate(this.datePairingScreen);
         timeDateManager.bindToDay(this.dayNamePairingScreen);
