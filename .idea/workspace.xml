@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="Trying to parse the departure board">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" />
+    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceControllers/InterfaceController.java" afterPath="$PROJECT_DIR$/src/interfaceControllers/InterfaceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/BusTimetable.java" afterPath="$PROJECT_DIR$/src/widgets/BusTimetable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" />
     </list>
     <ignored path="ProjectWMirror.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BusTimetable.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BusTimetable.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/widgets/BusTimetable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+            <state vertical-scroll-proportion="2.8934624">
+              <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
               <folding>
                 <element signature="e#2252#2253#0" expanded="true" />
                 <element signature="e#2319#2320#0" expanded="true" />
@@ -66,11 +63,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BusInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dataHandlers/BusInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="BusDepartureParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="69" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -108,10 +115,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeDateManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimeDateManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/widgets/TimeDateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24697337">
+            <state vertical-scroll-proportion="0.0">
               <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding>
                 <element signature="e#741#742#0" expanded="true" />
@@ -194,9 +201,9 @@
         <option value="$PROJECT_DIR$/src/dataHandlers/BusInfo.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/JsonMessageParser.java" />
         <option value="$PROJECT_DIR$/src/interfaceControllers/InterfaceController.java" />
+        <option value="$PROJECT_DIR$/src/widgets/TimeDateManager.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" />
         <option value="$PROJECT_DIR$/src/widgets/BusTimetable.java" />
-        <option value="$PROJECT_DIR$/src/widgets/TimeDateManager.java" />
       </list>
     </option>
   </component>
@@ -743,7 +750,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478814520239</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="BusData implemented">
+      <created>1478907982937</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1478907982937</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -802,7 +815,8 @@
     <MESSAGE value="Commit db con addition" />
     <MESSAGE value="Fetches the desired values properly - &#10;- All temperature values &#10;- Icon&#10;- Description of Weather&#10;Commented as well. Refactoring a bit more commenting will render it completely finished." />
     <MESSAGE value="Trying to parse the departure board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to parse the departure board" />
+    <MESSAGE value="BusData implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="BusData implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1106,14 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/BusInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/InterfaceMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38283828">
@@ -1164,6 +1170,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/TimeDateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding>
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaceControllers/SettingsManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1172,32 +1189,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/BusTimetable.java">
+    <entry file="file://$PROJECT_DIR$/src/dataHandlers/BusInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
-          <folding>
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2319#2320#0" expanded="true" />
-          </folding>
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="69" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/TimeDateManager.java">
+    <entry file="file://$PROJECT_DIR$/src/widgets/BusTimetable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24697337">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        <state vertical-scroll-proportion="2.8934624">
+          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
           <folding>
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2319#2320#0" expanded="true" />
           </folding>
         </state>
       </provider>

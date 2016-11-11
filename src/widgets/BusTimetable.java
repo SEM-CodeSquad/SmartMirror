@@ -94,7 +94,6 @@ public class BusTimetable implements Observer
             e.printStackTrace();
         }
 
-        System.out.println(result.toString());
         bdp.busJsonParser(result.toString());
     }
 

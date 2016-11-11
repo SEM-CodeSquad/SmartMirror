@@ -28,10 +28,7 @@ public class BusDepartureParser {
             JSONObject jObject1 = (JSONObject) jObject.get("DepartureBoard");
             JSONArray jArray2 = (JSONArray) jObject1.get("Departure");
 
-            System.out.println("Size of the array  = " + (jArray2.size()-1));
             for (int i = 0; i < jArray2.size() - 1; i++) {
-
-                System.out.println("Search:" + i);
 
                 JSONObject jObjectData = (JSONObject) jArray2.get(i);
                 BusInfo busData = new BusInfo();
@@ -44,7 +41,7 @@ public class BusDepartureParser {
                 busArray[i] = busData;
             }
 
-            //Method to extract data from the array.
+            //KEEP : Method to extract data from the array.
 //            for (int j = 0; j < jArray2.size() - 1; j++) {
 //
 //                System.out.println("Print:" + j);
