@@ -12,14 +12,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Observable;
 
 /**
  *
  */
-public class TimeDateManager
+public class TimeDateManager extends Observable
 {
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+    public TimeDateManager(BusTimetable busTimetable) {
+        addObserver(busTimetable);
+    }
 
     /**
      *
@@ -33,6 +38,9 @@ public class TimeDateManager
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
+        setChanged();
+        notifyObservers(time);
     }
 
     /**
