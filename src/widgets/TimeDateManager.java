@@ -39,6 +39,7 @@ public class TimeDateManager extends Observable
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+        //Have a variable with HH:MM format that we can observe?()
         setChanged();
         notifyObservers(time);
     }

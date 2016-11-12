@@ -66,7 +66,7 @@ public class BusTimetable implements Observer
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("Time is now " + arg.toString());
+       // System.out.println("Time is now " + arg.toString());
     }
 
     public void setBusTimetable(String busStop, GridPane busGrid) {
