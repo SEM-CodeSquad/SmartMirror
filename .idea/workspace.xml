@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" afterPath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/PostitTest.java" afterPath="$PROJECT_DIR$/src/Test/PostitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/Retrievedata.java" afterPath="$PROJECT_DIR$/src/Test/Retrievedata.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/InterfaceMain.java" afterPath="$PROJECT_DIR$/src/main/InterfaceMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/JSONWeatherParser.java" afterPath="$PROJECT_DIR$/src/widgets/JSONWeatherParser.java" />
     </list>
     <ignored path="ProjectWMirror.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +42,8 @@
       <file leaf-file-name="HttpRequestSender.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Test/HttpRequestSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+            <state relative-caret-position="44">
+              <caret line="60" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -58,8 +52,8 @@
       <file leaf-file-name="Retrievedata.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test/Retrievedata.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state relative-caret-position="440">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="false" />
               </folding>
@@ -763,7 +757,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478784404052</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <created>1478935378616</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1478935378616</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -849,7 +850,8 @@
     <MESSAGE value="RSS Parser test" />
     <MESSAGE value="Commit db con addition" />
     <MESSAGE value="Fetches the desired values properly - &#10;- All temperature values &#10;- Icon&#10;- Description of Weather&#10;Commented as well. Refactoring a bit more commenting will render it completely finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fetches the desired values properly - &#10;- All temperature values &#10;- Icon&#10;- Description of Weather&#10;Commented as well. Refactoring a bit more commenting will render it completely finished." />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1068,6 +1070,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1124,6 +1129,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,8 +1142,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/Retrievedata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        <state relative-caret-position="440">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -1156,8 +1162,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/HttpRequestSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+        <state relative-caret-position="44">
+          <caret line="60" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
           <folding />
         </state>
       </provider>
