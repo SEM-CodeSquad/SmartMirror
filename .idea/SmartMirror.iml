@@ -21,6 +21,5 @@
     <orderEntry type="library" name="net.glxn:qrgen:1.4" level="project" />
     <orderEntry type="library" name="qrgen-1.4" level="project" />
     <orderEntry type="library" name="core-3.0.0" level="project" />
-    <orderEntry type="library" name="java-json" level="project" />
   </component>
 </module>
