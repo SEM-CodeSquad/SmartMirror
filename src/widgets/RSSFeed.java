@@ -6,17 +6,17 @@ import java.util.LinkedList;
  * Created by Geoffrey on 2016/11/4.
  */
 
-public class RSSFeed {
+class RSSFeed {
 
 
     /*
      * Stores an RSSFeed's Title
      */
 
-    final String title;
     final LinkedList<RSSMessage> entries = new LinkedList<>();
+    private final String title;
 
-    public RSSFeed(String title) {
+    RSSFeed(String title) {
         this.title = title;
     }
 
@@ -35,7 +35,7 @@ public class RSSFeed {
      * @return entries
      */
 
-    public LinkedList getList() {
+    LinkedList getList() {
         return entries;
     }
 
@@ -46,7 +46,7 @@ public class RSSFeed {
      */
     @Override
     public String toString() {
-        return "Feed [title= " + title + " ]";
+        return "News from: [ " + title + " ]";
     }
 
 }

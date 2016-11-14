@@ -8,9 +8,9 @@ package widgets;
  * Store the information within the RSS message
  * in this case, the title of the news
  */
-public class RSSMessage {
+class RSSMessage {
 
-    String title;
+    private String title;
 
     /**
      * item title getter
@@ -26,8 +26,7 @@ public class RSSMessage {
      *
      * @param title
      */
-
-    public void setTitle(String title) {
+    void setTitle(String title) {
         this.title = title;
     }
 
@@ -39,7 +38,6 @@ public class RSSMessage {
 
     @Override
     public String toString() {
-        return "FeedMessage [title= " + title + " ]";
+        return title;
     }
 }
-
