@@ -1,6 +1,6 @@
 package mqttClient;
 
-import dataHandlers.Timestamp;
+import dataModels.Timestamp;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONObject;
@@ -53,7 +53,7 @@ public class SmartMirror_Publisher extends Observable
 
         byte[] presenceMessage = jsonObject.toString().getBytes();
 
-        String topic = "dit029/SmartMirror/" + clientId;
+        String topic = "presence/SmartMirror/" + clientId;
         try
         {
            this.client.getClient().publish(topic, presenceMessage, 1, true);
@@ -76,7 +76,7 @@ public class SmartMirror_Publisher extends Observable
         String echoTopic = "dit029/" + clientID + "/echo";
 
         timestamp = new Timestamp();
-        String ts = "\"" + String.valueOf(timestamp.getTime()) + "\"";
+        String ts = "\"" + String.valueOf(timestamp.getTimestamp()) + "\"";
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("messageFrom", clientID);

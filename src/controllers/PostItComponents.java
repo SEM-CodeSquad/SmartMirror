@@ -1,4 +1,4 @@
-package interfaceControllers;
+package controllers;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class PostItComponents
 {
+    private final int size = 11;
     private Map<Integer, StackPane> stackPaneMap;
     private Map<Integer, TextArea> textAreaMap;
-    private final int size = 11;
     private int numOfPanes;
     private int numOfTextAreas;
     private NoteGenerator noteGenerator;

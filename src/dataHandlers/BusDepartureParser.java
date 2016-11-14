@@ -1,11 +1,10 @@
 package dataHandlers;
 
+import dataModels.BusInfo;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
 
 /**
  * Created by Axel on 11/10/2016.

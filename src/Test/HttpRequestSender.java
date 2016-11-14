@@ -1,21 +1,20 @@
 package Test;
 
-/**
- * Created by Geoffrey on 2016/11/10.
- */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Class responsible for establishing http connection with web server and send data to it.
  */
-public class HttpRequestSender
+class HttpRequestSender
 {
 
     private String brokerHostname;
-    private String clientId;
     private String topic;
     private String msg;
     private String httpResponse;
@@ -23,14 +22,12 @@ public class HttpRequestSender
     /**
      * Constructor for the http sender.
      * @param brokerHostname String hostname for the broker
-     * @param clientId String client id in the broker
      * @param topic String topic to be published on the broker
      * @param msg String message to be published in the broker
      */
-    HttpRequestSender(String brokerHostname, String clientId, String topic, String msg)
+    HttpRequestSender(String brokerHostname, String topic, String msg)
     {
         this.brokerHostname = brokerHostname;
-        this.clientId = clientId;
         this.topic = topic;
         this.msg = msg;
     }
@@ -46,20 +43,18 @@ public class HttpRequestSender
         HttpURLConnection connection = null;
 
         try {
+            String encodedMsg = URLEncoder.encode(this.msg, String.valueOf(StandardCharsets.UTF_8));
+            String query = "?broker=" + this.brokerHostname + "&topic=" + this.topic + "&msg=" + encodedMsg
+                    + "&password=CodeHigh_SmartMirror";
+
             //Create connection
-            URL url = new URL(targetURL);
+            URL url = new URL(targetURL + query);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects( false );
             connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "Application/SmartMirror");
-            connection.setRequestProperty("Content-Language", "utf-8");
-            connection.setRequestProperty("Broker", this.brokerHostname);
-            connection.setRequestProperty("ClientId", this.clientId);
-            connection.setRequestProperty("Topic", this.topic);
-            connection.setRequestProperty("Message", this.msg);
-            connection.setRequestProperty("CodeHigh", "");
             connection.setUseCaches(false);
+
 
 
             //Get Response
@@ -92,7 +87,7 @@ public class HttpRequestSender
      *  Method to get the String containing the response from the web server.
      * @return String web server response
      */
-    public String getHttpResponse()
+    String getHttpResponse()
     {
         return httpResponse;
     }

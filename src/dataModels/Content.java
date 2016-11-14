@@ -1,4 +1,4 @@
-package dataHandlers;
+package dataModels;
 
 public class Content
 {

@@ -1,4 +1,4 @@
-package dataHandlers;
+package dataModels;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;

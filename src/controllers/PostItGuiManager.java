@@ -1,8 +1,8 @@
-package interfaceControllers;
+package controllers;
 
-import dataHandlers.PostItAction;
-import dataHandlers.PostItNote;
-import dataHandlers.PostItChainedMap;
+import dataModels.PostItAction;
+import dataModels.PostItNote;
+import dataModels.PostItChainedMap;
 
 import java.util.*;
 

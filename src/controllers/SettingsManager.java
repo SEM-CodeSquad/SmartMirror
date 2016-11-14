@@ -1,6 +1,6 @@
-package interfaceControllers;
+package controllers;
 
-import dataHandlers.Content;
+import dataModels.Content;
 import javafx.application.Platform;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebView;

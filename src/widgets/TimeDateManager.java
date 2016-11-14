@@ -22,10 +22,6 @@ public class TimeDateManager extends Observable
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
-    public TimeDateManager(BusTimetable busTimetable) {
-        addObserver(busTimetable);
-    }
-
     /**
      *
      * @param time label to be showing the time
@@ -39,9 +35,6 @@ public class TimeDateManager extends Observable
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
-        //Have a variable with HH:MM format that we can observe?()
-        setChanged();
-        notifyObservers(time);
     }
 
     /**

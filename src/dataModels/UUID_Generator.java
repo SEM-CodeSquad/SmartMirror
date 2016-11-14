@@ -1,4 +1,4 @@
-package dataHandlers;
+package dataModels;
 
 import java.util.UUID;
 

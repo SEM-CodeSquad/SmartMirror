@@ -1,4 +1,4 @@
-package dataHandlers;
+package dataModels;
 
 public class PostItNote
 {
@@ -27,6 +27,10 @@ public class PostItNote
         return bodyText;
     }
 
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
+
     public String getSenderId()
     {
         return senderId;
@@ -37,17 +41,13 @@ public class PostItNote
         return important;
     }
 
+    public void setImportant(boolean important) {
+        this.important = important;
+    }
+
     public int getTimestamp()
     {
         return timestamp;
-    }
-
-    public void setBodyText(String bodyText) {
-        this.bodyText = bodyText;
-    }
-
-    public void setImportant(boolean important) {
-        this.important = important;
     }
 
     public void setTimestamp(int timestamp) {

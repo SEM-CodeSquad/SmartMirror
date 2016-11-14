@@ -1,9 +1,8 @@
-package interfaceControllers;
+package controllers;
 
-import dataHandlers.PairingManager;
 import dataHandlers.JsonMessageParser;
-import dataHandlers.QRCode;
-import dataHandlers.UUID_Generator;
+import dataModels.QRCode;
+import dataModels.UUID_Generator;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -102,7 +101,7 @@ public class InterfaceController implements Observer {
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
         this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
         BusTimetable busTimetable = new BusTimetable();
-        TimeDateManager timeDateManager = new TimeDateManager(busTimetable);
+        TimeDateManager timeDateManager = new TimeDateManager();
         timeDateManager.bindToTime(this.timePairingScreen);
         timeDateManager.bindToDate(this.datePairingScreen);
         timeDateManager.bindToDay(this.dayNamePairingScreen);

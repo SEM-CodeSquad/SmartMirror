@@ -1,27 +1,25 @@
-package dataHandlers;
+package dataModels;
 
 /**
  * Class Timestamp provides a Unix timestamp
- *
- * Created by Emanuel on 04/11/2016.
  */
 public class Timestamp {
-    long timestamp;
+    private long timestamp;
 
     /**
      * Timestamp constructor sets timestamp to the current unix time
      *
       */
-    public Timestamp(){
+    public Timestamp() {
         this.timestamp = System.currentTimeMillis()/ 1000;
     }
 
     /**
-     * Getter getTime
+     * Getter getTimestamp
      *
      * @return timestamp
      */
-    public long getTime(){
+    public long getTimestamp() {
         return this.timestamp;
     }
 
