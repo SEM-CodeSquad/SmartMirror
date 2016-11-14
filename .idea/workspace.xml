@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/PairingScreenManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/MainInterface.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PairingScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AD9C5DB6-8595-4912-94CA-3A93A71E4ACB-tcpcodehighddnsme/.lck" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/BusInfo.java" afterPath="$PROJECT_DIR$/src/dataModels/BusInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/Content.java" afterPath="$PROJECT_DIR$/src/dataModels/Content.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/PairedClient.java" afterPath="$PROJECT_DIR$/src/dataModels/PairedClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/PairingManager.java" afterPath="$PROJECT_DIR$/src/controllers/PairingManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/PostItAction.java" afterPath="$PROJECT_DIR$/src/dataModels/PostItAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/PostItChainedMap.java" afterPath="$PROJECT_DIR$/src/dataModels/PostItChainedMap.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/PostItNote.java" afterPath="$PROJECT_DIR$/src/dataModels/PostItNote.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/QRCode.java" afterPath="$PROJECT_DIR$/src/dataModels/QRCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/Timestamp.java" afterPath="$PROJECT_DIR$/src/dataModels/Timestamp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/UUID_Generator.java" afterPath="$PROJECT_DIR$/src/dataModels/UUID_Generator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceControllers/InterfaceController.java" afterPath="$PROJECT_DIR$/src/controllers/InterfaceController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceControllers/NoteGenerator.java" afterPath="$PROJECT_DIR$/src/controllers/NoteGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceControllers/PostItComponents.java" afterPath="$PROJECT_DIR$/src/controllers/PostItComponents.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceControllers/PostItGuiManager.java" afterPath="$PROJECT_DIR$/src/controllers/PostItGuiManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceControllers/SettingsManager.java" afterPath="$PROJECT_DIR$/src/controllers/SettingsManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" afterPath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/PostitTest.java" afterPath="$PROJECT_DIR$/src/Test/PostitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/Retrievedata.java" afterPath="$PROJECT_DIR$/src/Test/Retrievedata.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/JsonMessageParser.java" afterPath="$PROJECT_DIR$/src/dataHandlers/JsonMessageParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/Interface.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/Interface.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mqttClient/SmartMirror_Publisher.java" afterPath="$PROJECT_DIR$/src/mqttClient/SmartMirror_Publisher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -55,7 +28,18 @@
     <favorites_list name="ProjectWMirror" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -126,12 +110,12 @@
         <option value="$PROJECT_DIR$/src/Test/RetrieveData.java" />
         <option value="$PROJECT_DIR$/src/Test/PostItTest.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/dataModels/BusInfo.java" />
         <option value="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/Test/HttpRequestSender.java" />
         <option value="$PROJECT_DIR$/src/controllers/InterfaceController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -811,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479115173078</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Commit changes">
+      <created>1479119666338</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1479119666338</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -828,14 +819,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="1618" height="1248" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32594645" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32963988" sideWeight="0.5077821" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5077821" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30378577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32594645" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1260,7 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -1305,6 +1295,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="974">
           <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
