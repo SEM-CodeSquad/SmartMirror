@@ -1,9 +1,6 @@
 package widgets;
 
-import javafx.animation.Interpolator;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
-import javafx.animation.TranslateTransitionBuilder;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
@@ -16,6 +13,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+
+import java.awt.*;
 
 import static com.sun.javafx.tk.Toolkit.*;
 
@@ -37,13 +36,14 @@ public class RSSMarquee extends Application {
     }
 
     public void start(Stage primaryStage) {
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double size = screenSize.getWidth();
 
         String News = NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines");
 
         Group root = new Group();
         Text NewsFeed = TextBuilder.create()
-                .layoutX(550)
+                .layoutX(size)
                 .textOrigin(VPos.TOP)
                 .textAlignment(TextAlignment.JUSTIFY)
                 .fill(Color.WHITE)
@@ -67,7 +67,7 @@ public class RSSMarquee extends Application {
 
         root.getChildren().add(myGroup);
 
-        Scene scene = new Scene(root, primaryStage.getX(), 25);
+        Scene scene = new Scene(root, size, 25);
         scene.setFill(null);
         primaryStage.setScene(scene);
 
@@ -83,7 +83,7 @@ public class RSSMarquee extends Application {
         RSSFeed feed = NewsParser.RSSParser();
         String News = feed.toString();
         for (Object message : feed.getList()) {
-            News += "  ★" + message.toString();
+            News += "   ★" + message.toString();
         }
         return News;
     }
