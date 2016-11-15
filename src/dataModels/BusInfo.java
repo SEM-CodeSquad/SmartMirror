@@ -4,7 +4,7 @@ public class BusInfo {
     public String busFrom;
     public String busDirection;
     public String busName;
-    public String busDeparture;
+    public int busDeparture;
 
     //Need revision
     public BusInfo() {
@@ -26,7 +26,7 @@ public class BusInfo {
         return busName;
     }
 
-    public String getBusDeparture(){
+    public int getBusDeparture() {
         return busDeparture;
     }
 }
