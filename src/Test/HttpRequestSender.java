@@ -2,10 +2,10 @@ package Test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -33,8 +33,8 @@ class HttpRequestSender
     }
 
     /**
-     * This method connects to a web server and send data to it the web server to be used is
-     * "http://codehigh.ddns.net:5000/"
+     * This method connects to a web server and send a query string to the web server. The query string must contain
+     * the necessary parameters otherwise the web server will not accept it.
      * @param targetURL String containing the url and port to the web server
      */
     void executePost(String targetURL)
@@ -43,7 +43,7 @@ class HttpRequestSender
         HttpURLConnection connection = null;
 
         try {
-            String encodedMsg = URLEncoder.encode(this.msg, String.valueOf(StandardCharsets.UTF_8));
+            String encodedMsg = URLEncoder.encode(this.msg, String.valueOf(Charset.forName("UTF-8")));
             String query = "?broker=" + this.brokerHostname + "&topic=" + this.topic + "&msg=" + encodedMsg
                     + "&password=CodeHigh_SmartMirror";
 

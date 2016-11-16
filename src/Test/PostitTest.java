@@ -40,23 +40,23 @@ public class PostitTest {
     /*
     DO NOT DELETE IT IS FOR TESTING PURPOSE
      */
-//    public static void main(String[] args) {
-//
-//        Scanner scan = new Scanner(System.in);  // Reading from System.in
-//        System.out.println("Enter the topic: ");
-//        String topic = scan.nextLine();
-//        RetrieveData R = new RetrieveData();
-//
-//        for (int i = 0; i < 1; i++) {
-//            int finalI = i;
-//            Thread thread = new Thread() {
-//                public void run() {
-//                    System.out.println(finalI + R.retrieve(topic, randomID(),
-//                            randomText(), randomColor(), randomImport(), randomDate()));
-//                }
-//            };
-//            thread.start();
-//
-//        }
-//    }
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);  // Reading from System.in
+        System.out.println("Enter the topic: ");
+        String topic = scan.nextLine();
+        Retrievedata R = new Retrievedata();
+
+        for (int i = 0; i < 1; i++) {
+            int finalI = i;
+            Thread thread = new Thread() {
+                public void run() {
+                    System.out.println(finalI + R.retrieve(topic, randomID(),
+                            randomText(), randomColor(), randomImport(), randomDate()));
+                }
+            };
+            thread.start();
+
+        }
+    }
 }
