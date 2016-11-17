@@ -36,7 +36,7 @@ public class RSSMarquee extends Application {
     }
 
 
-    public static Scene start(String News) {
+    public static Scene NewsScene(String News) {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
@@ -91,7 +91,7 @@ public class RSSMarquee extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(start(NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines")));
+        primaryStage.setScene(NewsScene(NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines")));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
     }
