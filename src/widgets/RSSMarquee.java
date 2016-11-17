@@ -4,10 +4,12 @@ import dataHandlers.RSSFeed;
 import dataHandlers.RSSStAXParser;
 import javafx.animation.*;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.GroupBuilder;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
@@ -29,18 +31,17 @@ public class RSSMarquee extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         launch();
     }
 
 
-    public void start(Stage primaryStage) {
+    public static Scene start(String News) {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
-        String News = NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines");
-
-        Group root = new Group();
+        GridPane root = new GridPane();
         Text NewsFeed = TextBuilder.create()
                 .layoutX(size)
                 .textOrigin(VPos.TOP)
@@ -57,7 +58,7 @@ public class RSSMarquee extends Application {
                 .duration(new Duration((int) width * 10))
                 .interpolator(Interpolator.LINEAR)
                 .toX(NewsFeed.getBoundsInLocal().getMaxX() * -1 - 500)
-                .fromX(primaryStage.widthProperty().get() + 500)
+                .fromX(root.widthProperty().get() + 1000)
                 .cycleCount(Timeline.INDEFINITE)
                 .build();
 
@@ -65,24 +66,20 @@ public class RSSMarquee extends Application {
                 .children(NewsFeed)
                 .build();
 
+        root.add(NewsFeed, 0, 0);
         root.getChildren().add(myGroup);
 
 
         Scene scene = new Scene(root, size, 25);
-        scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
         scene.setFill(null);
 
 
-        primaryStage.setScene(scene);
-
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-
-        primaryStage.show();
         transition.play();
-
+        return scene;
     }
 
-    private String NewsToString(String url) {
+    private static String NewsToString(String url) {
         RSSStAXParser NewsParser = new RSSStAXParser(url);
         RSSFeed feed = NewsParser.RSSParser();
         String News = feed.toString();
@@ -90,6 +87,13 @@ public class RSSMarquee extends Application {
             News += "   ★" + message.toString();
         }
         return News;
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setScene(start(NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines")));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.show();
     }
 }
 
