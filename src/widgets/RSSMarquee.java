@@ -1,26 +1,22 @@
 package widgets;
 
-import dataHandlers.RSSFeed;
-import dataHandlers.RSSStAXParser;
-import javafx.animation.*;
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.geometry.Pos;
+import javafx.animation.Interpolator;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
+import javafx.animation.TranslateTransitionBuilder;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.GroupBuilder;
-import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.*;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.text.*;
 import javafx.util.Duration;
 
 import java.awt.*;
 
-import static com.sun.javafx.tk.Toolkit.*;
+import static com.sun.javafx.tk.Toolkit.getToolkit;
+import static dataHandlers.RSSStAXParser.NewsToString;
 
 /**
  * Created by Geoffrey on 2016/11/14.
@@ -34,26 +30,15 @@ public class RSSMarquee {
     public RSSMarquee(GridPane GridPane) {
 
         this.root = GridPane;
-        Platform.runLater(this::NewsScene);
 
     }
 
-    private static String NewsToString(String url) {
-        RSSStAXParser NewsParser = new RSSStAXParser(url);
-        RSSFeed feed = NewsParser.RSSParser();
-        String News = feed.toString();
-        for (Object message : feed.getList()) {
-            News += "   ★" + message.toString();
-        }
-        return News;
-    }
-
-    public void NewsScene() {
+    public void NewsScene(String News) {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
-        String News = NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines");
+        News = NewsToString(News);
 
         Text NewsFeed = TextBuilder.create()
                 .layoutX(size)
@@ -89,7 +74,6 @@ public class RSSMarquee {
     public GridPane getGrid() {
         return root;
     }
-
 
 }
 

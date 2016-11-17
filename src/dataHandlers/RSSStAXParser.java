@@ -40,6 +40,38 @@ public class RSSStAXParser {
         }
     }
 
+    /**
+     * Take a site name(string) as input and return a String of news
+     *
+     * @param source source name e.g. CNN, ABC
+     * @return News as a packed String
+     */
+
+    public static String NewsToString(String source) {
+        String News;
+        RSSStAXParser NewsParser = null;
+
+        if (source.equalsIgnoreCase("ABC")) {
+            NewsParser = new RSSStAXParser("http://feeds.abcnews.com/abcnews/internationalheadlines");
+        } else if (source.equalsIgnoreCase("Google")) {
+            NewsParser = new RSSStAXParser("https://news.google.com/?output=rss");
+        } else if (source.equalsIgnoreCase("CNN")) {
+            NewsParser = new RSSStAXParser("http://rss.cnn.com/rss/edition.rss");
+        } else if (source.equalsIgnoreCase("DN")) {
+            NewsParser = new RSSStAXParser("http://www.dn.se/nyheter/m/rss/");
+        } else if (source.equalsIgnoreCase("SVT")) {
+            NewsParser = new RSSStAXParser("http://www.svt.se/nyheter/rss.xml");
+        } else if (source.equalsIgnoreCase("Expressen")) {
+            NewsParser = new RSSStAXParser("http://expressen.se/rss/nyheter");
+        }
+        RSSFeed feed = NewsParser.RSSParser();
+        News = feed.toString();
+        for (Object message : feed.getList()) {
+            News += "   ★" + message.toString();
+        }
+
+        return News;
+    }
 
     /**
      * Parse the XML file from given URL and store the Source of the RSS Feed as well as the news title into the linked list
@@ -130,7 +162,6 @@ public class RSSStAXParser {
             throw new RuntimeException(e);
         }
     }
-
 
     /**
      *
