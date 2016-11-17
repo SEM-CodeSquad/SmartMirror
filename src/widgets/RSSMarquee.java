@@ -4,6 +4,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.animation.TranslateTransitionBuilder;
+import javafx.application.Platform;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.GroupBuilder;
@@ -25,20 +26,24 @@ import static dataHandlers.RSSStAXParser.NewsToString;
 
 public class RSSMarquee {
     public GridPane root;
-
+    public String News;
 
     public RSSMarquee(GridPane GridPane) {
 
         this.root = GridPane;
-
+        Platform.runLater(this::news);
+        Platform.runLater(this::NewsScene);
     }
 
-    public void NewsScene(String News) {
+    public void news() {
+        this.News = NewsToString(News);
+    }
+
+    public void NewsScene() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
-        News = NewsToString(News);
 
         Text NewsFeed = TextBuilder.create()
                 .layoutX(size)
@@ -76,4 +81,3 @@ public class RSSMarquee {
     }
 
 }
-
