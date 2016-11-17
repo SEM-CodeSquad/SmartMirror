@@ -34,7 +34,6 @@ public class RSSMarquee extends Application {
 
     public void start(Stage primaryStage) {
 
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
