@@ -1,5 +1,7 @@
 package widgets;
 
+import dataHandlers.RSSFeed;
+import dataHandlers.RSSStAXParser;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.geometry.VPos;
@@ -8,7 +10,6 @@ import javafx.scene.GroupBuilder;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -21,7 +22,7 @@ import static com.sun.javafx.tk.Toolkit.*;
  * Created by Geoffrey on 2016/11/14.
  */
 
-//TODO maybe change to extends Pane instead?
+
 public class RSSMarquee extends Application {
 
     /**

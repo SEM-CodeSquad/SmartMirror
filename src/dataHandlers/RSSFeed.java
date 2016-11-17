@@ -1,4 +1,4 @@
-package widgets;
+package dataHandlers;
 
 import java.util.LinkedList;
 
@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * Created by Geoffrey on 2016/11/4.
  */
 
-class RSSFeed {
+public class RSSFeed {
 
 
     /*
@@ -35,7 +35,7 @@ class RSSFeed {
      * @return entries
      */
 
-    LinkedList getList() {
+    public LinkedList getList() {
         return entries;
     }
 
