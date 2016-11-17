@@ -4,6 +4,7 @@ import dataHandlers.RSSFeed;
 import dataHandlers.RSSStAXParser;
 import javafx.animation.*;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -25,29 +27,40 @@ import static com.sun.javafx.tk.Toolkit.*;
  */
 
 
-public class RSSMarquee extends Application {
+public class RSSMarquee {
+    public GridPane root;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
 
-        launch();
+    public RSSMarquee(GridPane GridPane) {
+
+        this.root = GridPane;
+        Platform.runLater(this::NewsScene);
+
     }
 
+    private static String NewsToString(String url) {
+        RSSStAXParser NewsParser = new RSSStAXParser(url);
+        RSSFeed feed = NewsParser.RSSParser();
+        String News = feed.toString();
+        for (Object message : feed.getList()) {
+            News += "   ★" + message.toString();
+        }
+        return News;
+    }
 
-    public static Scene NewsScene(String News) {
+    public void NewsScene() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
-        GridPane root = new GridPane();
+        String News = NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines");
+
         Text NewsFeed = TextBuilder.create()
                 .layoutX(size)
                 .textOrigin(VPos.TOP)
                 .textAlignment(TextAlignment.JUSTIFY)
                 .fill(Color.WHITE)
-                .style("-fx-font-family:'Josefin Sans'; -fx-font-size: 20; -fx-fill: yellow;")
+                .font(Font.font("Microsoft YaHei", FontPosture.REGULAR, 20))
                 .build();
 
         NewsFeed.setText(News);
@@ -69,31 +82,14 @@ public class RSSMarquee extends Application {
         root.add(NewsFeed, 0, 0);
         root.getChildren().add(myGroup);
 
-
-        Scene scene = new Scene(root, size, 25);
-
-        scene.setFill(null);
-
-
         transition.play();
-        return scene;
+
     }
 
-    private static String NewsToString(String url) {
-        RSSStAXParser NewsParser = new RSSStAXParser(url);
-        RSSFeed feed = NewsParser.RSSParser();
-        String News = feed.toString();
-        for (Object message : feed.getList()) {
-            News += "   ★" + message.toString();
-        }
-        return News;
+    public GridPane getGrid() {
+        return root;
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(NewsScene(NewsToString("http://feeds.abcnews.com/abcnews/internationalheadlines")));
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.show();
-    }
+
 }
 
