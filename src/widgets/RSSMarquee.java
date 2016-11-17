@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-
 import java.awt.*;
 
 import static com.sun.javafx.tk.Toolkit.*;
@@ -21,6 +20,7 @@ import static com.sun.javafx.tk.Toolkit.*;
 /**
  * Created by Geoffrey on 2016/11/14.
  */
+
 //TODO maybe change to extends Pane instead?
 public class RSSMarquee extends Application {
 
@@ -28,14 +28,13 @@ public class RSSMarquee extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        start();
-    }
-
-    private static void start() {
         launch();
     }
 
+
     public void start(Stage primaryStage) {
+
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
@@ -47,11 +46,12 @@ public class RSSMarquee extends Application {
                 .textOrigin(VPos.TOP)
                 .textAlignment(TextAlignment.JUSTIFY)
                 .fill(Color.WHITE)
-                .font(Font.font("Microsoft YaHei", FontPosture.REGULAR, 20))
+                .style("-fx-font-family:'Josefin Sans'; -fx-font-size: 20; -fx-fill: yellow;")
                 .build();
-        NewsFeed.setText(News);
-        float width = getToolkit().getFontLoader().computeStringWidth(News, NewsFeed.getFont());
 
+        NewsFeed.setText(News);
+
+        float width = getToolkit().getFontLoader().computeStringWidth(News, NewsFeed.getFont());
         TranslateTransition transition = TranslateTransitionBuilder.create()
                 .node(NewsFeed)
                 .duration(new Duration((int) width * 10))
@@ -67,8 +67,12 @@ public class RSSMarquee extends Application {
 
         root.getChildren().add(myGroup);
 
+
         Scene scene = new Scene(root, size, 25);
+        scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Josefin+Sans");
         scene.setFill(null);
+
+
         primaryStage.setScene(scene);
 
         primaryStage.initStyle(StageStyle.TRANSPARENT);
