@@ -17,7 +17,7 @@ import java.util.Observable;
 /**
  *
  */
-public class TimeDateManager extends Observable
+public class TimeDateManager
 {
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");

@@ -25,14 +25,15 @@ import java.util.Observer;
 public class BusTimetable implements Observer
 {
 
-    private WebView webView;
-    private GridPane gridPane;
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String busTime = LocalTime.now().format(SHORT_TIME_FORMATTER);
     String busDate = LocalDate.now().format(SHORT_DATE_FORMATTER);
+    String busStop;
     GenerateAccessCode authCode;
     BusDepartureParser bdp = new BusDepartureParser();
+    private WebView webView;
+    private GridPane gridPane;
 
     //TODO please do not delete this one until we fix the new one
     public void INACTIVEsetBusTimetable(String busStop, WebView webViewBus, GridPane busGrid)
@@ -66,17 +67,26 @@ public class BusTimetable implements Observer
 
     @Override
     public void update(Observable o, Object arg) {
-       // System.out.println("Time is now " + arg.toString());
+        setBusTimetable(this.busStop, this.gridPane);
     }
 
-    public void setBusTimetable(String busStop, GridPane busGrid) {
+    /**
+     * Sends a HTTP request to Vasttrafik.
+     * Gets a json object in response that is sent to the BusDepartureParser().
+     *
+     * @param busStop
+     */
+    public void setBusTimetable(String busStop, GridPane gridPane) {
 
+        this.gridPane = gridPane;
+        this.busStop = busStop;
         authCode = new GenerateAccessCode();
         String code = authCode.getResult();
+
         StringBuilder result = new StringBuilder();
         URL url;
         try {
-            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&timeSpan=60&needJourneyDetail=0&format=json");
+            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&needJourneyDetail=0&format=json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization:", "Bearer " + code);
@@ -84,17 +94,15 @@ public class BusTimetable implements Observer
             String line;
             while ((line = rd.readLine()) != null) {
                 result.append(line);
-
             }
             rd.close();
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        bdp.busJsonParser(result.toString());
-    }
+        System.out.print(result.toString());
+        bdp.busJsonParser(result.toString(), busTime);
 
+    }
 }
