@@ -77,7 +77,7 @@ public class RSSMarquee {
     }
 
     public GridPane getGrid() {
-        return root;
+        return this.root;
     }
 
 }
