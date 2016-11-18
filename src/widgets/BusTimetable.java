@@ -3,7 +3,9 @@ package widgets;
 import dataHandlers.BusDepartureParser;
 import dataHandlers.GenerateAccessCode;
 import javafx.concurrent.Worker;
+import javafx.geometry.HPos;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -22,8 +24,7 @@ import java.util.Observer;
  * Created by Axel on 8/11/2016.
  */
 
-public class BusTimetable implements Observer
-{
+public class BusTimetable implements Observer {
 
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -34,41 +35,7 @@ public class BusTimetable implements Observer
     BusDepartureParser bdp = new BusDepartureParser();
     private WebView webView;
     private GridPane gridPane;
-
-    //TODO please do not delete this one until we fix the new one
-    public void INACTIVEsetBusTimetable(String busStop, WebView webViewBus, GridPane busGrid)
-    {
-        try {
-            this.webView = webViewBus;
-            this.gridPane = busGrid;
-
-            WebEngine web = webViewBus.getEngine();
-            web.load("http://www.vasttrafik.se/nasta-tur-fullskarm/?externalid=9021014004945000&friendlyname="
-                    + busStop + "+G%C3%B6teborg");
-            web.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-                if (newState == Worker.State.SUCCEEDED) {
-                    // new page has loaded, process:
-                    setVisible();
-                }
-            });
-//            System.out.println("loaded timetable");
-//            webViewBus.setVisible(true);
-//            busGrid.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void setVisible()
-    {
-        webView.setVisible(true);
-        gridPane.setVisible(true);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        setBusTimetable(this.busStop, this.gridPane);
-    }
+    private GridPane busTableContainer;
 
     /**
      * Sends a HTTP request to Vasttrafik.
@@ -78,7 +45,6 @@ public class BusTimetable implements Observer
      */
     public void setBusTimetable(String busStop, GridPane gridPane) {
 
-        this.gridPane = gridPane;
         this.busStop = busStop;
         authCode = new GenerateAccessCode();
         String code = authCode.getResult();
@@ -102,7 +68,41 @@ public class BusTimetable implements Observer
         }
 
         System.out.print(result.toString());
-        bdp.busJsonParser(result.toString(), busTime);
+        bdp.busJsonParser(result.toString(), busTime, this.gridPane);
 
+    }
+
+
+    private void setVisible() {
+        webView.setVisible(true);
+        busTableContainer.setVisible(true);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setBusTimetable(this.busStop, this.busTableContainer);
+    }
+
+    //TODO please do not delete this one until we fix the new one
+    public void INACTIVEsetBusTimetable(String busStop, WebView webViewBus, GridPane busGrid) {
+        try {
+            this.webView = webViewBus;
+            this.busTableContainer = busGrid;
+
+            WebEngine web = webViewBus.getEngine();
+            web.load("http://www.vasttrafik.se/nasta-tur-fullskarm/?externalid=9021014004945000&friendlyname="
+                    + busStop + "+G%C3%B6teborg");
+            web.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
+                    // new page has loaded, process:
+                    setVisible();
+                }
+            });
+//            System.out.println("loaded timetable");
+//            webViewBus.setVisible(true);
+//            busGrid.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
