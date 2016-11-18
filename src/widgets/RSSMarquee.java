@@ -13,39 +13,37 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.*;
 import javafx.util.Duration;
-
 import java.awt.*;
-
 import static com.sun.javafx.tk.Toolkit.getToolkit;
-import static dataHandlers.RSSStAXParser.NewsToString;
 
 /**
- * Created by Geoffrey on 2016/11/14.
+ *
  */
-
-
 public class RSSMarquee {
-    public GridPane root;
-    public String News;
+    private GridPane root;
+    private String news;
 
+    /**
+     * @param GridPane GridPane
+     */
     public RSSMarquee(GridPane GridPane) {
-
         this.root = GridPane;
-        Platform.runLater(this::news);
-        Platform.runLater(this::NewsScene);
+        this.news = " ";
+        Platform.runLater(this::setUp);
     }
 
-    public void news() {
-        this.News = NewsToString(News);
-    }
-
-    public void NewsScene() {
+    /**
+     *
+     */
+    @SuppressWarnings("deprecation")
+    private void setUp() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
 
 
-        Text NewsFeed = TextBuilder.create()
+        //noinspection SuspiciousNameCombination
+        Text newsFeed = TextBuilder.create()
                 .layoutX(size)
                 .textOrigin(VPos.TOP)
                 .textAlignment(TextAlignment.JUSTIFY)
@@ -53,31 +51,35 @@ public class RSSMarquee {
                 .font(Font.font("Microsoft YaHei", FontPosture.REGULAR, 20))
                 .build();
 
-        NewsFeed.setText(News);
+        newsFeed.setText(this.news);
 
-        float width = getToolkit().getFontLoader().computeStringWidth(News, NewsFeed.getFont());
+        float width = getToolkit().getFontLoader().computeStringWidth(this.news, newsFeed.getFont());
         TranslateTransition transition = TranslateTransitionBuilder.create()
-                .node(NewsFeed)
+                .node(newsFeed)
                 .duration(new Duration((int) width * 10))
                 .interpolator(Interpolator.LINEAR)
-                .toX(NewsFeed.getBoundsInLocal().getMaxX() * -1 - 500)
+                .toX(newsFeed.getBoundsInLocal().getMaxX() * -1 - 500)
                 .fromX(root.widthProperty().get() + 1000)
                 .cycleCount(Timeline.INDEFINITE)
                 .build();
 
         Group myGroup = GroupBuilder.create()
-                .children(NewsFeed)
+                .children(newsFeed)
                 .build();
 
-        root.add(NewsFeed, 0, 0);
+        root.add(newsFeed, 0, 0);
         root.getChildren().add(myGroup);
 
         transition.play();
 
     }
 
-    public GridPane getGrid() {
-        return root;
+    /**
+     *
+     * @return String news
+     */
+    public String getNews() {
+        return this.news;
     }
 
 }

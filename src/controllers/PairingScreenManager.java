@@ -12,13 +12,15 @@ import java.util.Observer;
 
 public class PairingScreenManager extends Observable implements Observer {
 
-    public GridPane pairingDateTimeContainer;
-    public GridPane pairingContainer1;
+    private GridPane pairingDateTimeContainer;
+    private GridPane gridQR;
     private QRCode qr;
     private TimeDateManager timeDate;
     private PairingScreen pairingScreen;
 
-    public PairingScreenManager() {
+    public PairingScreenManager(GridPane dateTime, GridPane gridQR) {
+        this.pairingDateTimeContainer = dateTime;
+        this.gridQR = gridQR;
         this.timeDate = new TimeDateManager();
         UUID_Generator uuid = new UUID_Generator();
         this.qr = new QRCode(uuid.getUUID());
@@ -26,7 +28,7 @@ public class PairingScreenManager extends Observable implements Observer {
     }
 
     private void build() {
-        pairingScreen = new PairingScreen(this.pairingDateTimeContainer, this.pairingContainer1);
+        pairingScreen = new PairingScreen(this.pairingDateTimeContainer, this.gridQR);
         this.addObserver(pairingScreen);
         pairingScreen.addObserver(this);
     }
