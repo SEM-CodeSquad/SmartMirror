@@ -18,11 +18,10 @@ public class PairingScreenManager extends Observable implements Observer {
     private TimeDateManager timeDate;
     private PairingScreen pairingScreen;
 
-    public PairingScreenManager(GridPane dateTime, GridPane gridQR) {
+    public PairingScreenManager(GridPane dateTime, GridPane gridQR, UUID_Generator uuid, TimeDateManager timeDate) {
         this.pairingDateTimeContainer = dateTime;
         this.gridQR = gridQR;
-        this.timeDate = new TimeDateManager();
-        UUID_Generator uuid = new UUID_Generator();
+        this.timeDate = timeDate;
         this.qr = new QRCode(uuid.getUUID());
         Platform.runLater(this::build);
     }

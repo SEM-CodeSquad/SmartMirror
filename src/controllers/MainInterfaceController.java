@@ -1,8 +1,10 @@
 package controllers;
 
+import dataModels.UUID_Generator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import widgets.TimeDateManager;
 
 import java.awt.*;
 import java.util.Observable;
@@ -22,9 +24,13 @@ public class MainInterfaceController implements Observer {
     public GridPane gridGreetings;
     public GridPane gridTemperature;
     private boolean systemRunning;
+    private UUID_Generator uuid;
+    private TimeDateManager timeDate;
 
     public MainInterfaceController() {
-        systemRunning = true;
+        this.systemRunning = true;
+        this.timeDate = new TimeDateManager();
+        this.uuid = new UUID_Generator();
     }
 
     private void changeScene(String s) {
