@@ -14,7 +14,7 @@
            minWidth="-Infinity" prefHeight="987.0" prefWidth="1311.0" xmlns="http://javafx.com/javafx/8"
            fx:controller="controllers.MainInterfaceController">
     <children>
-        <BorderPane fx:id="pairingPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+        <BorderPane fx:id="pairingPane" prefHeight="200.0" prefWidth="200.0">
             <top>
                 <GridPane fx:id="pairingDateTimeContainer" prefHeight="126.0" prefWidth="1093.0"
                           BorderPane.alignment="TOP_LEFT">
@@ -51,7 +51,7 @@
                 </GridPane>
             </center>
         </BorderPane>
-        <AnchorPane fx:id="mainPane" prefHeight="951.0" prefWidth="1311.0">
+        <AnchorPane fx:id="mainPane" prefHeight="951.0" prefWidth="1311.0" visible="false">
             <children>
                 <GridPane fx:id="gridTimeDate" gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="108.0"
                           prefWidth="234.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">

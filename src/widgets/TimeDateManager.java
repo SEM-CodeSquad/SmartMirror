@@ -21,6 +21,10 @@ public class TimeDateManager
 {
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    private String time;
+    private String date;
+    private String dayName;
+    private String greetting;
 
     /**
      *

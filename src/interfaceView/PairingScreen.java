@@ -98,5 +98,7 @@ public class PairingScreen extends Observable implements Observer {
             Image image = (Image) arg;
             setQrCodeImage(image);
         }
+
+
     }
 }

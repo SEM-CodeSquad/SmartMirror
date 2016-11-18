@@ -1,6 +1,8 @@
 package controllers;
 
 import dataModels.UUID_Generator;
+import interfaceView.PairingScreen;
+import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -31,6 +33,13 @@ public class MainInterfaceController implements Observer {
         this.systemRunning = true;
         this.timeDate = new TimeDateManager();
         this.uuid = new UUID_Generator();
+        Platform.runLater(this::setUp);
+    }
+
+    private void setUp() {
+        PairingScreenManager pairingScreenManager = new PairingScreenManager(this.pairingDateTimeContainer,
+                this.gridPaneQR, this.uuid, this.timeDate);
+
     }
 
     private void changeScene(String s) {
