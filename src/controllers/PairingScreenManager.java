@@ -1,9 +1,7 @@
 package controllers;
 
-import dataModels.QRCode;
-import dataModels.UUID_Generator;
+import dataModels.*;
 import interfaceView.PairingScreen;
-import javafx.application.Platform;
 import javafx.scene.layout.GridPane;
 import widgets.TimeDateManager;
 
@@ -22,6 +20,7 @@ public class PairingScreenManager extends Observable implements Observer {
         this.pairingDateTimeContainer = dateTime;
         this.gridQR = gridQR;
         this.timeDate = timeDate;
+        this.timeDate.addObserver(this);
         this.qr = new QRCode(uuid.getUUID());
         this.build();
     }
@@ -35,9 +34,9 @@ public class PairingScreenManager extends Observable implements Observer {
     private void setUp() {
         setChanged();
         notifyObservers(this.qr.getQRCode());
-        timeDate.bindToTime(pairingScreen.getTime());
-        timeDate.bindToDate(pairingScreen.getDate());
-        timeDate.bindToDay(pairingScreen.getDayName());
+        timeDate.bindToTime();
+        timeDate.bindToDate();
+        timeDate.bindToDay();
     }
 
 
@@ -45,6 +44,18 @@ public class PairingScreenManager extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         if (arg.equals("PairingScreen Done!")) {
             this.setUp();
+        } else if (arg instanceof TimeS) {
+            TimeS time = (TimeS) arg;
+            setChanged();
+            notifyObservers(time);
+        } else if (arg instanceof DateS) {
+            DateS date = (DateS) arg;
+            setChanged();
+            notifyObservers(date);
+        } else if (arg instanceof Day) {
+            Day day = (Day) arg;
+            setChanged();
+            notifyObservers(day);
         }
 
     }

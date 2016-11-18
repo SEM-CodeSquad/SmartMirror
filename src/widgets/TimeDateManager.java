@@ -1,5 +1,9 @@
 package widgets;
 
+import dataModels.DateS;
+import dataModels.Day;
+import dataModels.Greetings;
+import dataModels.TimeS;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -17,23 +21,29 @@ import java.util.Observable;
 /**
  *
  */
-public class TimeDateManager
+public class TimeDateManager extends Observable
 {
     private static DateTimeFormatter SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private static DateTimeFormatter SHORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-    private String time;
-    private String date;
-    private String dayName;
-    private String greetting;
+    private TimeS time;
+    private DateS date;
+    private Day dayName;
+    private Greetings greeting;
+
+    public TimeDateManager() {
+        this.time = new TimeS();
+        this.date = new DateS();
+        this.dayName = new Day();
+        this.greeting = new Greetings();
+    }
 
     /**
      *
-     * @param time label to be showing the time
      */
-    public void bindToTime(Label time)
+    public void bindToTime()
     {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0),
-                event -> time.setText(LocalTime.now().format(SHORT_TIME_FORMATTER))),
+                event -> this.notifyTimeChanged()),
                 new KeyFrame(Duration.seconds(1)));
 
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -43,30 +53,49 @@ public class TimeDateManager
 
     /**
      *
-     * @param date label to be showing the date
      */
-    public void bindToDate(Label date)
+    private void notifyTimeChanged()
     {
+        this.time.setTime(LocalTime.now().format(SHORT_TIME_FORMATTER));
+        setChanged();
+        notifyObservers(this.time);
+    }
+
+    /**
+     *
+     */
+    public void bindToDate() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0),
-                event -> date.setText(LocalDate.now().format(SHORT_DATE_FORMATTER))),
+                event -> this.notifyDateChanged()),
                 new KeyFrame(Duration.seconds(1)));
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
+    private void notifyDateChanged() {
+        this.date.setDate(LocalDate.now().format(SHORT_DATE_FORMATTER));
+        setChanged();
+        notifyObservers(this.date);
+    }
+
     /**
      *
-     * @param day label to be showing the day name
      */
-    public void bindToDay(Label day)
+    public void bindToDay()
     {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0),
-                event -> day.setText(getDay())),
+                event -> this.notifyDayChanged()),
                 new KeyFrame(Duration.seconds(1)));
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+    }
+
+    private void notifyDayChanged() {
+        this.dayName.setDayName(getDay());
+        setChanged();
+        notifyObservers(this.dayName);
     }
 
     /**
@@ -81,14 +110,20 @@ public class TimeDateManager
 
     }
 
-    public void bindGreetings(Label greetings)
+    public void bindGreetings()
     {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0),
-                event -> greetings.setText(greetings())),
+                event -> this.notifyGreetingsChanged()),
                 new KeyFrame(Duration.seconds(1)));
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+    }
+
+    private void notifyGreetingsChanged() {
+        this.greeting.setGreetings(greetings());
+        setChanged();
+        notifyObservers(this.greeting);
     }
 
     private String greetings()
@@ -108,4 +143,10 @@ public class TimeDateManager
 
         return "";
     }
+
+    public TimeS getTime() {
+        return time;
+    }
+
+
 }
