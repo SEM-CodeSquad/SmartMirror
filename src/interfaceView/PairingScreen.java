@@ -89,7 +89,7 @@ public class PairingScreen extends Observable implements Observer {
     }
 
     private void setQrCodeImage(Image image) {
-        Platform.runLater(() -> qrCodeImageView.setImage(image));
+        qrCodeImageView.setImage(image);
     }
 
     @Override

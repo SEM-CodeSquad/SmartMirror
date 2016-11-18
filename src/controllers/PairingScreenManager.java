@@ -23,7 +23,7 @@ public class PairingScreenManager extends Observable implements Observer {
         this.gridQR = gridQR;
         this.timeDate = timeDate;
         this.qr = new QRCode(uuid.getUUID());
-        Platform.runLater(this::build);
+        this.build();
     }
 
     private void build() {
@@ -44,7 +44,7 @@ public class PairingScreenManager extends Observable implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         if (arg.equals("PairingScreen Done!")) {
-            Platform.runLater(this::setUp);
+            this.setUp();
         }
 
     }
