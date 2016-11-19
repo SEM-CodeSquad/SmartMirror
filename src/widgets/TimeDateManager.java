@@ -102,7 +102,7 @@ public class TimeDateManager extends Observable
      *
      * @return first three letters of the day name
      */
-    private String getDay()
+    public String getDay()
     {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
