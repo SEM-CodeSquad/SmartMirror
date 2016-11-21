@@ -17,57 +17,66 @@ import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.*;
 
 public class RSSStAXParser {
-    static final String ITEM = "item";
-    static final String TITLE = "title";
-
+    final String ITEM = "item";
+    final String TITLE = "title";
+    String news;
     URL url;
 
 
     /**
      * constructor
      *
-     * @param feedUrl
+     * @param source
      */
-    public RSSStAXParser(String feedUrl) {
+    public RSSStAXParser(String source) {
+
+        RSSStAXParser NewsParser = null;
+
+        if (source.equalsIgnoreCase("ABC")) {
+            this.readUrl("http://feeds.abcnews.com/abcnews/internationalheadlines");
+        } else if (source.equalsIgnoreCase("Google")) {
+            this.readUrl("https://news.google.com/?output=rss");
+        } else if (source.equalsIgnoreCase("CNN")) {
+            this.readUrl("http://rss.cnn.com/rss/edition.rss");
+        } else if (source.equalsIgnoreCase("DN")) {
+            this.readUrl("http://www.dn.se/nyheter/m/rss/");
+        } else if (source.equalsIgnoreCase("SVT")) {
+            this.readUrl("http://www.svt.se/nyheter/rss.xml");
+        } else if (source.equalsIgnoreCase("Expressen")) {
+            this.readUrl("http://expressen.se/rss/nyheter");
+        } else {
+            this.readUrl("http://feeds.abcnews.com/abcnews/internationalheadlines");
+        }
+        RSSFeed feed = NewsParser.RSSParser();
+        this.news = feed.toString();
+        for (Object message : feed.getList()) {
+            this.news += "   ★" + message.toString();
+        }
+
+    }
+
+    /**
+     * Try to read the URL
+     *
+     * @param feed User choice of news feed e.g. ABC, Google News etc.
+     */
+    private void readUrl(String feed) {
         try {
-            this.url = new URL(feedUrl);
+            this.url = new URL(feed);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * Take a site name(string) as input and return a String of news
+     * Getter to get news
      *
-     * @param source source name e.g. CNN, ABC
-     * @return News as a packed String
+     * @return parsered news
      */
-
-    public static String NewsToString(String source) {
-        String News;
-        RSSStAXParser NewsParser = null;
-
-        if (source.equalsIgnoreCase("ABC")) {
-            NewsParser = new RSSStAXParser("http://feeds.abcnews.com/abcnews/internationalheadlines");
-        } else if (source.equalsIgnoreCase("Google")) {
-            NewsParser = new RSSStAXParser("https://news.google.com/?output=rss");
-        } else if (source.equalsIgnoreCase("CNN")) {
-            NewsParser = new RSSStAXParser("http://rss.cnn.com/rss/edition.rss");
-        } else if (source.equalsIgnoreCase("DN")) {
-            NewsParser = new RSSStAXParser("http://www.dn.se/nyheter/m/rss/");
-        } else if (source.equalsIgnoreCase("SVT")) {
-            NewsParser = new RSSStAXParser("http://www.svt.se/nyheter/rss.xml");
-        } else if (source.equalsIgnoreCase("Expressen")) {
-            NewsParser = new RSSStAXParser("http://expressen.se/rss/nyheter");
-        }
-        RSSFeed feed = NewsParser.RSSParser();
-        News = feed.toString();
-        for (Object message : feed.getList()) {
-            News += "   ★" + message.toString();
-        }
-
-        return News;
+    public String getNews() {
+        return this.news;
     }
+
 
     /**
      * Parse the XML file from given URL and store the Source of the RSS Feed as well as the news title into the linked list
