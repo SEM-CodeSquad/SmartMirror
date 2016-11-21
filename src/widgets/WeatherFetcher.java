@@ -1,63 +1,70 @@
 package widgets;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javafx.scene.image.Image;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-/**
- * Created by Nimish on 04/11/2016.
- */
+import java.util.Observable;
 
 /*
  * The WeatherFetcher class fetches the weather of a city that is inputted in the parameters of the method fetchWeather()
  * It returns a String containing weather information of that city in JSON format.
  */
-public class WeatherFetcher {
-    private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?q=";        /*Base URL to fetch weather of city */
-    private static String IMG_URL = "http://openweathermap.org/img/w/";                           /* Base URL to fetch weather icon */
-
+public class WeatherFetcher extends Observable {
+    private String weatherData;
+    private boolean isForecast;
+    
     /*
      * The fetchWeather method takes the city name as a constructor and returns the JSON formatted text
      * returned by the web server. The fetchWeather uses the HTTP GET request method to fetch the weather.
     */
-    public String fetchWeather(String cityName) {
+    public void fetchWeather(String query, String cityName) {
 
             HttpURLConnection connection = null ;
             InputStream IS = null;
 
-            try {
-                connection = (HttpURLConnection) ( new URL(BASE_URL + cityName + "&cnt=3&units=metric&APPID=47d83bc50f7e59413e487108ded5c729")).openConnection();
+        try {
+            String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast" + query + "?q=";
+            connection = (HttpURLConnection) (new URL(BASE_URL + cityName + "&type=accurate&units=metric&cnt=3" +
+                    "&lang=en&APPID=47d83bc50f7e59413e487108ded5c729")).openConnection();
                 connection.setRequestMethod("GET");
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
                 connection.connect();
 
 
-                StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
                 IS = connection.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(IS));
                 String line;
                 while ( (line = br.readLine()) != null )
-                    buffer.append(line + "\r\n");
+                    buffer.append(line).append("\r\n");
 
                 IS.close();
                 connection.disconnect();
-                return buffer.toString();
-            }
-            catch(Throwable t) {
+            this.weatherData = buffer.toString();
+
+            isForecast = !query.equals("");
+
+            setChanged();
+            notifyObservers(this);
+        } catch (Throwable t) {
                 t.printStackTrace();
             }
             finally {
-                try { IS.close(); } catch(Throwable t) {}
-                try { connection.disconnect(); } catch(Throwable t) {}
+            try {
+                assert IS != null;
+                IS.close();
+            } catch (Throwable ignored) {
             }
-
-            return null;
-
+            try {
+                assert connection != null;
+                connection.disconnect();
+            } catch (Throwable ignored) {
+            }
         }
+    }
     /*
      * The below getImage() method returns a ByteArray code of the icon requested with the variable "code"
      * coming from the returned weather call requested by fetchWeather().
@@ -70,37 +77,16 @@ public class WeatherFetcher {
     android:layout_height="wrap_content"
     android:layout_alignParentLeft="true"
     android:layout_below="@id/cityText" />*/
-    public byte[] getImage(String code) {
-        HttpURLConnection connection = null ;
-        InputStream IS = null;
-        try {
-            connection = (HttpURLConnection) ( new URL(IMG_URL + code + ".png")).openConnection();
-            connection.setRequestMethod("GET");
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.connect();
-
-            /* Response got */
-            IS = connection.getInputStream();
-            byte[] buffer = new byte[1024];
-            ByteArrayOutputStream ByteArray = new ByteArrayOutputStream();
-
-            while (IS.read(buffer) != -1)
-                ByteArray.write(buffer);
-
-            return ByteArray.toByteArray();
-        }
-        catch(Throwable t) {
-            t.printStackTrace();
-        }
-        finally {
-            try {IS.close(); } catch(Throwable t) {}
-            try {connection.disconnect(); } catch(Throwable t) {}
-        }
-
-        return null;
-
+    public Image getImage(String code) {
+        return new Image("http://openweathermap.org/img/w/" + code + ".png");
     }
 
+    public String getWeatherData() {
+        return weatherData;
     }
+
+    public boolean isForecast() {
+        return this.isForecast;
+    }
+}
 

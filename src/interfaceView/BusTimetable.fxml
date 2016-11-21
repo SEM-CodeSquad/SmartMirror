@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="busTimetables" prefHeight="409.0" prefWidth="322.0"
-           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8">
+           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
+           fx:controller="controllers.BusTimetableController">
     <children>
-        <GridPane fx:id="timetable1" style="-fx-background-color: #000000;">
+        <GridPane fx:id="timetable1" opacity="0.0" style="-fx-background-color: #000000;">
             <children>
                 <Label prefHeight="21.0" prefWidth="260.0" text="Next departures from" textFill="WHITE" wrapText="true"
                        GridPane.columnIndex="1" GridPane.valignment="TOP">
@@ -51,8 +51,8 @@
                         <Insets left="5.0"/>
                     </GridPane.margin>
                 </Label>
-                <GridPane style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.columnIndex="1"
-                          GridPane.rowIndex="1">
+                <GridPane style="-fx-background-color: #323232; -fx-background-radius: 10 0 0 10;"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
                         <Label fx:id="nextDepart1" text="Label" textFill="#f8f8f8" visible="false" GridPane.rowIndex="2"
                                GridPane.valignment="BOTTOM">
@@ -109,8 +109,8 @@
                     </rowConstraints>
                 </GridPane>
                 <GridPane layoutX="69.0" layoutY="147.0"
-                          style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.columnIndex="1"
-                          GridPane.rowIndex="3">
+                          style="-fx-background-color: #323232; -fx-background-radius: 10 0 0 10;"
+                          GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <children>
                         <Label fx:id="nextDepart3" text="Label" textFill="#f8f8f8" visible="false" GridPane.rowIndex="2"
                                GridPane.valignment="BOTTOM">
@@ -167,8 +167,8 @@
                     </rowConstraints>
                 </GridPane>
                 <GridPane layoutX="69.0" layoutY="283.0"
-                          style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.columnIndex="1"
-                          GridPane.rowIndex="5">
+                          style="-fx-background-color: #323232; -fx-background-radius: 10 0 0 10;"
+                          GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <children>
                         <Label fx:id="nextDepart5" text="Label" textFill="#f8f8f8" visible="false" GridPane.rowIndex="2"
                                GridPane.valignment="BOTTOM">
@@ -210,7 +210,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
         </GridPane>
-        <GridPane fx:id="timetable2" style="-fx-background-color: #000000;" visible="false">
+        <GridPane fx:id="timetable2" opacity="0.0" style="-fx-background-color: #000000;">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="59.0"/>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="263.0"/>
@@ -429,7 +429,7 @@
                 </Label>
             </children>
         </GridPane>
-        <GridPane fx:id="timetable3" style="-fx-background-color: #000000;" visible="false">
+        <GridPane fx:id="timetable3" opacity="0.0" style="-fx-background-color: #000000;">
             <children>
                 <Label fx:id="busName13" text="Label" visible="false" GridPane.rowIndex="1">
                     <GridPane.margin>

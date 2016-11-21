@@ -158,20 +158,6 @@ public class WeatherModule {
         GridPane.setValignment(day3,VPos.CENTER);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 

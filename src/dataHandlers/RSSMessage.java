@@ -1,9 +1,5 @@
 package dataHandlers;
 
-/**
- * Created by Geoffrey on 2016/11/4.
- */
-
 /*
  * Store the information within the RSS message
  * in this case, the title of the news

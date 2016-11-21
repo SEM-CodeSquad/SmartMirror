@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.util.Duration;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -102,7 +103,7 @@ public class TimeDateManager extends Observable
      *
      * @return first three letters of the day name
      */
-    public String getDay()
+    private String getDay()
     {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();

@@ -2,13 +2,10 @@ package dataHandlers;
 
 import dataModels.BusInfo;
 
-/**
- * Created by Axel on 11/14/2016.
- */
+
 public class DepartureSort {
 
-    BusInfo busArray[];
-    BusInfo busData = new BusInfo();
+    private BusInfo busArray[];
 
     public void timeSort(BusInfo[] busArray, int length) {
 
@@ -41,7 +38,7 @@ public class DepartureSort {
     }
 
     private void exchangeObjects(int i, int j) {
-        busData = busArray[i];
+        BusInfo busData = busArray[i];
         busArray[i] = busArray[j];
         busArray[j] = busData;
     }

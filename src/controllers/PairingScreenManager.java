@@ -33,7 +33,7 @@ public class PairingScreenManager extends Observable implements Observer {
 
     private void setUp() {
         setChanged();
-        notifyObservers(this.qr.getQRCode());
+        //notifyObservers(this.qr.getQRCode());
         timeDate.bindToTime();
         timeDate.bindToDate();
         timeDate.bindToDay();

@@ -96,8 +96,7 @@ public class InterfaceController implements Observer {
         UUID_Generator uuid_generator = new UUID_Generator();
         clientId = uuid_generator.getUUID();
         QRCode qrCode = new QRCode(clientId);
-        imgQRCode.setImage(qrCode.getQRCode());
-        qrCodeView.setImage(qrCode.getQRCode());
+
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
         this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
         BusTimetable busTimetable = new BusTimetable();

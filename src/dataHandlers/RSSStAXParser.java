@@ -1,10 +1,5 @@
 package dataHandlers;
 
-/**
- * Created by Geoffrey on 2016/11/3.
- */
-
-
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;

@@ -3,12 +3,9 @@ package dataHandlers;
 import java.io.*;
 import java.net.*;
 
-/**
- * Created by Axel on 8/11/2016.
- */
 
 public class GenerateAccessCode {
-    String code;
+    private String code;
 
     public GenerateAccessCode() {
 

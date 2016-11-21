@@ -8,8 +8,9 @@ import javafx.scene.paint.Color;
 import net.glxn.qrgen.image.ImageType;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Observable;
 
-public class QRCode
+public class QRCode extends Observable
 {
     private String clientId;
 
@@ -18,7 +19,7 @@ public class QRCode
         this.clientId = clientId;
     }
 
-    public Image getQRCode()
+    public void getQRCode()
     {
         ByteArrayOutputStream out = net.glxn.qrgen.QRCode.from(clientId).to(ImageType.PNG).withSize(250, 180).stream();
         ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
@@ -52,6 +53,7 @@ public class QRCode
                 }
             }
         }
-        return image;
+        setChanged();
+        notifyObservers(image);
     }
 }
