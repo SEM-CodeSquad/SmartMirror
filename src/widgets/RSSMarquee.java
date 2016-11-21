@@ -36,7 +36,6 @@ public class RSSMarquee {
         Platform.runLater(this::setUp);
     }
 
-
     public void setUp() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
