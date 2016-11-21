@@ -1,5 +1,6 @@
 package widgets;
 
+
 import javafx.animation.Interpolator;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -25,25 +26,23 @@ import static dataHandlers.RSSStAXParser.NewsToString;
 
 
 public class RSSMarquee {
+
+
     public GridPane root;
-    public String News;
+    public String News = "ABC";
 
-    public RSSMarquee(GridPane GridPane) {
 
-        this.root = GridPane;
-        Platform.runLater(this::news);
-        Platform.runLater(this::NewsScene);
-    }
-
-    public void news() {
+    public RSSMarquee(GridPane GridPane, String News) {
         this.News = NewsToString(News);
+        this.root = GridPane;
+        Platform.runLater(this::setUp);
     }
 
-    public void NewsScene() {
+
+    public void setUp() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double size = screenSize.getWidth();
-
 
         Text NewsFeed = TextBuilder.create()
                 .layoutX(size)
@@ -69,8 +68,8 @@ public class RSSMarquee {
                 .children(NewsFeed)
                 .build();
 
-        root.add(NewsFeed, 0, 0);
-        root.getChildren().add(myGroup);
+        this.root.add(NewsFeed, 0, 0);
+        this.root.getChildren().add(myGroup);
 
         transition.play();
 

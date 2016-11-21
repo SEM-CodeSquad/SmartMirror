@@ -16,10 +16,6 @@ import java.net.URL;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.*;
 
-/*
- *
- *
- */
 public class RSSStAXParser {
     static final String ITEM = "item";
     static final String TITLE = "title";
