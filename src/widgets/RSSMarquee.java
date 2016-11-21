@@ -37,7 +37,6 @@ public class RSSMarquee {
     }
 
 
-
     public void setUp() {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
