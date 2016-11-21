@@ -2,48 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/BusTimetableController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/GreetingsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/QRCodeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/TemperatureController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/TimeDateController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/DeviceView.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewBlue.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewGreen.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewOrange.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewPink.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewPurple.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewStandard.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/PostitViewYellow.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/SwitchButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaceView/TemperatureView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/widgets/RSSMarquee.java" afterPath="$PROJECT_DIR$/src/controllers/FeedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/DeviceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/InterfaceController.java" afterPath="$PROJECT_DIR$/src/controllers/InterfaceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PairingScreenManager.java" afterPath="$PROJECT_DIR$/src/controllers/PairingScreenManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/SettingsManager.java" afterPath="$PROJECT_DIR$/src/controllers/SettingsManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/dataHandlers/BusDepartureParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/DepartureSort.java" afterPath="$PROJECT_DIR$/src/dataHandlers/DepartureSort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/GenerateAccessCode.java" afterPath="$PROJECT_DIR$/src/dataHandlers/GenerateAccessCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/RSSFeed.java" afterPath="$PROJECT_DIR$/src/dataHandlers/RSSFeed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/RSSMessage.java" afterPath="$PROJECT_DIR$/src/dataHandlers/RSSMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataHandlers/RSSStAXParser.java" afterPath="$PROJECT_DIR$/src/dataHandlers/RSSStAXParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dataModels/QRCode.java" afterPath="$PROJECT_DIR$/src/dataModels/QRCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/BusTimetable.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/BusTimetable.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/FeedsViews.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/FeedsViews.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/GreetingsView.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/GreetingsView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/MainInterface.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/MainInterface.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/PostitView.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/PostitView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/QRCodeView.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/QRCodeView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/TimeDate.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/TimeDate.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/WeatherModule.java" afterPath="$PROJECT_DIR$/src/interfaceView/WeatherModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/BusTimetable.java" afterPath="$PROJECT_DIR$/src/widgets/BusTimetable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/JSONWeatherParser.java" afterPath="$PROJECT_DIR$/src/widgets/JSONWeatherParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/widgets/TimeDateManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/Weather.java" afterPath="$PROJECT_DIR$/src/widgets/Weather.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/widgets/WeatherFetcher.java" afterPath="$PROJECT_DIR$/src/widgets/WeatherFetcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaceView/DeviceView.fxml" afterPath="$PROJECT_DIR$/src/interfaceView/DeviceView.fxml" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -62,6 +23,29 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="C:\Users\Pucci\Desktop\workspace\SmartMirror" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="DeviceView.fxml" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/interfaceView/DeviceView.fxml">
+                <provider editor-type-id="JavaFX-Scene-Builder">
+                  <state />
+                </provider>
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="242">
+                    <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -109,11 +93,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RSSStAXParser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RSSStAXParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dataHandlers/RSSStAXParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
               <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeviceController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/DeviceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusTimetableController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/BusTimetableController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -146,8 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dataHandlers/QRCode.java" />
-        <option value="$PROJECT_DIR$/src/weather/WeatherFetcher.java" />
         <option value="$PROJECT_DIR$/src/weather/Weather.java" />
         <option value="$PROJECT_DIR$/src/weather/JSONWeatherParser.java" />
         <option value="$PROJECT_DIR$/src/widgets/Weather.java" />
@@ -197,6 +201,8 @@
         <option value="$PROJECT_DIR$/src/Test/busScreenTest.java" />
         <option value="$PROJECT_DIR$/src/widgets/RSSMarquee.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/RSSStAXParser.java" />
+        <option value="$PROJECT_DIR$/src/interfaceView/DeviceView.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/DeviceController.java" />
       </list>
     </option>
   </component>
@@ -1047,7 +1053,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479735522822</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Update">
+      <created>1479746822520</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1479746822520</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1148,7 +1161,8 @@
     <MESSAGE value="Update on Marquee" />
     <MESSAGE value="Update on Marquee and RSSStAXParser" />
     <MESSAGE value="attempt to fix the C" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt to fix the C" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1163,22 +1177,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/widgets/RSSMarquee.java" />
-    <entry file="file://$PROJECT_DIR$/src/interfaceView/PairingScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/InterfaceMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1507,14 +1505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/RSSMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaceView/WeatherModule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1529,6 +1519,43 @@
         <state relative-caret-position="264">
           <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/BusTimetableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataHandlers/RSSMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaceView/DeviceView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/DeviceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
