@@ -1,5 +1,8 @@
 package interfaceView;
 
+import dataModels.DateS;
+import dataModels.Day;
+import dataModels.TimeS;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -80,16 +83,28 @@ public class PairingScreen extends Observable implements Observer {
         return time;
     }
 
+    private void setTime(String time) {
+        this.time.setText(time);
+    }
+
     public Label getDate() {
         return date;
+    }
+
+    private void setDate(String date) {
+        this.date.setText(date);
     }
 
     public Label getDayName() {
         return dayName;
     }
 
+    private void setDayName(String dayName) {
+        this.dayName.setText(dayName);
+    }
+
     private void setQrCodeImage(Image image) {
-        Platform.runLater(() -> qrCodeImageView.setImage(image));
+        qrCodeImageView.setImage(image);
     }
 
     @Override
@@ -97,6 +112,17 @@ public class PairingScreen extends Observable implements Observer {
         if (arg instanceof Image) {
             Image image = (Image) arg;
             setQrCodeImage(image);
+        } else if (arg instanceof TimeS) {
+            TimeS now = (TimeS) arg;
+            setTime(now.getTime());
+        } else if (arg instanceof DateS) {
+            DateS now = (DateS) arg;
+            setDate(now.getDate());
+        } else if (arg instanceof Day) {
+            Day now = (Day) arg;
+            setDayName(now.getDayName());
         }
+
+
     }
 }

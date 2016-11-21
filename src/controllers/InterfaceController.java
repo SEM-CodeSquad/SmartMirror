@@ -102,13 +102,6 @@ public class InterfaceController implements Observer {
         this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
         BusTimetable busTimetable = new BusTimetable();
         TimeDateManager timeDateManager = new TimeDateManager();
-        timeDateManager.bindToTime(this.timePairingScreen);
-        timeDateManager.bindToDate(this.datePairingScreen);
-        timeDateManager.bindToDay(this.dayNamePairingScreen);
-        timeDateManager.bindToTime(this.time);
-        timeDateManager.bindToDate(this.date);
-        timeDateManager.bindToDay(this.dayName);
-        timeDateManager.bindGreetings(this.greetings);
         this.settings = new SettingsManager(this.webViewBus, this.timetableContainer, this);
         this.pairingManager.listenPairing();
         this.parser = new JsonMessageParser(settings, pairingManager, postitGuiManager);

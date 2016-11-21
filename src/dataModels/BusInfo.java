@@ -5,14 +5,7 @@ public class BusInfo {
     public String busDirection;
     public String busName;
     public int busDeparture;
-
-    //Need revision
-    public BusInfo() {
-        this.busFrom = busFrom;
-        this.busDirection = busDirection;
-        this.busName = busName;
-        this.busDeparture = busDeparture;
-    }
+    public String busColor;
 
     public String getBusFrom(){
         return busFrom;
@@ -24,6 +17,10 @@ public class BusInfo {
 
     public String getBusName() {
         return busName;
+    }
+
+    public String getBusColor() {
+        return busColor;
     }
 
     public int getBusDeparture() {

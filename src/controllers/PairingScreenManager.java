@@ -1,9 +1,7 @@
 package controllers;
 
-import dataModels.QRCode;
-import dataModels.UUID_Generator;
+import dataModels.*;
 import interfaceView.PairingScreen;
-import javafx.application.Platform;
 import javafx.scene.layout.GridPane;
 import widgets.TimeDateManager;
 
@@ -12,21 +10,23 @@ import java.util.Observer;
 
 public class PairingScreenManager extends Observable implements Observer {
 
-    public GridPane pairingDateTimeContainer;
-    public GridPane pairingContainer1;
+    private GridPane pairingDateTimeContainer;
+    private GridPane gridQR;
     private QRCode qr;
     private TimeDateManager timeDate;
     private PairingScreen pairingScreen;
 
-    public PairingScreenManager() {
-        this.timeDate = new TimeDateManager();
-        UUID_Generator uuid = new UUID_Generator();
+    public PairingScreenManager(GridPane dateTime, GridPane gridQR, UUID_Generator uuid, TimeDateManager timeDate) {
+        this.pairingDateTimeContainer = dateTime;
+        this.gridQR = gridQR;
+        this.timeDate = timeDate;
+        this.timeDate.addObserver(this);
         this.qr = new QRCode(uuid.getUUID());
-        Platform.runLater(this::build);
+        this.build();
     }
 
     private void build() {
-        pairingScreen = new PairingScreen(this.pairingDateTimeContainer, this.pairingContainer1);
+        pairingScreen = new PairingScreen(this.pairingDateTimeContainer, this.gridQR);
         this.addObserver(pairingScreen);
         pairingScreen.addObserver(this);
     }
@@ -34,16 +34,28 @@ public class PairingScreenManager extends Observable implements Observer {
     private void setUp() {
         setChanged();
         notifyObservers(this.qr.getQRCode());
-        timeDate.bindToTime(pairingScreen.getTime());
-        timeDate.bindToDate(pairingScreen.getDate());
-        timeDate.bindToDay(pairingScreen.getDayName());
+        timeDate.bindToTime();
+        timeDate.bindToDate();
+        timeDate.bindToDay();
     }
 
 
     @Override
     public void update(Observable o, Object arg) {
         if (arg.equals("PairingScreen Done!")) {
-            Platform.runLater(this::setUp);
+            this.setUp();
+        } else if (arg instanceof TimeS) {
+            TimeS time = (TimeS) arg;
+            setChanged();
+            notifyObservers(time);
+        } else if (arg instanceof DateS) {
+            DateS date = (DateS) arg;
+            setChanged();
+            notifyObservers(date);
+        } else if (arg instanceof Day) {
+            Day day = (Day) arg;
+            setChanged();
+            notifyObservers(day);
         }
 
     }
