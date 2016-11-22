@@ -12,445 +12,143 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.WebView?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1226.0" prefWidth="966.0"
+<StackPane xmlns:fx="http://javafx.com/fxml/1" maxWidth="-Infinity" prefHeight="1226.0" prefWidth="966.0"
            style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8"
-           fx:controller="controllers.InterfaceController">
+           fx:controller="controllers.MainController">
+    <cursor>
+        <Cursor fx:constant="NONE"/>
+    </cursor>
    <children>
-       <AnchorPane fx:id="mainPane" prefHeight="960.0" prefWidth="966.0" style="-fx-background-color: #1d1d1d;" visible="false">
-          <children>
-            <StackPane layoutX="12.0" layoutY="704.0" prefHeight="514.0" prefWidth="938.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+       <BorderPane fx:id="pairingPane" style="-fx-background-color: #000000;" visible="false">
+           <center>
+               <GridPane BorderPane.alignment="CENTER">
                <children>
-                    <GridPane fx:id="postItsGrid" gridLinesVisible="true" hgap="5.0" layoutX="4.0" layoutY="574.0" prefHeight="494.0" prefWidth="942.0" vgap="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-                        <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        </columnConstraints>
-                        <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        </rowConstraints>
-                     <children>
-                        <StackPane fx:id="postPane2" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText2" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane3" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
-                           <children>
-                              <TextArea fx:id="postText3" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane4" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText4" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
-                           <children>
-                              <TextArea fx:id="postText5" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane6" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText6" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane9" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
-                           <children>
-                              <TextArea fx:id="postText9" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane7" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
-                           <children>
-                              <TextArea fx:id="postText7" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane8" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText8" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane10" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText10" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane11" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5">
-                           <children>
-                              <TextArea fx:id="postText11" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane12" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                           <children>
-                              <TextArea fx:id="postText12" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea.css" wrapText="true">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                        <StackPane fx:id="postPane1" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-                           <children>
-                              <TextArea fx:id="postText1" editable="false" prefHeight="108.0" prefWidth="141.0" stylesheets="@textArea.css" wrapText="true">
-                                 <font>
-                                    <Font name="Bookman Old Style" size="22.0" />
-                                 </font>
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" top="20.0" />
-                                 </StackPane.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
-                              </TextArea>
-                           </children>
-                        </StackPane>
-                     </children>
-                    </GridPane>
+                   <Label text="SmartMirror Pairing Code" textFill="WHITE" GridPane.halignment="CENTER"
+                          GridPane.valignment="BOTTOM">
+                       <font>
+                           <Font name="Microsoft YaHei Bold" size="64.0"/>
+                       </font>
+                   </Label>
+                   <GridPane fx:id="qrPairingContainer" GridPane.rowIndex="1">
+                       <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="216.0"/>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                       </columnConstraints>
+                       <rowConstraints>
+                           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES"/>
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                       </rowConstraints>
+                   </GridPane>
                </children>
-            </StackPane>
-              <GridPane fx:id="timetableContainer" layoutX="643.0" layoutY="-17.0" prefHeight="487.0" prefWidth="341.0" style="-fx-border-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),        linear-gradient(#020b02, #3a3a3a),        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%); -fx-border-insets: 0,1,4,5,6;" visible="false" AnchorPane.rightAnchor="-25.0" AnchorPane.topAnchor="-15.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                  <StackPane style="-fx-background-color: #1d1d1d;">
-                     <children>
-                           <WebView fx:id="webViewBus" prefHeight="614.0" prefWidth="327.0" visible="false" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
-                        <Label prefHeight="53.0" prefWidth="96.0" style="-fx-background-color: black;" text="    ">
-                           <StackPane.margin>
-                              <Insets bottom="345.0" left="210.0" />
-                           </StackPane.margin>
-                        </Label>
-                     </children>
-                  </StackPane>
-                 </children>
-               <effect>
-                  <DropShadow radius="25.55" spread="0.57" width="83.2" />
-               </effect>
-              </GridPane>
-              <GridPane layoutX="5.0" layoutY="1.0" prefHeight="282.0" prefWidth="228.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="2.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                     <Label fx:id="time" textFill="WHITE">
-                         <font>
-                             <Font name="Bookman Old Style" size="40.0" />
-                         </font>
-                     </Label>
-                     <Label fx:id="date" textFill="WHITE" GridPane.rowIndex="1">
-                         <font>
-                             <Font name="Bookman Old Style" size="28.0" />
-                         </font>
-                     </Label>
-                     <Label fx:id="dayName" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                         <GridPane.margin>
-                             <Insets />
-                         </GridPane.margin>
-                         <font>
-                             <Font name="Bookman Old Style" size="21.0" />
-                         </font>
-                     </Label>
-                     <GridPane GridPane.rowIndex="2">
-                         <columnConstraints>
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                         </columnConstraints>
-                         <rowConstraints>
-                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                         </rowConstraints>
-                        <children>
-                            <Label fx:id="outdoorsTemp" textFill="WHITE">
-                                <font>
-                                    <Font name="Bookman Old Style" size="21.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="indoorsTemp" textFill="WHITE" GridPane.columnIndex="2">
-                                <font>
-                                    <Font name="Bookman Old Style" size="21.0" />
-                                </font>
-                            </Label>
-                            <ImageView fx:id="imgOutdoorsTemp" fitHeight="38.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                            <Label fx:id="forecast1" textFill="WHITE" GridPane.rowIndex="1">
-                                <font>
-                                    <Font name="Bookman Old Style" size="21.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="forecast2" textFill="WHITE" GridPane.rowIndex="2">
-                                <font>
-                                    <Font name="Bookman Old Style" size="21.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="forecast3" textFill="WHITE" GridPane.rowIndex="3">
-                                <font>
-                                    <Font name="Bookman Old Style" size="21.0" />
-                                </font>
-                            </Label>
-                            <ImageView fx:id="imgForecast1" fitHeight="36.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                            <ImageView fx:id="imgForecast2" fitHeight="33.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                            <ImageView fx:id="imgForecast3" fitHeight="32.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        </children>
-                     </GridPane>
-                 </children>
-              </GridPane>
-              <GridPane layoutX="239.0" layoutY="2.0" prefHeight="49.0" prefWidth="379.0" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="2.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                     <Label fx:id="newsFeed" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="403.0" text=" News: " textFill="WHITE" wrapText="true" GridPane.valignment="TOP">
-                         <font>
-                             <Font name="Bookman Old Style" size="30.0" />
-                         </font>
-                     </Label>
-                 </children>
-              </GridPane>
-            <GridPane layoutX="5.0" layoutY="304.0" prefHeight="136.0" prefWidth="157.0" AnchorPane.leftAnchor="5.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ImageView fx:id="qrCodeView" fitHeight="135.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
-                     <effect>
-                        <DropShadow height="46.07" radius="24.0425" spread="0.7" width="52.1">
-                           <input>
-                              <InnerShadow choke="0.39" />
-                           </input>
-                        </DropShadow>
-                     </effect>
-                  </ImageView>
-               </children>
-            </GridPane>
-               <GridPane layoutX="169.0" layoutY="440.0" prefHeight="123.0" prefWidth="453.0" AnchorPane.bottomAnchor="663.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="344.0">
                    <columnConstraints>
-                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                    </columnConstraints>
                    <rowConstraints>
-                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                    </rowConstraints>
-                  <children>
-                      <Label fx:id="greetings" prefHeight="55.0" prefWidth="386.0" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                          <font>
-                              <Font name="Bookman Old Style" size="48.0" />
-                          </font>
-                      </Label>
-                      <Label fx:id="secondaryMsg" prefHeight="21.0" prefWidth="384.0" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-                          <font>
-                              <Font name="Bookman Old Style" size="23.0" />
-                          </font>
-                     <GridPane.margin>
-                        <Insets top="10.0" />
-                     </GridPane.margin>
-                      </Label>
-                  </children>
                </GridPane>
-          </children>
-       </AnchorPane>
-       <AnchorPane fx:id="pairingPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1d1d1d;">
-          <children>
-              <GridPane gridLinesVisible="true" layoutX="2.0" layoutY="5.0" prefHeight="108.0" prefWidth="235.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                     <Label fx:id="timePairingScreen" textFill="WHITE">
-                         <font>
-                             <Font name="Bookman Old Style" size="40.0" />
-                         </font>
-                     </Label>
-                     <Label fx:id="datePairingScreen" textFill="WHITE" GridPane.rowIndex="1">
-                         <font>
-                             <Font name="Bookman Old Style" size="28.0" />
-                         </font>
-                     </Label>
-                     <Label fx:id="dayNamePairingScreen" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                         <font>
-                             <Font name="Bookman Old Style" size="21.0" />
-                         </font>
-                     </Label>
-                 </children>
-              </GridPane>
-              <GridPane layoutX="2.0" layoutY="511.0" prefHeight="172.0" prefWidth="962.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                     <Label text="SmartMirror Pairing Code" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                         <font>
-                             <Font name="Bookman Old Style" size="42.0" />
-                         </font>
-                     </Label>
-                     <ImageView fx:id="imgQRCode" fitHeight="123.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                     <effect>
-                        <InnerShadow choke="0.7" height="48.99" radius="25.55" width="55.21">
-                           <input>
-                              <DropShadow height="5.45" radius="30.990000000000002" spread="0.7" width="120.51" />
-                           </input>
-                        </InnerShadow>
-                     </effect>
-                     <GridPane.margin>
-                        <Insets top="10.0" />
-                     </GridPane.margin>
-                  </ImageView>
-                 </children>
-              </GridPane>
-              <GridPane layoutX="1.0" layoutY="683.0" prefHeight="30.0" prefWidth="962.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                 <children>
-                     <Label fx:id="notificationPairingScreen" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                         <font>
-                             <Font name="Bookman Old Style" size="23.0" />
-                         </font>
-                     </Label>
-                 </children>
-              </GridPane>
-          </children>
+           </center>
+           <top>
+               <GridPane fx:id="pairingDateTimeContainer" prefHeight="126.0" prefWidth="1093.0"
+                         BorderPane.alignment="TOP_LEFT">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="234.0"/>
+                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.0" minWidth="10.0" prefWidth="1025.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+                   <BorderPane.margin>
+                       <Insets/>
+                   </BorderPane.margin>
+               </GridPane>
+           </top>
+       </BorderPane>
+       <AnchorPane fx:id="mainPane" style="-fx-background-color: #000000;">
+           <children>
+               <GridPane fx:id="widget1" layoutX="14.0" layoutY="14.0" prefHeight="108.0" prefWidth="234.0"
+                         AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget7" layoutX="14.0" layoutY="801.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="60.0" prefWidth="1301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"
+                         AnchorPane.rightAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget6" layoutX="14.0" layoutY="714.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="400.0" prefWidth="1301.0" AnchorPane.bottomAnchor="80.0"
+                         AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget3" layoutX="1097.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="409.0" prefWidth="322.0"
+                         style="-fx-border-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),        linear-gradient(#020b02, #3a3a3a),        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%); -fx-border-insets: 0,1,4,5,6; -fx-border-radius: 10, 10, 10, 10;"
+                         AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+               <effect>
+                   <DropShadow height="48.99" radius="19.33" spread="0.64" width="30.33"/>
+               </effect>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+            </GridPane>
+               <GridPane fx:id="gridMainQR" layoutX="239.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="120.0" prefWidth="216.0" AnchorPane.topAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget2" layoutX="459.0" layoutY="7.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="79.0" prefWidth="519.0" AnchorPane.topAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget5" layoutX="435.0" layoutY="299.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="131.0" prefWidth="442.0" AnchorPane.bottomAnchor="509.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+               <GridPane fx:id="widget4" layoutX="5.0" layoutY="117.0" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="291.0" prefWidth="234.0" AnchorPane.leftAnchor="5.0">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                   </rowConstraints>
+               </GridPane>
+           </children>
        </AnchorPane>
    </children>
-   <cursor>
-      <Cursor fx:constant="NONE" />
-   </cursor>
 </StackPane>

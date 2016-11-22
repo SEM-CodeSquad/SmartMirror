@@ -101,10 +101,6 @@ public class BusTimetableController implements Observer {
 
     public BusTimetableController() {
         Platform.runLater(this::animation);
-        Platform.runLater(this::setUp);
-        busTimetable = new BusTimetable();
-        busTimetable.addObserver(this);
-        busTimetable.setBusTimetable("nordstan");
     }
 
     private void setUp() {

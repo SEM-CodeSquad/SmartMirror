@@ -66,8 +66,8 @@
         </BorderPane>
         <AnchorPane fx:id="mainPane" style="-fx-background-color: #000000;">
             <children>
-                <GridPane fx:id="widget1" layoutX="14.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="108.0" prefWidth="234.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                <GridPane fx:id="widget1" layoutX="14.0" layoutY="14.0" prefHeight="108.0" prefWidth="234.0"
+                          AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -75,9 +75,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget7" layoutX="14.0" layoutY="801.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="60.0" prefWidth="1301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"
-                          AnchorPane.rightAnchor="5.0">
+                <GridPane fx:id="widget7" layoutX="14.0" layoutY="801.0" prefHeight="60.0" prefWidth="1301.0"
+                          AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -85,9 +84,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget6" layoutX="14.0" layoutY="714.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="400.0" prefWidth="1301.0" AnchorPane.bottomAnchor="80.0"
-                          AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                <GridPane fx:id="widget6" layoutX="14.0" layoutY="714.0" prefHeight="400.0" prefWidth="1301.0"
+                          AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -95,8 +93,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget3" layoutX="1097.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="409.0" prefWidth="322.0"
+                <GridPane fx:id="widget3" layoutX="1097.0" layoutY="14.0" prefHeight="409.0" prefWidth="322.0"
                           style="-fx-border-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),        linear-gradient(#020b02, #3a3a3a),        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%); -fx-border-insets: 0,1,4,5,6; -fx-border-radius: 10, 10, 10, 10;"
                           AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                     <columnConstraints>
@@ -109,8 +106,8 @@
                         <DropShadow height="48.99" radius="19.33" spread="0.64" width="30.33"/>
                     </effect>
                 </GridPane>
-                <GridPane fx:id="gridMainQR" layoutX="239.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="120.0" prefWidth="216.0" AnchorPane.topAnchor="5.0">
+                <GridPane fx:id="gridMainQR" layoutX="239.0" layoutY="5.0" prefHeight="120.0" prefWidth="216.0"
+                          AnchorPane.topAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -118,9 +115,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget2" layoutX="459.0" layoutY="7.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="79.0" prefWidth="519.0" AnchorPane.leftAnchor="459.0"
-                          AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="5.0">
+                <GridPane fx:id="widget2" layoutX="459.0" layoutY="7.0" prefHeight="79.0" prefWidth="519.0"
+                          AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -128,9 +124,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget5" layoutX="435.0" layoutY="299.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="131.0" prefWidth="442.0" AnchorPane.bottomAnchor="509.0"
-                          AnchorPane.leftAnchor="435.0" AnchorPane.rightAnchor="435.0">
+                <GridPane fx:id="widget5" layoutX="435.0" layoutY="299.0" prefHeight="131.0" prefWidth="442.0"
+                          AnchorPane.bottomAnchor="509.0" AnchorPane.leftAnchor="435.0" AnchorPane.rightAnchor="435.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
@@ -138,8 +133,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="widget4" layoutX="5.0" layoutY="117.0" minHeight="-Infinity" minWidth="-Infinity"
-                          prefHeight="291.0" prefWidth="234.0" AnchorPane.leftAnchor="5.0">
+                <GridPane fx:id="widget4" layoutX="5.0" layoutY="117.0" prefHeight="291.0" prefWidth="234.0"
+                          AnchorPane.leftAnchor="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>

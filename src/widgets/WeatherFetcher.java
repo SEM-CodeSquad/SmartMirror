@@ -78,7 +78,13 @@ public class WeatherFetcher extends Observable {
     android:layout_alignParentLeft="true"
     android:layout_below="@id/cityText" />*/
     public Image getImage(String code) {
-        return new Image("http://openweathermap.org/img/w/" + code + ".png");
+        File f;
+        try {
+            f = new File("resources/" + code + ".png");
+        } catch (Exception e) {
+            f = new File("resources/na.png");
+        }
+        return new Image(f.toURI().toString());
     }
 
     public String getWeatherData() {
