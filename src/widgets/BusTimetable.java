@@ -3,12 +3,6 @@ package widgets;
 import dataHandlers.BusDepartureParser;
 import dataHandlers.GenerateAccessCode;
 import dataModels.BusInfo;
-import javafx.concurrent.Worker;
-import javafx.geometry.HPos;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,7 +31,10 @@ public class BusTimetable extends Observable implements Observer {
      * @param busStop s
      */
     public void setBusTimetable(String busStop) {
+
+        System.out.println("Beginning data-fetching..");
         this.bdp.addObserver(this);
+
         GenerateAccessCode authCode = new GenerateAccessCode();
         String code = authCode.getResult();
 
@@ -66,8 +63,11 @@ public class BusTimetable extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        System.out.println("BusTimetable.update notified");
         if (arg instanceof BusInfo[]) {
             BusInfo[] busInfos = (BusInfo[]) arg;
+
+            // TODO: This should update the Controller, no?
             setChanged();
             notifyObservers(busInfos);
         }

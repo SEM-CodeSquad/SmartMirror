@@ -130,7 +130,6 @@ public class BusTimetableScreen {
         GridPane.setMargin(busMinutes3, new Insets(5, 0, 0, 5));
         busTablePane.add(busMinutes3, 1, 3);
 
-
         Label busName4 = new Label();
         busName4.setAlignment(Pos.CENTER);
         busName4.setPrefSize(40, 40);

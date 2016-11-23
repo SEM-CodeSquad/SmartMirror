@@ -1,13 +1,10 @@
 package dataHandlers;
 
 import dataModels.BusInfo;
-import interfaceView.BusTimetableScreen;
-import javafx.scene.layout.GridPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import widgets.BusTimetable;
 
 import java.util.Observable;
 
@@ -52,6 +49,7 @@ public class BusDepartureParser extends Observable {
                 busData.busFrom = jObjectData.get("stop").toString();
                 busData.busDirection = jObjectData.get("direction").toString();
                 busData.busName = jObjectData.get("sname").toString();
+                System.out.println(busData.busName + "Mid-loop data confirmation");
                 String tempTime = jObjectData.get("rtTime").toString();
                 busData.busDeparture = convertToMinutes(tempTime, busTime);
                 busData.busColor = jObjectData.get("fgColor").toString();
@@ -63,8 +61,11 @@ public class BusDepartureParser extends Observable {
             e.printStackTrace();
         }
 
+        System.out.println("Parsing done, Starting sort..");
+
         DepartureSort DS = new DepartureSort();
         DS.timeSort(busArray, i);
+        System.out.println("Sorting done. Notify Observer..");
 
         setChanged();
         notifyObservers(this.busArray);

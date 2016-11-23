@@ -99,7 +99,18 @@ public class BusTimetableController implements Observer {
     private Label[] departures;
     private Label[] nextDepartures;
 
+    // TODO: This is the most reasonable place i found to initiate the bus fetch
+
     public BusTimetableController() {
+        BusTimetable bt = new BusTimetable();
+        bt.setBusTimetable("pärlstickaregatan,göteborg");
+
+        //This does not seem to work as i hoped
+        bt.addObserver(this);
+
+        System.out.println("Stop is now assigned");
+
+        Platform.runLater(this::setUp); // Don't know if this is correct, added this line to instantiate the label array
         Platform.runLater(this::animation);
     }
 
@@ -161,6 +172,12 @@ public class BusTimetableController implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+
+        // TODO: This is what's not being reached. It should be getting the data
+        // after the departure-sort has been done
+
+        System.out.print("Beginning data injection..");
+
         if (arg instanceof BusInfo[]) {
             BusInfo[] busInfos = (BusInfo[]) arg;
 
