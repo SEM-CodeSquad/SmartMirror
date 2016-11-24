@@ -54,12 +54,12 @@ public class PostItComponents
     public void createPostIt(String msg, String userStyle, int index)
     {
        noteGenerator = new NoteGenerator(msg, userStyle);
-       noteGenerator.generateGraphicalNote(getStackPane(index), getTextArea(index));
+        //noteGenerator.generateGraphicalNote(getStackPane(index), getTextArea(index));
     }
 
     public void deletePostIt(int index)
     {
         noteGenerator = new NoteGenerator("", "");
-        noteGenerator.deleteGraphicalNote(getStackPane(index), getTextArea(index));
+        //noteGenerator.deleteGraphicalNote(getStackPane(index), getTextArea(index));
     }
 }

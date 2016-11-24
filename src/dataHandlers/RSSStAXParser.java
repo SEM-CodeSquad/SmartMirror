@@ -1,5 +1,7 @@
 package dataHandlers;
 
+import dataModels.RSSMarqueeMessage;
+
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -8,28 +10,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Observable;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.*;
 
-public class RSSStAXParser {
-    final String ITEM = "item";
-    final String TITLE = "title";
-    String news;
-    URL url;
+public class RSSStAXParser extends Observable {
+    private RSSMarqueeMessage marquee;
+    private URL url;
 
+
+    public RSSStAXParser() {
+        this.marquee = new RSSMarqueeMessage();
+    }
 
     /**
-     * constructor
      *
-     * @param source
+     *
+     * @param source s
      */
-    public RSSStAXParser(String source) {
-
-        RSSStAXParser NewsParser = null;
-
+    public void setUrl(String source) {
         if (source.equalsIgnoreCase("ABC")) {
             this.readUrl("http://feeds.abcnews.com/abcnews/internationalheadlines");
-        } else if (source.equalsIgnoreCase("Google")) {
+        } else if (source.equalsIgnoreCase("GOOGLE")) {
             this.readUrl("https://news.google.com/?output=rss");
         } else if (source.equalsIgnoreCase("CNN")) {
             this.readUrl("http://rss.cnn.com/rss/edition.rss");
@@ -37,17 +39,13 @@ public class RSSStAXParser {
             this.readUrl("http://www.dn.se/nyheter/m/rss/");
         } else if (source.equalsIgnoreCase("SVT")) {
             this.readUrl("http://www.svt.se/nyheter/rss.xml");
-        } else if (source.equalsIgnoreCase("Expressen")) {
+        } else if (source.equalsIgnoreCase("EXPRESSEN")) {
             this.readUrl("http://expressen.se/rss/nyheter");
         } else {
             this.readUrl("http://feeds.abcnews.com/abcnews/internationalheadlines");
         }
-        RSSFeed feed = NewsParser.RSSParser();
-        this.news = feed.toString();
-        for (Object message : feed.getList()) {
-            this.news += "   ★" + message.toString();
-        }
 
+        this.rssParser();
     }
 
     /**
@@ -64,24 +62,13 @@ public class RSSStAXParser {
     }
 
     /**
-     * Getter to get news
-     *
-     * @return parsered news
-     */
-    public String getNews() {
-        return this.news;
-    }
-
-
-    /**
      * Parse the XML file from given URL and store the Source of the RSS Feed as well as the news title into the linked list
      *
      *
-     * @return rssFeed
      */
-
-    public RSSFeed RSSParser() {
-
+    @SuppressWarnings("unchecked")
+    private void rssParser() {
+        String news = null;
         RSSFeed rssFeed = null;
 
         try {
@@ -103,7 +90,7 @@ public class RSSStAXParser {
                     switch (localPart) {
 
 
-                        case ITEM:
+                        case "item":
 
                             if (isFeedHeader) {
                                 isFeedHeader = false;
@@ -112,40 +99,53 @@ public class RSSStAXParser {
                             event = eventReader.nextEvent();
                             StartElement startElement1 = event.asStartElement();
                             String qName1 = startElement1.getName().getLocalPart();
-                            if(qName1.equalsIgnoreCase("title")){
+                            if (qName1.equalsIgnoreCase("title")) {
                                 Title = getCharacterData(event, eventReader);
                             }
 
                             break;
 
-                        case TITLE:
+
+                        case "title":
 
                             Title = getCharacterData(event, eventReader);
                             break;
 
                     }
-                }
+                } else if (event.isEndElement()) {
 
-
-                else if (event.isEndElement()) {
-
-                    if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
+                    if (event.asEndElement().getName().getLocalPart().equals("item")) {
                         RSSMessage rssMsg = new RSSMessage();
                         rssMsg.setTitle(Title);
+                        assert rssFeed != null;
                         rssFeed.getList().add(rssMsg);
-                        event = eventReader.nextEvent();
-                        continue;
-
+                        eventReader.nextEvent();
                     }
 
                 }
             }
+            eventReader.close();
+            RSS.close();
 
-
-        } catch (XMLStreamException e) {
-
+        } catch (XMLStreamException ignored) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return rssFeed;
+
+        if (rssFeed != null) {
+            news = rssFeed.toString();
+            for (Object message : rssFeed.getList()) {
+                news += "   ★" + message.toString();
+            }
+        } else {
+            news += "   ★ N/A";
+        }
+
+        this.marquee.setMsg(news);
+        setChanged();
+        notifyObservers(this.marquee);
+        System.out.println("notified text");
+
     }
 
     /**
@@ -163,10 +163,11 @@ public class RSSStAXParser {
         }
     }
 
+
     /**
      *
-     * @param event
-     * @param eventReader
+     * @param event e
+     * @param eventReader e
      * @return result
      * @throws XMLStreamException
      */

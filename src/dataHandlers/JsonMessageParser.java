@@ -1,11 +1,9 @@
 package dataHandlers;
 
-import dataModels.Content;
+import dataModels.Device;
 import dataModels.PostItAction;
 import dataModels.PostItNote;
-import controllers.PairingManager;
-import controllers.PostItGuiManager;
-import controllers.SettingsManager;
+import dataModels.Settings;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,21 +19,13 @@ public class JsonMessageParser extends Observable
     private String content;
     private String messageFrom;
     private String timestamp;
-    private LinkedList<Content> deviceList;
-    private LinkedList<Content> settingsList;
-    private LinkedList<Content> pairingList;
-    private LinkedList<PostItNote> postItNotes;
-    private LinkedList<PostItAction> postItActions;
+    private LinkedList<Device> deviceList;
+    private LinkedList<Device> settingsList;
 
-    public JsonMessageParser(SettingsManager settingsManager, PairingManager authenticationManager,
-                             PostItGuiManager postitGuiManager)
+    public JsonMessageParser()
     {
-        addObserver(settingsManager);
-        addObserver(authenticationManager);
-        addObserver(postitGuiManager);
-        this.postItNotes = new LinkedList<>();
-        this.postItActions = new LinkedList<>();
         this.settingsList = new LinkedList<>();
+        this.deviceList = new LinkedList<>();
     }
 
     public void parseMessage(String message)
@@ -49,16 +39,6 @@ public class JsonMessageParser extends Observable
             this.timestamp = json.get("timestamp").toString();
             this.contentType = json.get("contentType").toString();
             this.content = json.get("content").toString();
-            if (this.postItNotes.size() > 0)
-            {
-                setChanged();
-                notifyObservers("post-it");
-            }
-            else if (this.postItActions.size() > 0)
-            {
-                setChanged();
-                notifyObservers("post-it action");
-            }
         }
         catch (ParseException e)
         {
@@ -87,20 +67,22 @@ public class JsonMessageParser extends Observable
                     boolean important = jso.get("important").toString().equals("true");
                     int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
                     PostItNote postItNote = new PostItNote(postItId, bodyText, senderId, important, timestamp);
-                    this.postItNotes.add(postItNote);
+
                     setChanged();
-                    notifyObservers("post-it");
+                    notifyObservers(postItNote);
                     break;
 
                 case "device":
                     this.deviceList = new LinkedList<>();
-                    parseArray(this.deviceList);
+                    parseArray(this.deviceList, "device");
+                    setChanged();
+                    notifyObservers(this.deviceList);
                     break;
 
                 case "settings":
-                    parseArray(this.settingsList);
+                    parseArray(this.settingsList, "settings");
                     setChanged();
-                    notifyObservers("settings");
+                    notifyObservers(this.settingsList);
                     break;
 
                 case "pairing":
@@ -115,9 +97,8 @@ public class JsonMessageParser extends Observable
                     String action = jso.get("action").toString();
                     String modification = jso.get("modification").toString();
                     PostItAction postItAction = new PostItAction(postItId, action, modification);
-                    this.postItActions.add(postItAction);
                     setChanged();
-                    notifyObservers("post-it action");
+                    notifyObservers(postItAction);
                     break;
 
                 default:
@@ -135,7 +116,7 @@ public class JsonMessageParser extends Observable
 
 
     @SuppressWarnings("unchecked")
-    private void parseArray(LinkedList linkedList)
+    private void parseArray(LinkedList linkedList, String type)
     {
         try {
             JSONParser parser = new JSONParser();
@@ -143,20 +124,23 @@ public class JsonMessageParser extends Observable
             String s = jsonArray.get(0).toString();
             JSONObject jso = (JSONObject) parser.parse(s);
             ArrayList<String> arrayList = new ArrayList<>(jso.keySet());
-            Content content;
+            Device device;
+            Settings settings;
             for (String anArrayList : arrayList)
             {
                 String value = jso.get(anArrayList).toString();
-                content = new Content(anArrayList, value);
-                linkedList.add(content);
+                if (type.equals("device")) {
+                    device = new Device(anArrayList, value);
+                    linkedList.add(device);
+                } else if (type.equals("settings")) {
+                    settings = new Settings(anArrayList, value);
+                    linkedList.add(settings);
+                }
+
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
-
-    public Content getPairing() {
-        return this.pairingList.remove();
     }
 
     public String getMessage()
@@ -184,22 +168,12 @@ public class JsonMessageParser extends Observable
         return timestamp;
     }
 
-    public PostItNote getPostItNote()
-    {
-        return postItNotes.remove();
-    }
-
-    public PostItAction getPostItAction()
-    {
-        return postItActions.remove();
-    }
-
-    public Content getDeviceList()
+    public Device getDeviceList()
     {
         return this.deviceList.remove();
     }
 
-    public Content getSettings()
+    public Device getSettings()
     {
         return this.settingsList.remove();
     }

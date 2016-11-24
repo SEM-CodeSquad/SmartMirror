@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="feedPane" maxHeight="-Infinity" maxWidth="-Infinity"
-          minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="519.0"
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="feedPane" prefHeight="79.0" prefWidth="519.0"
           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
           fx:controller="controllers.FeedController">
     <columnConstraints>
@@ -14,9 +17,11 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
-    <Label fx:id="notification" textFill="#f8f8f8" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP">
-        <font>
-            <Font name="Microsoft YaHei" size="20.0"/>
-        </font>
-    </Label>
+    <children>
+        <Label fx:id="notification" textFill="#f8f8f8" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <font>
+                <Font name="Microsoft YaHei" size="20.0"/>
+            </font>
+        </Label>
+    </children>
 </GridPane>

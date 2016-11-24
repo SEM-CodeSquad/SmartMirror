@@ -40,7 +40,7 @@ public class TemperatureController {
         this.weatherFetcher = new WeatherFetcher();
         this.weatherParser = new JSONWeatherParser();
         this.weatherFetcher.addObserver(this.weatherParser);
-        Platform.runLater(() -> this.updateWeather("gothenburg,se"));
+        Platform.runLater(() -> this.updateWeather("london,uk"));
     }
 
     public void updateWeather(String town) {

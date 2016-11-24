@@ -32,6 +32,7 @@ public class TimeDateController implements Observer {
 
     @Override
     public void update(java.util.Observable o, Object arg) {
+
         if (arg instanceof TimeS) {
             TimeS now = (TimeS) arg;
             setTime(now.getTime());

@@ -1,6 +1,7 @@
 package controllers;
 
 
+import dataHandlers.TransitionAnimation;
 import dataModels.BusInfo;
 import javafx.animation.*;
 import javafx.application.Platform;
@@ -125,45 +126,8 @@ public class BusTimetableController implements Observer {
     }
 
     private void animation() {
-        GridPane[] gridPanes = {timetable1, timetable2, timetable3};
 
-        SequentialTransition sequentialTransition = new SequentialTransition();
-        sequentialTransition.getChildren().addAll(
-                fadeIn(gridPanes[0]),
-                pauseEffect(),
-                fadeOut(gridPanes[0]),
-                fadeIn(gridPanes[1]),
-                pauseEffect(),
-                fadeOut(gridPanes[1]),
-                fadeIn(gridPanes[2]),
-                pauseEffect(),
-                fadeOut(gridPanes[2]));
-        sequentialTransition.setCycleCount(Timeline.INDEFINITE);
-        sequentialTransition.setAutoReverse(false);
-        sequentialTransition.play();
 
-    }
-
-    private FadeTransition fadeIn(GridPane node) {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(duration), node);
-
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
-
-        return fadeIn;
-    }
-
-    private FadeTransition fadeOut(GridPane node) {
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(duration), node);
-
-        fadeOut.setFromValue(1);
-        fadeOut.setToValue(0);
-
-        return fadeOut;
-    }
-
-    private PauseTransition pauseEffect() {
-        return new PauseTransition(Duration.seconds(1));
     }
 
     private void setInfo(Label l, String text) {

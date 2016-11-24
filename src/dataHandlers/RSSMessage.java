@@ -20,7 +20,7 @@ class RSSMessage {
     /**
      * item title setter
      *
-     * @param title
+     * @param title t
      */
     void setTitle(String title) {
         this.title = title;

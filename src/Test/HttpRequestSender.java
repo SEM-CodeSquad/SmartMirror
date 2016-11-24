@@ -1,5 +1,7 @@
 package Test;
 
+import com.sun.jndi.toolkit.url.Uri;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -43,7 +45,7 @@ class HttpRequestSender
         HttpURLConnection connection = null;
 
         try {
-            String encodedMsg = URLEncoder.encode(this.msg, String.valueOf(Charset.forName("UTF-8")));
+            String encodedMsg = URLEncoder.encode(this.msg, "utf-8");
             String query = "?broker=" + this.brokerHostname + "&topic=" + this.topic + "&msg=" + encodedMsg
                     + "&password=CodeHigh_SmartMirror";
 

@@ -3,13 +3,7 @@ package dataHandlers;
 import java.util.LinkedList;
 
 
-public class RSSFeed {
-
-
-    /*
-     * Stores an RSSFeed's Title
-     */
-
+class RSSFeed {
     private final LinkedList<RSSMessage> entries = new LinkedList<>();
     private final String title;
 
@@ -32,7 +26,7 @@ public class RSSFeed {
      * @return entries
      */
 
-    public LinkedList getList() {
+    LinkedList getList() {
         return entries;
     }
 

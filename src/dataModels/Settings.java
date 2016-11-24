@@ -1,11 +1,11 @@
 package dataModels;
 
-public class Content
+public class Settings
 {
     private String key;
     private String value;
 
-    public Content(String name, String value)
+    public Settings(String name, String value)
     {
         this.key = name;
         this.value = value;

@@ -3,8 +3,10 @@ package mqttClient;
 import dataModels.Timestamp;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Observable;
 
 public class SmartMirror_Publisher extends Observable
@@ -37,23 +39,28 @@ public class SmartMirror_Publisher extends Observable
 
 
     @SuppressWarnings({"unchecked", "MismatchedQueryAndUpdateOfCollection"})
-    public void publishPresenceMessage(String version, String groupName, int groupNumber, long timestamp,
-                                       String[] rfcs, String clientVersion, String clientId)
+    public void publishPresenceMessage(String version, String groupName, int groupNumber, String clientVersion,
+                                       String clientId, String... rfcs)
     {
-        String gNum = "\"" + String.valueOf(groupNumber) + "\"";
-        String ts = "\"" + String.valueOf(timestamp) + "\"";
+        String gNum = String.valueOf(groupNumber);
+        this.timestamp = new Timestamp();
+        String ts = String.valueOf(this.timestamp.getTimestamp());
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("version", version);
         jsonObject.put("groupName", groupName);
         jsonObject.put("groupNumber", gNum);
         jsonObject.put("connectedAt", ts);
-        jsonObject.put("rfcs", Arrays.toString(rfcs));
+        JSONArray rfcArray = new JSONArray();
+        Collections.addAll(rfcArray, rfcs);
+        jsonObject.put("rfcs", rfcArray.toString());
         jsonObject.put("clientVersion", clientVersion);
         jsonObject.put("clientSoftware", "SmartMirror");
 
+        System.out.println(jsonObject.toString());
+
         byte[] presenceMessage = jsonObject.toString().getBytes();
 
-        String topic = "presence/SmartMirror/" + clientId;
+        String topic = "presence/" + clientId;
         try
         {
            this.client.getClient().publish(topic, presenceMessage, 1, true);
@@ -68,15 +75,15 @@ public class SmartMirror_Publisher extends Observable
     /**
      * Method echo sends an echo message to a device that has sent messages to this client
      *
-     * @param topic
+     * @param topic t
      */
     @SuppressWarnings("unchecked")
     public void echo(String topic){
-        String clientID = topic.substring(7, topic.indexOf('p') - 1); // parse the topic to retrieve clientID
-        String echoTopic = "dit029/" + clientID + "/echo";
+        String clientID = this.client.getClientId();
+        String echoTopic = "dit029/SmartMirror/" + clientID + "/echo";
 
         timestamp = new Timestamp();
-        String ts = "\"" + String.valueOf(timestamp.getTimestamp()) + "\"";
+        String ts = String.valueOf(timestamp.getTimestamp());
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("messageFrom", clientID);

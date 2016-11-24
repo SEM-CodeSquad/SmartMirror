@@ -56,6 +56,8 @@ public class DeviceController implements Observer {
     public Label deviceName19;
     public GridPane device20;
     public Label deviceName20;
+    public StackPane deviceList2;
+    public StackPane deviceList1;
 
     @Override
     public void update(Observable o, Object arg) {

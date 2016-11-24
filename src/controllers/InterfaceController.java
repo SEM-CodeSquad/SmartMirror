@@ -71,7 +71,7 @@ public class InterfaceController implements Observer {
     public GridPane timetableContainer;
     private PostItGuiManager postitGuiManager;
     private SettingsManager settings;
-    private PairingManager pairingManager;
+    private CommunicationManager pairingManager;
     private JsonMessageParser parser;
     private boolean systemRunning;
     private PostItComponents postItComponents;
@@ -98,12 +98,12 @@ public class InterfaceController implements Observer {
         QRCode qrCode = new QRCode(clientId);
         this.timePairingScreen.setText("10:00");
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
-        this.pairingManager = new PairingManager(this.clientId, this.mqttClient, this);
+        //this.pairingManager = new CommunicationManager(this.clientId, this.mqttClient, this);
         BusTimetable busTimetable = new BusTimetable();
         TimeDateManager timeDateManager = new TimeDateManager();
         this.settings = new SettingsManager(this.webViewBus, this.timetableContainer, this);
-        this.pairingManager.listenPairing();
-        this.parser = new JsonMessageParser(settings, pairingManager, postitGuiManager);
+
+        //this.parser = new JsonMessageParser(settings, pairingManager, postitGuiManager);
         this.postItComponents.addPane(0, postPane1);
         this.postItComponents.addPane(1, postPane2);
         this.postItComponents.addPane(2, postPane3);
@@ -176,8 +176,7 @@ public class InterfaceController implements Observer {
                 parser.parseContent();
             });
             thread.start();
-        }
-        else if (obj instanceof PairingManager)
+        } else if (obj instanceof CommunicationManager)
         {
             changeScene(pairingPane, mainPane);
         }

@@ -103,7 +103,7 @@ public class PostItGuiManager extends Observable implements Observer
         if (arg.equals("post-it"))
         {
             Thread thread = new Thread(()->{
-                this.postItNote = gui.getParser().getPostItNote();
+                //this.postItNote = gui.getParser().getPostItNote();
                 int freeIndex = freePostIndex();
                 if (freeIndex != -1)
                 {
@@ -123,7 +123,7 @@ public class PostItGuiManager extends Observable implements Observer
         else if (arg.equals("post-it action"))
         {
            Thread thread = new Thread(()->{
-               this.postItAction = this.gui.getParser().getPostItAction();
+               // this.postItAction = this.gui.getParser().getPostItAction();
                if (postItAction.isActionDelete())
                {
                    deletePostIt(postItAction.getPostItId());

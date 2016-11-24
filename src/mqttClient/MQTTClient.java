@@ -12,20 +12,18 @@ public class MQTTClient
 {
     private MqttConnectOptions options;
     private MqttClient client;
-    private long unixTime;
+    private String clientId;
 
     public MQTTClient(String url, String id)
     {
         try
         {
+            this.clientId = id;
             options = new MqttConnectOptions();
             options.setCleanSession(false);
             options.setKeepAliveInterval(20);
             client = new MqttClient(url, id);
             client.connect(options);
-
-            this.unixTime = System.currentTimeMillis() / 1000L;
-
             System.out.println("Client Connected!");
         }
         catch (MqttException e)
@@ -39,7 +37,7 @@ public class MQTTClient
         System.out.println("Disconnecting...");
         try
         {
-            String topic = "dit029/SmartMirror/" + clientId;
+            String topic = "presence/" + clientId;
             byte[] emptyArray = new byte[0];
             this.client.publish(topic, emptyArray, 1, true);
 
@@ -72,9 +70,9 @@ public class MQTTClient
         return client;
     }
 
-    public long getUnixTime()
+    public String getClientId()
     {
-        return this.unixTime;
+        return this.clientId;
     }
 
 

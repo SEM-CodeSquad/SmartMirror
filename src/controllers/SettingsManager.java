@@ -1,6 +1,6 @@
 package controllers;
 
-import dataModels.Content;
+import dataModels.Device;
 import javafx.application.Platform;
 import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebView;
@@ -15,7 +15,7 @@ public class SettingsManager implements Observer
     private WebView webView;
     private String busStop;
     private GridPane busPane;
-    private Content settingsContent;
+    private Device settingsContent;
 
     SettingsManager(WebView webView, GridPane busPane, InterfaceController gui)
     {
@@ -26,9 +26,9 @@ public class SettingsManager implements Observer
 
     private void assignSettings()
     {
-        if (this.settingsContent.getKey().equals("busStop"))
+        if (this.settingsContent.getDeviceName().equals("busStop"))
         {
-            this.busStop = this.settingsContent.getValue();
+            this.busStop = this.settingsContent.getStatus();
         }
     }
 
