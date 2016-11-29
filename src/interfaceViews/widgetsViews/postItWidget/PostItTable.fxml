@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="postPanes" prefHeight="965.0" prefWidth="1145.0"
+           xmlns="http://javafx.com/javafx/8.0.76-ea">
+    <children>
+        <GridPane fx:id="postItPaneStandard" hgap="55.0" prefHeight="965.0" prefWidth="1145.0"
+                  style="-fx-background-color: #000000;" vgap="5.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <StackPane fx:id="postPaneS1" prefHeight="238.0" prefWidth="350.0">
+                    <children>
+                        <Canvas fx:id="canvas1" height="200.0" width="345.0">
+                            <cursor>
+                                <Cursor fx:constant="NONE"/>
+                            </cursor>
+                        </Canvas>
+                        <TextArea fx:id="postTextS1" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS2" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <children>
+                        <Canvas fx:id="canvas2" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS2" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS3" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                    <children>
+                        <Canvas fx:id="canvas3" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS3" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS4" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                    <children>
+                        <Canvas fx:id="canvas4" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS4" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                    <children>
+                        <Canvas fx:id="canvas5" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS5" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                           GridPane.rowIndex="1">
+                    <children>
+                        <Canvas fx:id="canvas6" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS6" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                           GridPane.rowIndex="2">
+                    <children>
+                        <Canvas fx:id="canvas7" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS7" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS8" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                           GridPane.rowIndex="3">
+                    <children>
+                        <Canvas fx:id="canvas8" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS8" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS9" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                    <children>
+                        <Canvas fx:id="canvas9" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS9" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2"
+                           GridPane.rowIndex="1">
+                    <children>
+                        <Canvas fx:id="canvas10" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS10" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2"
+                           GridPane.rowIndex="2">
+                    <children>
+                        <Canvas fx:id="canvas11" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS11" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="postPaneS12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2"
+                           GridPane.rowIndex="3">
+                    <children>
+                        <Canvas fx:id="canvas12" height="200.0" width="345.0"/>
+                        <TextArea fx:id="postTextS12" editable="false" prefHeight="200.0" prefWidth="200.0"
+                                  stylesheets="@textArea.css" wrapText="true">
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR"/>
+                            </cursor>
+                            <font>
+                                <Font name="Microsoft YaHei" size="22.0"/>
+                            </font>
+                            <StackPane.margin>
+                                <Insets bottom="20.0" top="20.0"/>
+                            </StackPane.margin>
+                        </TextArea>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="NONE"/>
+                    </cursor>
+                </StackPane>
+            </children>
+            <cursor>
+                <Cursor fx:constant="NONE"/>
+            </cursor>
+        </GridPane>
+    </children>
+    <cursor>
+        <Cursor fx:constant="NONE"/>
+    </cursor>
+</StackPane>
