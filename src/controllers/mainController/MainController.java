@@ -21,7 +21,9 @@ import dataModels.widgetsModels.qrCodeModels.QRCode;
 import dataModels.widgetsModels.weatherModels.Town;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -253,23 +255,15 @@ public class MainController extends Observable implements Observer {
         return myLoader;
     }
 
-    private synchronized void sendBusStop(Object arg) {
-        BusStop busStop = (BusStop) arg;
-        this.busTimetableController.setBusStopName(busStop.getBusStop());
-        this.setComponentVisible(this.widget3);
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
-    private synchronized void sendTown(Object arg) {
-        Town town = (Town) arg;
-        this.temperatureController.updateWeather(town.getTown());
-        this.setComponentVisible(this.widget4);
-    }
-
-    private synchronized void sendSource(Object arg) {
-        NewsSource newsSource = (NewsSource) arg;
-        this.feedController.setNewsSource(newsSource.getNewsSource());
-        this.setComponentVisible(this.widget2);
-    }
 
     @Override
     public void update(Observable o, Object arg) {
@@ -290,19 +284,23 @@ public class MainController extends Observable implements Observer {
             setComponentVisible(widget5);
 
         } else if (arg instanceof BusStop) {
-            Thread thread = new Thread(() -> sendBusStop(arg));
+            Thread thread = new Thread(() -> this.setComponentVisible(this.widget3));
             thread.start();
 
         } else if (arg instanceof Town) {
-            Thread thread = new Thread(() -> sendTown(arg));
+            Thread thread = new Thread(() -> this.setComponentVisible(this.widget4));
             thread.start();
 
         } else if (arg instanceof NewsSource) {
-            Thread thread = new Thread(() -> sendSource(arg));
+            Thread thread = new Thread(() -> this.setComponentVisible(this.widget2));
             thread.start();
 
         } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
-            setComponentVisible(widget7);
+            Thread thread = new Thread(() -> setComponentVisible(widget7));
+            thread.start();
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("timetable")) {
+            Thread thread = new Thread(() -> Platform.runLater(() -> monitorWidgetVisibility(stackPaneWidget3, widget3)));
+            thread.start();
         }
 
     }

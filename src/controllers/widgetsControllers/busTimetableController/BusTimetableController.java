@@ -5,6 +5,7 @@ import dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
 import dataModels.applicationModels.ChainedMap;
 import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.busTimetableModels.BusInfo;
+import dataModels.widgetsModels.busTimetableModels.BusStop;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -226,6 +227,13 @@ public class BusTimetableController implements Observer {
         } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("timetable")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
+        } else if (arg instanceof BusStop) {
+            Thread thread = new Thread(() -> {
+                BusStop busStop = (BusStop) arg;
+                setBusStopName(busStop.getBusStop());
+            });
+            thread.start();
+
         }
     }
 }

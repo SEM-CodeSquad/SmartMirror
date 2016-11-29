@@ -1,6 +1,7 @@
 package controllers.widgetsControllers.temperatureController;
 
 import dataModels.applicationModels.Preferences;
+import dataModels.widgetsModels.weatherModels.Town;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -108,6 +109,13 @@ public class TemperatureController implements Observer {
         } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("weather")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
+        } else if (arg instanceof Town) {
+            Thread thread = new Thread(() -> {
+                Town town = (Town) arg;
+                updateWeather(town.getTown());
+            });
+            thread.start();
+
         }
     }
 }

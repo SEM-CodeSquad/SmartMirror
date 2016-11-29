@@ -3,6 +3,7 @@ package controllers.widgetsControllers.feedController;
 import dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
 import dataHandlers.widgetsDataHandlers.feed.MarqueePane;
 import dataModels.applicationModels.Preferences;
+import dataModels.widgetsModels.feedModels.NewsSource;
 import dataModels.widgetsModels.feedModels.RSSMarqueeMessage;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
@@ -63,6 +64,13 @@ public class FeedController implements Observer {
         } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("feed")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
+        } else if (arg instanceof NewsSource) {
+            Thread thread = new Thread(() -> {
+                NewsSource newsSource = (NewsSource) arg;
+                setNewsSource(newsSource.getNewsSource());
+            });
+            thread.start();
+
         }
     }
 }
