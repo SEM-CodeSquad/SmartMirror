@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="postPanes" prefHeight="965.0" prefWidth="1145.0"
+           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
+           fx:controller="controllers.widgetsControllers.postItsController.PostItViewController">
+    <cursor>
+        <Cursor fx:constant="NONE"/>
+    </cursor>
+</StackPane>

@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaceView/MainInterface.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaceViews/mainViews/MainInterface.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 480, 640);
         primaryStage.setTitle("SmartMirror");
