@@ -178,11 +178,7 @@ public class DeviceController implements Observer {
     }
 
     private synchronized void setStatus(DevicesToggleButton button, String status) {
-        if (status.equals("on")) {
-            button.switchProperty().set(true);
-        } else if (status.equals("off")) {
-            button.switchProperty().set(false);
-        }
+        Platform.runLater(() -> button.switchProperty().set(status.equals("true")));
     }
 
     private synchronized void animationFadeIn(GridPane gridPane) {

@@ -81,18 +81,6 @@ public class MainController extends Observable implements Observer {
         this.systemRunning = true;
         uuid = new UUID_Generator();
         communicationManager = new CommunicationManager(uuid.getUUID(), this);
-
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//
-//            @Override
-//            public void run() {
-//                Platform.runLater(() -> changeScene());
-//
-//            }
-//        }, 3000);
-
-
     }
 
     private void startUp() {

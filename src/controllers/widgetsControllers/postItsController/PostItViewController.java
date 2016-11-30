@@ -5,13 +5,17 @@ import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.postItsModels.PostItAction;
 import dataModels.widgetsModels.postItsModels.PostItNote;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * @author Pucci on 22/11/2016.
@@ -109,6 +113,25 @@ public class PostItViewController extends Observable implements Observer {
         this.animation.playSeqAnimation();
 
 
+    }
+
+    //TODO
+    private synchronized void showSpecificTable(String colour) {
+        this.animation.pauseSeqAnimation();
+        Platform.runLater(() -> {
+
+        });
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+
+                });
+
+            }
+        }, 3000);
     }
 
     private synchronized void setVisible(boolean b) {

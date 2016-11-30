@@ -31,15 +31,15 @@ class BusDepartureParser extends Observable {
 
             long difference = date2.getTime() - date1.getTime();
 
-            long dminutes = difference / (60 * 1000);
+            long dMinutes = difference / (60 * 1000);
 
-            minutes = (int) dminutes;
+            minutes = (int) dMinutes;
 
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
 
-        return minutes;
+        return minutes - 1;
     }
 
     @SuppressWarnings("unchecked")
@@ -52,37 +52,79 @@ class BusDepartureParser extends Observable {
 
             JSONObject jObject = (JSONObject) parser.parse(busJson);
             JSONObject jObject1 = (JSONObject) jObject.get("DepartureBoard");
-            JSONArray jArray2 = (JSONArray) jObject1.get("Departure");
 
-            busArray = new BusInfo[jArray2.size()];
+            Object departure = jObject1.get("Departure");
 
-            for (int i = 0; i < jArray2.size() - 1; i++) {
-
-                JSONObject jObjectData = (JSONObject) jArray2.get(i);
+            if (departure instanceof JSONObject) {
+                JSONObject jData = (JSONObject) departure;
                 BusInfo busData = new BusInfo();
-
-                if (jObjectData.get("rtTime") != null && convertToMinutes(jObjectData.get("rtTime").toString()) >= 0) {
-                    busData.busFrom = jObjectData.get("stop").toString();
-                    busData.busDirection = jObjectData.get("direction").toString();
-                    busData.busName = jObjectData.get("sname").toString();
-                    String tempTime = jObjectData.get("rtTime").toString();
+                if (jData.get("rtTime") != null && convertToMinutes(jData.get("rtTime").toString()) >= 0) {
+                    busData.busFrom = jData.get("stop").toString();
+                    busData.busDirection = jData.get("direction").toString();
+                    busData.busName = jData.get("sname").toString();
+                    String tempTime = jData.get("rtTime").toString();
                     busData.busDeparture = convertToMinutes(tempTime);
-                    busData.busColor = jObjectData.get("fgColor").toString();
+                    busData.busColor = jData.get("fgColor").toString();
 
                     busArray[index] = busData;
-                    index++;
+                } else if (convertToMinutes(jData.get("time").toString()) >= 0) {
+                    busData.busFrom = jData.get("stop").toString();
+                    busData.busDirection = jData.get("direction").toString();
+                    busData.busName = jData.get("sname").toString();
+                    String tempTime = jData.get("time").toString();
+                    busData.busDeparture = convertToMinutes(tempTime);
+                    busData.busColor = jData.get("fgColor").toString();
+
+                    busArray[index] = busData;
                 }
+                setChanged();
+                notifyObservers(this.busArray);
+
+            } else if (departure instanceof JSONArray) {
+                JSONArray jArray2 = (JSONArray) departure;
+
+                busArray = new BusInfo[jArray2.size()];
+
+                for (int i = 0; i < jArray2.size() - 1; i++) {
+
+                    JSONObject jObjectData = (JSONObject) jArray2.get(i);
+                    BusInfo busData = new BusInfo();
+
+                    if (jObjectData.get("rtTime") != null && convertToMinutes(jObjectData.get("rtTime").toString()) >= 0) {
+                        busData.busFrom = jObjectData.get("stop").toString();
+                        busData.busDirection = jObjectData.get("direction").toString();
+                        busData.busName = jObjectData.get("sname").toString();
+                        String tempTime = jObjectData.get("rtTime").toString();
+                        busData.busDeparture = convertToMinutes(tempTime);
+                        busData.busColor = jObjectData.get("fgColor").toString();
+
+                        busArray[index] = busData;
+                        index++;
+                    } else if (convertToMinutes(jObjectData.get("time").toString()) >= 0) {
+                        busData.busFrom = jObjectData.get("stop").toString();
+                        busData.busDirection = jObjectData.get("direction").toString();
+                        busData.busName = jObjectData.get("sname").toString();
+                        String tempTime = jObjectData.get("time").toString();
+                        busData.busDeparture = convertToMinutes(tempTime);
+                        busData.busColor = jObjectData.get("fgColor").toString();
+
+                        busArray[index] = busData;
+                        index++;
+                    }
+                }
+
+                DepartureSort DS = new DepartureSort();
+                DS.timeSort(busArray, index);
+                setChanged();
+                notifyObservers(this.busArray);
+            } else {
+                System.err.println(departure.getClass().toString());
             }
-
-            DepartureSort DS = new DepartureSort();
-            DS.timeSort(busArray, index);
-
         } catch (ParseException e) {
             System.out.println(e.getMessage());
         }
 
-        setChanged();
-        notifyObservers(this.busArray);
+
     }
 
 }

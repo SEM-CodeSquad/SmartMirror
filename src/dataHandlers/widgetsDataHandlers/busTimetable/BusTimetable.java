@@ -41,7 +41,8 @@ public class BusTimetable extends Observable implements Observer {
         StringBuilder result = new StringBuilder();
         URL url;
         try {
-            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" + busStop + "&date=" + busDate + "&time=" + busTime + "&needJourneyDetail=0&type=accurate&format=json");
+            url = new URL("https://api.vasttrafik.se/bin/rest.exe/v2/departureBoard?id=" +
+                    busStop + "&date=" + busDate + "&time=" + busTime + "&timeSpan=120&needJourneyDetail=0&type=accurate&format=json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization", "Bearer " + code);
