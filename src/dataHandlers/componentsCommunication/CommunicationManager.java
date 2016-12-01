@@ -52,6 +52,7 @@ public class CommunicationManager extends Observable implements Observer {
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/postit");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/settings");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/device");
+        listenSubscription("dit029/SmartMirror/" + this.clientId + "/preferences");
     }
 
     private synchronized void publishEcho(String msg, boolean success) {

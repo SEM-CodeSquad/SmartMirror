@@ -44,7 +44,7 @@ public class TimeDateController implements Observer {
         } else if (arg instanceof Day) {
             Day now = (Day) arg;
             setDayName(now.getDayName());
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("time&date")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget1")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         }

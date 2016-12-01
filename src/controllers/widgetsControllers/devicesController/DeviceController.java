@@ -218,7 +218,7 @@ public class DeviceController implements Observer {
                 }
             });
             thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("device")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget7")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         }

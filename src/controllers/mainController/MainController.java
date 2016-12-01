@@ -243,16 +243,6 @@ public class MainController extends Observable implements Observer {
         return myLoader;
     }
 
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
-        boolean visible = false;
-        ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list) {
-            visible = node.isVisible();
-        }
-        gridPane.setVisible(visible);
-    }
-
-
     @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof JsonMessageParser) {
@@ -286,8 +276,14 @@ public class MainController extends Observable implements Observer {
         } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
             Thread thread = new Thread(() -> setComponentVisible(widget7));
             thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("timetable")) {
-            Thread thread = new Thread(() -> Platform.runLater(() -> monitorWidgetVisibility(stackPaneWidget3, widget3)));
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget3")) {
+            Thread thread = new Thread(() -> Platform.runLater(() -> {
+                if (((Preferences) arg).getValue().equals("true")) {
+                    setComponentVisible(widget3);
+                } else {
+                    setComponentInvisible(widget3);
+                }
+            }));
             thread.start();
         }
 

@@ -224,7 +224,7 @@ public class BusTimetableController implements Observer {
                 && this.stopName != null && !processing) {
             this.processing = true;
             this.setBusStopName(this.stopName);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("timetable")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget3")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         } else if (arg instanceof BusStop) {

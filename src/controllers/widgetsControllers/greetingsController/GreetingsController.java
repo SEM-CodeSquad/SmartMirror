@@ -32,7 +32,7 @@ public class GreetingsController implements Observer {
         if (arg instanceof Greetings) {
             Greetings greetings = (Greetings) arg;
             setGreetings(greetings.getGreetings());
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("greetings")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget5")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         }

@@ -61,7 +61,7 @@ public class FeedController implements Observer {
         } else if (arg.equals("Update Weather and News") && this.feedPane.isVisible()
                 && this.newsSource != null) {
             this.setNewsSource(this.newsSource);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("feed")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget2")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         } else if (arg instanceof NewsSource) {

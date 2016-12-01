@@ -31,7 +31,7 @@ public class TransitionAnimation {
         sequentialTransition.setAutoReverse(false);
     }
 
-    public FadeTransition fadeIn(StackPane node, double duration) {
+    private FadeTransition fadeIn(StackPane node, double duration) {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(duration), node);
 
         fadeIn.setFromValue(0);
@@ -40,7 +40,7 @@ public class TransitionAnimation {
         return fadeIn;
     }
 
-    public FadeTransition fadeOut(StackPane node, double duration) {
+    private FadeTransition fadeOut(StackPane node, double duration) {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(duration), node);
 
         fadeOut.setFromValue(1);
@@ -67,5 +67,9 @@ public class TransitionAnimation {
 
     public void pauseSeqAnimation() {
         sequentialTransition.pause();
+    }
+
+    public SequentialTransition getSequentialTransition() {
+        return sequentialTransition;
     }
 }

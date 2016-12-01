@@ -106,7 +106,7 @@ public class TemperatureController implements Observer {
         if (arg.equals("Update Weather and News") && this.temperatureView.isVisible()
                 && this.townName != null) {
             updateWeather(this.townName);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("weather")) {
+        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget4")) {
             Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
             thread.start();
         } else if (arg instanceof Town) {

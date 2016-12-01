@@ -137,8 +137,10 @@ public class JsonMessageParser extends Observable
                         break;
                     case "settings":
                         settings = new Settings(anArrayList, value);
-                        setChanged();
-                        notifyObservers(settings.getObject());
+                        if (value != null) {
+                            setChanged();
+                            notifyObservers(settings.getObject());
+                        }
                         break;
                     case "preferences":
                         preferences = new Preferences(anArrayList, value);
