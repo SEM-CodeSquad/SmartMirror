@@ -8,9 +8,12 @@ import dataModels.widgetsModels.busTimetableModels.BusInfo;
 import dataModels.widgetsModels.busTimetableModels.BusStop;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.util.LinkedList;
@@ -96,8 +99,6 @@ public class BusTimetableController implements Observer {
     private BusTimetable bt;
     private String stopName;
 
-    // TODO: This is the most reasonable place i found to initiate the bus fetch
-
     public BusTimetableController() {
         bt = new BusTimetable();
         bt.addObserver(this);
@@ -123,14 +124,30 @@ public class BusTimetableController implements Observer {
     }
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.busTimetables.setVisible(b));
+        Platform.runLater(() -> {
+            this.busTimetables.setVisible(b);
+            StackPane parentPane = (StackPane) this.busTimetables.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+
+        });
         if (b && this.stopName != null && !processing) {
             this.processing = true;
             this.setBusStopName(this.stopName);
         }
     }
 
-    public synchronized void setBusStopName(String busStopName) {
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
+    }
+
+    private synchronized void setBusStopName(String busStopName) {
         this.stopName = busStopName;
         Thread thread = new Thread(() -> bt.setBusTimetable(busStopName));
         thread.start();
@@ -224,9 +241,6 @@ public class BusTimetableController implements Observer {
                 && this.stopName != null && !processing) {
             this.processing = true;
             this.setBusStopName(this.stopName);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget3")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
-            thread.start();
         } else if (arg instanceof BusStop) {
             Thread thread = new Thread(() -> {
                 BusStop busStop = (BusStop) arg;
@@ -234,6 +248,13 @@ public class BusTimetableController implements Observer {
             });
             thread.start();
 
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                preferences.stream().filter(pref -> pref.getName().equals("bus")).forEachOrdered(pref ->
+                        setVisible(pref.getValue().equals("true")));
+            });
+            thread.start();
         }
     }
 }

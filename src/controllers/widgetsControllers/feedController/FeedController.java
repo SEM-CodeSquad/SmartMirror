@@ -6,9 +6,13 @@ import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.feedModels.NewsSource;
 import dataModels.widgetsModels.feedModels.RSSMarqueeMessage;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -29,10 +33,26 @@ public class FeedController implements Observer {
     }
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.feedPane.setVisible(b));
+        Platform.runLater(() -> {
+            this.feedPane.setVisible(b);
+            StackPane parentPane = (StackPane) this.feedPane.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+        });
+
         if (b && this.newsSource != null) {
             this.setNewsSource(this.newsSource);
         }
+    }
+
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
     public void setNewsSource(String newsSource) {
@@ -51,6 +71,7 @@ public class FeedController implements Observer {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg) {
         if (arg instanceof RSSMarqueeMessage) {
             RSSMarqueeMessage marqueeMessage = (RSSMarqueeMessage) arg;
@@ -61,9 +82,6 @@ public class FeedController implements Observer {
         } else if (arg.equals("Update Weather and News") && this.feedPane.isVisible()
                 && this.newsSource != null) {
             this.setNewsSource(this.newsSource);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget2")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
-            thread.start();
         } else if (arg instanceof NewsSource) {
             Thread thread = new Thread(() -> {
                 NewsSource newsSource = (NewsSource) arg;
@@ -71,6 +89,13 @@ public class FeedController implements Observer {
             });
             thread.start();
 
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                preferences.stream().filter(pref -> pref.getName().equals("news")).forEachOrdered(pref ->
+                        setVisible(pref.getValue().equals("true")));
+            });
+            thread.start();
         }
     }
 }

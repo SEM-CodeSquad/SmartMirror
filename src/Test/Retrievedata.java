@@ -33,9 +33,9 @@ class Retrievedata {
             String topic = args[0];
             sendThis.put("content", jArray);
             String messageString = sendThis.toJSONString();
-            HttpRequestSender post = new HttpRequestSender("codehigh.ddns.me", topic, messageString);
+            HttpRequestSender post = new HttpRequestSender("codehigh.ddns.me", topic, messageString, "0", "false");
 
-
+            String testUrl = "http://localhost:8080/";
             String myUrl = "http://codehigh.ddns.me:8080/";
             post.executePost(myUrl);
             return post.getHttpResponse();

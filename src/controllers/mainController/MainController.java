@@ -5,7 +5,6 @@ import controllers.widgetsControllers.devicesController.DeviceController;
 import controllers.widgetsControllers.feedController.FeedController;
 import controllers.widgetsControllers.greetingsController.GreetingsController;
 import controllers.widgetsControllers.postItsController.PostItViewController;
-import controllers.widgetsControllers.qrCodeController.QRCodeController;
 import controllers.widgetsControllers.temperatureController.TemperatureController;
 import controllers.widgetsControllers.timeDateController.TimeDateController;
 import dataHandlers.componentsCommunication.CommunicationManager;
@@ -16,7 +15,6 @@ import dataModels.applicationModels.UUID_Generator;
 import dataModels.widgetsModels.busTimetableModels.BusStop;
 import dataModels.widgetsModels.devicesModels.Device;
 import dataModels.widgetsModels.feedModels.NewsSource;
-import dataModels.widgetsModels.greetingsModels.Greetings;
 import dataModels.widgetsModels.qrCodeModels.QRCode;
 import dataModels.widgetsModels.weatherModels.Town;
 import javafx.animation.FadeTransition;
@@ -72,7 +70,6 @@ public class MainController extends Observable implements Observer {
     private TemperatureController temperatureController;
     private BusTimetableController busTimetableController;
     private DeviceController deviceController;
-    private PostItViewController postItViewController;
     private TimeDateController timeDateController;
     private GreetingsController greetingsController;
 
@@ -103,32 +100,32 @@ public class MainController extends Observable implements Observer {
     }
 
     private void setUpDevicesView() {
-        deviceController = loadViewMainScreen(stackPaneWidget7, "/interfaceViews/widgetsViews/DeviceView.fxml").getController();
+        deviceController = loadViewMainScreen(stackPaneWidget7, "/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml").getController();
         this.jsonMessageParser.addObserver(deviceController);
     }
 
     private void setUpPostItView() {
-        postItViewController = loadViewMainScreen(stackPaneWidget6, "/interfaceViews/widgetsViews/postItWidget/PostitView.fxml").getController();
+        PostItViewController postItViewController = loadViewMainScreen(stackPaneWidget6, "/interfaceViews/widgetsViews/postItWidget/PostitView.fxml").getController();
         this.jsonMessageParser.addObserver(postItViewController);
         postItViewController.addObserver(communicationManager);
         setComponentVisible(widget6);
     }
 
     private void setUpFeedView() {
-        this.feedController = loadViewMainScreen(stackPaneWidget2, "/interfaceViews/widgetsViews/FeedsViews.fxml").getController();
+        this.feedController = loadViewMainScreen(stackPaneWidget2, "/interfaceViews/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
         this.timeDateManager.addObserver(feedController);
         this.addObserver(feedController);
     }
 
     private void setUpTemperatureView() {
-        this.temperatureController = loadViewMainScreen(stackPaneWidget4, "/interfaceViews/widgetsViews/TemperatureView.fxml").getController();
+        this.temperatureController = loadViewMainScreen(stackPaneWidget4, "/interfaceViews/widgetsViews/weatherWidget/TemperatureView.fxml").getController();
         timeDateManager.addObserver(temperatureController);
         this.addObserver(temperatureController);
 
     }
 
     private void setUpBusTimetableView() {
-        this.busTimetableController = loadViewMainScreen(stackPaneWidget3, "/interfaceViews/widgetsViews/BusTimetable.fxml").getController();
+        this.busTimetableController = loadViewMainScreen(stackPaneWidget3, "/interfaceViews/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
         timeDateManager.addObserver(busTimetableController);
         this.addObserver(busTimetableController);
     }
@@ -136,10 +133,10 @@ public class MainController extends Observable implements Observer {
     private void setUpQRCodeView() {
         QRCode qrCode = new QRCode(uuid.getUUID());
 
-        qrCode.addObserver(loadViewPairingScreen(qrPairingContainer, "/interfaceViews/widgetsViews/QRCodeView.fxml",
+        qrCode.addObserver(loadViewPairingScreen(qrPairingContainer, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml",
                 1, 0).getController());
 
-        qrCode.addObserver(loadViewMainScreen(stackPaneWidgetQR, "/interfaceViews/widgetsViews/QRCodeView.fxml").getController());
+        qrCode.addObserver(loadViewMainScreen(stackPaneWidgetQR, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml").getController());
 
         qrCode.getQRCode();
 
@@ -153,14 +150,14 @@ public class MainController extends Observable implements Observer {
         timeDateManager.bindToDay();
         timeDateManager.bindGreetings();
 
-        timeDateManager.addObserver(loadViewPairingScreen(pairingDateTimeContainer, "/interfaceViews/widgetsViews/TimeDate.fxml",
+        timeDateManager.addObserver(loadViewPairingScreen(pairingDateTimeContainer, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml",
                 0, 0).getController());
-        timeDateController = loadViewMainScreen(stackPaneWidget1, "/interfaceViews/widgetsViews/TimeDate.fxml").getController();
+        timeDateController = loadViewMainScreen(stackPaneWidget1, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml").getController();
         timeDateManager.addObserver(timeDateController);
     }
 
     private void setUpGreetingsView() {
-        greetingsController = loadViewMainScreen(stackPaneWidget5, "/interfaceViews/widgetsViews/GreetingsView.fxml").getController();
+        greetingsController = loadViewMainScreen(stackPaneWidget5, "/interfaceViews/widgetsViews/greetingsWidget/GreetingsView.fxml").getController();
         timeDateManager.addObserver(greetingsController);
         this.jsonMessageParser.addObserver(greetingsController);
     }
@@ -241,6 +238,16 @@ public class MainController extends Observable implements Observer {
             System.err.println(e.getMessage());
         }
         return myLoader;
+    }
+
+    // TODO: 01/12/2016   
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
     @Override

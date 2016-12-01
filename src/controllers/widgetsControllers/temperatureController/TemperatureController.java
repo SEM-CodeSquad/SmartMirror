@@ -3,14 +3,18 @@ package controllers.widgetsControllers.temperatureController;
 import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.weatherModels.Town;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
 import dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
+import javafx.scene.layout.StackPane;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -51,7 +55,7 @@ public class TemperatureController implements Observer {
         this.weatherFetcher.addObserver(this.weatherParser);
     }
 
-    public void updateWeather(String town) {
+    private void updateWeather(String town) {
         this.townName = town;
         Thread thread = new Thread(() -> Platform.runLater(() -> {
             try {
@@ -68,9 +72,9 @@ public class TemperatureController implements Observer {
     }
 
     private void updateView(String town) {
-        String queryParameterForecast = "/daily";
+        String queryParameterForecast = "forecast/daily";
         weatherFetcher.fetchWeather(queryParameterForecast, town);
-        weatherFetcher.fetchWeather("", town);
+        weatherFetcher.fetchWeather("weather", town);
 
         this.town.setText(town.substring(0, town.indexOf("%")));
 
@@ -94,21 +98,34 @@ public class TemperatureController implements Observer {
     }
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.temperatureView.setVisible(b));
+        Platform.runLater(() -> {
+            this.temperatureView.setVisible(b);
+            StackPane parentPane = (StackPane) this.temperatureView.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+        });
         if (b && this.townName != null) {
             updateWeather(this.townName);
         }
     }
 
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
+    }
+
 
     @Override
+    @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg) {
         if (arg.equals("Update Weather and News") && this.temperatureView.isVisible()
                 && this.townName != null) {
             updateWeather(this.townName);
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget4")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
-            thread.start();
         } else if (arg instanceof Town) {
             Thread thread = new Thread(() -> {
                 Town town = (Town) arg;
@@ -116,6 +133,13 @@ public class TemperatureController implements Observer {
             });
             thread.start();
 
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                preferences.stream().filter(pref -> pref.getName().equals("weather")).forEachOrdered(pref ->
+                        setVisible(pref.getValue().equals("true")));
+            });
+            thread.start();
         }
     }
 }

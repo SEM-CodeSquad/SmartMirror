@@ -6,16 +6,16 @@ import dataModels.widgetsModels.postItsModels.PostItAction;
 import dataModels.widgetsModels.postItsModels.PostItNote;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * @author Pucci on 22/11/2016.
@@ -142,7 +142,23 @@ public class PostItViewController extends Observable implements Observer {
     }
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.postPanes.setVisible(b));
+        Platform.runLater(() -> {
+            this.postPanes.setVisible(b);
+            StackPane parentPane = (StackPane) this.postPanes.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+        });
+
+    }
+
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
     private FXMLLoader loadView(String resource) {
@@ -174,6 +190,7 @@ public class PostItViewController extends Observable implements Observer {
 
 
     @Override
+    @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg) {
         if (arg instanceof PostItNote) {
             Thread thread = new Thread(() -> {
@@ -196,11 +213,17 @@ public class PostItViewController extends Observable implements Observer {
         } else if (arg.equals("success")) {
             Thread thread = new Thread(() -> notifyObs("success"));
             thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget6")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
-            thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("showOnly")) {
-            Thread thread = new Thread(() -> showSpecificTable(((Preferences) arg).getValue()));
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                for (Preferences pref : preferences) {
+                    if (pref.getName().equals("postits")) {
+                        setVisible(pref.getValue().equals("true"));
+                    } else if (pref.getName().equals("showOnly")) {
+                        showSpecificTable(pref.getValue());
+                    }
+                }
+            });
             thread.start();
         }
     }

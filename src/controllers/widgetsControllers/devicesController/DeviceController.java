@@ -6,8 +6,10 @@ import dataModels.widgetsModels.devicesModels.Device;
 import dataModels.widgetsModels.devicesModels.DevicesToggleButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -169,7 +171,22 @@ public class DeviceController implements Observer {
     }
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.devicePanes.setVisible(b));
+        Platform.runLater(() -> {
+            this.devicePanes.setVisible(b);
+            StackPane parentPane = (StackPane) this.devicePanes.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+        });
+    }
+
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
     private synchronized void setInfo(Label l, String text) {
@@ -218,8 +235,12 @@ public class DeviceController implements Observer {
                 }
             });
             thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget7")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                preferences.stream().filter(pref -> pref.getName().equals("device")).forEachOrdered(pref ->
+                        setVisible(pref.getValue().equals("true")));
+            });
             thread.start();
         }
     }

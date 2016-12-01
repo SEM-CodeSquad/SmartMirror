@@ -20,11 +20,69 @@ public class Preftest {
 
         MQTTClient client = new MQTTClient("tcp://codehigh.ddns.me", "test");
         SmartMirror_Publisher publisher = new SmartMirror_Publisher(client);
-        publisher.publish(topic, preftest.sendPreference());
+        publisher.publish(topic, preftest.sendPreferenceShow());
     }
 
     @SuppressWarnings("unchecked")
-    private String sendPreference() {
+    private String sendPreferenceShow() {
+        String messageString;
+        try {
+            JSONObject sendThis = new JSONObject();
+            sendThis.put("messageFrom", "test");
+            sendThis.put("timestamp", "12");
+            sendThis.put("contentType", "preferences");
+
+            JSONObject item = new JSONObject();
+            item.put("bus", "true");
+            item.put("weather", "true");
+            item.put("device", "true");
+            item.put("news", "true");
+            item.put("postits", "true");
+            item.put("clock", "true");
+            item.put("greetings", "true");
+
+            JSONArray jArray = new JSONArray();
+            jArray.add(0, item);
+            sendThis.put("content", jArray);
+            messageString = sendThis.toJSONString();
+
+        } catch (Exception e) {
+            return "Warning: did not publish";
+        }
+        return messageString;
+    }
+
+    @SuppressWarnings("unchecked")
+    private String sendPreferenceHide() {
+        String messageString;
+        try {
+            JSONObject sendThis = new JSONObject();
+            sendThis.put("messageFrom", "test");
+            sendThis.put("timestamp", "12");
+            sendThis.put("contentType", "preferences");
+
+            JSONObject item = new JSONObject();
+            item.put("bus", "false");
+            item.put("weather", "false");
+            item.put("device", "false");
+            item.put("news", "false");
+            item.put("postits", "false");
+            item.put("clock", "false");
+            item.put("greetings", "false");
+
+            JSONArray jArray = new JSONArray();
+            jArray.add(0, item);
+            sendThis.put("content", jArray);
+            messageString = sendThis.toJSONString();
+
+        } catch (Exception e) {
+            return "Warning: did not publish";
+        }
+        return messageString;
+    }
+
+    @SuppressWarnings("unchecked")
+    private String sendPreferenceShowOnly() {
         String messageString;
         try {
             JSONObject sendThis = new JSONObject();
@@ -34,25 +92,7 @@ public class Preftest {
 
             JSONObject item = new JSONObject();
             item.put("showOnly", "1");
-//            item.put("Kitchen lamp", "false");
-//            item.put("Toilet lamp", "false");
-//            item.put("Bedroom lamp", "true");
-//            item.put("Stove", "false");
-//            item.put("TV", "true");
-//            item.put("Computer", "true");
-//            item.put("Stereo", "false");
-//            item.put("Alarm", "false");
-//            item.put("Microwave", "true");
-//            item.put("Coffee Machine", "true");
-//            item.put("Toaster", "false");
-//            item.put("Apple Tv", "true");
-//            item.put("PS4", "false");
-//            item.put("Garage lamp", "false");
-//            item.put("Hall lamp", "true");
-//            item.put("Outside lamp", "true");
-//            item.put("", "");
-//            item.put("", "");
-//            item.put("", "");
+
             JSONArray jArray = new JSONArray();
             jArray.add(0, item);
             sendThis.put("content", jArray);

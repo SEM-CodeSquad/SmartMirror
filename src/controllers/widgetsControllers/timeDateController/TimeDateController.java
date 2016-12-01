@@ -5,9 +5,13 @@ import dataModels.widgetsModels.dateTimeModels.DateS;
 import dataModels.widgetsModels.dateTimeModels.Day;
 import dataModels.widgetsModels.dateTimeModels.TimeS;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 
+import java.util.LinkedList;
 import java.util.Observer;
 
 public class TimeDateController implements Observer {
@@ -17,7 +21,22 @@ public class TimeDateController implements Observer {
     public Label dayName;
 
     private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> this.dateTime.setVisible(b));
+        Platform.runLater(() -> {
+            this.dateTime.setVisible(b);
+            StackPane parentPane = (StackPane) this.dateTime.getParent();
+            GridPane parentGrid = (GridPane) parentPane.getParent();
+
+            monitorWidgetVisibility(parentPane, parentGrid);
+        });
+    }
+
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+        boolean visible = false;
+        ObservableList<Node> list = stackPane.getChildren();
+        for (Node node : list) {
+            visible = node.isVisible();
+        }
+        gridPane.setVisible(visible);
     }
 
     private void setTime(String time) {
@@ -33,6 +52,7 @@ public class TimeDateController implements Observer {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void update(java.util.Observable o, Object arg) {
 
         if (arg instanceof TimeS) {
@@ -44,8 +64,12 @@ public class TimeDateController implements Observer {
         } else if (arg instanceof Day) {
             Day now = (Day) arg;
             setDayName(now.getDayName());
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget1")) {
-            Thread thread = new Thread(() -> setVisible(((Preferences) arg).getValue().equals("true")));
+        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
+            Thread thread = new Thread(() -> {
+                LinkedList<Preferences> preferences = (LinkedList) arg;
+                preferences.stream().filter(pref -> pref.getName().equals("clock")).forEachOrdered(pref ->
+                        setVisible(pref.getValue().equals("true")));
+            });
             thread.start();
         }
     }

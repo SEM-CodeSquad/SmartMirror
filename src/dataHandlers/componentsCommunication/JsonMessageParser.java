@@ -21,6 +21,7 @@ public class JsonMessageParser extends Observable
     private String messageFrom;
     private String timestamp;
     private LinkedList<Device> deviceList;
+    private LinkedList<Preferences> preferencesList;
 
     public JsonMessageParser()
     {
@@ -98,7 +99,10 @@ public class JsonMessageParser extends Observable
                     break;
 
                 case "preferences":
-                    parseArray(null, "preferences");
+                    this.preferencesList = new LinkedList<>();
+                    parseArray(this.preferencesList, "preferences");
+                    setChanged();
+                    notifyObservers(this.preferencesList);
                     break;
 
                 default:
@@ -144,8 +148,7 @@ public class JsonMessageParser extends Observable
                         break;
                     case "preferences":
                         preferences = new Preferences(anArrayList, value);
-                        setChanged();
-                        notifyObservers(preferences);
+                        linkedList.add(preferences);
                         break;
                     default:
                         System.out.println("Could Not be Parsed!");
