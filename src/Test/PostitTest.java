@@ -47,7 +47,7 @@ public class PostitTest {
         String topic = scan.nextLine();
         Retrievedata R = new Retrievedata();
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 50; i++) {
             int finalI = i;
             Thread thread = new Thread() {
                 public void run() {

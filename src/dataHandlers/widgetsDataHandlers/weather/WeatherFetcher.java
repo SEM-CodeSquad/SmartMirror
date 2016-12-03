@@ -25,7 +25,7 @@ public class WeatherFetcher extends Observable {
             InputStream IS = null;
 
         try {
-            String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast" + query + "?q=";
+            String BASE_URL = "http://api.openweathermap.org/data/2.5/" + query + "?q=";
             connection = (HttpURLConnection) (new URL(BASE_URL + cityName + "&type=accurate&units=metric&cnt=3" +
                     "&lang=en&APPID=47d83bc50f7e59413e487108ded5c729")).openConnection();
                 connection.setRequestMethod("GET");
@@ -45,8 +45,7 @@ public class WeatherFetcher extends Observable {
                 connection.disconnect();
             this.weatherData = buffer.toString();
 
-            isForecast = !query.equals("");
-
+            isForecast = query.equals("forecast/daily");
             setChanged();
             notifyObservers(this);
         } catch (Throwable t) {
@@ -87,11 +86,11 @@ public class WeatherFetcher extends Observable {
         return new Image(f.toURI().toString());
     }
 
-    public String getWeatherData() {
+    String getWeatherData() {
         return weatherData;
     }
 
-    public boolean isForecast() {
+    boolean isForecast() {
         return this.isForecast;
     }
 }

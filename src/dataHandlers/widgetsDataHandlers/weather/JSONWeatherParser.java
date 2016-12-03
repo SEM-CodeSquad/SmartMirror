@@ -17,7 +17,7 @@ public class JSONWeatherParser implements Observer {
      * With the first element holding values for the present day, the next element holding the values for the next day
      * and so on.
     */
-    public Weather[] parseWeatherForecast(String data) {
+    private Weather[] parseWeatherForecast(String data) {
         JSONParser parser = new JSONParser();
         wArray = new Weather[3];
         try {
@@ -25,7 +25,6 @@ public class JSONWeatherParser implements Observer {
             JSONArray jArray = (JSONArray) jObject.get("list");
             JSONObject jArrayObj1 = (JSONObject) jArray.get(0);
             JSONObject jTempObj1 = (JSONObject) jArrayObj1.get("temp");
-            System.out.println("1" + jTempObj1.toString());
             Weather weather1 = new Weather();
             weather1.setTemp(jTempObj1.get(getTime()).toString());
             weather1.setMaxTemp(jTempObj1.get("max").toString());
@@ -39,7 +38,6 @@ public class JSONWeatherParser implements Observer {
 
             JSONObject jArrayObj2 = (JSONObject) jArray.get(1);
             JSONObject jTempObj3 = (JSONObject) jArrayObj2.get("temp");
-            System.out.println("3" + jTempObj3.toString());
             Weather weather2 = new Weather();
             weather2.setTemp(jTempObj3.get(getTime()).toString());
             weather2.setMaxTemp(jTempObj3.get("max").toString());
@@ -52,7 +50,6 @@ public class JSONWeatherParser implements Observer {
 
             JSONObject jArrayObj3 = (JSONObject) jArray.get(2);
             JSONObject jTempObj5 = (JSONObject) jArrayObj3.get("temp");
-            System.out.println("5" + jTempObj5.toString());
             Weather weather3 = new Weather();
             weather3.setTemp(jTempObj5.get(getTime()).toString());
             weather3.setMaxTemp(jTempObj5.get("max").toString());
@@ -69,22 +66,22 @@ public class JSONWeatherParser implements Observer {
         return wArray;
     }
 
-    public Weather[] parseCurrentWeather(String data) {
+    private Weather[] parseCurrentWeather(String data) {
         JSONParser parser = new JSONParser();
-        System.out.println("data: " + data);
         try {
             JSONObject jObject = (JSONObject) parser.parse(data);
-            JSONArray jArray = (JSONArray) jObject.get("list");
-            JSONObject jArrayObj1 = (JSONObject) jArray.get(0);
-            JSONObject jTempObj1 = (JSONObject) jArrayObj1.get("main");
-            System.out.println("now" + jTempObj1.toString());
+            JSONArray jArray = (JSONArray) jObject.get("weather");
+            JSONObject jTempObj1 = (JSONObject) jArray.get(0);
             Weather weather1 = new Weather();
-            weather1.setTemp(jTempObj1.get("temp").toString());
-            weather1.setMaxTemp(jTempObj1.get("temp_max").toString());
-            weather1.setMinTemp(jTempObj1.get("temp_min").toString());
-            JSONObject jTempObj2 = (JSONObject) ((JSONArray) jArrayObj1.get("weather")).get(0);
-            weather1.setDesc(jTempObj2.get("description").toString());
-            weather1.setIcon(jTempObj2.get("icon").toString());
+            weather1.setDesc(jTempObj1.get("description").toString());
+            weather1.setIcon(jTempObj1.get("icon").toString());
+
+            JSONObject jTempObj2 = (JSONObject) jObject.get("main");
+            weather1.setTemp(jTempObj2.get("temp").toString());
+            weather1.setMaxTemp(jTempObj2.get("temp_max").toString());
+            weather1.setMinTemp(jTempObj2.get("temp_min").toString());
+
+
             weather1.setDayName(getDay(0));
             wArray[0] = weather1;
 
