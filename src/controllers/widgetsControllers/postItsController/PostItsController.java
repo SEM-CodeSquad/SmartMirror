@@ -106,16 +106,13 @@ public class PostItsController extends Observable implements Observer, Initializ
     public Canvas canvas12;
     @FXML
     public TextArea postTextS12;
-
+    protected ChainedMap<String, PostItNote> postItNotes;
+    protected boolean[] booleanArray;
+    protected PostItManager postItManager;
+    protected String[] postItIdList = new String[1000]; //Set to 1000 slots for now
+    protected int idListIndex = 0;
     @FXML
     private StackPane postPanes;
-
-    private ChainedMap<String, PostItNote> postItNotes;
-
-    private boolean[] booleanArray;
-
-    private PostItManager postItManager;
-
     private String tableColor;
 
     public PostItsController() {
@@ -163,6 +160,8 @@ public class PostItsController extends Observable implements Observer, Initializ
                 postItNote.setPostItIndex(index);
                 postItNotes.add(postItNote.getPostItId(), postItNote);
                 booleanArray[index] = true;
+                postItIdList[idListIndex] = postItNote.getPostItId();
+                idListIndex++;
                 this.postItManager.setImage(index, postItNote.getSenderId());
                 this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
                 setChanged();
