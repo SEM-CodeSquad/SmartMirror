@@ -1,8 +1,5 @@
 package Test;
 
-
-import controllers.widgetsControllers.postItsController.PostitAutoDeleteController;
-
 import java.util.Scanner;
 
 public class PostitTest {
