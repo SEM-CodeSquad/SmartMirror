@@ -1,11 +1,14 @@
 package controllers.widgetsControllers.postItsController;
 
 import dataHandlers.animations.TransitionAnimation;
+import dataHandlers.componentsCommunication.JsonMessageParser;
 import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.postItsModels.PostItAction;
 import dataModels.widgetsModels.postItsModels.PostItNote;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.io.IOException;
 import java.util.*;
@@ -20,21 +24,29 @@ import java.util.*;
 /**
  * @author Pucci on 22/11/2016.
  */
-public class PostItViewController extends Observable implements Observer {
+public class PostItViewController extends Observable implements Observer
+{
     public StackPane postPanes;
 
     private StackPane[] panes;
 
     private TransitionAnimation animation;
 
+    private boolean visible = false;
+
     /**
      *
      */
-    public PostItViewController() {
+    public PostItViewController()
+    {
         Platform.runLater(this::build);
     }
 
-    private void build() {
+    private void build()
+    {
+        this.postPanes.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
+                visible = this.postPanes.isVisible());
+
         PostItsController standardController = loadView("/interfaceViews/widgetsViews/postItWidget/PostItTable.fxml")
                 .getController();
         StackPane standard = standardController.getPostPane();
@@ -101,17 +113,23 @@ public class PostItViewController extends Observable implements Observer {
     }
 
 
-    private synchronized void showSpecificTable(String colourIndex) {
+    private synchronized void showSpecificTable(String colourIndex)
+    {
         int index = Integer.parseInt(colourIndex);
 
-        if (!(index > panes.length)) {
+        if (!(index > panes.length))
+        {
             this.animation.pauseSeqAnimation();
             this.animation.getSequentialTransition().getCurrentTime();
 
-            for (int i = 0; i < panes.length; i++) {
-                if (i != index) {
+            for (int i = 0; i < panes.length; i++)
+            {
+                if (i != index)
+                {
                     panes[i].setOpacity(0);
-                } else {
+                }
+                else
+                {
                     FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), panes[index]);
 
                     fadeIn.setFromValue(0);
@@ -119,15 +137,19 @@ public class PostItViewController extends Observable implements Observer {
                     fadeIn.play();
                 }
             }
-            Platform.runLater(() -> {
+            Platform.runLater(() ->
+            {
 
             });
             Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
+            timer.schedule(new TimerTask()
+            {
 
                 @Override
-                public void run() {
-                    Platform.runLater(() -> {
+                public void run()
+                {
+                    Platform.runLater(() ->
+                    {
                         FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), panes[index]);
 
                         fadeOut.setFromValue(1);
@@ -141,8 +163,10 @@ public class PostItViewController extends Observable implements Observer {
         }
     }
 
-    private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> {
+    private synchronized void setVisible(boolean b)
+    {
+        Platform.runLater(() ->
+        {
             this.postPanes.setVisible(b);
             StackPane parentPane = (StackPane) this.postPanes.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
@@ -152,38 +176,82 @@ public class PostItViewController extends Observable implements Observer {
 
     }
 
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
+    {
         boolean visible = false;
         ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list) {
+        for (Node node : list)
+        {
             visible = node.isVisible();
         }
         gridPane.setVisible(visible);
     }
 
-    private FXMLLoader loadView(String resource) {
+    private void enforceView()
+    {
+        if (!visible)
+        {
+            StackPane sPane = (StackPane) this.postPanes.getParent();
+
+            ObservableList<Node> list = sPane.getChildren();
+            for (Node node : list)
+            {
+                node.setVisible(false);
+            }
+
+            this.postPanes.setVisible(true);
+        }
+    }
+
+    private synchronized void setParentVisible()
+    {
+        Platform.runLater(() ->
+        {
+            GridPane gridPane = (GridPane) this.postPanes.getParent().getParent();
+            if (gridPane.getOpacity() != 1)
+            {
+                gridPane.setVisible(true);
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
+
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+            }
+        });
+    }
+
+    private FXMLLoader loadView(String resource)
+    {
         FXMLLoader myLoader = null;
-        try {
+        try
+        {
             myLoader = new FXMLLoader(getClass().getResource(resource));
             myLoader.setController(new PostItsController());
             Parent loadScreen = myLoader.load();
             this.postPanes.getChildren().add(loadScreen);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
         return myLoader;
     }
 
-    private void setOpacity(StackPane stackPane, boolean b) {
-        if (b) {
+    private void setOpacity(StackPane stackPane, boolean b)
+    {
+        if (b)
+        {
             stackPane.setOpacity(1.0);
-        } else {
+        }
+        else
+        {
             stackPane.setOpacity(0.0);
         }
     }
 
-    private synchronized void notifyObs(Object arg) {
+    private synchronized void notifyObs(Object arg)
+    {
         setChanged();
         notifyObservers(arg);
     }
@@ -191,39 +259,66 @@ public class PostItViewController extends Observable implements Observer {
 
     @Override
     @SuppressWarnings("unchecked")
-    public void update(Observable o, Object arg) {
-        if (arg instanceof PostItNote) {
-            Thread thread = new Thread(() -> {
-                PostItNote postItNote = (PostItNote) arg;
-                notifyObs(postItNote);
+    public void update(Observable o, Object arg)
+    {
+        if (arg instanceof MqttMessage)
+        {
+            Thread thread = new Thread(() ->
+            {
+                JsonMessageParser parser = new JsonMessageParser();
+                parser.parseMessage(arg.toString());
+
+                switch (parser.getContentType())
+                {
+                    case "post-it":
+
+                        PostItNote postItNote = parser.parsePostIt();
+                        setParentVisible();
+                        enforceView();
+                        notifyObs(postItNote);
+                        break;
+                    case "postIt action":
+
+                        PostItAction postItAction = parser.parsePostItAction();
+                        notifyObs(postItAction);
+                        break;
+                    case "preferences":
+
+                        LinkedList<Preferences> list = parser.parsePreferenceList();
+
+                        for (Preferences pref : list)
+                        {
+                            if (pref.getName().equals("postits"))
+                            {
+                                setVisible(pref.getValue().equals("true"));
+                            }
+                            else if (pref.getName().equals("showOnly"))
+                            {
+                                showSpecificTable(pref.getValue());
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
             });
             thread.start();
-        } else if (arg instanceof PostItAction) {
-            Thread thread = new Thread(() -> {
-                PostItAction postItAction = (PostItAction) arg;
-                notifyObs(postItAction);
-            });
-            thread.start();
-        } else if (arg instanceof PostItsController) {
-            Thread thread = new Thread(() -> {
+
+        }
+
+
+        else if (arg instanceof PostItsController)
+        {
+            Thread thread = new Thread(() ->
+            {
                 PostItsController postItsController = (PostItsController) arg;
                 notifyObs(postItsController);
             });
             thread.start();
-        } else if (arg.equals("success")) {
+        }
+        else if (arg.equals("success"))
+        {
             Thread thread = new Thread(() -> notifyObs("success"));
-            thread.start();
-        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
-            Thread thread = new Thread(() -> {
-                LinkedList<Preferences> preferences = (LinkedList) arg;
-                for (Preferences pref : preferences) {
-                    if (pref.getName().equals("postits")) {
-                        setVisible(pref.getValue().equals("true"));
-                    } else if (pref.getName().equals("showOnly")) {
-                        showSpecificTable(pref.getValue());
-                    }
-                }
-            });
             thread.start();
         }
     }

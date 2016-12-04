@@ -1,9 +1,11 @@
 package controllers.widgetsControllers.busTimetableController;
 
 
+import dataHandlers.componentsCommunication.JsonMessageParser;
 import dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
 import dataModels.applicationModels.ChainedMap;
 import dataModels.applicationModels.Preferences;
+import dataModels.applicationModels.Settings;
 import dataModels.widgetsModels.busTimetableModels.BusInfo;
 import dataModels.widgetsModels.busTimetableModels.BusStop;
 import javafx.animation.FadeTransition;
@@ -15,12 +17,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class BusTimetableController implements Observer {
+public class BusTimetableController implements Observer
+{
     public GridPane busTimetables;
 
     public Label busStopName;
@@ -99,15 +102,23 @@ public class BusTimetableController implements Observer {
     private BusTimetable bt;
     private String stopName;
 
-    public BusTimetableController() {
+    private boolean visible = false;
+
+    public BusTimetableController()
+    {
         bt = new BusTimetable();
         bt.addObserver(this);
 
         this.setUp();
     }
 
-    private void setUp() {
-        Platform.runLater(() -> {
+    private void setUp()
+    {
+        Platform.runLater(() ->
+        {
+            this.busTimetables.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
+                    visible = this.busTimetables.isVisible());
+
             stopNames = new Label[]{busName1, busName2, busName3, busName4, busName5, busName6, busName7, busName8, busName9
                     , busName10};
 
@@ -123,8 +134,10 @@ public class BusTimetableController implements Observer {
         });
     }
 
-    private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> {
+    private synchronized void setVisible(boolean b)
+    {
+        Platform.runLater(() ->
+        {
             this.busTimetables.setVisible(b);
             StackPane parentPane = (StackPane) this.busTimetables.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
@@ -132,29 +145,68 @@ public class BusTimetableController implements Observer {
             monitorWidgetVisibility(parentPane, parentGrid);
 
         });
-        if (b && this.stopName != null && !processing) {
+        if (b && this.stopName != null && !processing)
+        {
             this.processing = true;
             this.setBusStopName(this.stopName);
         }
     }
 
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
+    {
         boolean visible = false;
         ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list) {
+        for (Node node : list)
+        {
             visible = node.isVisible();
         }
         gridPane.setVisible(visible);
     }
 
-    private synchronized void setBusStopName(String busStopName) {
+    private synchronized void setParentVisible()
+    {
+        Platform.runLater(() ->
+        {
+            GridPane gridPane = (GridPane) this.busTimetables.getParent().getParent();
+            if (gridPane.getOpacity() != 1)
+            {
+                gridPane.setVisible(true);
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
+
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+            }
+        });
+    }
+
+    private void enforceView()
+    {
+        if (!visible)
+        {
+            StackPane sPane = (StackPane) this.busTimetables.getParent();
+
+            ObservableList<Node> list = sPane.getChildren();
+            for (Node node : list)
+            {
+                node.setVisible(false);
+            }
+
+            this.busTimetables.setVisible(true);
+        }
+    }
+
+    private synchronized void setBusStopName(String busStopName)
+    {
         this.stopName = busStopName;
         Thread thread = new Thread(() -> bt.setBusTimetable(busStopName));
         thread.start();
     }
 
-    private synchronized void animationFadeIn(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void animationFadeIn(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
@@ -162,8 +214,10 @@ public class BusTimetableController implements Observer {
         });
     }
 
-    private synchronized void animationFadeOut(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void animationFadeOut(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
             fadeIn.setFromValue(1);
             fadeIn.setToValue(0);
@@ -171,14 +225,16 @@ public class BusTimetableController implements Observer {
         });
     }
 
-    private synchronized void setBusName(Label label, String text, String color) {
+    private synchronized void setBusName(Label label, String text, String color)
+    {
         String textColor;
         if (color.equals("#ffffff")) textColor = "black";
         else textColor = "white";
 
         label.setVisible(true);
         char[] chars = text.toCharArray();
-        if (Character.isDigit(chars[0])) {
+        if (Character.isDigit(chars[0]))
+        {
             Platform.runLater(() -> label.setStyle("-fx-background-color: " + color + "; " +
                     "-fx-background-radius: 30; " +
                     "-fx-background-insets: 0,1,2,3,0; " +
@@ -186,7 +242,9 @@ public class BusTimetableController implements Observer {
                     "-fx-font: 20px \"Microsoft YaHei\";" +
                     "-fx-font-weight: bold;"));
             GridPane.setMargin(label, new Insets(0, 0, 0, 10));
-        } else {
+        }
+        else
+        {
             Platform.runLater(() -> label.setStyle("-fx-background-color: " + color + "; " +
                     "-fx-background-radius: 30; " +
                     "-fx-background-insets: 0,1,2,3,0; " +
@@ -198,24 +256,32 @@ public class BusTimetableController implements Observer {
         Platform.runLater(() -> label.setText(" " + text + " "));
     }
 
-    private synchronized void setInfo(Label l, String text) {
+    private synchronized void setInfo(Label l, String text)
+    {
         l.setVisible(true);
         Platform.runLater(() -> l.setText(text));
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public void update(Observable o, Object arg) {
+    public void update(Observable o, Object arg)
+    {
 
-        if (arg instanceof ChainedMap) {
-            Thread thread = new Thread(() -> {
+        if (arg instanceof ChainedMap)
+        {
+            Thread thread = new Thread(() ->
+            {
                 ChainedMap<String, LinkedList> busInfos = (ChainedMap) arg;
                 LinkedList<BusInfo> listTemp = busInfos.getMap().get(busInfos.getId().peek());
                 Platform.runLater(() -> busStopName.setText(listTemp.peek().getBusFrom()));
-                for (int i = 0; i < stopNames.length; i++) {
-                    if (busInfos.size() == 0) {
+                for (int i = 0; i < stopNames.length; i++)
+                {
+                    if (busInfos.size() == 0)
+                    {
                         animationFadeOut(timetableInfos[i]);
-                    } else {
+                    }
+                    else
+                    {
                         LinkedList<BusInfo> list = busInfos.getMap().get(busInfos.getId().peek());
                         setInfo(stopNames[i], list.peek().getBusName());
                         setBusName(stopNames[i], list.peek().getBusName(), list.peek().getBusColor());
@@ -225,10 +291,12 @@ public class BusTimetableController implements Observer {
                         else dep = "In:" + String.valueOf(list.peek().getBusDeparture()) + " min";
                         setInfo(departures[i], dep);
 
-                        if (list.size() > 1) {
+                        if (list.size() > 1)
+                        {
                             list.remove();
                             setInfo(nextDepartures[i], "Next:" + String.valueOf(list.peek().getBusDeparture()) + " min");
-                        } else setInfo(nextDepartures[i], "n/a");
+                        }
+                        else setInfo(nextDepartures[i], "n/a");
 
                         busInfos.remove(busInfos.getId().peek());
                         animationFadeIn(timetableInfos[i]);
@@ -237,22 +305,38 @@ public class BusTimetableController implements Observer {
                 processing = false;
             });
             thread.start();
-        } else if (arg.equals("Update Timetable") && this.busTimetables.isVisible()
-                && this.stopName != null && !processing) {
+        }
+        else if (arg.equals("Update Timetable") && this.busTimetables.isVisible()
+                && this.stopName != null && !processing)
+        {
             this.processing = true;
             this.setBusStopName(this.stopName);
-        } else if (arg instanceof BusStop) {
-            Thread thread = new Thread(() -> {
-                BusStop busStop = (BusStop) arg;
-                setBusStopName(busStop.getBusStop());
-            });
-            thread.start();
+        }
+        else if (arg instanceof MqttMessage)
+        {
+            Thread thread = new Thread(() ->
+            {
+                JsonMessageParser parser = new JsonMessageParser();
+                parser.parseMessage(arg.toString());
 
-        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
-            Thread thread = new Thread(() -> {
-                LinkedList<Preferences> preferences = (LinkedList) arg;
-                preferences.stream().filter(pref -> pref.getName().equals("bus")).forEachOrdered(pref ->
-                        setVisible(pref.getValue().equals("true")));
+                if (parser.getContentType().equals("settings"))
+                {
+
+                    Settings settings = parser.parseSettings();
+                    if (settings.getObject() instanceof BusStop)
+                    {
+                        setParentVisible();
+                        enforceView();
+                        setBusStopName(((BusStop) settings.getObject()).getBusStop());
+                    }
+                }
+                else if (parser.getContentType().equals("preferences"))
+                {
+                    LinkedList<Preferences> list = parser.parsePreferenceList();
+
+                    list.stream().filter(pref -> pref.getName().equals("bus")).forEach(pref ->
+                            setVisible(pref.getValue().equals("true")));
+                }
             });
             thread.start();
         }

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.text.Font?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="shoppingListGrid" maxHeight="-Infinity" maxWidth="-Infinity"
           minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="316.0"
-          style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8">
+          style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
+          fx:controller="controllers.widgetsControllers.shoppingListController.ShoppingListViewController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
     </columnConstraints>
@@ -16,12 +14,10 @@
         <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES"/>
         <RowConstraints maxHeight="533.0" minHeight="10.0" prefHeight="524.0" vgrow="SOMETIMES"/>
     </rowConstraints>
-    <children>
-        <Label text="Shopping List" textFill="WHITE" GridPane.halignment="CENTER">
-            <font>
-                <Font name="Microsoft YaHei Bold" size="24.0"/>
-            </font>
-        </Label>
-        <StackPane fx:id="shoppingListPane" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1"/>
-    </children>
+    <Label text="Shopping List" textFill="WHITE" GridPane.halignment="CENTER">
+        <font>
+            <Font name="Microsoft YaHei Bold" size="24.0"/>
+        </font>
+    </Label>
+    <StackPane fx:id="shoppingListPane" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1"/>
 </GridPane>

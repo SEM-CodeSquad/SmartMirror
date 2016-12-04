@@ -1,6 +1,7 @@
 package controllers.widgetsControllers.devicesController;
 
 import dataHandlers.animations.TransitionAnimation;
+import dataHandlers.componentsCommunication.JsonMessageParser;
 import dataModels.applicationModels.Preferences;
 import dataModels.widgetsModels.devicesModels.Device;
 import dataModels.widgetsModels.devicesModels.DevicesToggleButton;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.util.LinkedList;
 import java.util.Observable;
@@ -22,7 +24,8 @@ import java.util.Observer;
 /**
  * @author Pucci on 21/11/2016.
  */
-public class DeviceController implements Observer {
+public class DeviceController implements Observer
+{
 
 
     public StackPane devicePanes;
@@ -114,13 +117,14 @@ public class DeviceController implements Observer {
     private DevicesToggleButton switchButton19;
     private DevicesToggleButton switchButton20;
 
-    private TransitionAnimation animation;
-
     private GridPane[] gridPanes;
     private Label[] labels;
     private DevicesToggleButton[] switchButtons;
 
-    public DeviceController() {
+    private boolean visible = false;
+
+    public DeviceController()
+    {
         switchButton1 = new DevicesToggleButton();
         switchButton2 = new DevicesToggleButton();
         switchButton3 = new DevicesToggleButton();
@@ -144,7 +148,11 @@ public class DeviceController implements Observer {
         Platform.runLater(this::setUp);
     }
 
-    private void setUp() {
+    private void setUp()
+    {
+        this.devicePanes.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
+                visible = devicePanes.isVisible());
+
         gridPanes = new GridPane[]{device1, device2, device3, device4, device5, device6, device7, device8,
                 device9, device10, device11, device12, device13, device14, device15, device16, device17,
                 device18, device19, device20};
@@ -159,19 +167,22 @@ public class DeviceController implements Observer {
                 , switchButton15, switchButton16, switchButton17, switchButton18, switchButton19
                 , switchButton20};
 
-        for (int i = 0; i < gridPanes.length; i++) {
+        for (int i = 0; i < gridPanes.length; i++)
+        {
             gridPanes[i].add(switchButtons[i], 1, 0);
             GridPane.setMargin(switchButtons[i], new Insets(0, 0, 0, 5));
             GridPane.setHalignment(switchButtons[i], HPos.RIGHT);
         }
 
-        animation = new TransitionAnimation();
+        TransitionAnimation animation = new TransitionAnimation();
         animation.transitionAnimation(3, 2, this.deviceList1, this.deviceList2);
         animation.playSeqAnimation();
     }
 
-    private synchronized void setVisible(boolean b) {
-        Platform.runLater(() -> {
+    private synchronized void setVisible(boolean b)
+    {
+        Platform.runLater(() ->
+        {
             this.devicePanes.setVisible(b);
             StackPane parentPane = (StackPane) this.devicePanes.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
@@ -180,26 +191,65 @@ public class DeviceController implements Observer {
         });
     }
 
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
+    {
         boolean visible = false;
         ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list) {
+        for (Node node : list)
+        {
             visible = node.isVisible();
         }
         gridPane.setVisible(visible);
     }
 
-    private synchronized void setInfo(Label l, String text) {
+    private void enforceView()
+    {
+        if (!visible)
+        {
+            StackPane sPane = (StackPane) this.devicePanes.getParent();
+
+            ObservableList<Node> list = sPane.getChildren();
+            for (Node node : list)
+            {
+                node.setVisible(false);
+            }
+
+            this.devicePanes.setVisible(true);
+        }
+    }
+
+    private synchronized void setParentVisible()
+    {
+        Platform.runLater(() ->
+        {
+            GridPane gridPane = (GridPane) this.devicePanes.getParent().getParent();
+            if (gridPane.getOpacity() != 1)
+            {
+                gridPane.setVisible(true);
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
+
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+            }
+        });
+    }
+
+    private synchronized void setInfo(Label l, String text)
+    {
         l.setVisible(true);
         Platform.runLater(() -> l.setText(text));
     }
 
-    private synchronized void setStatus(DevicesToggleButton button, String status) {
+    private synchronized void setStatus(DevicesToggleButton button, String status)
+    {
         Platform.runLater(() -> button.switchProperty().set(status.equals("true")));
     }
 
-    private synchronized void animationFadeIn(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void animationFadeIn(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
@@ -207,8 +257,10 @@ public class DeviceController implements Observer {
         });
     }
 
-    private synchronized void animationFadeOut(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void animationFadeOut(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
             fadeIn.setFromValue(1);
             fadeIn.setToValue(0);
@@ -218,30 +270,46 @@ public class DeviceController implements Observer {
 
     @Override
     @SuppressWarnings("unchecked")
-    public void update(Observable o, Object arg) {
-        if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
-            Thread thread = new Thread(() -> {
-                LinkedList<Device> list = (LinkedList) arg;
-                for (int i = 0; i < labels.length; i++) {
-                    if (list.size() > 0) {
-                        setInfo(labels[i], list.peek().getDeviceName());
-                        setStatus(switchButtons[i], list.remove().getStatus());
-                        animationFadeIn(gridPanes[i]);
-                    } else {
-                        animationFadeOut(gridPanes[i]);
-                        setInfo(labels[i], "");
-                        setStatus(switchButtons[i], "off");
+    public void update(Observable o, Object arg)
+    {
+        if (arg instanceof MqttMessage)
+        {
+            Thread thread = new Thread(() ->
+            {
+                JsonMessageParser parser = new JsonMessageParser();
+                parser.parseMessage(arg.toString());
+
+                if (parser.getContentType().equals("device"))
+                {
+                    LinkedList<Device> list = parser.parseDeviceList();
+                    enforceView();
+                    setParentVisible();
+                    for (int i = 0; i < labels.length; i++)
+                    {
+                        if (list.size() > 0)
+                        {
+                            setInfo(labels[i], list.peek().getDeviceName());
+                            setStatus(switchButtons[i], list.remove().getStatus());
+                            animationFadeIn(gridPanes[i]);
+                        }
+                        else
+                        {
+                            animationFadeOut(gridPanes[i]);
+                            setInfo(labels[i], "");
+                            setStatus(switchButtons[i], "off");
+                        }
                     }
+                }
+                else if (parser.getContentType().equals("preferences"))
+                {
+                    LinkedList<Preferences> list = parser.parsePreferenceList();
+
+                    list.stream().filter(pref -> pref.getName().equals("device")).forEach(pref ->
+                            setVisible(pref.getValue().equals("true")));
                 }
             });
             thread.start();
-        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Preferences) {
-            Thread thread = new Thread(() -> {
-                LinkedList<Preferences> preferences = (LinkedList) arg;
-                preferences.stream().filter(pref -> pref.getName().equals("device")).forEachOrdered(pref ->
-                        setVisible(pref.getValue().equals("true")));
-            });
-            thread.start();
+
         }
     }
 }

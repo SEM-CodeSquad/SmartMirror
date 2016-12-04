@@ -9,14 +9,12 @@ import controllers.widgetsControllers.temperatureController.TemperatureControlle
 import controllers.widgetsControllers.timeDateController.TimeDateController;
 import dataHandlers.componentsCommunication.CommunicationManager;
 import dataHandlers.componentsCommunication.JsonMessageParser;
+import dataHandlers.mqttClient.MQTTClient;
+import dataHandlers.mqttClient.SmartMirror_Publisher;
+import dataHandlers.mqttClient.SmartMirror_Subscriber;
 import dataHandlers.widgetsDataHandlers.timeDate.TimeDateManager;
-import dataModels.applicationModels.Preferences;
 import dataModels.applicationModels.UUID_Generator;
-import dataModels.widgetsModels.busTimetableModels.BusStop;
-import dataModels.widgetsModels.devicesModels.Device;
-import dataModels.widgetsModels.feedModels.NewsSource;
 import dataModels.widgetsModels.qrCodeModels.QRCode;
-import dataModels.widgetsModels.weatherModels.Town;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -28,14 +26,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MainController extends Observable implements Observer {
+public class MainController extends Observable implements Observer
+{
     public BorderPane pairingPane;
     public GridPane pairingDateTimeContainer;
     public GridPane qrPairingContainer;
@@ -62,9 +61,8 @@ public class MainController extends Observable implements Observer {
     private boolean systemRunning;
     private UUID_Generator uuid;
 
-    private CommunicationManager communicationManager;
     private TimeDateManager timeDateManager;
-    private JsonMessageParser jsonMessageParser;
+    private CommunicationManager communicationManager;
 
     private FeedController feedController;
     private TemperatureController temperatureController;
@@ -72,97 +70,113 @@ public class MainController extends Observable implements Observer {
     private DeviceController deviceController;
     private TimeDateController timeDateController;
     private GreetingsController greetingsController;
+    private PostItViewController postItViewController;
 
 
-    public MainController() {
+    public MainController()
+    {
         this.systemRunning = true;
-        uuid = new UUID_Generator();
-        communicationManager = new CommunicationManager(uuid.getUUID(), this);
-    }
-
-    private void startUp() {
-        setUpDateTimeView();
-        setUpQRCodeView();
-        setUpTemperatureView();
-        setUpDevicesView();
-        setUpFeedView();
-        setUpBusTimetableView();
-
-        this.jsonMessageParser.addObserver(this.busTimetableController);
-        this.jsonMessageParser.addObserver(this.deviceController);
-        this.jsonMessageParser.addObserver(this.feedController);
-        this.jsonMessageParser.addObserver(this.temperatureController);
-        this.jsonMessageParser.addObserver(this.timeDateController);
-
-        this.pairingPane.setOpacity(1);
-
         keepScreenAlive();
+        this.uuid = new UUID_Generator();
+        this.communicationManager = new CommunicationManager(this.uuid.getUUID());
+        this.communicationManager.addObserver(this);
+        startUp();
     }
 
-    private void setUpDevicesView() {
-        deviceController = loadViewMainScreen(stackPaneWidget7, "/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml").getController();
-        this.jsonMessageParser.addObserver(deviceController);
+    private void startUp()
+    {
+        Platform.runLater(() ->
+        {
+            setUpDateTimeView();
+            setUpQRCodeView();
+            setUpTemperatureView();
+            setUpDevicesView();
+            setUpFeedView();
+            setUpBusTimetableView();
+            setUpPostItView();
+            setUpGreetingsView();
+
+            this.pairingPane.setOpacity(1);
+
+
+        });
     }
 
-    private void setUpPostItView() {
-        PostItViewController postItViewController = loadViewMainScreen(stackPaneWidget6, "/interfaceViews/widgetsViews/postItWidget/PostitView.fxml").getController();
-        this.jsonMessageParser.addObserver(postItViewController);
-        postItViewController.addObserver(communicationManager);
-        setComponentVisible(widget6);
+    private void setUpDevicesView()
+    {
+        this.deviceController = loadViewMainScreen(this.stackPaneWidget7, "/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml").getController();
+        this.communicationManager.addObserver(this.deviceController);
     }
 
-    private void setUpFeedView() {
-        this.feedController = loadViewMainScreen(stackPaneWidget2, "/interfaceViews/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
-        this.timeDateManager.addObserver(feedController);
-        this.addObserver(feedController);
-    }
-
-    private void setUpTemperatureView() {
-        this.temperatureController = loadViewMainScreen(stackPaneWidget4, "/interfaceViews/widgetsViews/weatherWidget/TemperatureView.fxml").getController();
-        timeDateManager.addObserver(temperatureController);
-        this.addObserver(temperatureController);
+    private void setUpPostItView()
+    {
+        this.postItViewController = loadViewMainScreen(this.stackPaneWidget6, "/interfaceViews/widgetsViews/postItWidget/PostitView.fxml").getController();
+        this.communicationManager.addObserver(this.postItViewController);
 
     }
 
-    private void setUpBusTimetableView() {
-        this.busTimetableController = loadViewMainScreen(stackPaneWidget3, "/interfaceViews/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
-        timeDateManager.addObserver(busTimetableController);
-        this.addObserver(busTimetableController);
+    private void setUpFeedView()
+    {
+        this.feedController = loadViewMainScreen(this.stackPaneWidget2, "/interfaceViews/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
+        this.timeDateManager.addObserver(this.feedController);
+        this.communicationManager.addObserver(this.feedController);
+
     }
 
-    private void setUpQRCodeView() {
-        QRCode qrCode = new QRCode(uuid.getUUID());
+    private void setUpTemperatureView()
+    {
+        this.temperatureController = loadViewMainScreen(this.stackPaneWidget4, "/interfaceViews/widgetsViews/weatherWidget/TemperatureView.fxml").getController();
+        this.timeDateManager.addObserver(this.temperatureController);
+        this.communicationManager.addObserver(this.temperatureController);
 
-        qrCode.addObserver(loadViewPairingScreen(qrPairingContainer, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml",
+    }
+
+    private void setUpBusTimetableView()
+    {
+        this.busTimetableController = loadViewMainScreen(this.stackPaneWidget3, "/interfaceViews/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
+        this.timeDateManager.addObserver(this.busTimetableController);
+        this.communicationManager.addObserver(this.busTimetableController);
+    }
+
+    private void setUpQRCodeView()
+    {
+        QRCode qrCode = new QRCode(this.uuid.getUUID());
+
+        qrCode.addObserver(loadViewPairingScreen(this.qrPairingContainer, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml",
                 1, 0).getController());
-
-        qrCode.addObserver(loadViewMainScreen(stackPaneWidgetQR, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml").getController());
-
+        setComponentVisible(this.qrPairingContainer);
+        qrCode.addObserver(loadViewMainScreen(this.stackPaneWidgetQR, "/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml").getController());
+        setComponentVisible(this.gridMainQR);
         qrCode.getQRCode();
 
 
     }
 
-    private void setUpDateTimeView() {
-        timeDateManager = new TimeDateManager();
-        timeDateManager.bindToTime();
-        timeDateManager.bindToDate();
-        timeDateManager.bindToDay();
-        timeDateManager.bindGreetings();
+    private void setUpDateTimeView()
+    {
+        this.timeDateManager = new TimeDateManager();
+        this.timeDateManager.bindToTime();
+        this.timeDateManager.bindToDate();
+        this.timeDateManager.bindToDay();
+        this.timeDateManager.bindGreetings();
 
-        timeDateManager.addObserver(loadViewPairingScreen(pairingDateTimeContainer, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml",
+        this.timeDateManager.addObserver(loadViewPairingScreen(this.pairingDateTimeContainer, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml",
                 0, 0).getController());
-        timeDateController = loadViewMainScreen(stackPaneWidget1, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml").getController();
-        timeDateManager.addObserver(timeDateController);
+        setComponentVisible(this.pairingDateTimeContainer);
+        this.timeDateController = loadViewMainScreen(this.stackPaneWidget1, "/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml").getController();
+        this.timeDateManager.addObserver(this.timeDateController);
+        this.communicationManager.addObserver(this.timeDateController);
     }
 
-    private void setUpGreetingsView() {
+    private void setUpGreetingsView()
+    {
         greetingsController = loadViewMainScreen(stackPaneWidget5, "/interfaceViews/widgetsViews/greetingsWidget/GreetingsView.fxml").getController();
         timeDateManager.addObserver(greetingsController);
-        this.jsonMessageParser.addObserver(greetingsController);
+        this.communicationManager.addObserver(this.greetingsController);
     }
 
-    private void changeScene() {
+    private void changeScene()
+    {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), this.pairingPane);
 
         fadeOut.setFromValue(1);
@@ -178,8 +192,10 @@ public class MainController extends Observable implements Observer {
 
     }
 
-    private synchronized void setComponentVisible(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void setComponentVisible(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             gridPane.setVisible(true);
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
 
@@ -189,8 +205,10 @@ public class MainController extends Observable implements Observer {
         });
     }
 
-    private synchronized void setComponentInvisible(GridPane gridPane) {
-        Platform.runLater(() -> {
+    private synchronized void setComponentInvisible(GridPane gridPane)
+    {
+        Platform.runLater(() ->
+        {
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), gridPane);
 
             fadeOut.setFromValue(1);
@@ -200,15 +218,21 @@ public class MainController extends Observable implements Observer {
         });
     }
 
-    private void keepScreenAlive() {
-        Thread thread = new Thread(() -> {
-            while (systemRunning) {
-                try {
+    private void keepScreenAlive()
+    {
+        Thread thread = new Thread(() ->
+        {
+            while (systemRunning)
+            {
+                try
+                {
                     Thread.sleep(80000);//this is how long before it moves
                     Point point = MouseInfo.getPointerInfo().getLocation();
                     Robot robot = new Robot();
                     robot.mouseMove(point.x, point.y);
-                } catch (InterruptedException | AWTException e) {
+                }
+                catch (InterruptedException | AWTException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -216,83 +240,90 @@ public class MainController extends Observable implements Observer {
         thread.start();
     }
 
-    private FXMLLoader loadViewPairingScreen(GridPane parent, String resource, int c, int r) {
+    private FXMLLoader loadViewPairingScreen(GridPane parent, String resource, int c, int r)
+    {
         FXMLLoader myLoader = null;
-        try {
+        try
+        {
             myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = myLoader.load();
             parent.add(loadScreen, c, r);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.err.println(e.getMessage());
         }
         return myLoader;
     }
 
-    private FXMLLoader loadViewMainScreen(StackPane parent, String resource) {
+    private FXMLLoader loadViewMainScreen(StackPane parent, String resource)
+    {
         FXMLLoader myLoader = null;
-        try {
+        try
+        {
             myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = myLoader.load();
             parent.getChildren().add(loadScreen);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.err.println(e.getMessage());
         }
         return myLoader;
     }
 
     // TODO: 01/12/2016   
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane) {
+    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
+    {
         boolean visible = false;
         ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list) {
+        for (Node node : list)
+        {
             visible = node.isVisible();
         }
         gridPane.setVisible(visible);
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        if (arg instanceof JsonMessageParser) {
-            this.jsonMessageParser = (JsonMessageParser) arg;
-            this.jsonMessageParser.addObserver(this);
+    public void update(Observable o, Object arg)
+    {
+        if (arg instanceof MqttMessage)
+        {
             Thread thread = new Thread(() -> {
-                Platform.runLater(this::startUp);
-                Platform.runLater(this::setUpPostItView);
+                JsonMessageParser parser = new JsonMessageParser();
+                parser.parseMessage(arg.toString());
+                if (parser.parsePairing())
+                {
+                    setComponentVisible(this.widget1);
+                    setComponentVisible(this.widget5);
+                    changeScene();
+                }
             });
             thread.start();
-        } else if (arg instanceof CommunicationManager) {
-            Thread thread = new Thread(() -> Platform.runLater(this::setUpGreetingsView));
-            thread.start();
-            changeScene();
-            setComponentVisible(widget1);
-            setComponentVisible(gridMainQR);
-            setComponentVisible(widget5);
-
-        } else if (arg instanceof BusStop) {
-            Thread thread = new Thread(() -> this.setComponentVisible(this.widget3));
-            thread.start();
-
-        } else if (arg instanceof Town) {
-            Thread thread = new Thread(() -> this.setComponentVisible(this.widget4));
-            thread.start();
-
-        } else if (arg instanceof NewsSource) {
-            Thread thread = new Thread(() -> this.setComponentVisible(this.widget2));
-            thread.start();
-
-        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
-            Thread thread = new Thread(() -> setComponentVisible(widget7));
-            thread.start();
-        } else if (arg instanceof Preferences && ((Preferences) arg).getName().equals("widget3")) {
-            Thread thread = new Thread(() -> Platform.runLater(() -> {
-                if (((Preferences) arg).getValue().equals("true")) {
-                    setComponentVisible(widget3);
-                } else {
-                    setComponentInvisible(widget3);
-                }
-            }));
-            thread.start();
         }
-
+//        else if (arg instanceof CommunicationManager) {
+//            Thread thread = new Thread(() -> Platform.runLater(this::setUpGreetingsView));
+//            thread.start();
+//            changeScene();
+//            setComponentVisible(widget1);
+//            setComponentVisible(gridMainQR);
+//            setComponentVisible(widget5);
+//
+//        } else if (arg instanceof BusStop) {
+//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget3));
+//            thread.start();
+//
+//        } else if (arg instanceof Town) {
+//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget4));
+//            thread.start();
+//
+//        } else if (arg instanceof NewsSource) {
+//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget2));
+//            thread.start();
+//
+//        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
+//            Thread thread = new Thread(() -> setComponentVisible(widget7));
+//            thread.start();
+//        }
     }
 }

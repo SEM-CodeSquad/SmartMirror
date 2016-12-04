@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dateTime" maxHeight="-Infinity" maxWidth="-Infinity"
           minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="234.0"
           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
@@ -34,7 +39,7 @@
         </Label>
         <Label fx:id="dayName" textFill="WHITE" GridPane.rowIndex="1">
             <GridPane.margin>
-                <Insets left="170.0"/>
+                <Insets left="175.0"/>
             </GridPane.margin>
             <font>
                 <Font name="Sitka Banner" size="34.0"/>

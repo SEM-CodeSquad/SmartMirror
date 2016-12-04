@@ -5,6 +5,7 @@ import dataModels.widgetsModels.devicesModels.Device;
 import dataModels.widgetsModels.postItsModels.PostItAction;
 import dataModels.widgetsModels.postItsModels.PostItNote;
 import dataModels.applicationModels.Settings;
+import dataModels.widgetsModels.shoppingListModels.ShoppingList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
 
-public class JsonMessageParser extends Observable
+public class JsonMessageParser
 {
     private String message;
     private String contentType;
@@ -22,11 +23,8 @@ public class JsonMessageParser extends Observable
     private String timestamp;
     private LinkedList<Device> deviceList;
     private LinkedList<Preferences> preferencesList;
-
-    public JsonMessageParser()
-    {
-        this.deviceList = new LinkedList<>();
-    }
+    private ShoppingList shoppingList;
+    private Settings settings;
 
     public void parseMessage(String message)
     {
@@ -46,78 +44,119 @@ public class JsonMessageParser extends Observable
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public void parseContent()
+    public boolean parsePairing()
+    {
+        return this.contentType.equals("pairing");
+    }
+
+    public PostItNote parsePostIt()
     {
         try
         {
-            JSONParser parser = new JSONParser();
-            JSONArray jsonArray;
-            JSONObject jso;
-            String postItId;
+            if (getContentType().equals("post-it"))
+            {
+                JSONParser parser = new JSONParser();
+                JSONArray jsonArray;
+                JSONObject jso;
+                String postItId;
 
+                jsonArray = (JSONArray) parser.parse(this.content);
+                jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
+                postItId = jso.get("postItID").toString();
+                String bodyText = jso.get("body").toString();
+                String senderId = jso.get("senderStyle").toString();
+                int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
 
-            switch (getContentType()) {
-                case "post-it":
-                    jsonArray = (JSONArray) parser.parse(this.content);
-                    jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("postItID").toString();
-                    String bodyText = jso.get("body").toString();
-                    String senderId = jso.get("senderStyle").toString();
-                    int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
-                    PostItNote postItNote = new PostItNote(postItId, bodyText, senderId, timestamp);
-
-                    setChanged();
-                    notifyObservers(postItNote);
-                    break;
-
-                case "device":
-                    this.deviceList = new LinkedList<>();
-                    parseArray(this.deviceList, "device");
-                    setChanged();
-                    notifyObservers(this.deviceList);
-                    break;
-
-                case "settings":
-                    parseArray(null, "settings");
-                    break;
-
-                case "pairing":
-                    setChanged();
-                    notifyObservers("pairing");
-                    break;
-
-                case "postIt action":
-                    jsonArray = (JSONArray) parser.parse(this.content);
-                    jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
-                    postItId = jso.get("postItID").toString();
-                    String action = jso.get("action").toString();
-                    String modification = jso.get("modification").toString();
-                    PostItAction postItAction = new PostItAction(postItId, action, modification);
-                    setChanged();
-                    notifyObservers(postItAction);
-                    break;
-
-                case "preferences":
-                    this.preferencesList = new LinkedList<>();
-                    parseArray(this.preferencesList, "preferences");
-                    setChanged();
-                    notifyObservers(this.preferencesList);
-                    break;
-
-                default:
-
-                    System.out.println("Could Not be Parsed!");
-                    break;
-
+                return new PostItNote(postItId, bodyText, senderId, timestamp);
             }
         }
         catch (ParseException e)
         {
             e.printStackTrace();
         }
+
+        return null;
     }
 
+    public PostItAction parsePostItAction()
+    {
+        try
+        {
+            if (getContentType().equals("postIt action"))
+            {
+                JSONParser parser = new JSONParser();
+                JSONArray jsonArray;
+                JSONObject jso;
+                String postItId;
+
+                jsonArray = (JSONArray) parser.parse(this.content);
+                jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
+                postItId = jso.get("postItID").toString();
+                String action = jso.get("action").toString();
+                String modification = jso.get("modification").toString();
+
+                return new PostItAction(postItId, action, modification);
+            }
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public LinkedList parseDeviceList()
+    {
+        if (getContentType().equals("device"))
+        {
+            this.deviceList = new LinkedList<>();
+            parseArray(this.deviceList, getContentType());
+
+            return this.deviceList;
+        }
+
+        return null;
+    }
+
+    public Settings parseSettings()
+    {
+        if (getContentType().equals("settings"))
+        {
+            parseArray(null, getContentType());
+
+            return this.settings;
+        }
+
+        return null;
+    }
+
+    public LinkedList parsePreferenceList()
+    {
+        if (getContentType().equals("preferences"))
+        {
+            this.preferencesList = new LinkedList<>();
+            parseArray(this.preferencesList, getContentType());
+
+            return this.preferencesList;
+        }
+
+        return null;
+    }
+
+
+    public ShoppingList parseShoppingList()
+    {
+        if (getContentType().equals("shoppinglist"))
+        {
+            this.shoppingList = new ShoppingList();
+            parseArray(null, getContentType());
+
+            return this.shoppingList;
+        }
+
+        return null;
+    }
 
     @SuppressWarnings("unchecked")
     private void parseArray(LinkedList linkedList, String type)
@@ -129,7 +168,6 @@ public class JsonMessageParser extends Observable
             JSONObject jso = (JSONObject) parser.parse(s);
             ArrayList<String> arrayList = new ArrayList<>(jso.keySet());
             Device device;
-            Settings settings;
             Preferences preferences;
             for (String anArrayList : arrayList)
             {
@@ -141,14 +179,20 @@ public class JsonMessageParser extends Observable
                         break;
                     case "settings":
                         settings = new Settings(anArrayList, value);
-                        if (value != null) {
-                            setChanged();
-                            notifyObservers(settings.getObject());
-                        }
                         break;
                     case "preferences":
                         preferences = new Preferences(anArrayList, value);
                         linkedList.add(preferences);
+                        break;
+                    case "shoppinglist":
+                        if (anArrayList.equals("senderColor"))
+                        {
+                            this.shoppingList.setColor(value);
+                        }
+                        else
+                        {
+                            this.shoppingList.setItemList(anArrayList, value);
+                        }
                         break;
                     default:
                         System.out.println("Could Not be Parsed!");

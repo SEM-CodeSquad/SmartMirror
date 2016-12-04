@@ -1,11 +1,8 @@
 package dataHandlers.mqttClient;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
-
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-
-
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 
 public class MQTTClient
@@ -29,39 +26,44 @@ public class MQTTClient
         catch (MqttException e)
         {
             e.printStackTrace();
+            disconnect();
+            reconnect();
         }
     }
 
-    public void disconnect(String clientId)
+    public void disconnect()
     {
-        System.out.println("Disconnecting...");
-        try
+        if (this.client.isConnected())
         {
-            String topic = "presence/" + clientId;
-            byte[] emptyArray = new byte[0];
-            this.client.publish(topic, emptyArray, 1, true);
+            System.out.println("Disconnecting...");
+            try
+            {
+                String topic = "presence/" + this.clientId;
+                byte[] emptyArray = new byte[0];
+                this.client.publish(topic, emptyArray, 1, true);
 
-            client.disconnect();
-        }
-        catch (MqttException e)
-        {
-            e.printStackTrace();
+                client.disconnect();
+            }
+            catch (MqttException e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 
     void reconnect()
     {
-      if (!client.isConnected())
-       {
-         try
-         {
-          client.connect(options);
-         }
-         catch (MqttException e)
-         {
-          e.printStackTrace();
-         }
-       }
+        if (!client.isConnected())
+        {
+            try
+            {
+                client.connect(options);
+            }
+            catch (MqttException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
 

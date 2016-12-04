@@ -56,6 +56,8 @@ public class PostItManager {
 
 
             gc.drawImage(images[i], 0, 0);
+
+
             disintegrate(this.images[i], i);
             setPostMessage(i, msg);
         } catch (Exception e) {

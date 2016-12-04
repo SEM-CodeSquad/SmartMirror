@@ -1,6 +1,4 @@
-package dataHandlers.widgetsDataHandlers.weather;
-
-import com.google.zxing.common.detector.MathUtils;
+package dataModels.widgetsModels.weatherModels;
 
 import java.util.Observable;
 
@@ -18,43 +16,42 @@ public class Weather extends Observable {
 
     public double getTemp() {
         return Math.round(Double.parseDouble(currentTemp));
-        }
+    }
 
     public void setTemp(String temp) {
-            this.currentTemp = temp;
-        }
+        this.currentTemp = temp;
+    }
 
     public double getMinTemp() {
         return Math.round(Double.parseDouble(minTemp));
-        }
+    }
 
     public void setMinTemp(String minTemp) {
-            this.minTemp = minTemp;
-        }
+        this.minTemp = minTemp;
+    }
 
     public double getMaxTemp() {
         return Math.round(Double.parseDouble(maxTemp));
-        }
+    }
 
     public void setMaxTemp(String maxTemp) {
-            this.maxTemp = maxTemp;
-        }
+        this.maxTemp = maxTemp;
+    }
 
     public String getDesc() {
-            return desc;
-        }
+        return desc;
+    }
 
     public void setDesc(String desc) {
-        System.out.println(desc);
-            this.desc = desc;
-        }
+        this.desc = desc;
+    }
 
     public String getIcon() {
-            return this.icon;
-        }
+        return this.icon;
+    }
 
     public void setIcon(String icon) {
-            this.icon = icon;
+        this.icon = icon;
     }
 
     public String getDayName() {
@@ -63,8 +60,8 @@ public class Weather extends Observable {
 
     public void setDayName(String dayName) {
         this.dayName = dayName;
-        }
     }
+}
 
 
 

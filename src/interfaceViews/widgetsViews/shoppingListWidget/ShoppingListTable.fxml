@@ -2,15 +2,13 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="listTable" xmlns="http://javafx.com/javafx/8">
     <children>
         <GridPane prefHeight="521.0" prefWidth="316.0" style="-fx-background-color: #000000;">
             <children>
-                <GridPane fx:id="list4" GridPane.rowIndex="3">
+                <GridPane fx:id="list4" opacity="0.0" GridPane.rowIndex="3">
                     <children>
                         <Label fx:id="item4" text="Label" textFill="WHITE">
                             <font>
@@ -28,7 +26,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list10" layoutX="10.0" layoutY="10.0" GridPane.rowIndex="9">
+                <GridPane fx:id="list10" layoutX="10.0" layoutY="10.0" opacity="0.0" GridPane.rowIndex="9">
                     <children>
                         <Label fx:id="item10" text="Label" textFill="WHITE">
                             <font>
@@ -46,7 +44,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list9" layoutX="10.0" layoutY="10.0"
+                <GridPane fx:id="list9" layoutX="10.0" layoutY="10.0" opacity="0.0"
                           style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.rowIndex="8">
                     <children>
                         <Label fx:id="item9" text="Label" textFill="WHITE">
@@ -65,7 +63,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list2" layoutX="10.0" layoutY="10.0" GridPane.rowIndex="1">
+                <GridPane fx:id="list2" layoutX="10.0" layoutY="10.0" opacity="0.0" GridPane.rowIndex="1">
                     <children>
                         <Label fx:id="item2" text="Label" textFill="WHITE">
                             <font>
@@ -83,7 +81,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list8" layoutX="10.0" layoutY="10.0" GridPane.rowIndex="7">
+                <GridPane fx:id="list8" layoutX="10.0" layoutY="10.0" opacity="0.0" GridPane.rowIndex="7">
                     <children>
                         <Label fx:id="item8" text="Label" textFill="WHITE">
                             <font>
@@ -101,7 +99,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list7" style="-fx-background-color: #323232; -fx-background-radius: 10;"
+                <GridPane fx:id="list7" opacity="0.0" style="-fx-background-color: #323232; -fx-background-radius: 10;"
                           GridPane.rowIndex="6">
                     <children>
                         <Label fx:id="item7" text="Label" textFill="WHITE">
@@ -120,7 +118,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list5" layoutX="10.0" layoutY="274.0"
+                <GridPane fx:id="list5" layoutX="10.0" layoutY="274.0" opacity="0.0"
                           style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.rowIndex="4">
                     <children>
                         <Label fx:id="item5" text="Label" textFill="WHITE">
@@ -139,7 +137,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list12" layoutX="10.0" layoutY="186.0" GridPane.rowIndex="11">
+                <GridPane fx:id="list12" layoutX="10.0" layoutY="186.0" opacity="0.0" GridPane.rowIndex="11">
                     <children>
                         <Label fx:id="item12" text="Label" textFill="WHITE">
                             <font>
@@ -157,7 +155,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list11" layoutX="10.0" layoutY="491.0"
+                <GridPane fx:id="list11" layoutX="10.0" layoutY="491.0" opacity="0.0"
                           style="-fx-background-color: #323232; -fx-background-radius: 10;" GridPane.rowIndex="10">
                     <children>
                         <Label fx:id="item11" text="Label" textFill="WHITE">
@@ -176,7 +174,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list6" layoutX="10.0" layoutY="274.0" GridPane.rowIndex="5">
+                <GridPane fx:id="list6" layoutX="10.0" layoutY="274.0" opacity="0.0" GridPane.rowIndex="5">
                     <children>
                         <Label fx:id="item6" text="Label" textFill="WHITE">
                             <font>
@@ -194,7 +192,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list3" style="-fx-background-color: #323232; -fx-background-radius: 10;"
+                <GridPane fx:id="list3" opacity="0.0" style="-fx-background-color: #323232; -fx-background-radius: 10;"
                           GridPane.rowIndex="2">
                     <children>
                         <Label fx:id="item3" text="Label" textFill="WHITE">
@@ -213,7 +211,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                 </GridPane>
-                <GridPane fx:id="list1" layoutX="10.0" layoutY="186.0"
+                <GridPane fx:id="list1" layoutX="10.0" layoutY="186.0" opacity="0.0"
                           style="-fx-background-color: #323232; -fx-background-radius: 10;">
                     <children>
                         <Label fx:id="item1" text="Label" textFill="WHITE">

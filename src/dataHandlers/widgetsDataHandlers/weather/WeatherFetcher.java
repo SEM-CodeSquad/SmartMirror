@@ -14,11 +14,7 @@ import java.util.Observable;
 public class WeatherFetcher extends Observable {
     private String weatherData;
     private boolean isForecast;
-    
-    /*
-     * The fetchWeather method takes the city name as a constructor and returns the JSON formatted text
-     * returned by the web server. The fetchWeather uses the HTTP GET request method to fetch the weather.
-    */
+
     public void fetchWeather(String query, String cityName) {
 
             HttpURLConnection connection = null ;
@@ -64,18 +60,7 @@ public class WeatherFetcher extends Observable {
             }
         }
     }
-    /*
-     * The below getImage() method returns a ByteArray code of the icon requested with the variable "code"
-     * coming from the returned weather call requested by fetchWeather().
-     * 'ImageView' could be used to display this icon on the Android end.
-    */
 
-    /* <ImageView
-    android:id="@+id/condIcon"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_below="@id/cityText" />*/
     public Image getImage(String code) {
         File f;
         try {
