@@ -1,5 +1,7 @@
 package smartMirror.dataModels.applicationModels;
 
+import java.time.Instant;
+
 /**
  * Class Timestamp provides a Unix timestamp
  */
@@ -11,7 +13,7 @@ public class Timestamp {
      *
       */
     public Timestamp() {
-        this.timestamp = System.currentTimeMillis()/ 1000;
+        this.timestamp = Instant.now().getEpochSecond();
     }
 
     /**

@@ -4,11 +4,12 @@ public class PostItNote {
     private String postItId;
     private String bodyText;
     private String senderId;
-    private int timestamp;
+    private long timestamp;
 
     private int postItIndex;
 
-    public PostItNote(String postItId, String bodyText, String senderId, int timestamp) {
+    public PostItNote(String postItId, String bodyText, String senderId, long timestamp)
+    {
         this.postItId = postItId;
         this.bodyText = bodyText;
         this.senderId = senderId;
@@ -31,7 +32,8 @@ public class PostItNote {
         return senderId;
     }
 
-    public int getTimestamp() {
+    public long getTimestamp()
+    {
         return timestamp;
     }
 

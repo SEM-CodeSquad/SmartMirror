@@ -1,16 +1,17 @@
 package smartMirror.dataHandlers.componentsCommunication;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.applicationModels.Settings;
 import smartMirror.dataModels.widgetsModels.devicesModels.Device;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -65,7 +66,16 @@ public class JsonMessageParser
                 postItId = jso.get("postItID").toString();
                 String bodyText = jso.get("body").toString();
                 String senderId = jso.get("senderStyle").toString();
-                int timestamp = Integer.parseInt(jso.get("expiresAt").toString());
+                String stamp = jso.get("expiresAt").toString();
+                long timestamp;
+                if (stamp.equals("0"))
+                {
+                    timestamp = Instant.now().getEpochSecond() + 7200 * 60;
+                }
+                else
+                {
+                    timestamp = Long.parseLong(stamp);
+                }
 
                 return new PostItNote(postItId, bodyText, senderId, timestamp);
             }
