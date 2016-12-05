@@ -1,10 +1,5 @@
 package smartMirror.controllers.widgetsControllers.postItsController;
 
-import smartMirror.dataHandlers.animations.TransitionAnimation;
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
-import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -15,8 +10,18 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.dataHandlers.animations.TransitionAnimation;
+import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
+import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
+import smartMirror.dataHandlers.database.MysqlCon;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.applicationModels.Timestamp;
+import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
+import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.*;
 
 /**
@@ -108,6 +113,10 @@ public class PostItViewController extends Observable implements Observer
 
         this.panes = new StackPane[]{standard, blue, green, purple, orange,
                 pink, yellow};
+
+        TimeNotificationControl notificationControl = new TimeNotificationControl();
+        notificationControl.addObserver(this);
+        notificationControl.bind("HH:mm:ss", 1, "post-it");
     }
 
 
@@ -254,6 +263,26 @@ public class PostItViewController extends Observable implements Observer
         notifyObservers(arg);
     }
 
+    private synchronized void deleteFromDB(String timestamp)
+    {
+        try
+        {
+            MysqlCon mysqlCon = new MysqlCon();
+            mysqlCon.dbConnect();
+            Connection c = mysqlCon.getCon();
+            String query = "delete from Postits where Timestamp= '" + timestamp + "' ";
+            PreparedStatement psPost = c.prepareStatement(query);
+            psPost.executeUpdate();
+            psPost.close();
+
+            mysqlCon.closeConnection();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     @SuppressWarnings("unchecked")
@@ -273,6 +302,7 @@ public class PostItViewController extends Observable implements Observer
                         PostItNote postItNote = parser.parsePostIt();
                         setParentVisible();
                         enforceView();
+                        System.out.println("post");
                         notifyObs(postItNote);
                         break;
                     case "postIt action":
@@ -303,8 +333,19 @@ public class PostItViewController extends Observable implements Observer
             thread.start();
 
         }
-
-
+        else if (arg instanceof Timestamp)
+        {
+            Thread thread = new Thread(() ->
+            {
+                System.out.println("timestamp");
+                Timestamp timestamp = (Timestamp) arg;
+                notifyObs(timestamp);
+            });
+            Thread thread1 = new Thread(() ->
+                    deleteFromDB(String.valueOf(((Timestamp) arg).getTimestamp())));
+            thread1.start();
+            thread.start();
+        }
         else if (arg instanceof PostItsController)
         {
             Thread thread = new Thread(() ->

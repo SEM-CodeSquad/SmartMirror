@@ -1,6 +1,7 @@
 package smartMirror.controllers.widgetsControllers.feedController;
 
 import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
+import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
 import smartMirror.dataHandlers.widgetsDataHandlers.feed.MarqueePane;
 import smartMirror.dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -120,6 +121,10 @@ public class FeedController implements Observer
 
         this.marqueePane = new MarqueePane(feedPane.getWidth(), feedPane.getHeight() / 2);
         this.feedPane.add(this.marqueePane, 0, 0);
+
+        TimeNotificationControl notificationControl = new TimeNotificationControl();
+        notificationControl.addObserver(this);
+        notificationControl.bind("HH:mm:ss", 3600, "news");
     }
 
     @Override

@@ -2,7 +2,8 @@ package smartMirror.dataHandlers.database;
 
 import java.sql.*;
 
-class MysqlCon{
+public class MysqlCon
+{
 
     private Connection con;
 

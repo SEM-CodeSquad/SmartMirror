@@ -1,17 +1,19 @@
 package smartMirror.controllers.widgetsControllers.postItsController;
 
-import smartMirror.dataHandlers.widgetsDataHandlers.postIts.PostItManager;
-import smartMirror.dataModels.applicationModels.ChainedMap;
-import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
-import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import smartMirror.dataHandlers.widgetsDataHandlers.postIts.PostItManager;
+import smartMirror.dataModels.applicationModels.ChainedMap;
+import smartMirror.dataModels.applicationModels.Timestamp;
+import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
+import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -19,7 +21,8 @@ import java.util.ResourceBundle;
 /**
  * @author Pucci on 22/11/2016.
  */
-public class PostItsController extends Observable implements Observer, Initializable {
+public class PostItsController extends Observable implements Observer, Initializable
+{
     @FXML
     public GridPane postItPaneStandard;
 
@@ -109,31 +112,35 @@ public class PostItsController extends Observable implements Observer, Initializ
     private ChainedMap<String, PostItNote> postItNotes;
     private boolean[] booleanArray;
     private PostItManager postItManager;
-    //    protected String[] postItIdList = new String[1000]; //Set to 1000 slots for now
-//    protected int idListIndex = 0;
+
     @FXML
     private StackPane postPanes;
     private String tableColor;
 
-    public PostItsController() {
+    public PostItsController()
+    {
         this.postItNotes = new ChainedMap<>(12);
         this.booleanArray = new boolean[12];
         this.postItManager = new PostItManager();
     }
 
-    public StackPane getPostPane() {
+    public StackPane getPostPane()
+    {
         return postPanes;
     }
 
-    public String getTableColor() {
+    public String getTableColor()
+    {
         return tableColor;
     }
 
-    public void setTableColor(String tableColor) {
+    public void setTableColor(String tableColor)
+    {
         this.tableColor = tableColor;
     }
 
-    private void setUp() {
+    private void setUp()
+    {
         this.postItManager.setCanvases(canvas1, canvas2, canvas3, canvas4, canvas5, canvas6, canvas7,
                 canvas8, canvas9, canvas10, canvas11, canvas12);
         this.postItManager.setStackPanes(postPaneS1, postPaneS2, postPaneS3, postPaneS4, postPaneS5,
@@ -142,47 +149,60 @@ public class PostItsController extends Observable implements Observer, Initializ
                 postTextS7, postTextS8, postTextS9, postTextS10, postTextS11, postTextS12);
     }
 
-    private int freePostIndex() {
+    private int freePostIndex()
+    {
         int index = -1;
-        for (int i = 0; i < booleanArray.length; i++) {
+        for (int i = 0; i < booleanArray.length; i++)
+        {
 
-            if (!booleanArray[i]) {
+            if (!booleanArray[i])
+            {
                 return i;
             }
         }
         return index;
     }
 
-    private synchronized void createPostIt(PostItNote postItNote) {
-        if (postItNote.getSenderId().equals(this.tableColor)) {
+    private synchronized void createPostIt(PostItNote postItNote)
+    {
+        if (postItNote.getSenderId().equals(this.tableColor))
+        {
             int index = freePostIndex();
-            if (index != -1) {
+            if (index != -1)
+            {
                 postItNote.setPostItIndex(index);
                 postItNotes.add(postItNote.getPostItId(), postItNote);
                 booleanArray[index] = true;
-//                postItIdList[idListIndex] = postItNote.getPostItId();
-//                idListIndex++;
                 this.postItManager.setImage(index, postItNote.getSenderId());
                 this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
                 setChanged();
                 notifyObservers("success");
-            } else {
+            }
+            else
+            {
                 setChanged();
                 notifyObservers(this);
             }
         }
     }
 
-    private synchronized void managePostIt(PostItAction postItAction) {
-        if (postItNotes.getId().contains(postItAction.getPostItId())) {
+    private synchronized void managePostIt(PostItAction postItAction)
+    {
+        if (postItNotes.getId().contains(postItAction.getPostItId()))
+        {
             int index = postItNotes.getMap().get(postItAction.getPostItId()).getPostItIndex();
-            if (postItAction.isActionDelete()) {
+            if (postItAction.isActionDelete())
+            {
                 this.postItManager.deleteGraphicalNote(index);
+                this.postItNotes.remove(postItAction.getPostItId());
                 booleanArray[index] = false;
                 setChanged();
                 notifyObservers("success");
-            } else if (postItAction.isActionModify()) {
+            }
+            else if (postItAction.isActionModify())
+            {
                 this.postItManager.setPostMessage(index, postItAction.getModification());
+                this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
                 setChanged();
                 notifyObservers("success");
             }
@@ -190,20 +210,44 @@ public class PostItsController extends Observable implements Observer, Initializ
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        if (arg instanceof PostItNote) {
+    public void update(Observable o, Object arg)
+    {
+        if (arg instanceof PostItNote)
+        {
             PostItNote postItNote = (PostItNote) arg;
             Thread thread = new Thread(() -> createPostIt(postItNote));
             thread.start();
-        } else if (arg instanceof PostItAction) {
+        }
+        else if (arg instanceof PostItAction)
+        {
             PostItAction postItAction = (PostItAction) arg;
             Thread thread = new Thread(() -> managePostIt(postItAction));
+            thread.start();
+        }
+        else if (arg instanceof Timestamp)
+        {
+            Timestamp timestamp = (Timestamp) arg;
+            Thread thread = new Thread(() ->
+            {
+                LinkedList<String> ids = (LinkedList<String>) postItNotes.getId();
+                for (String id : ids)
+                {
+                    PostItNote postItNote = postItNotes.get(id);
+                    if (postItNote.getTimestamp() < timestamp.getTimestamp())
+                    {
+                        PostItAction postItAction = new PostItAction(postItNote.getPostItId(), "Delete", "none");
+                        managePostIt(postItAction);
+                        System.out.println("deleted");
+                    }
+                }
+            });
             thread.start();
         }
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         // initialize your logic here: all @FXML variables will have been injected
         setUp();
     }

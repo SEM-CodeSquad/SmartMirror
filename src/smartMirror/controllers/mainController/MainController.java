@@ -6,7 +6,7 @@ import smartMirror.controllers.widgetsControllers.feedController.FeedController;
 import smartMirror.controllers.widgetsControllers.greetingsController.GreetingsController;
 import smartMirror.controllers.widgetsControllers.postItsController.PostItViewController;
 import smartMirror.controllers.widgetsControllers.shoppingListController.ShoppingListViewController;
-import smartMirror.controllers.widgetsControllers.temperatureController.TemperatureController;
+import smartMirror.controllers.widgetsControllers.weatherController.WeatherController;
 import smartMirror.controllers.widgetsControllers.timeDateController.TimeDateController;
 import smartMirror.dataHandlers.componentsCommunication.CommunicationManager;
 import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
@@ -63,7 +63,7 @@ public class MainController extends Observable implements Observer
     private CommunicationManager communicationManager;
 
     private FeedController feedController;
-    private TemperatureController temperatureController;
+    private WeatherController temperatureController;
     private BusTimetableController busTimetableController;
     private DeviceController deviceController;
     private TimeDateController timeDateController;
@@ -123,15 +123,15 @@ public class MainController extends Observable implements Observer
     private void setUpFeedView()
     {
         this.feedController = loadViewMainScreen(this.stackPaneWidget2, "/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
-        this.timeDateManager.addObserver(this.feedController);
+//        this.timeDateManager.addObserver(this.feedController);
         this.communicationManager.addObserver(this.feedController);
 
     }
 
     private void setUpTemperatureView()
     {
-        this.temperatureController = loadViewMainScreen(this.stackPaneWidget4, "/smartMirror/Views/widgetsViews/weatherWidget/TemperatureView.fxml").getController();
-        this.timeDateManager.addObserver(this.temperatureController);
+        this.temperatureController = loadViewMainScreen(this.stackPaneWidget4, "/smartMirror/Views/widgetsViews/weatherWidget/WeatherView.fxml").getController();
+//        this.timeDateManager.addObserver(this.temperatureController);
         this.communicationManager.addObserver(this.temperatureController);
 
     }
@@ -139,7 +139,7 @@ public class MainController extends Observable implements Observer
     private void setUpBusTimetableView()
     {
         this.busTimetableController = loadViewMainScreen(this.stackPaneWidget3, "/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
-        this.timeDateManager.addObserver(this.busTimetableController);
+//        this.timeDateManager.addObserver(this.busTimetableController);
         this.communicationManager.addObserver(this.busTimetableController);
     }
 

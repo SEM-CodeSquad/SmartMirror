@@ -1,6 +1,7 @@
-package smartMirror.controllers.widgetsControllers.temperatureController;
+package smartMirror.controllers.widgetsControllers.weatherController;
 
 import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
+import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -20,7 +21,7 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class TemperatureController implements Observer
+public class WeatherController implements Observer
 {
     public GridPane temperatureView;
 
@@ -54,7 +55,7 @@ public class TemperatureController implements Observer
 
     private boolean visible = false;
 
-    public TemperatureController()
+    public WeatherController()
     {
         Platform.runLater(() ->
                 this.temperatureView.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
@@ -63,6 +64,9 @@ public class TemperatureController implements Observer
         this.weatherFetcher = new WeatherFetcher();
         this.weatherParser = new JSONWeatherParser();
         this.weatherFetcher.addObserver(this.weatherParser);
+        TimeNotificationControl notificationControl = new TimeNotificationControl();
+        notificationControl.addObserver(this);
+        notificationControl.bind("HH:mm:ss", 3600, "weather");
     }
 
     private synchronized void updateWeather(String town)

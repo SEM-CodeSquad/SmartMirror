@@ -2,6 +2,7 @@ package smartMirror.controllers.widgetsControllers.busTimetableController;
 
 
 import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
+import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
 import smartMirror.dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
 import smartMirror.dataModels.applicationModels.ChainedMap;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -132,6 +133,9 @@ public class BusTimetableController implements Observer
             timetableInfos = new GridPane[]{busTimetable1, busTimetable2, busTimetable3, busTimetable4, busTimetable5, busTimetable6,
                     busTimetable7, busTimetable8, busTimetable9, busTimetable10};
         });
+        TimeNotificationControl notificationControl = new TimeNotificationControl();
+        notificationControl.addObserver(this);
+        notificationControl.bind("HH:mm:ss", 1, "timetable");
     }
 
     private synchronized void setVisible(boolean b)

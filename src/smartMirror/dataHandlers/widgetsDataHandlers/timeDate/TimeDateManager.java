@@ -63,21 +63,21 @@ public class TimeDateManager extends Observable
         setChanged();
         notifyObservers(this.time);
 
-        if (LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("10") || LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("30")
-                || LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("50"))
-        {
-            setChanged();
-            notifyObservers("Update Timetable");
-        }
-
-        this.wCounter++;
-
-        if (this.wCounter == 3600)
-        {
-            this.wCounter = 0;
-            setChanged();
-            notifyObservers("Update Weather and News");
-        }
+//        if (LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("10") || LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("30")
+//                || LocalTime.now().format(SHORT_TIME_FORMATTER_SEC).endsWith("50"))
+//        {
+//            setChanged();
+//            notifyObservers("Update Timetable");
+//        }
+//
+//        this.wCounter++;
+//
+//        if (this.wCounter == 3600)
+//        {
+//            this.wCounter = 0;
+//            setChanged();
+//            notifyObservers("Update Weather and News");
+//        }
     }
 
     /**
