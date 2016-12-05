@@ -1,11 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SmartMirror" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/ShoppingListTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/net_glxn_qrgen_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/interfaceView/PostItView.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/01d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/01d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/01n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/01n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/02d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/02d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/02n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/02n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/03d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/03d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/03n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/03n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/04d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/04d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/04n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/04n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/09d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/09d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/09n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/09n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/10d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/10d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/10n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/10n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/11d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/11d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/11n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/11n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/13d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/13d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/13n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/13n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/50d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/50d.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/50n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/50n.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/blue.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/blue.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/green.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/green.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/img_1.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/img_1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/na.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/na.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/orange.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/orange.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/pink.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/pink.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/purple.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/purple.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/standard.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/standard.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/sticky_note_paperline.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/sticky_note_paperline.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/yellow.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/yellow.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/DeviceTest.java" afterPath="$PROJECT_DIR$/src/test/DeviceTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" afterPath="$PROJECT_DIR$/src/test/HttpRequestSender.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/PostitTest.java" afterPath="$PROJECT_DIR$/src/test/PostitTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/Preftest.java" afterPath="$PROJECT_DIR$/src/test/Preftest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/Retrievedata.java" afterPath="$PROJECT_DIR$/src/test/Retrievedata.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/TestPairing.java" afterPath="$PROJECT_DIR$/src/test/TestPairing.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/mainController/MainController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/devicesController/DeviceController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/feedController/FeedController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/feedController/FeedController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/greetingsController/GreetingsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/greetingsController/GreetingsController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/qrCodeController/QRCodeController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/qrCodeController/QRCodeController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/temperatureController/TemperatureController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/temperatureController/TemperatureController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/timeDateController/TimeDateController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/timeDateController/TimeDateController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/animations/TransitionAnimation.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/animations/TransitionAnimation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/JsonMessageParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/database/MysqlCon.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/database/MysqlCon.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/MQTTClient.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/MQTTClient.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Publisher.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/SmartMirror_Publisher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Subscriber.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/SmartMirror_Subscriber.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/settings/SettingsManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/settings/SettingsManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/GenerateAccessCode.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/GenerateAccessCode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/Particle.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/Particle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/ChainedMap.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/ChainedMap.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Preferences.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Preferences.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Settings.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Settings.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Timestamp.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Timestamp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/UUID_Generator.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/UUID_Generator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/busTimetableModels/BusInfo.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/busTimetableModels/BusInfo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/busTimetableModels/BusStop.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/busTimetableModels/BusStop.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/DateS.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/DateS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/Day.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/Day.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/TimeS.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/TimeS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/devicesModels/Device.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/devicesModels/Device.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/devicesModels/DevicesToggleButton.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/devicesModels/DevicesToggleButton.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/feedModels/NewsSource.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/feedModels/NewsSource.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/feedModels/RSSMarqueeMessage.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/feedModels/RSSMarqueeMessage.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/greetingsModels/Greetings.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/greetingsModels/Greetings.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/postItsModels/PostItAction.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/postItsModels/PostItAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/postItsModels/PostItNote.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/postItsModels/PostItNote.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/qrCodeModels/QRCode.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/qrCodeModels/QRCode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/Item.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Town.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/weatherModels/Town.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Weather.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/weatherModels/Weather.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/mainViews/MainInterface.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/mainViews/MainInterface.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/busTimetableWidget/BusTimetable.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/feedsWidget/FeedsViews.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/greetingsWidget/GreetingsView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostItTable.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostItTable.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostitView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/textArea.css" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/textArea.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/qrCode/QRCodeView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/weatherWidget/TemperatureView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/weatherWidget/TemperatureView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/smartMirror/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/core-3.0.0.jar" afterPath="$PROJECT_DIR$/lib/core-3.0.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/javase-3.0.0.jar" afterPath="$PROJECT_DIR$/lib/javase-3.0.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" afterPath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.40-bin.jar" afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.40-bin.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar" afterPath="$PROJECT_DIR$/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/qrgen-1.4.jar" afterPath="$PROJECT_DIR$/lib/qrgen-1.4.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SmartMirror.iml" afterPath="$PROJECT_DIR$/.idea/SmartMirror.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/PostitTest.java" afterPath="$PROJECT_DIR$/src/Test/PostitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java" afterPath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" afterPath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -29,26 +149,59 @@
     <window id="4">
       <content type="file-editors">
         <state>
-          <leaf>
-            <file leaf-file-name="ShoppingListViewController.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java">
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+            <file leaf-file-name="ShoppingListViewController.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="461">
-                    <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+                  <state relative-caret-position="678">
+                    <caret line="152" column="27" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
                     <folding>
                       <element signature="imports" expanded="true" />
-                      <element signature="e#5363#5393#0" expanded="true" />
+                      <element signature="e#1107#1108#0" expanded="true" />
+                      <element signature="e#1153#1154#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
               </entry>
             </file>
             <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/controllers/mainController/MainController.java">
+              <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="317">
-                    <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+                  <state relative-caret-position="270">
+                    <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
                     <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="PostItViewController.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="3812">
+                    <caret line="285" column="0" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="JsonMessageParser.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/JsonMessageParser.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="418">
+                    <caret line="188" column="38" selection-start-line="188" selection-start-column="26" selection-end-line="188" selection-end-column="38" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="ShoppingListController.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="502">
+                    <caret line="260" column="55" selection-start-line="260" selection-start-column="55" selection-end-line="260" selection-end-column="55" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -63,65 +216,81 @@
     <favorites_list name="ProjectWMirror" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="CommunicationManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonMessageParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="149" column="49" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="49" />
+            <state relative-caret-position="146">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShoppingList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShoppingListController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3066">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#265#266#0" expanded="false" />
+                <element signature="e#292#293#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostItsController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java">
+      <file leaf-file-name="ShoppingList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/ShoppingList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="164" column="18" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
+            <state relative-caret-position="308">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeDateManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusTimetable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusTimetableController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,31 +322,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/BusTimetable.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/FeedsViews.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/GreetingsView.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/QRCodeView.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/TemperatureView.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/TimeDate.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostItTable.fxml" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" />
-        <option value="$PROJECT_DIR$/src/Test/DeviceTest.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/DeviceView.fxml" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/animations/TransitionAnimation.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" />
-        <option value="$PROJECT_DIR$/src/Test/Retrievedata.java" />
-        <option value="$PROJECT_DIR$/src/Test/HttpRequestSender.java" />
-        <option value="$PROJECT_DIR$/src/Test/Preftest.java" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/ShoppingListTable.fxml" />
-        <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/ShoppingListView.fxml" />
         <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListTableController.java" />
         <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListView.fxml" />
         <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" />
-        <option value="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java" />
-        <option value="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JSONMQTTParser.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/JsonPostItParser.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JSONMqttParser.java" />
@@ -185,25 +333,46 @@
         <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/Weather.java" />
         <option value="$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Weather.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonPairingMessageParser.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java" />
         <option value="$PROJECT_DIR$/src/controllers/mainController/MainController.java" />
         <option value="$PROJECT_DIR$/src/Test/TestPairing.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/mqttClient/MQTTClient.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/timeDateController/TimeDateController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/greetingsController/GreetingsController.java" />
-        <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java" />
         <option value="$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Subscriber.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/temperatureController/TemperatureController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItViewController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/feedController/FeedController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/devicesController/DeviceController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
         <option value="$PROJECT_DIR$/src/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml" />
-        <option value="$PROJECT_DIR$/src/Test/PostitTest.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" />
         <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java" />
+        <option value="$PROJECT_DIR$/src/Test/PostitTest.java" />
+        <option value="$PROJECT_DIR$/src/Test/HttpRequestSender.java" />
+        <option value="$PROJECT_DIR$/src/Test/Retrievedata.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" />
+        <option value="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" />
+        <option value="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java" />
+        <option value="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java" />
+        <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
+        <option value="$PROJECT_DIR$/src/test/ShoppingListTest.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" />
+        <option value="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -219,6 +388,9 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="2391" />
@@ -251,7 +423,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,7 +456,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,22 +473,12 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemId" value="smartMirror" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interfaceViews" />
+              <option name="myItemId" value="Views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -338,33 +500,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="interfaceViews" />
+              <option name="myItemId" value="smartMirror" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsViews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timeDateWidget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interfaceViews" />
+              <option name="myItemId" value="Views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -390,7 +530,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="interfaceViews" />
+              <option name="myItemId" value="smartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -408,15 +552,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weatherModels" />
+              <option name="myItemId" value="smartMirror" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,121 +570,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shoppingListModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="applicationModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsDataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weather" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsDataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="smartMirror" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -570,25 +592,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mqttClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="smartMirror" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -613,14 +617,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataHandlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="animations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -632,261 +628,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timeDateController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="temperatureController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shoppingListController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qrCodeController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postItsController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greetingsController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feedController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="devicesController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgetsControllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="busTimetableController" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mainController" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjectWMirror.iml" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
@@ -895,7 +649,7 @@
     <property name="ignore_missing_gitignore" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="143" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -913,7 +667,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="840" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="SearchEverywhereHistoryKey" value="stash&#9;ACTION&#9;Git.Stash&#10;git&#9;ACTION&#9;Git.ContextMenu&#10;plug&#9;ACTION&#9;WelcomeScreen.Plugins" />
+    <property name="SearchEverywhereHistoryKey" value="mav&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;stash&#9;ACTION&#9;Git.Stash&#10;git&#9;ACTION&#9;Git.ContextMenu&#10;plug&#9;ACTION&#9;WelcomeScreen.Plugins" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
   </component>
   <component name="RecentsManager">
@@ -924,34 +678,14 @@
       <recent name="groovy.util.GroovyTestCase" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\smartMirror" />
+      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror" />
+      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src" />
       <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\interfaceViews\widgetsViews\timeDateWidget" />
       <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\interfaceViews\widgetsViews\weatherWidget" />
-      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\interfaceViews\widgetsViews\qrCode" />
-      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\interfaceViews\widgetsViews\greetingsWidget" />
-      <recent name="C:\Users\Pucci\Desktop\workspace\SmartMirror\src\interfaceViews\widgetsViews\feedsWidget" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SmartMirror" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="DEPLOY" value="true" />
@@ -1248,9 +982,9 @@
       <setting name="rowsRange" value="" />
       <method />
     </configuration>
-    <configuration default="false" name="PostitTest" type="Application" factoryName="Application">
+    <configuration default="false" name="Main" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Test.PostitTest" />
+      <option name="MAIN_CLASS_NAME" value="smartMirror.main.Main" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -1263,9 +997,9 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="deviceTests" type="Application" factoryName="Application">
+    <configuration default="false" name="ListTest" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Test.DeviceTest" />
+      <option name="MAIN_CLASS_NAME" value="test.ShoppingListTest" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -1278,48 +1012,19 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="preftest" type="Application" factoryName="Application">
+    <configuration default="false" name="JAR" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Test.Preftest" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SmartMirror/SmartMirror.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Pucci\Desktop\workspace\SmartMirror" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SmartMirror" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="pair" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Test.TestPairing" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SmartMirror" />
-      <envs />
-      <method />
-    </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.PostitTest" />
-      <item index="1" class="java.lang.String" itemvalue="Application.deviceTests" />
-      <item index="2" class="java.lang.String" itemvalue="Application.preftest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.pair" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ListTest" />
+      <item index="2" class="java.lang.String" itemvalue="JAR Application.JAR" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -1609,7 +1314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480860468065</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Update">
+      <created>1480862276397</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1480862276397</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1630,12 +1342,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3193658" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31855956" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.50590765" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16989844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16989844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32334384" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.4922179" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1653,7 +1365,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871652" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1661,7 +1373,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.50590765" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1669,17 +1381,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39782017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39704525" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3193658" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20838052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16989844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32334384" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.4922179" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18796992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19001298" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1755,254 +1467,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="582" column="0" selection-start-line="582" selection-start-column="0" selection-end-line="582" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/DeviceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="66" column="1" selection-start-line="14" selection-start-column="4" selection-end-line="66" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/HttpRequestSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostItTable.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="243" column="36" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItComponents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItGuiManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/JsonPostItParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JSONMqttParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Town.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Weather.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#1223#1224#0" expanded="false" />
-            <element signature="e#1255#1256#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1938">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListTable.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="253" column="0" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonPairingMessageParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/Retrievedata.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="48" column="5" selection-start-line="16" selection-start-column="8" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/Preftest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="39" selection-start-line="14" selection-start-column="8" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/TestPairing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#183#213#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/timeDateController/TimeDateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="99" column="27" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/greetingsController/GreetingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="e#1605#1606#0" expanded="false" />
-            <element signature="e#1659#1660#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataModels/applicationModels/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/mqttClient/MQTTClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-352">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar!/org/eclipse/paho/client/mqttv3/MqttCallback.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/devicesController/DeviceController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1236">
           <caret line="225" column="42" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
@@ -2012,26 +1484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/mainController/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/feedController/FeedController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/feedController/FeedController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1213">
           <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/busTimetableController/BusTimetableController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -2040,10 +1496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-          <folding>
-            <element signature="e#3417#3418#0" expanded="true" />
-            <element signature="e#3465#3466#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2051,10 +1503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="388" column="27" selection-start-line="388" selection-start-column="27" selection-end-line="388" selection-end-column="27" />
-          <folding>
-            <element signature="e#14314#14315#0" expanded="true" />
-            <element signature="e#14369#14370#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2062,10 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="394" column="25" selection-start-line="394" selection-start-column="25" selection-end-line="394" selection-end-column="25" />
-          <folding>
-            <element signature="e#16838#16839#0" expanded="true" />
-            <element signature="e#16886#16887#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2073,49 +1517,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
           <caret line="159" column="25" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
-          <folding>
-            <element signature="e#5803#5804#0" expanded="true" />
-            <element signature="e#5853#5854#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Subscriber.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/SmartMirror_Subscriber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="149" column="49" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataHandlers/animations/TransitionAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -2128,84 +1536,344 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Retrievedata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="42" column="9" selection-start-line="16" selection-start-column="7" selection-end-line="42" selection-end-column="9" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/DeviceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3066">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        <state relative-caret-position="524">
+          <caret line="59" column="52" selection-start-line="29" selection-start-column="8" selection-end-line="59" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/HttpRequestSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/PostitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
+        <state relative-caret-position="264">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/codeStyleSettings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2508">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/unnamed.xml" />
+    <entry file="jar://$PROJECT_DIR$/lib/core-3.0.0.jar!/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/core_3_0_01.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/javase_3_0_0.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/org_eclipse_paho_client_mqttv3_1_0_2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/qrgen_1_4.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/SmartMirror_jar.xml" />
+    <entry file="file://$PROJECT_DIR$/.idea/copyright/profiles_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/temperatureController/TemperatureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="84" column="66" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3812">
           <caret line="285" column="0" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/temperatureController/TemperatureController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="208" column="9" selection-start-line="180" selection-start-column="13" selection-end-line="208" selection-end-column="9" />
+        <state relative-caret-position="-328">
+          <caret line="164" column="18" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="26" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/animations/TransitionAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="152" column="27" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java">
+    <entry file="file://$PROJECT_DIR$/src/test/TestPairing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="48" column="5" selection-start-line="12" selection-start-column="3" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/JsonMessageParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <caret line="188" column="38" selection-start-line="188" selection-start-column="26" selection-end-line="188" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/ShoppingList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+        <state relative-caret-position="308">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5363#5393#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/PostitTest.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="146">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="502">
+          <caret line="260" column="55" selection-start-line="260" selection-start-column="55" selection-end-line="260" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListTable.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="164" column="18" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ShoppingListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="46" column="37" selection-start-line="45" selection-start-column="13" selection-end-line="46" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#188#218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -2216,11 +1884,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>SmartMirrorApp</last-edited>
+          <last-edited>SmartMirror</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -2288,7 +1957,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.eclipse.paho.client.mqttv3-1.0.2</last-edited>
+          <last-edited>json-simple-1.1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
