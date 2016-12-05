@@ -7,125 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/ShoppingListTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/net_glxn_qrgen_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/interfaceView/PostItView.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListTable.fxml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/01d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/01d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/01n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/01n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/02d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/02d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/02n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/02n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/03d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/03d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/03n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/03n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/04d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/04d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/04n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/04n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/09d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/09d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/09n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/09n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/10d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/10d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/10n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/10n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/11d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/11d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/11n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/11n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/13d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/13d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/13n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/13n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/50d.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/50d.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/50n.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/50n.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/blue.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/blue.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/green.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/img_1.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/img_1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/na.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/na.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/orange.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/pink.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/pink.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/purple.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/standard.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/standard.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/sticky_note_paperline.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/sticky_note_paperline.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/yellow.png" afterPath="$PROJECT_DIR$/src/smartMirror/resources/yellow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/DeviceTest.java" afterPath="$PROJECT_DIR$/src/test/DeviceTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/HttpRequestSender.java" afterPath="$PROJECT_DIR$/src/test/HttpRequestSender.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/PostitTest.java" afterPath="$PROJECT_DIR$/src/test/PostitTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/Preftest.java" afterPath="$PROJECT_DIR$/src/test/Preftest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/Retrievedata.java" afterPath="$PROJECT_DIR$/src/test/Retrievedata.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Test/TestPairing.java" afterPath="$PROJECT_DIR$/src/test/TestPairing.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/mainController/MainController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/devicesController/DeviceController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/feedController/FeedController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/feedController/FeedController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/greetingsController/GreetingsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/greetingsController/GreetingsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostItsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostitAutoDeleteController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/qrCodeController/QRCodeController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/qrCodeController/QRCodeController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/temperatureController/TemperatureController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/temperatureController/TemperatureController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/widgetsControllers/timeDateController/TimeDateController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/timeDateController/TimeDateController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/animations/TransitionAnimation.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/animations/TransitionAnimation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/CommunicationManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/componentsCommunication/JsonMessageParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/JsonMessageParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/database/MysqlCon.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/database/MysqlCon.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/MQTTClient.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/MQTTClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Publisher.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/SmartMirror_Publisher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/mqttClient/SmartMirror_Subscriber.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/mqttClient/SmartMirror_Subscriber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/settings/SettingsManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/settings/SettingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/busTimetable/GenerateAccessCode.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/GenerateAccessCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/Particle.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/Particle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/ChainedMap.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/ChainedMap.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Preferences.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Preferences.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Settings.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Settings.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/Timestamp.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/Timestamp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/applicationModels/UUID_Generator.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/applicationModels/UUID_Generator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/busTimetableModels/BusInfo.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/busTimetableModels/BusInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/busTimetableModels/BusStop.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/busTimetableModels/BusStop.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/DateS.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/DateS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/Day.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/Day.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/dateTimeModels/TimeS.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/dateTimeModels/TimeS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/devicesModels/Device.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/devicesModels/Device.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/devicesModels/DevicesToggleButton.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/devicesModels/DevicesToggleButton.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/feedModels/NewsSource.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/feedModels/NewsSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/feedModels/RSSMarqueeMessage.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/feedModels/RSSMarqueeMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/greetingsModels/Greetings.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/greetingsModels/Greetings.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/postItsModels/PostItAction.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/postItsModels/PostItAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/postItsModels/PostItNote.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/postItsModels/PostItNote.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/qrCodeModels/QRCode.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/qrCodeModels/QRCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/Item.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/Item.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/shoppingListModels/ShoppingList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Town.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/weatherModels/Town.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataModels/widgetsModels/weatherModels/Weather.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/widgetsModels/weatherModels/Weather.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/mainViews/MainInterface.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/mainViews/MainInterface.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/busTimetableWidget/BusTimetable.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/deviceStatusWidget/DeviceView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/feedsWidget/FeedsViews.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/greetingsWidget/GreetingsView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostItTable.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostItTable.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/PostitView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/postItWidget/textArea.css" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/textArea.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/qrCode/QRCodeView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/qrCode/QRCodeView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/shoppingListWidget/ShoppingListView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/timeDateWidget/TimeDate.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/interfaceViews/widgetsViews/weatherWidget/TemperatureView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/weatherWidget/TemperatureView.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/smartMirror/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/core-3.0.0.jar" afterPath="$PROJECT_DIR$/lib/core-3.0.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/javase-3.0.0.jar" afterPath="$PROJECT_DIR$/lib/javase-3.0.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" afterPath="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.40-bin.jar" afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.40-bin.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar" afterPath="$PROJECT_DIR$/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/qrgen-1.4.jar" afterPath="$PROJECT_DIR$/lib/qrgen-1.4.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SmartMirror.iml" afterPath="$PROJECT_DIR$/.idea/SmartMirror.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -276,8 +158,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+            <state relative-caret-position="110">
+              <caret line="5" column="9" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -1321,7 +1203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480862276397</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Update">
+      <created>1480957181512</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1480957181512</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1872,8 +1761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        <state relative-caret-position="110">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="9" />
           <folding />
         </state>
       </provider>
