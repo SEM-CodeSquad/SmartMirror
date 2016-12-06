@@ -1,6 +1,5 @@
-package smartMirror.dataHandlers.mqttClient;
+package smartMirror.dataHandlers.commons;
 
-import smartMirror.dataHandlers.commons.Timestamp;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONArray;
@@ -9,21 +8,36 @@ import org.json.simple.JSONObject;
 import java.util.Collections;
 import java.util.Observable;
 
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible for publishing messages to the broker
+ */
 public class SmartMirror_Publisher extends Observable
 {
     private MQTTClient client;
     private Timestamp timestamp;
 
+    /**
+     * Constructor
+     *
+     * @param client mqtt client
+     */
     public SmartMirror_Publisher(MQTTClient client)
     {
         this.client = client;
     }
 
+    /**
+     * Method responsible for publishing messages to the broker under a specified topic
+     *
+     * @param topic   topic to publish to
+     * @param content the message to be published
+     */
     public void publish(String topic, String content)
     {
         try
         {
-            byte [] payload = content.getBytes();
+            byte[] payload = content.getBytes();
             MqttMessage mqttMessage = new MqttMessage();
             mqttMessage.setPayload(payload);
             this.client.getClient().publish(topic, mqttMessage);
@@ -36,8 +50,16 @@ public class SmartMirror_Publisher extends Observable
         }
     }
 
-
-
+    /**
+     * Presence message to be published to the broker every time the client is connected
+     *
+     * @param version       version
+     * @param groupName     group name
+     * @param groupNumber   group number
+     * @param clientVersion software version
+     * @param clientId      id of the connected client
+     * @param rfcs          implemented rfcs
+     */
     @SuppressWarnings({"unchecked", "MismatchedQueryAndUpdateOfCollection"})
     public void publishPresenceMessage(String version, String groupName, int groupNumber, String clientVersion,
                                        String clientId, String... rfcs)
@@ -61,7 +83,7 @@ public class SmartMirror_Publisher extends Observable
         String topic = "presence/" + clientId;
         try
         {
-           this.client.getClient().publish(topic, presenceMessage, 1, true);
+            this.client.getClient().publish(topic, presenceMessage, 1, true);
         }
         catch (MqttException e)
         {
@@ -73,10 +95,11 @@ public class SmartMirror_Publisher extends Observable
     /**
      * Method echo sends an echo message to a device that has sent messages to this client
      *
-     * @param msg t
+     * @param msg echo message to be published
      */
     @SuppressWarnings("unchecked")
-    public void echo(String msg) {
+    public void echo(String msg)
+    {
         String clientID = this.client.getClientId();
         String echoTopic = "dit029/SmartMirror/" + clientID + "/echo";
 
@@ -92,7 +115,6 @@ public class SmartMirror_Publisher extends Observable
         String echoMessage = jsonObject.toString();
 
         publish(echoTopic, echoMessage);
-
 
 
     }

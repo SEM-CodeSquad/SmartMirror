@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
 
@@ -27,6 +28,8 @@ public class ShoppingListViewController extends Observable implements Observer
 {
     public GridPane shoppingListGrid;
     public StackPane shoppingListPane;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -189,6 +192,10 @@ public class ShoppingListViewController extends Observable implements Observer
                 }
             });
             thread.start();
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
     }
 }

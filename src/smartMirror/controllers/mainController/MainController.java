@@ -78,6 +78,7 @@ public class MainController extends Observable implements Observer
         this.uuid = new UUID_Generator();
         this.communicationManager = new CommunicationManager(this.uuid.getUUID());
         this.communicationManager.addObserver(this);
+        this.addObserver(this.communicationManager);
         startUp();
     }
 
@@ -100,6 +101,8 @@ public class MainController extends Observable implements Observer
 
             this.pairingPane.setOpacity(1);
 
+            setChanged();
+            notifyObservers(this);
         });
     }
 

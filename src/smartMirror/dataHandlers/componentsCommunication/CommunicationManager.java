@@ -2,11 +2,11 @@ package smartMirror.dataHandlers.componentsCommunication;
 
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONObject;
-import smartMirror.controllers.widgetsControllers.postItsController.PostItsController;
+import smartMirror.controllers.mainController.MainController;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
-import smartMirror.dataHandlers.mqttClient.MQTTClient;
-import smartMirror.dataHandlers.mqttClient.SmartMirror_Publisher;
-import smartMirror.dataHandlers.mqttClient.SmartMirror_Subscriber;
+import smartMirror.dataHandlers.commons.MQTTClient;
+import smartMirror.dataHandlers.commons.SmartMirror_Publisher;
+import smartMirror.dataHandlers.commons.SmartMirror_Subscriber;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -34,7 +34,7 @@ public class CommunicationManager extends Observable implements Observer
         this.clientId = clientId;
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
         this.publisher = new SmartMirror_Publisher(this.mqttClient);
-        this.publisher.publishPresenceMessage("1", "CodeHigh", 6, "1.0", this.clientId, "1", "6", "10", "11", "12");
+        this.publisher.publishPresenceMessage("1", "CodeHigh", 6, "1.0", this.clientId, "1", "6", "10", "12", "22");
         registerOnShoppingListServer();
         setClientPaired(false);
         listenPairing();
@@ -189,19 +189,13 @@ public class CommunicationManager extends Observable implements Observer
             });
             thread.start();
         }
-        else if (arg instanceof PostItsController)
+        else if (arg instanceof MainController)
         {
             Thread thread = new Thread(() ->
             {
-                PostItsController postItsController = (PostItsController) arg;
-                publishEcho(postItsController.getTableColor(), false);
+                setChanged();
+                notifyObservers(this.mqttClient);
             });
-            thread.start();
-        }
-        else if (arg.equals("success"))
-        {
-            Thread thread = new Thread(() ->
-                    publishEcho("", true));
             thread.start();
         }
     }

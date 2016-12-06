@@ -16,6 +16,9 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * @author Pucci && Axel Verner @copyright on 06/12/2016.
+ */
 public class BusTimetable extends Observable implements Observer
 {
 

@@ -1,10 +1,10 @@
 package smartMirror.dataHandlers.widgetsDataHandlers.busTimetable;
 
-import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -12,7 +12,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Observable;
 
-
+/**
+ * @author Pucci && Axel Verner @copyright on 06/12/2016.
+ */
 class BusDepartureParser extends Observable
 {
     private BusInfo[] busArray;

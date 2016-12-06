@@ -1,4 +1,4 @@
-package smartMirror.dataHandlers.mqttClient;
+package smartMirror.dataHandlers.commons;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -6,6 +6,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 
 /**
  * @author Pucci @copyright on 06/12/2016.
+ *         Class resposible for establishing connection with the MQTT broker
  */
 public class MQTTClient
 {
@@ -13,6 +14,12 @@ public class MQTTClient
     private MqttClient client;
     private String clientId;
 
+    /**
+     * Constructor sets the options for the connection, sets the hostname of the broker and client id, then connects
+     *
+     * @param url broker hostname
+     * @param id  client id
+     */
     public MQTTClient(String url, String id)
     {
         try
@@ -33,6 +40,9 @@ public class MQTTClient
         }
     }
 
+    /**
+     * Method that publishes the last will and ends the connection with the broker
+     */
     public void disconnect()
     {
         if (this.client.isConnected())
@@ -53,6 +63,9 @@ public class MQTTClient
         }
     }
 
+    /**
+     * Method responsible for reestablishing the connection
+     */
     void reconnect()
     {
         if (!client.isConnected())
@@ -68,16 +81,23 @@ public class MQTTClient
         }
     }
 
-
+    /**
+     * Getter method that provides the MQTT client
+     *
+     * @return mqtt client
+     */
     MqttClient getClient()
     {
         return client;
     }
 
-    public String getClientId()
+    /**
+     * Getter method that provide the client id of the connected client
+     *
+     * @return client id of the connected mqtt client
+     */
+    String getClientId()
     {
         return this.clientId;
     }
-
-
 }

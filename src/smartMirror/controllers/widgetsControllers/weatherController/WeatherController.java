@@ -2,6 +2,7 @@ package smartMirror.controllers.widgetsControllers.weatherController;
 
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.TimeNotificationControl;
+import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -56,6 +57,8 @@ public class WeatherController implements Observer
     private JSONWeatherParser weatherParser;
 
     private String townName;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -250,6 +253,10 @@ public class WeatherController implements Observer
             });
             thread.start();
 
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
     }
 }
