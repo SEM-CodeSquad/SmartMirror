@@ -1,4 +1,4 @@
-package smartMirror.dataHandlers.componentsCommunication;
+package smartMirror.dataHandlers.commons;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

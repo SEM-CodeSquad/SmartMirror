@@ -1,14 +1,6 @@
 package smartMirror.controllers.widgetsControllers.busTimetableController;
 
 
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
-import smartMirror.dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
-import smartMirror.dataModels.applicationModels.ChainedMap;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.applicationModels.Settings;
-import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
-import smartMirror.dataModels.widgetsModels.busTimetableModels.BusStop;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -19,10 +11,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.TimeNotificationControl;
+import smartMirror.dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
+import smartMirror.dataModels.applicationModels.ChainedMap;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.applicationModels.Settings;
+import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
+import smartMirror.dataModels.widgetsModels.busTimetableModels.BusStop;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class that controls the updates in the BusTimetableView
+ */
 public class BusTimetableController implements Observer
 {
     public GridPane busTimetables;
@@ -105,6 +109,11 @@ public class BusTimetableController implements Observer
 
     private boolean visible = false;
 
+    /**
+     * Constructor responsible for initiating a BusTimeTable instance and adding this class as observer
+     *
+     * @see BusTimetable
+     */
     public BusTimetableController()
     {
         bt = new BusTimetable();
@@ -113,6 +122,11 @@ public class BusTimetableController implements Observer
         this.setUp();
     }
 
+    /**
+     * Method responsible for grouping components to facilitate manipulation, then it starts the time monitoring
+     *
+     * @see TimeNotificationControl
+     */
     private void setUp()
     {
         Platform.runLater(() ->
@@ -138,6 +152,11 @@ public class BusTimetableController implements Observer
         notificationControl.bind("HH:mm:ss", 1, "timetable");
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -156,6 +175,13 @@ public class BusTimetableController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -167,6 +193,9 @@ public class BusTimetableController implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -184,6 +213,9 @@ public class BusTimetableController implements Observer
         });
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -200,6 +232,12 @@ public class BusTimetableController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the name of the bus stop and providing it to the BusTimetable
+     *
+     * @param busStopName bus stop id
+     * @see BusTimetable
+     */
     private synchronized void setBusStopName(String busStopName)
     {
         this.stopName = busStopName;
@@ -207,6 +245,11 @@ public class BusTimetableController implements Observer
         thread.start();
     }
 
+    /**
+     * Method responsible for setting the opacity of a component from 0 to 1 in a animation
+     *
+     * @param gridPane component to be set visible
+     */
     private synchronized void animationFadeIn(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -218,6 +261,11 @@ public class BusTimetableController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting the opacity of a component from 1 to 0 in a animation
+     *
+     * @param gridPane component to be set not visible
+     */
     private synchronized void animationFadeOut(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -229,6 +277,13 @@ public class BusTimetableController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting the name and color for the bus name
+     *
+     * @param label component to set the bus name on
+     * @param text  name of the bus
+     * @param color color of the bus name
+     */
     private synchronized void setBusName(Label label, String text, String color)
     {
         String textColor;
@@ -260,12 +315,24 @@ public class BusTimetableController implements Observer
         Platform.runLater(() -> label.setText(" " + text + " "));
     }
 
+    /**
+     * Method responsible for setting the bus info on the specified component
+     *
+     * @param l    component to set the info on
+     * @param text info to be set
+     */
     private synchronized void setInfo(Label l, String text)
     {
         l.setVisible(true);
         Platform.runLater(() -> l.setText(text));
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

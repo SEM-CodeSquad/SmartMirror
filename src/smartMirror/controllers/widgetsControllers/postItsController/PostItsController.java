@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import smartMirror.dataHandlers.widgetsDataHandlers.postIts.PostItManager;
 import smartMirror.dataModels.applicationModels.ChainedMap;
-import smartMirror.dataModels.applicationModels.Timestamp;
+import smartMirror.dataHandlers.commons.Timestamp;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 /**
  * @author Pucci on 22/11/2016.
+ *         Class responsible for updating the PostItTableView
  */
 public class PostItsController extends Observable implements Observer, Initializable
 {
@@ -109,36 +110,61 @@ public class PostItsController extends Observable implements Observer, Initializ
     public Canvas canvas12;
     @FXML
     public TextArea postTextS12;
+
+    @FXML
+    private StackPane postPanes;
+
     private ChainedMap<String, PostItNote> postItNotes;
     private boolean[] booleanArray;
     private PostItManager postItManager;
 
-    @FXML
-    private StackPane postPanes;
     private String tableColor;
 
-    public PostItsController()
+    /**
+     * Constructor responsible for the initialization of the needed data structures and the PostItManager
+     *
+     * @see PostItManager
+     */
+    PostItsController()
     {
         this.postItNotes = new ChainedMap<>(12);
         this.booleanArray = new boolean[12];
         this.postItManager = new PostItManager();
     }
 
-    public StackPane getPostPane()
+    /**
+     * Getter method that provides the pane holding all the post-its
+     *
+     * @return post-it pane
+     */
+    StackPane getPostPane()
     {
         return postPanes;
     }
 
+    /**
+     * Getter method that provides the name of this table color
+     *
+     * @return the table color name
+     */
     public String getTableColor()
     {
         return tableColor;
     }
 
-    public void setTableColor(String tableColor)
+    /**
+     * Setter method that sets the name of the table color
+     *
+     * @param tableColor color name to be set
+     */
+    void setTableColor(String tableColor)
     {
         this.tableColor = tableColor;
     }
 
+    /**
+     * Method responsible for grouping the components to facilitate manipulation
+     */
     private void setUp()
     {
         this.postItManager.setCanvases(canvas1, canvas2, canvas3, canvas4, canvas5, canvas6, canvas7,
@@ -149,6 +175,11 @@ public class PostItsController extends Observable implements Observer, Initializ
                 postTextS7, postTextS8, postTextS9, postTextS10, postTextS11, postTextS12);
     }
 
+    /**
+     * Method that checks which index is free to post a post-it
+     *
+     * @return -1 if no index is free or the number of the free index
+     */
     private int freePostIndex()
     {
         int index = -1;
@@ -163,6 +194,11 @@ public class PostItsController extends Observable implements Observer, Initializ
         return index;
     }
 
+    /**
+     * Method that creates a graphical post-it
+     *
+     * @param postItNote the post-it to be generated
+     */
     private synchronized void createPostIt(PostItNote postItNote)
     {
         if (postItNote.getSenderId().equals(this.tableColor))
@@ -170,22 +206,30 @@ public class PostItsController extends Observable implements Observer, Initializ
             int index = freePostIndex();
             if (index != -1)
             {
+                System.out.println(this.tableColor + " : " + index);
                 postItNote.setPostItIndex(index);
                 postItNotes.add(postItNote.getPostItId(), postItNote);
                 booleanArray[index] = true;
                 this.postItManager.setImage(index, postItNote.getSenderId());
                 this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
-                setChanged();
-                notifyObservers("success");
+//                setChanged();
+//                notifyObservers("success");
             }
             else
             {
-                setChanged();
-                notifyObservers(this);
+                System.out.println(this.tableColor + " : full " + index);
+
+//                setChanged();
+//                notifyObservers(this);
             }
         }
     }
 
+    /**
+     * Method responsible for managing post-its ( deleting or modifying the post-it text)
+     *
+     * @param postItAction the action to be taken
+     */
     private synchronized void managePostIt(PostItAction postItAction)
     {
         if (postItNotes.getId().contains(postItAction.getPostItId()))
@@ -196,19 +240,25 @@ public class PostItsController extends Observable implements Observer, Initializ
                 this.postItManager.deleteGraphicalNote(index);
                 this.postItNotes.remove(postItAction.getPostItId());
                 booleanArray[index] = false;
-                setChanged();
-                notifyObservers("success");
+//                setChanged();
+//                notifyObservers("success");
             }
             else if (postItAction.isActionModify())
             {
                 this.postItManager.setPostMessage(index, postItAction.getModification());
                 this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
-                setChanged();
-                notifyObservers("success");
+//                setChanged();
+//                notifyObservers("success");
             }
         }
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     public void update(Observable o, Object arg)
     {
@@ -230,21 +280,34 @@ public class PostItsController extends Observable implements Observer, Initializ
             Thread thread = new Thread(() ->
             {
                 LinkedList<String> ids = (LinkedList<String>) postItNotes.getId();
+                LinkedList<String> idsToBeDeleted = new LinkedList<>();
                 for (String id : ids)
                 {
                     PostItNote postItNote = postItNotes.get(id);
+                    System.out.println("deleting : " + postItNote.getPostItIndex() + " :" + tableColor);
                     if (postItNote.getTimestamp() < timestamp.getTimestamp())
                     {
-                        PostItAction postItAction = new PostItAction(postItNote.getPostItId(), "Delete", "none");
-                        managePostIt(postItAction);
-                        System.out.println("deleted");
+                        idsToBeDeleted.add(id);
                     }
+                }
+                for (String id : idsToBeDeleted)
+                {
+                    PostItNote postItNote = postItNotes.get(id);
+                    PostItAction postItAction = new PostItAction(postItNote.getPostItId(), "Delete", "none");
+                    managePostIt(postItAction);
+                    System.out.println("deleted");
                 }
             });
             thread.start();
         }
     }
 
+    /**
+     * Method that initialize the controller with all its FXML components from the view
+     *
+     * @param location  location
+     * @param resources resource
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {

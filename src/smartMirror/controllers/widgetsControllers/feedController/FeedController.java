@@ -1,13 +1,5 @@
 package smartMirror.controllers.widgetsControllers.feedController;
 
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
-import smartMirror.dataHandlers.widgetsDataHandlers.feed.MarqueePane;
-import smartMirror.dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.applicationModels.Settings;
-import smartMirror.dataModels.widgetsModels.feedModels.NewsSource;
-import smartMirror.dataModels.widgetsModels.feedModels.RSSMarqueeMessage;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -17,13 +9,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.TimeNotificationControl;
+import smartMirror.dataHandlers.widgetsDataHandlers.feed.MarqueePane;
+import smartMirror.dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.applicationModels.Settings;
+import smartMirror.dataModels.widgetsModels.feedModels.NewsSource;
+import smartMirror.dataModels.widgetsModels.feedModels.RSSMarqueeMessage;
 
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
 /**
- *
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible of making the updates in the FeedsView
  */
 public class FeedController implements Observer
 {
@@ -35,13 +36,18 @@ public class FeedController implements Observer
     private boolean visible = false;
 
     /**
-     *
+     * Constructor method responsible for calling the set up
      */
     public FeedController()
     {
         Platform.runLater(this::setUpNewsFeed);
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -59,6 +65,13 @@ public class FeedController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -70,6 +83,9 @@ public class FeedController implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -86,6 +102,9 @@ public class FeedController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -103,7 +122,13 @@ public class FeedController implements Observer
         });
     }
 
-    public void setNewsSource(String newsSource)
+    /**
+     * Method responsible for setting the name of the news source and providing it to the RSSStAXParser
+     *
+     * @param newsSource news source
+     * @see RSSStAXParser
+     */
+    private void setNewsSource(String newsSource)
     {
         this.newsSource = newsSource;
         RSSStAXParser rssStAXParser = new RSSStAXParser();
@@ -112,7 +137,9 @@ public class FeedController implements Observer
     }
 
     /**
+     * Method responsible for setting up the marquee pane in the FeedsView, then it starts the time monitoring
      *
+     * @see TimeNotificationControl
      */
     private void setUpNewsFeed()
     {
@@ -127,6 +154,12 @@ public class FeedController implements Observer
         notificationControl.bind("HH:mm:ss", 3600, "news");
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

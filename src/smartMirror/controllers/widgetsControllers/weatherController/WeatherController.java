@@ -1,7 +1,7 @@
 package smartMirror.controllers.widgetsControllers.weatherController;
 
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.TimeNotificationControl;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
 import smartMirror.dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -21,6 +21,10 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible for updating the WeatherView
+ */
 public class WeatherController implements Observer
 {
     public GridPane temperatureView;
@@ -55,6 +59,12 @@ public class WeatherController implements Observer
 
     private boolean visible = false;
 
+    /**
+     * Constructor initializes the WeatherFetcher and the WeatherParser, then it starts the time monitoring
+     * @see WeatherFetcher
+     * @see JSONWeatherParser
+     * @see TimeNotificationControl
+     */
     public WeatherController()
     {
         Platform.runLater(() ->
@@ -69,6 +79,12 @@ public class WeatherController implements Observer
         notificationControl.bind("HH:mm:ss", 3600, "weather");
     }
 
+    /**
+     * Method responsible for updating the weather for the desired town
+     * @param town the name of the tow to fetch the weather
+     * @see WeatherFetcher
+     * @see JSONWeatherParser
+     */
     private synchronized void updateWeather(String town)
     {
         this.townName = town;
@@ -107,11 +123,15 @@ public class WeatherController implements Observer
         });
     }
 
-    public synchronized void setInTemp(String temp)
-    {
-        this.inTemp.setText(temp + "°");
-    }
+    // TODO: 06/12/2016
+//    public synchronized void setInTemp(String temp)
+//    {
+//        this.inTemp.setText(temp + "°");
+//    }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -129,6 +149,11 @@ public class WeatherController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -145,6 +170,13 @@ public class WeatherController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -156,6 +188,9 @@ public class WeatherController implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -172,7 +207,12 @@ public class WeatherController implements Observer
         }
     }
 
-
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

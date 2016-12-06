@@ -1,9 +1,5 @@
 package smartMirror.controllers.widgetsControllers.shoppingListController;
 
-import smartMirror.dataHandlers.animations.TransitionAnimation;
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -14,6 +10,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -22,6 +21,7 @@ import java.util.Observer;
 
 /**
  * @author Pucci on 02/12/2016.
+ *         Class responsible for updating the ShoppingListView
  */
 public class ShoppingListViewController extends Observable implements Observer
 {
@@ -30,11 +30,19 @@ public class ShoppingListViewController extends Observable implements Observer
 
     private boolean visible = false;
 
+    /**
+     * Constructor that calls build
+     */
     public ShoppingListViewController()
     {
         Platform.runLater(this::build);
     }
 
+    /**
+     * Method responsible for loading the shopping list table component and adding its controller as observer for this class
+     *
+     * @see ShoppingListController
+     */
     private void build()
     {
         this.shoppingListGrid.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
@@ -46,6 +54,12 @@ public class ShoppingListViewController extends Observable implements Observer
         this.addObserver(shoppingListController);
     }
 
+    /**
+     * Method responsible for loading components in the shopping list interface. It loads the FXML file
+     *
+     * @param resource FXML path resource
+     * @return FXMLLoader
+     */
     private FXMLLoader loadView(String resource)
     {
         FXMLLoader myLoader = null;
@@ -64,6 +78,11 @@ public class ShoppingListViewController extends Observable implements Observer
         return myLoader;
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -78,6 +97,13 @@ public class ShoppingListViewController extends Observable implements Observer
 
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -89,6 +115,9 @@ public class ShoppingListViewController extends Observable implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -106,6 +135,9 @@ public class ShoppingListViewController extends Observable implements Observer
         });
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -122,6 +154,12 @@ public class ShoppingListViewController extends Observable implements Observer
         }
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

@@ -19,8 +19,9 @@ import java.util.ResourceBundle;
 
 /**
  * @author Pucci on 02/12/2016.
+ *         Class responsible for updating the ShoppingListTableView
  */
-public class ShoppingListController extends Observable implements Observer, Initializable
+class ShoppingListController extends Observable implements Observer, Initializable
 {
     @FXML
     public StackPane listTable;
@@ -188,6 +189,11 @@ public class ShoppingListController extends Observable implements Observer, Init
 
     private TransitionAnimation animation;
 
+    /**
+     * Method responsible for setting the opacity of a component from 0 to 1 in a animation
+     *
+     * @param gridPane component to be set visible
+     */
     private synchronized void animationFadeIn(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -199,6 +205,11 @@ public class ShoppingListController extends Observable implements Observer, Init
         });
     }
 
+    /**
+     * Method responsible for setting the opacity of a component from 1 to 0 in a animation
+     *
+     * @param gridPane component to be set not visible
+     */
     private synchronized void animationFadeOut(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -210,6 +221,9 @@ public class ShoppingListController extends Observable implements Observer, Init
         });
     }
 
+    /**
+     * Method responsible for showing only the first table of the shopping list
+     */
     private synchronized void showOnlyTable1()
     {
         animation.stopSeqAnimation();
@@ -217,6 +231,11 @@ public class ShoppingListController extends Observable implements Observer, Init
         if (table1.getOpacity() == 0) table1.setOpacity(1);
     }
 
+    /**
+     * Method responsible for playing the animation that makes the transition between table1 and table2
+     *
+     * @see TransitionAnimation
+     */
     private synchronized void play()
     {
         if (table2.getOpacity() == 1) table2.setOpacity(0);
@@ -224,12 +243,24 @@ public class ShoppingListController extends Observable implements Observer, Init
         animation.getSequentialTransition().playFromStart();
     }
 
+    /**
+     * Method responsible for setting the item name in a component
+     *
+     * @param item  name of the item
+     * @param label component to set the name on
+     */
     private synchronized void setItem(String item, Label label)
     {
         Platform.runLater(() ->
                 label.setText(item));
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     public void update(Observable o, Object arg)
     {
@@ -238,31 +269,38 @@ public class ShoppingListController extends Observable implements Observer, Init
             Thread thread = new Thread(() ->
             {
                 ShoppingList shoppingList = (ShoppingList) arg;
-                System.out.println(shoppingList.getItemLinkedList().size());
                 itemsList = new LinkedList<>();
 
                 for (int i = 0; i < gridPanes.length; i++)
                 {
-                    System.out.println(itemsList.size() + " i: " + i);
                     if (shoppingList.getItemLinkedList().size() == 0)
                     {
                         animationFadeOut(gridPanes[i]);
                     }
                     else
                     {
-                        itemsList.add(shoppingList.getItemLinkedList().peek().getItem());
-
-                        if (itemsList.size() <= 15)
+                        if (shoppingList.getItemLinkedList().size() == 1
+                                && shoppingList.getItemLinkedList().peek().getItem().equals("empty"))
                         {
-                            showOnlyTable1();
-                            setItem(shoppingList.getItemLinkedList().remove().getItem(), labels[i]);
-                            animationFadeIn(gridPanes[i]);
+                            shoppingList.getItemLinkedList().remove();
+                            animationFadeOut(gridPanes[i]);
                         }
-                        else if (itemsList.size() > 15)
+                        else
                         {
-                            play();
-                            setItem(shoppingList.getItemLinkedList().remove().getItem(), labels[i]);
-                            animationFadeIn(gridPanes[i]);
+                            itemsList.add(shoppingList.getItemLinkedList().peek().getItem());
+
+                            if (itemsList.size() <= 15)
+                            {
+                                showOnlyTable1();
+                                setItem(shoppingList.getItemLinkedList().remove().getItem(), labels[i]);
+                                animationFadeIn(gridPanes[i]);
+                            }
+                            else if (itemsList.size() > 15)
+                            {
+                                play();
+                                setItem(shoppingList.getItemLinkedList().remove().getItem(), labels[i]);
+                                animationFadeIn(gridPanes[i]);
+                            }
                         }
                     }
                 }
@@ -271,6 +309,12 @@ public class ShoppingListController extends Observable implements Observer, Init
         }
     }
 
+    /**
+     * Method that initialize the controller with all its FXML components from the view
+     *
+     * @param location  location
+     * @param resources resource
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {

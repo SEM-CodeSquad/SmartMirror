@@ -1,4 +1,4 @@
-package smartMirror.dataModels.applicationModels;
+package smartMirror.dataHandlers.commons;
 
 import java.time.Instant;
 

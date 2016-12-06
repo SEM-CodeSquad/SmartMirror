@@ -1,6 +1,6 @@
 package smartMirror.dataHandlers.mqttClient;
 
-import smartMirror.dataModels.applicationModels.Timestamp;
+import smartMirror.dataHandlers.commons.Timestamp;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.simple.JSONArray;

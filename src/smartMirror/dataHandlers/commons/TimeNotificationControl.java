@@ -1,10 +1,9 @@
-package smartMirror.dataHandlers.componentsCommunication;
+package smartMirror.dataHandlers.commons;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
-import smartMirror.dataModels.applicationModels.Timestamp;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +11,7 @@ import java.util.Observable;
 
 /**
  * @author Pucci on 05/12/2016.
+ * Class responsible for monitoring the time and notifing the observers about this time change
  */
 public class TimeNotificationControl extends Observable
 {
@@ -19,7 +19,10 @@ public class TimeNotificationControl extends Observable
     private String widgetName;
 
     /**
-     *
+     * This method loops once every certain time (to be specified) and notifies its observer about the time change
+     * @param SHORT_TIME_FORMATTER time format
+     * @param duration duration until next loop
+     * @param widgetName name of the widget
      */
     public void bind(String SHORT_TIME_FORMATTER, double duration, String widgetName)
     {
@@ -35,7 +38,7 @@ public class TimeNotificationControl extends Observable
     }
 
     /**
-     *
+     * This method identifies the widget name and notify the observer according to the widget name
      */
     private void notifyTimeChanged()
     {
@@ -61,7 +64,7 @@ public class TimeNotificationControl extends Observable
                 break;
 
             case "post-it":
-                if (LocalTime.now().format(SHORT_TIME_FORMATTER).equals("23:39:00"))
+                if (LocalTime.now().format(SHORT_TIME_FORMATTER).equals("00:30:00"))
                 {
                     setChanged();
                     notifyObservers(new Timestamp());

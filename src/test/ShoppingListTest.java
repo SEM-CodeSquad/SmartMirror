@@ -27,22 +27,22 @@ public class ShoppingListTest
 
             JSONObject item = new JSONObject();
             sendThis.put("contentType", "shoppinglist");
-            item.put("1", "test");
-            item.put("2", "test");
-            item.put("3", "test");
-            item.put("4", "test");
-            item.put("5", "test");
-            item.put("6", "test");
-            item.put("7", "test");
-            item.put("8", "test");
-            item.put("9", "test");
-            item.put("10", "test");
-            item.put("11", "test");
-            item.put("12", "test");
-            item.put("13", "test");
-            item.put("14", "test");
-            item.put("15", "test");
-
+            item.put("1", "empty");
+//            item.put("2", "test");
+//            item.put("3", "test");
+//            item.put("4", "test");
+//            item.put("5", "test");
+//            item.put("6", "test");
+//            item.put("7", "test");
+//            item.put("8", "test");
+//            item.put("9", "test");
+//            item.put("10", "test");
+//            item.put("11", "test");
+//            item.put("12", "test");
+//            item.put("13", "test");
+//            item.put("14", "test");
+//            item.put("15", "test");
+//
 //            item.put("16", "test");
 //            item.put("17", "test");
 //            item.put("30", "test");

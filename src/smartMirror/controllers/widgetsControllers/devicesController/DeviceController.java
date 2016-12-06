@@ -1,10 +1,5 @@
 package smartMirror.controllers.widgetsControllers.devicesController;
 
-import smartMirror.dataHandlers.animations.TransitionAnimation;
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.widgetsModels.devicesModels.Device;
-import smartMirror.dataModels.widgetsModels.devicesModels.DevicesToggleButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -16,6 +11,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.dataHandlers.animations.TransitionAnimation;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.widgetsModels.devicesModels.Device;
+import smartMirror.dataModels.widgetsModels.devicesModels.DevicesToggleButton;
 
 import java.util.LinkedList;
 import java.util.Observable;
@@ -23,6 +23,7 @@ import java.util.Observer;
 
 /**
  * @author Pucci on 21/11/2016.
+ *         Class that controls the updates in the DevicesView
  */
 public class DeviceController implements Observer
 {
@@ -123,6 +124,11 @@ public class DeviceController implements Observer
 
     private boolean visible = false;
 
+    /**
+     * Constructor method instantiates each toggle button that is loaded in the Devices view
+     *
+     * @see DevicesToggleButton
+     */
     public DeviceController()
     {
         switchButton1 = new DevicesToggleButton();
@@ -148,6 +154,9 @@ public class DeviceController implements Observer
         Platform.runLater(this::setUp);
     }
 
+    /**
+     * Method responsible for grouping components to facilitate manipulation, then it adds each toggle button in the interface
+     */
     private void setUp()
     {
         this.devicePanes.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
@@ -179,6 +188,11 @@ public class DeviceController implements Observer
         animation.playSeqAnimation();
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -191,6 +205,13 @@ public class DeviceController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -202,6 +223,9 @@ public class DeviceController implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -218,6 +242,9 @@ public class DeviceController implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -235,17 +262,34 @@ public class DeviceController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting the device info on the specified component
+     *
+     * @param l    component to set the info on
+     * @param text info to be set
+     */
     private synchronized void setInfo(Label l, String text)
     {
         l.setVisible(true);
         Platform.runLater(() -> l.setText(text));
     }
 
+    /**
+     * Method responsible for setting the status of the device in the toggle button
+     *
+     * @param button toggle button to set the status on
+     * @param status status to be set true for on or false to off
+     */
     private synchronized void setStatus(DevicesToggleButton button, String status)
     {
         Platform.runLater(() -> button.switchProperty().set(status.equals("true")));
     }
 
+    /**
+     * Method responsible for setting the opacity of a component from 0 to 1 in a animation
+     *
+     * @param gridPane component to be set visible
+     */
     private synchronized void animationFadeIn(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -257,6 +301,11 @@ public class DeviceController implements Observer
         });
     }
 
+    /**
+     * Method responsible for setting the opacity of a component from 1 to 0 in a animation
+     *
+     * @param gridPane component to be set not visible
+     */
     private synchronized void animationFadeOut(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -268,6 +317,12 @@ public class DeviceController implements Observer
         });
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

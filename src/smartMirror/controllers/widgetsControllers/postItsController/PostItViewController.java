@@ -11,11 +11,11 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.animations.TransitionAnimation;
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataHandlers.componentsCommunication.TimeNotificationControl;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.TimeNotificationControl;
 import smartMirror.dataHandlers.database.MysqlCon;
 import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.applicationModels.Timestamp;
+import smartMirror.dataHandlers.commons.Timestamp;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
@@ -26,6 +26,7 @@ import java.util.*;
 
 /**
  * @author Pucci on 22/11/2016.
+ *         Class responsible for updating the PostItView
  */
 public class PostItViewController extends Observable implements Observer
 {
@@ -38,13 +39,19 @@ public class PostItViewController extends Observable implements Observer
     private boolean visible = false;
 
     /**
-     *
+     * Constructor responsible for calling build
      */
     public PostItViewController()
     {
         Platform.runLater(this::build);
     }
 
+    /**
+     * Method responsible for loading each post-it table for each color in the post-it interface, then it starts the time monitoring
+     *
+     * @see TimeNotificationControl
+     * @see PostItsController
+     */
     private void build()
     {
         this.postPanes.visibleProperty().addListener((observableValue, aBoolean, aBoolean2) ->
@@ -119,7 +126,13 @@ public class PostItViewController extends Observable implements Observer
         notificationControl.bind("HH:mm:ss", 1, "post-it");
     }
 
-
+    /**
+     * Method responsible for stopping the animation and showing the user desired table color, after 30000 milliseconds
+     * the animation resumes
+     *
+     * @param colourIndex index for the desired color
+     * @see TransitionAnimation
+     */
     private synchronized void showSpecificTable(String colourIndex)
     {
         int index = Integer.parseInt(colourIndex);
@@ -170,6 +183,11 @@ public class PostItViewController extends Observable implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting this widget visible
+     *
+     * @param b true for visible false for not visible
+     */
     private synchronized void setVisible(boolean b)
     {
         Platform.runLater(() ->
@@ -183,6 +201,13 @@ public class PostItViewController extends Observable implements Observer
 
     }
 
+    /**
+     * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
+     * the parent also shall be not visible and vice-versa
+     *
+     * @param stackPane parent component
+     * @param gridPane  parent parent component
+     */
     private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
     {
         boolean visible = false;
@@ -194,6 +219,9 @@ public class PostItViewController extends Observable implements Observer
         gridPane.setVisible(visible);
     }
 
+    /**
+     * Method responsible to ensure that only one widget is showing at the time in the parent
+     */
     private void enforceView()
     {
         if (!visible)
@@ -210,6 +238,9 @@ public class PostItViewController extends Observable implements Observer
         }
     }
 
+    /**
+     * Method responsible for setting the widget holder visible
+     */
     private synchronized void setParentVisible()
     {
         Platform.runLater(() ->
@@ -227,6 +258,12 @@ public class PostItViewController extends Observable implements Observer
         });
     }
 
+    /**
+     * Method responsible for loading components in the post-it interface. It loads the FXML file
+     *
+     * @param resource FXML path resource
+     * @return FXMLLoader
+     */
     private FXMLLoader loadView(String resource)
     {
         FXMLLoader myLoader = null;
@@ -245,6 +282,12 @@ public class PostItViewController extends Observable implements Observer
         return myLoader;
     }
 
+    /**
+     * Method responsible for changing the opacity of a component
+     *
+     * @param stackPane component to change the opacity
+     * @param b         true for visible or false for not visble
+     */
     private void setOpacity(StackPane stackPane, boolean b)
     {
         if (b)
@@ -257,20 +300,31 @@ public class PostItViewController extends Observable implements Observer
         }
     }
 
+    /**
+     * Method responsible for notifying the observers
+     *
+     * @param arg object to notify
+     */
     private synchronized void notifyObs(Object arg)
     {
         setChanged();
         notifyObservers(arg);
     }
 
-    private synchronized void deleteFromDB(String timestamp)
+    /**
+     * Method responsible for deleting post-its form the database. It deletes any post-it with timestamp smaller than
+     * the provided one
+     *
+     * @param timestamp current timestamp
+     */
+    private synchronized void deleteFromDB(Long timestamp)
     {
         try
         {
             MysqlCon mysqlCon = new MysqlCon();
             mysqlCon.dbConnect();
             Connection c = mysqlCon.getCon();
-            String query = "delete from Postits where Timestamp= '" + timestamp + "' ";
+            String query = "delete from Postits where Timestamp< '" + timestamp + "' ";
             PreparedStatement psPost = c.prepareStatement(query);
             psPost.executeUpdate();
             psPost.close();
@@ -283,7 +337,12 @@ public class PostItViewController extends Observable implements Observer
         }
     }
 
-
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)
@@ -302,7 +361,6 @@ public class PostItViewController extends Observable implements Observer
                         PostItNote postItNote = parser.parsePostIt();
                         setParentVisible();
                         enforceView();
-                        System.out.println("post");
                         notifyObs(postItNote);
                         break;
                     case "postIt action":
@@ -335,17 +393,16 @@ public class PostItViewController extends Observable implements Observer
         }
         else if (arg instanceof Timestamp)
         {
+            Timestamp timestamp = (Timestamp) arg;
             Thread thread = new Thread(() ->
-            {
-                System.out.println("timestamp");
-                Timestamp timestamp = (Timestamp) arg;
-                notifyObs(timestamp);
-            });
+                    notifyObs(timestamp));
             Thread thread1 = new Thread(() ->
-                    deleteFromDB(String.valueOf(((Timestamp) arg).getTimestamp())));
+                    deleteFromDB(timestamp.getTimestamp()));
             thread1.start();
             thread.start();
         }
+
+
         else if (arg instanceof PostItsController)
         {
             Thread thread = new Thread(() ->

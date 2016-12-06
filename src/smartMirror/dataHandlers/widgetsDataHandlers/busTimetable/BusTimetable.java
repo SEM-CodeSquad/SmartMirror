@@ -103,7 +103,6 @@ public class BusTimetable extends Observable implements Observer
         {
             e.printStackTrace();
         }
-        System.out.println("result:" + result);
         return result.substring(result.lastIndexOf(":") + 2, result.length() - 2);
     }
 

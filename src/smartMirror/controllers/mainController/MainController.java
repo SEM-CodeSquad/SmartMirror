@@ -1,23 +1,8 @@
 package smartMirror.controllers.mainController;
 
-import smartMirror.controllers.widgetsControllers.busTimetableController.BusTimetableController;
-import smartMirror.controllers.widgetsControllers.devicesController.DeviceController;
-import smartMirror.controllers.widgetsControllers.feedController.FeedController;
-import smartMirror.controllers.widgetsControllers.greetingsController.GreetingsController;
-import smartMirror.controllers.widgetsControllers.postItsController.PostItViewController;
-import smartMirror.controllers.widgetsControllers.shoppingListController.ShoppingListViewController;
-import smartMirror.controllers.widgetsControllers.weatherController.WeatherController;
-import smartMirror.controllers.widgetsControllers.timeDateController.TimeDateController;
-import smartMirror.dataHandlers.componentsCommunication.CommunicationManager;
-import smartMirror.dataHandlers.componentsCommunication.JsonMessageParser;
-import smartMirror.dataHandlers.widgetsDataHandlers.timeDate.TimeDateManager;
-import smartMirror.dataModels.applicationModels.UUID_Generator;
-import smartMirror.dataModels.widgetsModels.qrCodeModels.QRCode;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -25,12 +10,30 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.controllers.widgetsControllers.busTimetableController.BusTimetableController;
+import smartMirror.controllers.widgetsControllers.devicesController.DeviceController;
+import smartMirror.controllers.widgetsControllers.feedController.FeedController;
+import smartMirror.controllers.widgetsControllers.greetingsController.GreetingsController;
+import smartMirror.controllers.widgetsControllers.postItsController.PostItViewController;
+import smartMirror.controllers.widgetsControllers.qrCodeController.QRCodeController;
+import smartMirror.controllers.widgetsControllers.shoppingListController.ShoppingListViewController;
+import smartMirror.controllers.widgetsControllers.timeDateController.TimeDateController;
+import smartMirror.controllers.widgetsControllers.weatherController.WeatherController;
+import smartMirror.dataHandlers.componentsCommunication.CommunicationManager;
+import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.widgetsDataHandlers.timeDate.TimeDateManager;
+import smartMirror.dataModels.applicationModels.UUID_Generator;
+import smartMirror.dataModels.widgetsModels.qrCodeModels.QRCode;
 
 import java.awt.*;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible for loading each application component and starting the CommunicationManager
+ */
 public class MainController extends Observable implements Observer
 {
     public BorderPane pairingPane;
@@ -57,24 +60,20 @@ public class MainController extends Observable implements Observer
     public StackPane stackPaneWidget4;
 
     private boolean systemRunning;
+    private boolean paired;
     private UUID_Generator uuid;
 
     private TimeDateManager timeDateManager;
     private CommunicationManager communicationManager;
 
-    private FeedController feedController;
-    private WeatherController temperatureController;
-    private BusTimetableController busTimetableController;
-    private DeviceController deviceController;
-    private TimeDateController timeDateController;
-    private GreetingsController greetingsController;
-    private PostItViewController postItViewController;
-    private ShoppingListViewController shoppingListController;
-
-
+    /**
+     * Constructor which generates a UUID (client ID), starts the CommunicationManger with this UUID and waits for
+     * updates from the CommunicationManager
+     */
     public MainController()
     {
         this.systemRunning = true;
+        this.paired = false;
         keepScreenAlive();
         this.uuid = new UUID_Generator();
         this.communicationManager = new CommunicationManager(this.uuid.getUUID());
@@ -82,13 +81,16 @@ public class MainController extends Observable implements Observer
         startUp();
     }
 
+    /**
+     * This method makes the call to load every component into the Interface
+     */
     private void startUp()
     {
         Platform.runLater(() ->
         {
             setUpDateTimeView();
             setUpQRCodeView();
-            setUpTemperatureView();
+            setUpWeatherView();
             setUpDevicesView();
             setUpFeedView();
             setUpBusTimetableView();
@@ -101,48 +103,87 @@ public class MainController extends Observable implements Observer
         });
     }
 
+    /**
+     * This method loads the DevicesView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see DeviceController
+     */
     private void setUpDevicesView()
     {
-        this.deviceController = loadViewMainScreen(this.stackPaneWidget7, "/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml").getController();
-        this.communicationManager.addObserver(this.deviceController);
+        DeviceController deviceController = loadViewMainScreen(this.stackPaneWidget7, "/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml").getController();
+        this.communicationManager.addObserver(deviceController);
     }
 
+    /**
+     * This method loads the ShoppingListView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see ShoppingListViewController
+     */
     private void setUpShoppingListView()
     {
-        this.shoppingListController = loadViewMainScreen(this.stackPaneWidget3, "/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml").getController();
-        this.communicationManager.addObserver(this.shoppingListController);
+        ShoppingListViewController shoppingListController = loadViewMainScreen(this.stackPaneWidget3, "/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml").getController();
+        this.communicationManager.addObserver(shoppingListController);
     }
 
+    /**
+     * This method loads the PostItView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see PostItViewController
+     */
     private void setUpPostItView()
     {
-        this.postItViewController = loadViewMainScreen(this.stackPaneWidget6, "/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml").getController();
-        this.communicationManager.addObserver(this.postItViewController);
+        PostItViewController postItViewController = loadViewMainScreen(this.stackPaneWidget6, "/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml").getController();
+        this.communicationManager.addObserver(postItViewController);
 
     }
 
+    /**
+     * This method loads the FeedView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see FeedController
+     */
     private void setUpFeedView()
     {
-        this.feedController = loadViewMainScreen(this.stackPaneWidget2, "/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
-//        this.timeDateManager.addObserver(this.feedController);
-        this.communicationManager.addObserver(this.feedController);
+        FeedController feedController = loadViewMainScreen(this.stackPaneWidget2, "/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml").getController();
+        this.communicationManager.addObserver(feedController);
 
     }
 
-    private void setUpTemperatureView()
+    /**
+     * This method loads the WeatherView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see WeatherController
+     */
+    private void setUpWeatherView()
     {
-        this.temperatureController = loadViewMainScreen(this.stackPaneWidget4, "/smartMirror/Views/widgetsViews/weatherWidget/WeatherView.fxml").getController();
-//        this.timeDateManager.addObserver(this.temperatureController);
-        this.communicationManager.addObserver(this.temperatureController);
+        WeatherController temperatureController = loadViewMainScreen(this.stackPaneWidget4, "/smartMirror/Views/widgetsViews/weatherWidget/WeatherView.fxml").getController();
+        this.communicationManager.addObserver(temperatureController);
 
     }
 
+    /**
+     * This method loads the BusTimetableView in the interface and adds its controller as observer to the CommunicationManager
+     *
+     * @see CommunicationManager
+     * @see BusTimetableController
+     */
     private void setUpBusTimetableView()
     {
-        this.busTimetableController = loadViewMainScreen(this.stackPaneWidget3, "/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
-//        this.timeDateManager.addObserver(this.busTimetableController);
-        this.communicationManager.addObserver(this.busTimetableController);
+        BusTimetableController busTimetableController = loadViewMainScreen(this.stackPaneWidget3, "/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml").getController();
+        this.communicationManager.addObserver(busTimetableController);
     }
 
+    /**
+     * This method loads the QRCodeView in the pairing interface and main interface then adds its controller as observer to the QRCode
+     *
+     * @see QRCode
+     * @see QRCodeController
+     */
     private void setUpQRCodeView()
     {
         QRCode qrCode = new QRCode(this.uuid.getUUID());
@@ -157,6 +198,12 @@ public class MainController extends Observable implements Observer
 
     }
 
+    /**
+     * This method loads the DateTimeView in the pairing interface and main interface then adds its controller as observer to the TimeDateManager
+     *
+     * @see TimeDateManager
+     * @see TimeDateController
+     */
     private void setUpDateTimeView()
     {
         this.timeDateManager = new TimeDateManager();
@@ -168,18 +215,27 @@ public class MainController extends Observable implements Observer
         this.timeDateManager.addObserver(loadViewPairingScreen(this.pairingDateTimeContainer, "/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml",
                 0, 0).getController());
         setComponentVisible(this.pairingDateTimeContainer);
-        this.timeDateController = loadViewMainScreen(this.stackPaneWidget1, "/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml").getController();
-        this.timeDateManager.addObserver(this.timeDateController);
-        this.communicationManager.addObserver(this.timeDateController);
+        TimeDateController timeDateController = loadViewMainScreen(this.stackPaneWidget1, "/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml").getController();
+        this.timeDateManager.addObserver(timeDateController);
+        this.communicationManager.addObserver(timeDateController);
     }
 
+    /**
+     * This method loads the GreetingsView in the interface then adds its controller as observer to the TimeDateManager
+     *
+     * @see TimeDateManager
+     * @see GreetingsController
+     */
     private void setUpGreetingsView()
     {
-        greetingsController = loadViewMainScreen(stackPaneWidget5, "/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml").getController();
+        GreetingsController greetingsController = loadViewMainScreen(stackPaneWidget5, "/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml").getController();
         timeDateManager.addObserver(greetingsController);
-        this.communicationManager.addObserver(this.greetingsController);
+        this.communicationManager.addObserver(greetingsController);
     }
 
+    /**
+     * This method makes the transition between the paring interface and the main interface
+     */
     private void changeScene()
     {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), this.pairingPane);
@@ -197,6 +253,12 @@ public class MainController extends Observable implements Observer
 
     }
 
+    /**
+     * This method sets a component to visible by changing its opacity value from 0 to 1. This process is made as an animation
+     * to give a nice effect in the interface
+     *
+     * @param gridPane component to be set to visible
+     */
     private synchronized void setComponentVisible(GridPane gridPane)
     {
         Platform.runLater(() ->
@@ -210,19 +272,10 @@ public class MainController extends Observable implements Observer
         });
     }
 
-    private synchronized void setComponentInvisible(GridPane gridPane)
-    {
-        Platform.runLater(() ->
-        {
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), gridPane);
-
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.setOnFinished(event -> gridPane.setVisible(false));
-            fadeOut.play();
-        });
-    }
-
+    /**
+     * This method is responsible to keep the screen alive. The screen saver from the running machine can switch off the display in
+     * case of inactivate, with this method the pointer will be moved every 80000 milliseconds to avoid screen blackout
+     */
     private void keepScreenAlive()
     {
         Thread thread = new Thread(() ->
@@ -245,6 +298,16 @@ public class MainController extends Observable implements Observer
         thread.start();
     }
 
+    /**
+     * Method responsible for loading components in the pairing interface. It loads the FXML file and set in the specified
+     * GridPane in the specified position
+     *
+     * @param parent   parent component
+     * @param resource FXML path resource
+     * @param c        column number
+     * @param r        row number
+     * @return FXMLLoader
+     */
     private FXMLLoader loadViewPairingScreen(GridPane parent, String resource, int c, int r)
     {
         FXMLLoader myLoader = null;
@@ -261,6 +324,13 @@ public class MainController extends Observable implements Observer
         return myLoader;
     }
 
+    /**
+     * Method responsible for loading components in the main interface. It loads the FXML file in the specified StackPane
+     *
+     * @param parent   parent component
+     * @param resource FXML path resource
+     * @return FXMLLoader
+     */
     private FXMLLoader loadViewMainScreen(StackPane parent, String resource)
     {
         FXMLLoader myLoader = null;
@@ -277,58 +347,33 @@ public class MainController extends Observable implements Observer
         return myLoader;
     }
 
-    // TODO: 01/12/2016   
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
-    {
-        boolean visible = false;
-        ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list)
-        {
-            visible = node.isVisible();
-        }
-        gridPane.setVisible(visible);
-    }
-
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     public void update(Observable o, Object arg)
     {
         if (arg instanceof MqttMessage)
         {
-            Thread thread = new Thread(() -> {
-                JsonMessageParser parser = new JsonMessageParser();
-                parser.parseMessage(arg.toString());
-                if (parser.parsePairing())
+            if (!paired)
+            {
+                Thread thread = new Thread(() ->
                 {
-                    setComponentVisible(this.widget1);
-                    setComponentVisible(this.widget5);
-                    changeScene();
-                }
-            });
-            thread.start();
+                    JsonMessageParser parser = new JsonMessageParser();
+                    parser.parseMessage(arg.toString());
+                    if (parser.parsePairing())
+                    {
+                        setComponentVisible(this.widget1);
+                        setComponentVisible(this.widget5);
+                        changeScene();
+                        this.paired = true;
+                    }
+                });
+                thread.start();
+            }
         }
-//        else if (arg instanceof CommunicationManager) {
-//            Thread thread = new Thread(() -> Platform.runLater(this::setUpGreetingsView));
-//            thread.start();
-//            changeScene();
-//            setComponentVisible(widget1);
-//            setComponentVisible(gridMainQR);
-//            setComponentVisible(widget5);
-//
-//        } else if (arg instanceof BusStop) {
-//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget3));
-//            thread.start();
-//
-//        } else if (arg instanceof Town) {
-//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget4));
-//            thread.start();
-//
-//        } else if (arg instanceof NewsSource) {
-//            Thread thread = new Thread(() -> this.setComponentVisible(this.widget2));
-//            thread.start();
-//
-//        } else if (arg instanceof LinkedList && ((LinkedList) arg).peek() instanceof Device) {
-//            Thread thread = new Thread(() -> setComponentVisible(widget7));
-//            thread.start();
-//        }
     }
 }
