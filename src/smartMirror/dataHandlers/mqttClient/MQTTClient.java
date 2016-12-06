@@ -4,7 +4,9 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ */
 public class MQTTClient
 {
     private MqttConnectOptions options;

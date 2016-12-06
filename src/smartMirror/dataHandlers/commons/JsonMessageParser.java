@@ -15,25 +15,30 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible for parsing Json MQTT messages
+ */
 public class JsonMessageParser
 {
-    private String message;
+    private String messageFrom;
     private String contentType;
     private String content;
-    private String messageFrom;
     private String timestamp;
-    private LinkedList<Device> deviceList;
-    private LinkedList<Preferences> preferencesList;
     private ShoppingList shoppingList;
     private Settings settings;
 
+    /**
+     * Method responsible for parsing the message
+     *
+     * @param message message to be parsed
+     */
     public void parseMessage(String message)
     {
         try
         {
-            this.message = message;
             JSONParser parser = new JSONParser();
-            JSONObject json = (JSONObject) parser.parse(this.message);
+            JSONObject json = (JSONObject) parser.parse(message);
             this.messageFrom = json.get("messageFrom").toString();
             this.timestamp = json.get("timestamp").toString();
             this.contentType = json.get("contentType").toString();
@@ -45,11 +50,22 @@ public class JsonMessageParser
         }
     }
 
+    /**
+     * Method that identifies if the message was a pairing message
+     *
+     * @return true or false
+     */
     public boolean parsePairing()
     {
         return this.contentType.equals("pairing");
     }
 
+    /**
+     * Method identifies if the message was a post-it message, builds a post-it and return it
+     *
+     * @return PostItNote
+     * @see PostItNote
+     */
     public PostItNote parsePostIt()
     {
         try
@@ -88,6 +104,12 @@ public class JsonMessageParser
         return null;
     }
 
+    /**
+     * Mehtod identifies if the message was a post-it action message, builds a PostItAction and return it
+     *
+     * @return PostItAction
+     * @see PostItAction
+     */
     public PostItAction parsePostItAction()
     {
         try
@@ -116,19 +138,30 @@ public class JsonMessageParser
         return null;
     }
 
+    /**
+     * Method identifies if the message was a device status message, parses the device list and return it
+     *
+     * @return Device list
+     */
     public LinkedList parseDeviceList()
     {
         if (getContentType().equals("device"))
         {
-            this.deviceList = new LinkedList<>();
-            parseArray(this.deviceList, getContentType());
+            LinkedList<Device> deviceList = new LinkedList<>();
+            parseArray(deviceList, getContentType());
 
-            return this.deviceList;
+            return deviceList;
         }
 
         return null;
     }
 
+    /**
+     * Method identifies if the message was a settings message, parses the settings and return it
+     *
+     * @return Settings
+     * @see Settings
+     */
     public Settings parseSettings()
     {
         if (getContentType().equals("settings"))
@@ -141,20 +174,31 @@ public class JsonMessageParser
         return null;
     }
 
+    /**
+     * Method identifies if the message was a preferences message, parses the preferences list and return it
+     *
+     * @return Preferences list
+     * @see Preferences
+     */
     public LinkedList parsePreferenceList()
     {
         if (getContentType().equals("preferences"))
         {
-            this.preferencesList = new LinkedList<>();
-            parseArray(this.preferencesList, getContentType());
+            LinkedList<Preferences> preferencesList = new LinkedList<>();
+            parseArray(preferencesList, getContentType());
 
-            return this.preferencesList;
+            return preferencesList;
         }
 
         return null;
     }
 
-
+    /**
+     * Method identifies if the message was a shopping list message, parses the shopping list and return it
+     *
+     * @return Shopping list
+     * @see ShoppingList
+     */
     public ShoppingList parseShoppingList()
     {
         if (getContentType().equals("shoppinglist"))
@@ -168,6 +212,12 @@ public class JsonMessageParser
         return null;
     }
 
+    /**
+     * Method responsible to parse Json array
+     *
+     * @param linkedList list to add items
+     * @param type       type of the message
+     */
     @SuppressWarnings("unchecked")
     private void parseArray(LinkedList linkedList, String type)
     {
@@ -211,33 +261,43 @@ public class JsonMessageParser
         }
     }
 
-    public String getMessage()
-    {
-        return message;
-    }
-
+    /**
+     * Getter that provides the content type
+     *
+     * @return the name of the content type
+     */
     public String getContentType()
     {
         return contentType;
     }
 
+    /**
+     * Getter that provides the content
+     *
+     * @return the content
+     */
     public String getContent()
     {
         return content;
     }
 
-    public String getMessageFrom()
-    {
-        return messageFrom;
-    }
-
+    /**
+     * Getter that provides the timestamp
+     *
+     * @return the timestamp
+     */
     public String getTimestamp()
     {
         return timestamp;
     }
 
-    public Device getDeviceList()
+    /**
+     * Getter that provides the message from
+     *
+     * @return the name of the sender
+     */
+    public String getMessageFrom()
     {
-        return this.deviceList.remove();
+        return messageFrom;
     }
 }

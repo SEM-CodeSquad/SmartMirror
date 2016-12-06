@@ -9,17 +9,29 @@ import javafx.util.Duration;
 
 /**
  * @author Pucci on 22/11/2016.
+ *         Class responsible for making animations for components
  */
-public class TransitionAnimation {
+public class TransitionAnimation
+{
     private SequentialTransition sequentialTransition;
     private double pauseDuration;
 
-
-    public void transitionAnimation(double pauseDuration, double tranDuration, StackPane... args) {
+    /**
+     * Constructor sets the desired pause duration, the desired transition duration and adds the animation for all
+     * components provided as parameters
+     *
+     * @param pauseDuration how long the component will be showing
+     * @param tranDuration  how long will take between the transitions
+     * @param args          components to be animated
+     * @see SequentialTransition
+     */
+    public void transitionAnimation(double pauseDuration, double tranDuration, StackPane... args)
+    {
         setPauseDuration(pauseDuration);
         sequentialTransition = new SequentialTransition();
 
-        for (StackPane pane : args) {
+        for (StackPane pane : args)
+        {
             sequentialTransition.getChildren().addAll(
                     fadeIn(pane, tranDuration),
                     pauseEffect(),
@@ -30,7 +42,16 @@ public class TransitionAnimation {
         sequentialTransition.setAutoReverse(false);
     }
 
-    private FadeTransition fadeIn(StackPane node, double duration) {
+    /**
+     * Fade in transition
+     *
+     * @param node     component to add the animation
+     * @param duration duration of the animation
+     * @return FadeTransition
+     * @see FadeTransition
+     */
+    private FadeTransition fadeIn(StackPane node, double duration)
+    {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(duration), node);
 
         fadeIn.setFromValue(0);
@@ -39,7 +60,16 @@ public class TransitionAnimation {
         return fadeIn;
     }
 
-    private FadeTransition fadeOut(StackPane node, double duration) {
+    /**
+     * Fade out transition
+     *
+     * @param node     component to add the animation
+     * @param duration duration of the animation
+     * @return FadeTransition
+     * @see FadeTransition
+     */
+    private FadeTransition fadeOut(StackPane node, double duration)
+    {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(duration), node);
 
         fadeOut.setFromValue(1);
@@ -48,27 +78,58 @@ public class TransitionAnimation {
         return fadeOut;
     }
 
-    private PauseTransition pauseEffect() {
+    /**
+     * Pause transition animation
+     *
+     * @return PauseTransition
+     * @see PauseTransition
+     */
+    private PauseTransition pauseEffect()
+    {
         return new PauseTransition(Duration.seconds(this.pauseDuration));
     }
 
-    private void setPauseDuration(double pauseDuration) {
+    /**
+     * Mehtod that sets the pause transition animation with the desired duration
+     *
+     * @param pauseDuration duration that will be paused
+     */
+    private void setPauseDuration(double pauseDuration)
+    {
         this.pauseDuration = pauseDuration;
     }
 
-    public void playSeqAnimation() {
+    /**
+     * Method that plays the sequence transition animation
+     */
+    public void playSeqAnimation()
+    {
         sequentialTransition.play();
     }
 
-    public void stopSeqAnimation() {
+    /**
+     * Method that stops the sequence transiton animation
+     */
+    public void stopSeqAnimation()
+    {
         sequentialTransition.stop();
     }
 
-    public void pauseSeqAnimation() {
+    /**
+     * Method that pauses the sequence transition naimation
+     */
+    public void pauseSeqAnimation()
+    {
         sequentialTransition.pause();
     }
 
-    public SequentialTransition getSequentialTransition() {
+    /**
+     * Getter that provides the sequence transition animation
+     *
+     * @return SequenceTransition
+     */
+    public SequentialTransition getSequentialTransition()
+    {
         return sequentialTransition;
     }
 }

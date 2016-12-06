@@ -7,6 +7,7 @@ import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.mqttClient.MQTTClient;
 import smartMirror.dataHandlers.mqttClient.SmartMirror_Publisher;
 import smartMirror.dataHandlers.mqttClient.SmartMirror_Subscriber;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -25,6 +26,7 @@ public class CommunicationManager extends Observable implements Observer
     /**
      * Constructor method, it takes the client Id and use it as the Id to connect in the broker, then it publishes a presence
      * message, register the mirror Id in the shopping list server and subscribes to the pairing topic
+     *
      * @param clientId string containing the UUID for the client
      */
     public CommunicationManager(String clientId)
@@ -41,6 +43,7 @@ public class CommunicationManager extends Observable implements Observer
     /**
      * Method responsible for subscribing to a topic and setting this class as the callback where the messages for this
      * topic will be arriving
+     *
      * @param topic topic to be subscribed
      */
     private void listenSubscription(String topic)
@@ -83,7 +86,8 @@ public class CommunicationManager extends Observable implements Observer
 
     /**
      * Method responsible for publishing the echo message
-     * @param msg message to be published
+     *
+     * @param msg     message to be published
      * @param success b
      */
     private synchronized void publishEcho(String msg, boolean success)
@@ -131,6 +135,7 @@ public class CommunicationManager extends Observable implements Observer
 
     /**
      * Method responsible of sending notifications to the observers
+     *
      * @param msg message to be forwarded
      */
     private synchronized void notifyMessageReceived(MqttMessage msg)
@@ -161,7 +166,8 @@ public class CommunicationManager extends Observable implements Observer
 
     /**
      * Update method where the observable classes sends notifications messages
-     * @param o observable object
+     *
+     * @param o   observable object
      * @param arg object arg
      */
     @Override

@@ -11,7 +11,7 @@ import java.util.Observable;
 
 /**
  * @author Pucci on 05/12/2016.
- * Class responsible for monitoring the time and notifing the observers about this time change
+ *         Class responsible for monitoring the time and notifing the observers about this time change
  */
 public class TimeNotificationControl extends Observable
 {
@@ -20,9 +20,10 @@ public class TimeNotificationControl extends Observable
 
     /**
      * This method loops once every certain time (to be specified) and notifies its observer about the time change
+     *
      * @param SHORT_TIME_FORMATTER time format
-     * @param duration duration until next loop
-     * @param widgetName name of the widget
+     * @param duration             duration until next loop
+     * @param widgetName           name of the widget
      */
     public void bind(String SHORT_TIME_FORMATTER, double duration, String widgetName)
     {
