@@ -1,5 +1,6 @@
 package smartMirror.dataHandlers.widgetsDataHandlers.feed;
 
+import com.sun.javafx.tk.Toolkit;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -11,22 +12,26 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import com.sun.javafx.tk.Toolkit;
 
-
-public class MarqueePane extends Pane {
+/**
+ * @author Pucci @copyright on 06/12/2016.
+ */
+public class MarqueePane extends Pane
+{
     private Timeline timeline;
     private Pane marqueePane;
     private Text marqueeText;
     private String text;
 
-    private MarqueePane() {
+    private MarqueePane()
+    {
         marqueePane = this;
         newText();
 
     }
 
-    public MarqueePane(double width, double height) {
+    public MarqueePane(double width, double height)
+    {
         this();
 
         marqueeText.setFont(Font.font("Microsoft YaHei", FontWeight.BOLD, 20));
@@ -40,17 +45,20 @@ public class MarqueePane extends Pane {
         marqueeText.relocate(width, (height / 2) - (textHeight / 2));
     }
 
-    private void newText() {
+    private void newText()
+    {
         marqueeText = new Text();
         marqueeText.setStrokeWidth(0);
         marqueePane.getChildren().add(marqueeText);
     }
 
-    public void setText(String text) {
+    public void setText(String text)
+    {
         this.text = text;
     }
 
-    public void setEffect() {
+    public void setEffect()
+    {
         timeline = new Timeline();
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.setAutoReverse(false);
@@ -63,21 +71,26 @@ public class MarqueePane extends Pane {
         timeline.getKeyFrames().add(frame);
     }
 
-    private double getTextHeight(Text text) {
+    private double getTextHeight(Text text)
+    {
         return Toolkit.getToolkit().getFontLoader().getFontMetrics(text.getFont()).getLineHeight();
     }
 
 
-    private void setBackgroundColor() {
-        if (marqueePane == null) {
+    private void setBackgroundColor()
+    {
+        if (marqueePane == null)
+        {
             return;
         }
 
         marqueePane.setStyle("-fx-background-color: #000000");
     }
 
-    private void setTextColor() {
-        if (marqueeText == null) {
+    private void setTextColor()
+    {
+        if (marqueeText == null)
+        {
             return;
         }
 
@@ -85,25 +98,31 @@ public class MarqueePane extends Pane {
     }
 
 
-    public void play() {
+    public void play()
+    {
         marqueeText.setText(this.text);
-        if (timeline == null) {
+        if (timeline == null)
+        {
             return;
         }
 
         timeline.playFrom(Duration.ZERO);
     }
 
-    private void pause() {
-        if (timeline == null) {
+    private void pause()
+    {
+        if (timeline == null)
+        {
             return;
         }
 
         timeline.pause();
     }
 
-    public void stop() {
-        if (timeline == null) {
+    public void stop()
+    {
+        if (timeline == null)
+        {
             return;
         }
 

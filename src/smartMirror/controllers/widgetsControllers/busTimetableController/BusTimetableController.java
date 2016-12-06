@@ -13,12 +13,14 @@ import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.TimeNotificationControl;
+import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataHandlers.widgetsDataHandlers.busTimetable.BusTimetable;
 import smartMirror.dataModels.applicationModels.ChainedMap;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.applicationModels.Settings;
 import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
 import smartMirror.dataModels.widgetsModels.busTimetableModels.BusStop;
+
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
@@ -106,6 +108,8 @@ public class BusTimetableController implements Observer
     private GridPane[] timetableInfos;
     private BusTimetable bt;
     private String stopName;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -410,6 +414,10 @@ public class BusTimetableController implements Observer
                 }
             });
             thread.start();
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
     }
 }

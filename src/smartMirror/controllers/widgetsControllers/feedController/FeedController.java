@@ -11,6 +11,7 @@ import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.TimeNotificationControl;
+import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataHandlers.widgetsDataHandlers.feed.MarqueePane;
 import smartMirror.dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
 import smartMirror.dataModels.applicationModels.Preferences;
@@ -32,6 +33,8 @@ public class FeedController implements Observer
     public Label notification;
     private MarqueePane marqueePane;
     private String newsSource;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -205,6 +208,10 @@ public class FeedController implements Observer
             });
             thread.start();
 
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
     }
 }

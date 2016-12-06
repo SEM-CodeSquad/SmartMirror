@@ -13,6 +13,7 @@ import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.animations.TransitionAnimation;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
+import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.devicesModels.Device;
 import smartMirror.dataModels.widgetsModels.devicesModels.DevicesToggleButton;
@@ -121,6 +122,8 @@ public class DeviceController implements Observer
     private GridPane[] gridPanes;
     private Label[] labels;
     private DevicesToggleButton[] switchButtons;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -365,6 +368,10 @@ public class DeviceController implements Observer
             });
             thread.start();
 
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
     }
 }

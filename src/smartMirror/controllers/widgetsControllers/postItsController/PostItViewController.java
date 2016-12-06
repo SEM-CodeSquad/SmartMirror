@@ -13,9 +13,10 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.animations.TransitionAnimation;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.TimeNotificationControl;
-import smartMirror.dataHandlers.database.MysqlCon;
-import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataHandlers.commons.Timestamp;
+import smartMirror.dataHandlers.database.MysqlCon;
+import smartMirror.dataHandlers.commons.MQTTClient;
+import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
@@ -35,6 +36,8 @@ public class PostItViewController extends Observable implements Observer
     private StackPane[] panes;
 
     private TransitionAnimation animation;
+
+    private MQTTClient mqttClient;
 
     private boolean visible = false;
 
@@ -400,6 +403,10 @@ public class PostItViewController extends Observable implements Observer
                     deleteFromDB(timestamp.getTimestamp()));
             thread1.start();
             thread.start();
+        }
+        else if (arg instanceof MQTTClient)
+        {
+            this.mqttClient = (MQTTClient) arg;
         }
 
 

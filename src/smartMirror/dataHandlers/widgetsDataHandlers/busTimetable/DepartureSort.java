@@ -2,12 +2,16 @@ package smartMirror.dataHandlers.widgetsDataHandlers.busTimetable;
 
 import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
 
-
-public class DepartureSort {
+/**
+ * @author Axel Verner @copyright on 06/12/2016.
+ */
+class DepartureSort
+{
 
     private BusInfo busArray[];
 
-    public void timeSort(BusInfo[] busArray, int length) {
+    void timeSort(BusInfo[] busArray, int length)
+    {
 
         this.busArray = busArray;
         quickSort(0, length - 1);
