@@ -327,6 +327,7 @@ public class MainController extends Observable implements Observer
         return myLoader;
     }
 
+
     /**
      * Method responsible for loading components in the main interface. It loads the FXML file in the specified StackPane
      *

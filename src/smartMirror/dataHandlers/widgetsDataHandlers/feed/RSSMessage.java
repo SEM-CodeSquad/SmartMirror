@@ -1,28 +1,22 @@
 package smartMirror.dataHandlers.widgetsDataHandlers.feed;
 
-/*
- * Store the information within the RSS message
- * in this case, the title of the news
+/**
+ * @author Geofrrey Chen
+ *         Class that stores the information within the RSS message
+ *         in this case, the title of the news
  */
-class RSSMessage {
+class RSSMessage
+{
 
     private String title;
-
-    /**
-     * item title getter
-     *
-     * @return title
-     */
-    public String getTitle() {
-        return title;
-    }
 
     /**
      * item title setter
      *
      * @param title t
      */
-    void setTitle(String title) {
+    void setTitle(String title)
+    {
         this.title = title;
     }
 
@@ -31,9 +25,9 @@ class RSSMessage {
      *
      * @return string
      */
-
     @Override
-    public String toString() {
+    public String toString()
+    {
         return title;
     }
 }

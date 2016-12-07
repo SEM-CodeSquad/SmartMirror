@@ -2,22 +2,22 @@ package smartMirror.dataHandlers.widgetsDataHandlers.feed;
 
 import java.util.LinkedList;
 
-
-class RSSFeed {
+/**
+ * @author Geoffrey Chen @copyright on 07/12/2016.
+ */
+class RSSFeed
+{
     private final LinkedList<RSSMessage> entries = new LinkedList<>();
     private final String title;
 
-    RSSFeed(String title) {
-        this.title = title;
-    }
-
     /**
-     * Title getter
+     * Constructor
      *
-     * @return title
+     * @param title news title
      */
-    public String getTitle() {
-        return title;
+    RSSFeed(String title)
+    {
+        this.title = title;
     }
 
     /**
@@ -26,17 +26,19 @@ class RSSFeed {
      * @return entries
      */
 
-    LinkedList getList() {
+    LinkedList getList()
+    {
         return entries;
     }
 
     /**
-     * toString
+     * toString method
      *
      * @return string
      */
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "News from: [ " + title + " ]";
     }
 

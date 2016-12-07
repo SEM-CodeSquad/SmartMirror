@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 /**
  * @author Pucci @copyright on 06/12/2016.
+ *         Class responsible for generating a marquee pane that holds the news text in the interface
  */
 public class MarqueePane extends Pane
 {
@@ -23,6 +24,9 @@ public class MarqueePane extends Pane
     private Text marqueeText;
     private String text;
 
+    /**
+     * Private constructor
+     */
     private MarqueePane()
     {
         marqueePane = this;
@@ -30,6 +34,12 @@ public class MarqueePane extends Pane
 
     }
 
+    /**
+     * Constructor method that generates the pane that will hold the text component
+     *
+     * @param width  width to be set to the marquee pane
+     * @param height height to be set to the marquee pane
+     */
     public MarqueePane(double width, double height)
     {
         this();
@@ -45,6 +55,9 @@ public class MarqueePane extends Pane
         marqueeText.relocate(width, (height / 2) - (textHeight / 2));
     }
 
+    /**
+     * Method that will hold the nex text
+     */
     private void newText()
     {
         marqueeText = new Text();
@@ -52,11 +65,19 @@ public class MarqueePane extends Pane
         marqueePane.getChildren().add(marqueeText);
     }
 
+    /**
+     * Method that sets the text in the text component
+     *
+     * @param text text to be set
+     */
     public void setText(String text)
     {
         this.text = text;
     }
 
+    /**
+     * Method that sets the translation effect to the text
+     */
     public void setEffect()
     {
         timeline = new Timeline();
@@ -71,12 +92,20 @@ public class MarqueePane extends Pane
         timeline.getKeyFrames().add(frame);
     }
 
+    /**
+     * Method that provides the height of the text component
+     *
+     * @param text text component
+     * @return the height of the component
+     */
     private double getTextHeight(Text text)
     {
         return Toolkit.getToolkit().getFontLoader().getFontMetrics(text.getFont()).getLineHeight();
     }
 
-
+    /**
+     * Method that sets the color in the marquee pane
+     */
     private void setBackgroundColor()
     {
         if (marqueePane == null)
@@ -87,6 +116,9 @@ public class MarqueePane extends Pane
         marqueePane.setStyle("-fx-background-color: #000000");
     }
 
+    /**
+     * Method that sets the color for the text
+     */
     private void setTextColor()
     {
         if (marqueeText == null)
@@ -97,7 +129,9 @@ public class MarqueePane extends Pane
         marqueeText.setFill(Color.WHITE);
     }
 
-
+    /**
+     * Method that is called to start the animation
+     */
     public void play()
     {
         marqueeText.setText(this.text);
@@ -109,6 +143,9 @@ public class MarqueePane extends Pane
         timeline.playFrom(Duration.ZERO);
     }
 
+    /**
+     * Method that is called to pause the animation
+     */
     private void pause()
     {
         if (timeline == null)
@@ -119,6 +156,9 @@ public class MarqueePane extends Pane
         timeline.pause();
     }
 
+    /**
+     * Method that is called to pause the animation
+     */
     public void stop()
     {
         if (timeline == null)

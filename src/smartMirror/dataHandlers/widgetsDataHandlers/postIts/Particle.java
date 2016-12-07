@@ -1,3 +1,19 @@
+/*
+ * Copyright 2016 CodeHigh
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package smartMirror.dataHandlers.widgetsDataHandlers.postIts;
 
 import javafx.beans.property.DoubleProperty;
@@ -7,9 +23,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /**
+ *
  * @author Pucci on 23/11/2016.
  */
-public class Particle {
+class Particle
+{
     private DoubleProperty x = new SimpleDoubleProperty();
     private DoubleProperty y = new SimpleDoubleProperty();
 
@@ -20,29 +38,35 @@ public class Particle {
     private double life = 1.0;
     private boolean active = false;
 
-    public Particle(int x, int y, Color color) {
+    Particle(int x, int y, Color color)
+    {
         this.x.set(x);
         this.y.set(y);
         this.color = color;
     }
 
-    public double getX() {
+    private double getX()
+    {
         return x.get();
     }
 
-    public double getY() {
+    private double getY()
+    {
         return y.get();
     }
 
-    public boolean isDead() {
+    boolean isDead()
+    {
         return life == 0;
     }
 
-    public boolean isActive() {
+    boolean isActive()
+    {
         return active;
     }
 
-    public void activate(Point2D velocity) {
+    void activate(Point2D velocity)
+    {
         active = true;
         this.velocity = velocity;
     }
@@ -60,7 +84,8 @@ public class Particle {
         this.y.set(getY() + velocity.getY());
     }
 
-    public void draw(GraphicsContext g) {
+    void draw(GraphicsContext g)
+    {
         g.setFill(color);
 
         g.setGlobalAlpha(life);
