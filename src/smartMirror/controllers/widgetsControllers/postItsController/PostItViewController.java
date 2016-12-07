@@ -1,3 +1,27 @@
+/*
+ * Copyright 2016 CodeHigh
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (C) 2016 CodeHigh.
+ *     Permission is granted to copy, distribute and/or modify this document
+ *     under the terms of the GNU Free Documentation License, Version 1.3
+ *     or any later version published by the Free Software Foundation;
+ *     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ *     A copy of the license is included in the section entitled "GNU
+ *     Free Documentation License".
+ */
+
 package smartMirror.controllers.widgetsControllers.postItsController;
 
 import javafx.animation.FadeTransition;
@@ -11,11 +35,8 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.animations.TransitionAnimation;
-import smartMirror.dataHandlers.commons.JsonMessageParser;
-import smartMirror.dataHandlers.commons.TimeNotificationControl;
-import smartMirror.dataHandlers.commons.Timestamp;
+import smartMirror.dataHandlers.commons.*;
 import smartMirror.dataHandlers.database.MysqlCon;
-import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
@@ -26,7 +47,7 @@ import java.sql.PreparedStatement;
 import java.util.*;
 
 /**
- * @author Pucci on 22/11/2016.
+ * @author CodeHigh on 22/11/2016.
  *         Class responsible for updating the PostItView
  */
 public class PostItViewController extends Observable implements Observer
@@ -37,7 +58,7 @@ public class PostItViewController extends Observable implements Observer
 
     private TransitionAnimation animation;
 
-    private MQTTClient mqttClient;
+    private SmartMirror_Publisher publisher;
 
     private boolean visible = false;
 
@@ -341,6 +362,15 @@ public class PostItViewController extends Observable implements Observer
     }
 
     /**
+     * Method that sends the echo message
+     * @param msg message to be send
+     */
+    private synchronized void publishEcho(String msg)
+    {
+        this.publisher.echo(msg);
+    }
+
+    /**
      * Update method where the observable classes sends notifications messages
      *
      * @param o   observable object
@@ -374,16 +404,18 @@ public class PostItViewController extends Observable implements Observer
                     case "preferences":
 
                         LinkedList<Preferences> list = parser.parsePreferenceList();
-
                         for (Preferences pref : list)
                         {
                             if (pref.getName().equals("postits"))
                             {
                                 setVisible(pref.getValue().equals("true"));
+                                publisher.echo("Post-it preference changed");
                             }
                             else if (pref.getName().equals("showOnly"))
                             {
                                 showSpecificTable(pref.getValue());
+                                publisher.echo("Showing your requested post-it table in 30 seconds it will resume " +
+                                        "the animation");
                             }
                         }
                         break;
@@ -406,22 +438,12 @@ public class PostItViewController extends Observable implements Observer
         }
         else if (arg instanceof MQTTClient)
         {
-            this.mqttClient = (MQTTClient) arg;
+            MQTTClient mqttClient = (MQTTClient) arg;
+            this.publisher = new SmartMirror_Publisher(mqttClient);
         }
-
-
-        else if (arg instanceof PostItsController)
+        else if (arg instanceof String)
         {
-            Thread thread = new Thread(() ->
-            {
-                PostItsController postItsController = (PostItsController) arg;
-                notifyObs(postItsController);
-            });
-            thread.start();
-        }
-        else if (arg.equals("success"))
-        {
-            Thread thread = new Thread(() -> notifyObs("success"));
+            Thread thread = new Thread(() -> publishEcho((String) arg));
             thread.start();
         }
     }

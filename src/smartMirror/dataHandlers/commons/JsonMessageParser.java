@@ -1,3 +1,27 @@
+/*
+ * Copyright 2016 CodeHigh
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (C) 2016 CodeHigh.
+ *     Permission is granted to copy, distribute and/or modify this document
+ *     under the terms of the GNU Free Documentation License, Version 1.3
+ *     or any later version published by the Free Software Foundation;
+ *     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ *     A copy of the license is included in the section entitled "GNU
+ *     Free Documentation License".
+ */
+
 package smartMirror.dataHandlers.commons;
 
 import org.json.simple.JSONArray;
@@ -16,12 +40,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * @author Pucci @copyright on 06/12/2016.
+ * @author CodeHigh @copyright on 06/12/2016.
  *         Class responsible for parsing Json MQTT messages
  */
 public class JsonMessageParser
 {
-    private String messageFrom;
     private String contentType;
     private String content;
     private String timestamp;
@@ -39,7 +62,8 @@ public class JsonMessageParser
         {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(message);
-            this.messageFrom = json.get("messageFrom").toString();
+            String messageFrom = json.get("messageFrom").toString();
+            System.out.println("Message from: " + messageFrom);
             this.timestamp = json.get("timestamp").toString();
             this.contentType = json.get("contentType").toString();
             this.content = json.get("content").toString();
@@ -81,7 +105,9 @@ public class JsonMessageParser
                 jso = (JSONObject) parser.parse(jsonArray.get(0).toString());
                 postItId = jso.get("postItID").toString();
                 String bodyText = jso.get("body").toString();
-                String senderId = jso.get("senderStyle").toString();
+                String senderId;
+                if (jso.get("senderStyle").toString().equals("none")) senderId = "standard";
+                else senderId = jso.get("senderStyle").toString();
                 String stamp = jso.get("expiresAt").toString();
                 long timestamp;
                 if (stamp.equals("0"))
@@ -236,8 +262,11 @@ public class JsonMessageParser
                 switch (type)
                 {
                     case "device":
-                        device = new Device(anArrayList, value);
-                        linkedList.add(device);
+                        if (value.equals("true") || value.equals("false"))
+                        {
+                            device = new Device(anArrayList, value);
+                            linkedList.add(device);
+                        }
                         break;
                     case "settings":
                         settings = new Settings(anArrayList, value);
@@ -247,7 +276,7 @@ public class JsonMessageParser
                         linkedList.add(preferences);
                         break;
                     case "shoppinglist":
-                        this.shoppingList.setItemList(anArrayList, value);
+                        this.shoppingList.setItemList(value);
                         break;
                     default:
                         System.out.println("Could Not be Parsed!");
@@ -291,13 +320,4 @@ public class JsonMessageParser
         return timestamp;
     }
 
-    /**
-     * Getter that provides the message from
-     *
-     * @return the name of the sender
-     */
-    public String getMessageFrom()
-    {
-        return messageFrom;
-    }
 }

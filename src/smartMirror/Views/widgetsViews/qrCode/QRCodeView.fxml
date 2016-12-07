@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="qrCodePane" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="216.0"
-            xmlns="http://javafx.com/javafx/8"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="120.0" prefWidth="199.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="smartMirror.controllers.widgetsControllers.qrCodeController.QRCodeController">
-    <ImageView fx:id="qrCodeImageView" fitHeight="120.0" fitWidth="216.0" layoutY="-15.0" pickOnBounds="true"
-               preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <effect>
-            <DropShadow radius="11.555" spread="0.89" width="27.22">
-                <input>
-                    <InnerShadow choke="0.11" height="52.1" radius="25.55" width="52.1"/>
-                </input>
-            </DropShadow>
-        </effect>
-    </ImageView>
+    <children>
+        <ImageView fx:id="qrCodeImageView" fitHeight="120.0" fitWidth="199.0" layoutY="-15.0" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <effect>
+                <DropShadow radius="11.555" spread="0.89" width="27.22">
+                    <input>
+                        <InnerShadow choke="0.11" height="52.1" radius="25.55" width="52.1"/>
+                    </input>
+                </DropShadow>
+            </effect>
+        </ImageView>
+    </children>
 </AnchorPane>

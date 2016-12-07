@@ -1,3 +1,27 @@
+/*
+ * Copyright 2016 CodeHigh
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (C) 2016 CodeHigh.
+ *     Permission is granted to copy, distribute and/or modify this document
+ *     under the terms of the GNU Free Documentation License, Version 1.3
+ *     or any later version published by the Free Software Foundation;
+ *     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ *     A copy of the license is included in the section entitled "GNU
+ *     Free Documentation License".
+ */
+
 package smartMirror.controllers.widgetsControllers.postItsController;
 
 import javafx.fxml.FXML;
@@ -6,9 +30,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import smartMirror.dataHandlers.commons.Timestamp;
 import smartMirror.dataHandlers.widgetsDataHandlers.postIts.PostItManager;
 import smartMirror.dataModels.applicationModels.ChainedMap;
-import smartMirror.dataHandlers.commons.Timestamp;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
@@ -19,10 +43,10 @@ import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
- * @author Pucci on 22/11/2016.
+ * @author CodeHigh on 22/11/2016.
  *         Class responsible for updating the PostItTableView
  */
-public class PostItsController extends Observable implements Observer, Initializable
+class PostItsController extends Observable implements Observer, Initializable
 {
     @FXML
     public GridPane postItPaneStandard;
@@ -147,7 +171,7 @@ public class PostItsController extends Observable implements Observer, Initializ
      *
      * @return the table color name
      */
-    public String getTableColor()
+    private String getTableColor()
     {
         return tableColor;
     }
@@ -169,8 +193,7 @@ public class PostItsController extends Observable implements Observer, Initializ
     {
         this.postItManager.setCanvases(canvas1, canvas2, canvas3, canvas4, canvas5, canvas6, canvas7,
                 canvas8, canvas9, canvas10, canvas11, canvas12);
-        this.postItManager.setStackPanes(postPaneS1, postPaneS2, postPaneS3, postPaneS4, postPaneS5,
-                postPaneS6, postPaneS7, postPaneS8, postPaneS9, postPaneS10, postPaneS11, postPaneS12);
+
         this.postItManager.setTextAreas(postTextS1, postTextS2, postTextS3, postTextS4, postTextS5, postTextS6,
                 postTextS7, postTextS8, postTextS9, postTextS10, postTextS11, postTextS12);
     }
@@ -206,21 +229,27 @@ public class PostItsController extends Observable implements Observer, Initializ
             int index = freePostIndex();
             if (index != -1)
             {
-                System.out.println(this.tableColor + " : " + index);
-                postItNote.setPostItIndex(index);
-                postItNotes.add(postItNote.getPostItId(), postItNote);
-                booleanArray[index] = true;
-                this.postItManager.setImage(index, postItNote.getSenderId());
-                this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
-//                setChanged();
-//                notifyObservers("success");
+                if (postItNote.getBodyText().length() <= 90)
+                {
+                    postItNote.setPostItIndex(index);
+                    postItNotes.add(postItNote.getPostItId(), postItNote);
+                    booleanArray[index] = true;
+                    this.postItManager.setImage(index, postItNote.getSenderId());
+                    this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
+                    setChanged();
+                    notifyObservers("Post-it successfully added to the table " + getTableColor());
+                }
+                else
+                {
+                    setChanged();
+                    notifyObservers("A post-it should not contain more than 90 characters");
+                }
             }
             else
             {
-                System.out.println(this.tableColor + " : full " + index);
-
-//                setChanged();
-//                notifyObservers(this);
+                setChanged();
+                notifyObservers("Post-it successfully could not be added the table " + getTableColor() + " is full delete " +
+                        "a post-it in order to add a new one");
             }
         }
     }
@@ -240,15 +269,15 @@ public class PostItsController extends Observable implements Observer, Initializ
                 this.postItManager.deleteGraphicalNote(index);
                 this.postItNotes.remove(postItAction.getPostItId());
                 booleanArray[index] = false;
-//                setChanged();
-//                notifyObservers("success");
+                setChanged();
+                notifyObservers("Post-it successfully deleted from table " + getTableColor());
             }
             else if (postItAction.isActionModify())
             {
                 this.postItManager.setPostMessage(index, postItAction.getModification());
                 this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
-//                setChanged();
-//                notifyObservers("success");
+                setChanged();
+                notifyObservers("Post-it successfully updated int the table " + getTableColor());
             }
         }
     }
@@ -284,7 +313,6 @@ public class PostItsController extends Observable implements Observer, Initializ
                 for (String id : ids)
                 {
                     PostItNote postItNote = postItNotes.get(id);
-                    System.out.println("deleting : " + postItNote.getPostItIndex() + " :" + tableColor);
                     if (postItNote.getTimestamp() < timestamp.getTimestamp())
                     {
                         idsToBeDeleted.add(id);
@@ -295,7 +323,6 @@ public class PostItsController extends Observable implements Observer, Initializ
                     PostItNote postItNote = postItNotes.get(id);
                     PostItAction postItAction = new PostItAction(postItNote.getPostItId(), "Delete", "none");
                     managePostIt(postItAction);
-                    System.out.println("deleted");
                 }
             });
             thread.start();
