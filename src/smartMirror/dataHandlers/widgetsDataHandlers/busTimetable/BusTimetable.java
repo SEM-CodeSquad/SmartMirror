@@ -18,6 +18,8 @@ import java.util.Observer;
 
 /**
  * @author Pucci && Axel Verner @copyright on 06/12/2016.
+ *         Class responsible for establishing connection with västrafik API, query for the departure board
+ *         and receive the data
  */
 public class BusTimetable extends Observable implements Observer
 {
@@ -34,7 +36,7 @@ public class BusTimetable extends Observable implements Observer
      * Sends a HTTP request to Vasttrafik.
      * Gets a json object in response that is sent to the BusDepartureParser().
      *
-     * @param busStop s
+     * @param busStop name of the bus stop
      */
     public synchronized void setBusTimetable(String busStop)
     {
@@ -70,6 +72,11 @@ public class BusTimetable extends Observable implements Observer
 
     }
 
+    /**
+     * Method that generates the access code to fetch the data from the API
+     *
+     * @return the access code
+     */
     private String generateAccessCode()
     {
 
@@ -109,6 +116,12 @@ public class BusTimetable extends Observable implements Observer
         return result.substring(result.lastIndexOf(":") + 2, result.length() - 2);
     }
 
+    /**
+     * Update method where the observable classes sends notifications messages
+     *
+     * @param o   observable object
+     * @param arg object arg
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void update(Observable o, Object arg)

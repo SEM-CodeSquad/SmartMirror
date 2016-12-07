@@ -4,6 +4,7 @@ import smartMirror.dataModels.widgetsModels.busTimetableModels.BusInfo;
 
 /**
  * @author Axel Verner @copyright on 06/12/2016.
+ *         Class responsible for sorting the bus info data by the departure time
  */
 class DepartureSort
 {
@@ -17,19 +18,30 @@ class DepartureSort
         quickSort(0, length - 1);
     }
 
-    private void quickSort(int lowerIndex, int higherIndex) {
+    /**
+     * Quick sort algorithm
+     *
+     * @param lowerIndex  first index in the array
+     * @param higherIndex last index in the array
+     */
+    private void quickSort(int lowerIndex, int higherIndex)
+    {
 
         int i = lowerIndex;
         int j = higherIndex;
         int pivot = busArray[(lowerIndex + (higherIndex - lowerIndex) / 2)].getBusDeparture();
-        while (i <= j) {
-            while (busArray[i].getBusDeparture() < pivot) {
+        while (i <= j)
+        {
+            while (busArray[i].getBusDeparture() < pivot)
+            {
                 i++;
             }
-            while (busArray[j].getBusDeparture() > pivot) {
+            while (busArray[j].getBusDeparture() > pivot)
+            {
                 j--;
             }
-            if (i <= j) {
+            if (i <= j)
+            {
                 exchangeObjects(i, j);
                 i++;
                 j--;
@@ -41,7 +53,14 @@ class DepartureSort
             quickSort(i, higherIndex);
     }
 
-    private void exchangeObjects(int i, int j) {
+    /**
+     * Method responsible for swipe the data position in the array
+     *
+     * @param i index of the first element
+     * @param j index of the second element
+     */
+    private void exchangeObjects(int i, int j)
+    {
         BusInfo busData = busArray[i];
         busArray[i] = busArray[j];
         busArray[j] = busData;

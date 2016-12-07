@@ -14,12 +14,20 @@ import java.util.Observable;
 
 /**
  * @author Pucci && Axel Verner @copyright on 06/12/2016.
+ *         Class responsible for parsing the data received from västrafik API
  */
 class BusDepartureParser extends Observable
 {
     private BusInfo[] busArray;
 
 
+    /**
+     * Method responsible for converting the time into the difference in minutes between the received time and the actual
+     * time
+     *
+     * @param departTime time received from the västrafik API
+     * @return difference in minutes between the actual time and the received time
+     */
     private int convertToMinutes(String departTime)
     {
         int minutes = 0;
@@ -50,6 +58,14 @@ class BusDepartureParser extends Observable
         return minutes - 1;
     }
 
+    /**
+     * Method responsible for parsing the data and creating a list with all the bus data sorted by the time the bus will
+     * be departing
+     *
+     * @param busJson data to be parsed
+     * @see DepartureSort
+     * @see BusInfo
+     */
     @SuppressWarnings("unchecked")
     void busJsonParser(String busJson)
     {
