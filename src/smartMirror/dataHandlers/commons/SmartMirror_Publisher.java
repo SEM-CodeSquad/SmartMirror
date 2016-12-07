@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Observable;
 
 /**
- * @author Pucci @copyright on 06/12/2016.
+ * @author CodeHigh @copyright on 06/12/2016.
  *         Class responsible for publishing messages to the broker
  */
 public class SmartMirror_Publisher extends Observable

@@ -50,6 +50,7 @@ class HttpRequestSender {
 
             //Create connection
             URL url = new URL(targetURL + query);
+            System.out.println(url.toURI().toString());
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setInstanceFollowRedirects(false);

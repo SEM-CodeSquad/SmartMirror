@@ -5,7 +5,7 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 /**
- * @author Pucci @copyright on 06/12/2016.
+ * @author CodeHigh @copyright on 06/12/2016.
  *         Class resposible for establishing connection with the MQTT broker
  */
 public class MQTTClient

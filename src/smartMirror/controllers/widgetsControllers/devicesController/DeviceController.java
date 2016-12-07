@@ -1,3 +1,27 @@
+/*
+ * Copyright 2016 CodeHigh
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (C) 2016 CodeHigh.
+ *     Permission is granted to copy, distribute and/or modify this document
+ *     under the terms of the GNU Free Documentation License, Version 1.3
+ *     or any later version published by the Free Software Foundation;
+ *     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ *     A copy of the license is included in the section entitled "GNU
+ *     Free Documentation License".
+ */
+
 package smartMirror.controllers.widgetsControllers.devicesController;
 
 import javafx.animation.FadeTransition;
@@ -14,6 +38,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.dataHandlers.animations.TransitionAnimation;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.MQTTClient;
+import smartMirror.dataHandlers.commons.SmartMirror_Publisher;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.devicesModels.Device;
 import smartMirror.dataModels.widgetsModels.devicesModels.DevicesToggleButton;
@@ -23,7 +48,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * @author Pucci on 21/11/2016.
+ * @author CodeHigh on 21/11/2016.
  *         Class that controls the updates in the DevicesView
  */
 public class DeviceController implements Observer
@@ -123,7 +148,7 @@ public class DeviceController implements Observer
     private Label[] labels;
     private DevicesToggleButton[] switchButtons;
 
-    private MQTTClient mqttClient;
+    private SmartMirror_Publisher publisher;
 
     private boolean visible = false;
 
@@ -357,6 +382,7 @@ public class DeviceController implements Observer
                             setStatus(switchButtons[i], "off");
                         }
                     }
+                    publisher.echo("Device list received");
                 }
                 else if (parser.getContentType().equals("preferences"))
                 {
@@ -364,6 +390,7 @@ public class DeviceController implements Observer
 
                     list.stream().filter(pref -> pref.getName().equals("device")).forEach(pref ->
                             setVisible(pref.getValue().equals("true")));
+                    publisher.echo("Device list preference changed");
                 }
             });
             thread.start();
@@ -371,7 +398,8 @@ public class DeviceController implements Observer
         }
         else if (arg instanceof MQTTClient)
         {
-            this.mqttClient = (MQTTClient) arg;
+            MQTTClient mqttClient = (MQTTClient) arg;
+            this.publisher = new SmartMirror_Publisher(mqttClient);
         }
     }
 }

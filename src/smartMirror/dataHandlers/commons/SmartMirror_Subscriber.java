@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.util.Observable;
 
 /**
- * @author Pucci @copyright on 06/12/2016.
+ * @author CodeHigh @copyright on 06/12/2016.
  *         Class responsible for subscribing to topics in the broker
  */
 public class SmartMirror_Subscriber extends Observable implements MqttCallback
