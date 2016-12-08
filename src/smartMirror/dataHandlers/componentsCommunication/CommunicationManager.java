@@ -56,6 +56,8 @@ public class CommunicationManager extends Observable implements Observer
     public CommunicationManager(String clientId)
     {
         this.clientId = clientId;
+        //54.154.153.243
+        //codehigh.ddns.me
         this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
         this.publisher = new SmartMirror_Publisher(this.mqttClient);
         this.publisher.publishPresenceMessage("1", "CodeHigh", 6, "1.0", this.clientId, "1", "6", "10", "12", "22");
@@ -109,25 +111,6 @@ public class CommunicationManager extends Observable implements Observer
     }
 
     /**
-     * Method responsible for publishing the echo message
-     *
-     * @param msg     message to be published
-     * @param success b
-     */
-    private synchronized void publishEcho(String msg, boolean success)
-    {
-        if (!success)
-        {
-            publisher.echo("The post-it table " + msg + "is full! Please" +
-                    "delete a post-it in order to add a new one.");
-        }
-        else
-        {
-            publisher.echo("The action was successfully received in the SmartMirror!");
-        }
-    }
-
-    /**
      * Method responsible for registering the client Id in the shopping list server
      */
     @SuppressWarnings("unchecked")
@@ -140,13 +123,12 @@ public class CommunicationManager extends Observable implements Observer
                 JSONObject sendThis = new JSONObject();
                 sendThis.put("request", "register");
 
-                JSONObject data = new JSONObject();
-                data.put("email", this.clientId + "@smartmirror.com");
-                data.put("password", this.clientId);
-                data.put("name", this.clientId);
+                sendThis.put("data", "{\"email\":\"" + this.clientId + "@smartmirror.com\"," +
+                        "\"password\":\"" + this.clientId + "\"," +
+                        "\"name\":\"" + this.clientId + "\"}");
 
-                sendThis.put("data", data.toJSONString());
 
+                System.out.println(sendThis.toJSONString());
                 this.publisher.publish("Gro", sendThis.toJSONString());
             }
             catch (Exception e)
