@@ -38,6 +38,7 @@ public class TestPairing
             String testUrl = "http://localhost:8080/";
             String myUrl = "http://codehigh.ddns.me:8080/";
             post.executePost(myUrl);
+            System.out.println(post.getHttpResponse());
 
 
         }
