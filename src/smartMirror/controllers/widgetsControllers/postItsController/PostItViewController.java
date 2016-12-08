@@ -62,6 +62,8 @@ public class PostItViewController extends Observable implements Observer
 
     private boolean visible = false;
 
+    private Timer timer;
+
     /**
      * Constructor responsible for calling build
      */
@@ -185,7 +187,7 @@ public class PostItViewController extends Observable implements Observer
             {
 
             });
-            Timer timer = new Timer();
+            timer = new Timer();
             timer.schedule(new TimerTask()
             {
 
@@ -413,6 +415,7 @@ public class PostItViewController extends Observable implements Observer
                             }
                             else if (pref.getName().equals("showOnly"))
                             {
+                                if (timer != null) timer.cancel();
                                 showSpecificTable(pref.getValue());
                                 publisher.echo("Showing your requested post-it table in 30 seconds it will resume " +
                                         "the animation");

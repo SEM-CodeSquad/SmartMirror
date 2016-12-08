@@ -93,7 +93,7 @@ class BusDepartureParser extends Observable
     @SuppressWarnings("unchecked")
     void busJsonParser(String busJson)
     {
-
+        System.out.println(busJson);
         int index = 0;
 
         try
