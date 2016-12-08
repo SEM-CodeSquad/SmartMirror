@@ -62,8 +62,6 @@ public class JsonMessageParser
         {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(message);
-            String messageFrom = json.get("messageFrom").toString();
-            System.out.println("Message from: " + messageFrom);
             this.timestamp = json.get("timestamp").toString();
             this.contentType = json.get("contentType").toString();
             this.content = json.get("content").toString();
