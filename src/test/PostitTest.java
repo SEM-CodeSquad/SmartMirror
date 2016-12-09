@@ -42,17 +42,31 @@ public class PostitTest {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);  // Reading from System.in
-        System.out.println("Enter the topic: ");
-        String topic = scan.nextLine();
+        System.out.println("Enter the id: ");
+        String id = scan.nextLine();
+        String topic = "dit029/SmartMirror/" + id + "/postit";
         Retrievedata R = new Retrievedata();
 
-        for (int i = 0; i < 65; i++)
+        System.out.println("How many post-its: ");
+        String p = scan.nextLine();
+        int pos = Integer.parseInt(p);
+
+        for (int i = 0; i < pos; i++)
         {
             int finalI = i;
             Thread thread = new Thread() {
                 public void run() {
-                    System.out.println(finalI + R.retrieve(topic, randomID(),
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    System.out.println(finalI + R.retrieve(topic, String.valueOf(finalI),
                             randomText(), randomColor(), randomImport(), randomDate()));
+
                 }
             };
             thread.start();

@@ -25,15 +25,18 @@
 package smartMirror.dataHandlers.componentsCommunication;
 
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.simple.JSONObject;
 import smartMirror.controllers.mainController.MainController;
 import smartMirror.dataHandlers.commons.JsonMessageParser;
 import smartMirror.dataHandlers.commons.MQTTClient;
 import smartMirror.dataHandlers.commons.SmartMirror_Publisher;
 import smartMirror.dataHandlers.commons.SmartMirror_Subscriber;
 
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author CodeHigh @copyright on 06/12/2016.
@@ -58,12 +61,22 @@ public class CommunicationManager extends Observable implements Observer
         this.clientId = clientId;
         //54.154.153.243
         //codehigh.ddns.me
-        this.mqttClient = new MQTTClient("tcp://codehigh.ddns.me", clientId);
+        this.mqttClient = new MQTTClient("tcp://54.154.153.243", clientId);
         this.publisher = new SmartMirror_Publisher(this.mqttClient);
         this.publisher.publishPresenceMessage("1", "CodeHigh", 6, "1.0", this.clientId, "1", "6", "10", "12", "22");
-        registerOnShoppingListServer();
+
         setClientPaired(false);
         listenPairing();
+
+        final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        service.scheduleWithFixedDelay(() ->
+        {
+            if (!mqttClient.getClient().isConnected())
+            {
+                System.out.println(new Date());
+                mqttClient.reconnect();
+            }
+        }, 0, 60, TimeUnit.SECONDS);
     }
 
     /**
@@ -108,6 +121,7 @@ public class CommunicationManager extends Observable implements Observer
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/device");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/preferences");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/shoppingList");
+        registerOnShoppingListServer();
     }
 
     /**
@@ -120,16 +134,18 @@ public class CommunicationManager extends Observable implements Observer
         {
             try
             {
-                JSONObject sendThis = new JSONObject();
-                sendThis.put("request", "register");
+//                String topic = "Gro/#";
+//                SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
+//                subscriber.addObserver(this);
+//
+//                System.out.println("Listening to: " + topic);
 
-                sendThis.put("data", "{\"email\":\"" + this.clientId + "@smartmirror.com\"," +
+                String messageString = "{\"request\":\"register\"," +
+                        "\"data\":{\"email\":\"" + this.clientId + "@smartmirror.com\"," +
                         "\"password\":\"" + this.clientId + "\"," +
-                        "\"name\":\"" + this.clientId + "\"}");
+                        "\"name\":\"" + this.clientId + "\"}}";
 
-
-                System.out.println(sendThis.toJSONString());
-                this.publisher.publish("Gro", sendThis.toJSONString());
+                this.publisher.publish("Gro/", messageString);
             }
             catch (Exception e)
             {

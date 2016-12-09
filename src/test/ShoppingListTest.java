@@ -17,8 +17,9 @@ public class ShoppingListTest
         {
 
             Scanner scan = new Scanner(System.in);  // Reading from System.in
-            System.out.println("Enter the topic: ");
-            String topic = scan.nextLine();
+            System.out.println("Enter the id: ");
+            String i = scan.nextLine();
+            String topic = "dit029/SmartMirror/" + i + "/shoppingList";
 
             JSONObject sendThis = new JSONObject();
             sendThis.put("messageFrom", "test");
@@ -27,43 +28,72 @@ public class ShoppingListTest
 
             JSONObject item = new JSONObject();
             sendThis.put("contentType", "shoppinglist");
-            item.put("1", "empty");
-//            item.put("2", "test");
-//            item.put("3", "test");
-//            item.put("4", "test");
-//            item.put("5", "test");
-//            item.put("6", "test");
-//            item.put("7", "test");
-//            item.put("8", "test");
-//            item.put("9", "test");
-//            item.put("10", "test");
-//            item.put("11", "test");
-//            item.put("12", "test");
-//            item.put("13", "test");
-//            item.put("14", "test");
-//            item.put("15", "test");
-//
-//            item.put("16", "test");
-//            item.put("17", "test");
-//            item.put("30", "test");
-//            item.put("44", "test");
-//            item.put("55", "test");
-//            item.put("64", "test");
-//            item.put("74", "test");
-//            item.put("84", "test");
-//            item.put("94", "test");
-//            item.put("104", "test");
-//            item.put("114", "test");
-//            item.put("124", "test");
-//            item.put("134", "test");
-//            item.put("144", "test");
-//            item.put("155", "test");
+
+            System.out.println("Enter the numeber of list: ");
+            String listNum = scan.nextLine();
+
+            if (listNum.equals("15"))
+            {
+                item.put("1", "milk");
+                item.put("2", "bread");
+                item.put("3", "fruits");
+                item.put("4", "juice");
+                item.put("5", "rice");
+                item.put("6", "beans");
+                item.put("7", "meat");
+                item.put("8", "tomatoes");
+                item.put("9", "onions");
+                item.put("10", "potatoes");
+                item.put("11", "garlic");
+                item.put("12", "butter");
+                item.put("13", "cheese");
+                item.put("14", "ham");
+                item.put("15", "yogurt");
+            }
+            else
+            {
+                item.put("1", "milk");
+                item.put("2", "bread");
+                item.put("3", "fruits");
+                item.put("4", "juice");
+                item.put("5", "rice");
+                item.put("6", "beans");
+                item.put("7", "meat");
+                item.put("8", "tomatoes");
+                item.put("9", "onions");
+                item.put("10", "potatoes");
+                item.put("11", "garlic");
+                item.put("12", "butter");
+                item.put("13", "cheese");
+                item.put("14", "ham");
+                item.put("15", "yogurt");
+
+                item.put("16", "banana");
+                item.put("17", "apple");
+                item.put("30", "pineapple");
+                item.put("44", "kiwi");
+                item.put("55", "melon");
+                item.put("64", "watermelon");
+                item.put("74", "grapes");
+                item.put("84", "carrots");
+                item.put("94", "cucumber");
+                item.put("104", "eggs");
+                item.put("114", "frying oil");
+                item.put("124", "sugar");
+                item.put("134", "salt");
+                item.put("144", "pepper");
+                item.put("155", "peas");
+            }
+
+
             JSONArray jArray = new JSONArray();
             jArray.add(0, item);
 
             sendThis.put("content", jArray);
             String messageString = sendThis.toJSONString();
-            HttpRequestSender post = new HttpRequestSender("codehigh.ddns.me", topic, messageString, "0", "false");
+            //54.154.153.243
+            //codehigh.ddns.me
+            HttpRequestSender post = new HttpRequestSender("54.154.153.243", topic, messageString, "0", "false");
 
             String testUrl = "http://localhost:8080/";
             String myUrl = "http://codehigh.ddns.me:8080/";

@@ -229,7 +229,7 @@ public class DeviceController implements Observer
             StackPane parentPane = (StackPane) this.devicePanes.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
 
-            monitorWidgetVisibility(parentPane, parentGrid);
+            monitorWidgetVisibility(b, parentGrid);
         });
     }
 
@@ -237,18 +237,12 @@ public class DeviceController implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param stackPane parent component
+     * @param b boolean
      * @param gridPane  parent parent component
      */
-    private synchronized void monitorWidgetVisibility(StackPane stackPane, GridPane gridPane)
+    private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
     {
-        boolean visible = false;
-        ObservableList<Node> list = stackPane.getChildren();
-        for (Node node : list)
-        {
-            visible = node.isVisible();
-        }
-        gridPane.setVisible(visible);
+        gridPane.setVisible(b);
     }
 
     /**

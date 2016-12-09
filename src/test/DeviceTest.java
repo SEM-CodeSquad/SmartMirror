@@ -13,14 +13,18 @@ import java.util.Scanner;
 public class DeviceTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);  // Reading from System.in
-        System.out.println("Enter the topic: ");
-        String topic = scan.nextLine();
+        System.out.println("Enter the id: ");
+        String i = scan.nextLine();
+        String topic = "dit029/SmartMirror/" + i + "/device";
 
         DeviceTest deviceTest = new DeviceTest();
 
-        MQTTClient client = new MQTTClient("tcp://codehigh.ddns.me", "test");
+        //54.154.153.243
+        //codehigh.ddns.me
+        MQTTClient client = new MQTTClient("tcp://54.154.153.243", "test");
         SmartMirror_Publisher publisher = new SmartMirror_Publisher(client);
         publisher.publish(topic, deviceTest.sendDevice());
+        client.disconnect();
     }
 
     @SuppressWarnings("unchecked")

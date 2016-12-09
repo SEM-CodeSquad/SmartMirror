@@ -17,8 +17,9 @@ public class TestPairing
         {
 
             Scanner scan = new Scanner(System.in);  // Reading from System.in
-            System.out.println("Enter the topic: ");
-            String topic = scan.nextLine();
+            System.out.println("Enter the id: ");
+            String i = scan.nextLine();
+            String topic = "dit029/SmartMirror/" + i + "/pairing";
 
             JSONObject sendThis = new JSONObject();
             sendThis.put("messageFrom", "test");
@@ -33,7 +34,9 @@ public class TestPairing
 
             sendThis.put("content", jArray);
             String messageString = sendThis.toJSONString();
-            HttpRequestSender post = new HttpRequestSender("codehigh.ddns.me", topic, messageString, "0", "false");
+            //54.154.153.243
+            //codehigh.ddns.me
+            HttpRequestSender post = new HttpRequestSender("54.154.153.243", topic, messageString, "0", "false");
 
             String testUrl = "http://localhost:8080/";
             String myUrl = "http://codehigh.ddns.me:8080/";

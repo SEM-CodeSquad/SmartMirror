@@ -174,7 +174,7 @@ public class GreetingsController implements Observer
                 JsonMessageParser parser = new JsonMessageParser();
                 parser.parseMessage(arg.toString());
 
-                if (parser.getContent().equals("preferences"))
+                if (parser.getContentType().equals("preferences"))
                 {
                     LinkedList<Preferences> list = parser.parsePreferenceList();
 

@@ -27,7 +27,8 @@ public class MQTTClient
             this.clientId = id;
             options = new MqttConnectOptions();
             options.setCleanSession(false);
-            options.setKeepAliveInterval(20);
+            options.setKeepAliveInterval(100);
+            options.setConnectionTimeout(100);
             client = new MqttClient(url, id);
             client.connect(options);
             System.out.println("Client Connected!");
@@ -66,7 +67,7 @@ public class MQTTClient
     /**
      * Method responsible for reestablishing the connection
      */
-    void reconnect()
+    public void reconnect()
     {
         if (!client.isConnected())
         {
@@ -86,7 +87,7 @@ public class MQTTClient
      *
      * @return mqtt client
      */
-    MqttClient getClient()
+    public MqttClient getClient()
     {
         return client;
     }

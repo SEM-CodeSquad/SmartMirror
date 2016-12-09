@@ -13,14 +13,35 @@ import java.util.Scanner;
 public class Preftest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);  // Reading from System.in
-        System.out.println("Enter the topic: ");
-        String topic = scan.nextLine();
+        System.out.println("Enter the id: ");
+        String i = scan.nextLine();
+        String topic = "dit029/SmartMirror/" + i + "/preferences";
 
         Preftest preftest = new Preftest();
 
-        MQTTClient client = new MQTTClient("tcp://codehigh.ddns.me", "test");
+        //54.154.153.243
+        //codehigh.ddns.me
+        MQTTClient client = new MQTTClient("tcp://54.154.153.243", "test");
         SmartMirror_Publisher publisher = new SmartMirror_Publisher(client);
-        publisher.publish(topic, preftest.sendPreferenceShow());
+
+        System.out.println("Enter what you want [standard, blue, green, purple, orange,\n" +
+                "                pink, yellow]: ");
+        String action = scan.nextLine();
+
+        switch (action)
+        {
+            case "show":
+                publisher.publish(topic, preftest.sendPreferenceShow());
+                break;
+            case "hide":
+                publisher.publish(topic, preftest.sendPreferenceHide());
+                break;
+            default:
+                publisher.publish(topic, preftest.sendPreferenceShowOnly(action));
+                break;
+        }
+        client.disconnect();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -82,7 +103,8 @@ public class Preftest {
     }
 
     @SuppressWarnings("unchecked")
-    private String sendPreferenceShowOnly() {
+    private String sendPreferenceShowOnly(String i)
+    {
         String messageString;
         try {
             JSONObject sendThis = new JSONObject();
@@ -91,7 +113,7 @@ public class Preftest {
             sendThis.put("contentType", "preferences");
 
             JSONObject item = new JSONObject();
-            item.put("showOnly", "1");
+            item.put("showOnly", i);
 
             JSONArray jArray = new JSONArray();
             jArray.add(0, item);
