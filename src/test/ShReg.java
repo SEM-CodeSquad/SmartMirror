@@ -24,11 +24,6 @@
 
 package test;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import smartMirror.dataHandlers.commons.MQTTClient;
-import smartMirror.dataHandlers.commons.SmartMirror_Publisher;
-
 import java.util.Scanner;
 
 /**

@@ -96,7 +96,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-    <div class="subTitle">smartMirror.controllers.widgetsControllers.weatherController</div>
+    <div class="subTitle">smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController</div>
     <h2 title="Class WeatherController" class="title">Class WeatherController</h2>
 </div>
 <div class="contentContainer">
@@ -107,7 +107,9 @@ var activeTableTab = "activeTableTab";
                 <li>java.util.Observable</li>
                 <li>
                     <ul class="inheritance">
-                        <li>smartMirror.controllers.widgetsControllers.weatherController.WeatherController</li>
+                        <li>
+                            smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController.WeatherController
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -243,7 +245,7 @@ implements java.util.Observer</pre>
                             <tr class="rowColor">
                                 <td class="colFirst"><code>private <a
                                         href="../../../../smartMirror/dataHandlers/commons/SmartMirror_Publisher.html"
-                                        title="class in smartMirror.dataHandlers.commons">SmartMirror_Publisher</a></code>
+                                        title="class in smartMirror.controllers.dataHandlers.dataHandlersCommons">SmartMirror_Publisher</a></code>
                                 </td>
                                 <td class="colLast"><code><span class="memberNameLink"><a
                                         href="../../../../smartMirror/controllers/widgetsControllers/weatherController/WeatherController.html#publisher">publisher</a></span></code>&nbsp;
@@ -282,7 +284,7 @@ implements java.util.Observer</pre>
                             <tr class="rowColor">
                                 <td class="colFirst"><code>private <a
                                         href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html"
-                                        title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather">WeatherFetcher</a></code>
+                                        title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather">WeatherFetcher</a></code>
                                 </td>
                                 <td class="colLast"><code><span class="memberNameLink"><a
                                         href="../../../../smartMirror/controllers/widgetsControllers/weatherController/WeatherController.html#weatherFetcher">weatherFetcher</a></span></code>&nbsp;
@@ -291,7 +293,7 @@ implements java.util.Observer</pre>
                             <tr class="altColor">
                                 <td class="colFirst"><code>private <a
                                         href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html"
-                                        title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather">JSONWeatherParser</a></code>
+                                        title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather">JSONWeatherParser</a></code>
                                 </td>
                                 <td class="colLast"><code><span class="memberNameLink"><a
                                         href="../../../../smartMirror/controllers/widgetsControllers/weatherController/WeatherController.html#weatherParser">weatherParser</a></span></code>&nbsp;
@@ -592,7 +594,7 @@ implements java.util.Observer</pre>
                                 <h4>weatherFetcher</h4>
                                 <pre>private&nbsp;<a
                                         href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html"
-                                        title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather">WeatherFetcher</a> weatherFetcher</pre>
+                                        title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather">WeatherFetcher</a> weatherFetcher</pre>
                             </li>
                         </ul>
                         <a name="weatherParser">
@@ -603,7 +605,7 @@ implements java.util.Observer</pre>
                                 <h4>weatherParser</h4>
                                 <pre>private&nbsp;<a
                                         href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html"
-                                        title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather">JSONWeatherParser</a> weatherParser</pre>
+                                        title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather">JSONWeatherParser</a> weatherParser</pre>
                             </li>
                         </ul>
                         <a name="townName">
@@ -623,7 +625,7 @@ implements java.util.Observer</pre>
                                 <h4>publisher</h4>
                                 <pre>private&nbsp;<a
                                         href="../../../../smartMirror/dataHandlers/commons/SmartMirror_Publisher.html"
-                                        title="class in smartMirror.dataHandlers.commons">SmartMirror_Publisher</a> publisher</pre>
+                                        title="class in smartMirror.controllers.dataHandlers.dataHandlersCommons">SmartMirror_Publisher</a> publisher</pre>
                             </li>
                         </ul>
                         <a name="visible">
@@ -657,11 +659,11 @@ implements java.util.Observer</pre>
                                     <dt><span class="seeLabel">See Also:</span></dt>
                                     <dd>
                                         <a href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html"
-                                           title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather"><code>WeatherFetcher</code></a>,
+                                           title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather"><code>WeatherFetcher</code></a>,
                                         <a href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html"
-                                           title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather"><code>JSONWeatherParser</code></a>,
+                                           title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather"><code>JSONWeatherParser</code></a>,
                                         <a href="../../../../smartMirror/dataHandlers/commons/TimeNotificationControl.html"
-                                           title="class in smartMirror.dataHandlers.commons"><code>TimeNotificationControl</code></a>
+                                           title="class in smartMirror.controllers.dataHandlers.dataHandlersCommons"><code>TimeNotificationControl</code></a>
                                     </dd>
                                 </dl>
                             </li>
@@ -689,9 +691,9 @@ implements java.util.Observer</pre>
                                     <dt><span class="seeLabel">See Also:</span></dt>
                                     <dd>
                                         <a href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html"
-                                           title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather"><code>WeatherFetcher</code></a>,
+                                           title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather"><code>WeatherFetcher</code></a>,
                                         <a href="../../../../smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html"
-                                           title="class in smartMirror.dataHandlers.widgetsDataHandlers.weather"><code>JSONWeatherParser</code></a>
+                                           title="class in smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather"><code>JSONWeatherParser</code></a>
                                     </dd>
                                 </dl>
                             </li>

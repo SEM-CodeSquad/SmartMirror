@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.StackPane?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="postPanes" prefHeight="965.0" prefWidth="1145.0"
            style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
-           fx:controller="smartMirror.controllers.widgetsControllers.postItsController.PostItViewController">
+           fx:controller="smartMirror.controllers.interfaceControllers.widgetsControllers.postItsController.PostItViewController">
     <cursor>
         <Cursor fx:constant="NONE"/>
     </cursor>

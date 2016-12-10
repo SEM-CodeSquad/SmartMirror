@@ -1,7 +1,7 @@
 package test;
 
-import smartMirror.dataHandlers.commons.MQTTClient;
-import smartMirror.dataHandlers.commons.SmartMirror_Publisher;
+import smartMirror.dataModels.modelCommons.MQTTClient;
+import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

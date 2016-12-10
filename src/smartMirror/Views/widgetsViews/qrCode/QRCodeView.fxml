@@ -7,7 +7,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="qrCodePane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="120.0" prefWidth="199.0" xmlns="http://javafx.com/javafx/8"
-            fx:controller="smartMirror.controllers.widgetsControllers.qrCodeController.QRCodeController">
+            fx:controller="smartMirror.controllers.interfaceControllers.widgetsControllers.qrCodeController.QRCodeController">
     <children>
         <ImageView fx:id="qrCodeImageView" fitHeight="120.0" fitWidth="199.0" layoutY="-15.0" pickOnBounds="true"
                    preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"

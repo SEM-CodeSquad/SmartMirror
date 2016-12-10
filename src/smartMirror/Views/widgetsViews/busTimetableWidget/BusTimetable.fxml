@@ -8,7 +8,7 @@
           minHeight="-Infinity"
           minWidth="-Infinity" prefHeight="575.0" prefWidth="311.0" style="-fx-background-color: #000000;"
           xmlns="http://javafx.com/javafx/8"
-          fx:controller="smartMirror.controllers.widgetsControllers.busTimetableController.BusTimetableController">
+          fx:controller="smartMirror.controllers.interfaceControllers.widgetsControllers.busTimetableController.BusTimetableController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
     </columnConstraints>

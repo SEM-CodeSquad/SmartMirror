@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="temperatureView" prefHeight="291.0" prefWidth="234.0"
           style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
-          fx:controller="smartMirror.controllers.widgetsControllers.weatherController.WeatherController">
+          fx:controller="smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController.WeatherController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="137.0"/>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="97.0"/>

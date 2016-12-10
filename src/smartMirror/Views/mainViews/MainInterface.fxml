@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1475.0" prefWidth="1312.0"
            style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8"
-           fx:controller="smartMirror.controllers.mainController.MainController">
+           fx:controller="smartMirror.controllers.interfaceControllers.mainController.MainController">
     <cursor>
         <Cursor fx:constant="NONE"/>
     </cursor>
