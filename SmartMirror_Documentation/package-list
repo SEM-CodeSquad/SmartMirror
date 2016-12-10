@@ -10,7 +10,7 @@ smartMirror.controllers.interfaceControllers.widgetsControllers.timeDateControll
 smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController
 smartMirror.dataModels.animations
 smartMirror.controllers.dataHandlers.dataHandlersCommons
-smartMirror.controllers.dataHandlers.componentsCommunication
+smartMirror.controllers.communications
 smartMirror.dataModels.database
 smartMirror.controllers.dataHandlers.widgetsDataHandlers.busTimetable
 smartMirror.controllers.dataHandlers.widgetsDataHandlers.feed

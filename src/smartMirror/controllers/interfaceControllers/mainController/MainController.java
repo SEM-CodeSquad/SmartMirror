@@ -44,7 +44,7 @@ import smartMirror.controllers.interfaceControllers.widgetsControllers.shoppingL
 import smartMirror.controllers.interfaceControllers.widgetsControllers.timeDateController.TimeDateController;
 import smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController.WeatherController;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
-import smartMirror.controllers.dataHandlers.componentsCommunication.CommunicationManager;
+import smartMirror.controllers.communications.CommunicationManager;
 import smartMirror.controllers.dataHandlers.widgetsDataHandlers.timeDate.TimeDateManager;
 import smartMirror.dataModels.applicationModels.UUID_Generator;
 import smartMirror.dataModels.widgetsModels.qrCodeModels.QRCode;

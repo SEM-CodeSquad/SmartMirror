@@ -7,155 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/mainController/MainController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/busTimetableController/BusTimetableController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/devicesController/DeviceController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/feedController/FeedController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/feedController/FeedController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/greetingsController/GreetingsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/greetingsController/GreetingsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItViewController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/qrCodeController/QRCodeController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/qrCodeController/QRCodeController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/shoppingListController/ShoppingListController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/timeDateController/TimeDateController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/timeDateController/TimeDateController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/widgetsControllers/weatherController/WeatherController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/weatherController/WeatherController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/animations/TransitionAnimation.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/animations/TransitionAnimation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/JsonMessageParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/dataHandlersCommons/JsonMessageParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/MQTTClient.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/MQTTClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/SmartMirror_Publisher.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/SmartMirror_Publisher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/SmartMirror_Subscriber.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/SmartMirror_Subscriber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/TimeNotificationControl.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/dataHandlersCommons/TimeNotificationControl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/commons/Timestamp.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/Timestamp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/componentsCommunication/CommunicationManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/database/MysqlCon.java" afterPath="$PROJECT_DIR$/src/smartMirror/dataModels/database/MysqlCon.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/feed/MarqueePane.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/feed/RSSFeed.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/feed/RSSMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/Pixel.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/postIts/Pixel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/postIts/PostItManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/componentsCommunication/CommunicationManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-frame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-noframe.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-1.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-10.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-10.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-11.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-11.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-12.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-12.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-13.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-13.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-14.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-14.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-15.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-15.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-16.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-16.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-17.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-17.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-18.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-18.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-19.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-19.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-2.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-20.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-20.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-21.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-21.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-22.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-22.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-23.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-23.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-24.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-24.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-3.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-4.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-5.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-6.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-7.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-7.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-8.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-9.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-9.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/overview-frame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/overview-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/overview-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/package-list" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/package-list" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/MainController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/MainController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/class-use/MainController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/class-use/MainController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/mainController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/BusTimetableController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/class-use/BusTimetableController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/class-use/BusTimetableController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/busTimetableController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/DeviceController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/class-use/DeviceController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/class-use/DeviceController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/devicesController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/FeedController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/FeedController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/class-use/FeedController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/class-use/FeedController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/feedController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/GreetingsController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/GreetingsController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/class-use/GreetingsController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/class-use/GreetingsController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/greetingsController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/PostItViewController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/PostItsController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/class-use/PostItViewController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/class-use/PostItViewController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/class-use/PostItsController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/class-use/PostItsController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/postItsController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/QRCodeController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/QRCodeController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/class-use/QRCodeController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/class-use/QRCodeController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/qrCodeController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/ShoppingListViewController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/class-use/ShoppingListController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/class-use/ShoppingListController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/class-use/ShoppingListViewController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/class-use/ShoppingListViewController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/shoppingListController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/TimeDateController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/TimeDateController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/class-use/TimeDateController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/class-use/TimeDateController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/timeDateController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/WeatherController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/WeatherController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/class-use/WeatherController.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/class-use/WeatherController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/controllers/widgetsControllers/weatherController/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/TransitionAnimation.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/TransitionAnimation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/class-use/TransitionAnimation.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/class-use/TransitionAnimation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/animations/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/JsonMessageParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/JsonMessageParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/MQTTClient.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/MQTTClient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/SmartMirror_Publisher.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/SmartMirror_Publisher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/SmartMirror_Subscriber.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/SmartMirror_Subscriber.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/TimeNotificationControl.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/TimeNotificationControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/Timestamp.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/Timestamp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/JsonMessageParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/JsonMessageParser.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/MQTTClient.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/MQTTClient.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/SmartMirror_Publisher.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/SmartMirror_Publisher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/SmartMirror_Subscriber.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/SmartMirror_Subscriber.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/TimeNotificationControl.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/TimeNotificationControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/Timestamp.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/class-use/Timestamp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/commons/package-use.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/CommunicationManager.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/class-use/CommunicationManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/class-use/CommunicationManager.html" />
@@ -163,92 +34,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/componentsCommunication/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/MysqlCon.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/MysqlCon.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/class-use/MysqlCon.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/class-use/MysqlCon.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/database/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusDepartureParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/DepartureSort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/BusDepartureParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/BusDepartureParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/BusTimetable.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/BusTimetable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/DepartureSort.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/class-use/DepartureSort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/busTimetable/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/MarqueePane.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/MarqueePane.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSFeed.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSFeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSMessage.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/RSSStAXParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/MarqueePane.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/MarqueePane.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSFeed.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSFeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSMessage.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSStAXParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/class-use/RSSStAXParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/feed/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/Pixel.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/Pixel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/PostItManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/class-use/Pixel.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/class-use/Pixel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/class-use/PostItManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/class-use/PostItManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/postIts/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/TimeDateManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/class-use/TimeDateManager.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/class-use/TimeDateManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/timeDate/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/JSONWeatherParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/WeatherFetcher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/class-use/JSONWeatherParser.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/class-use/JSONWeatherParser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/class-use/WeatherFetcher.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/class-use/WeatherFetcher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-frame.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-summary.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-tree.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataHandlers/widgetsDataHandlers/weather/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/ChainedMap.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/ChainedMap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/Settings.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/Settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/UUID_Generator.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/UUID_Generator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/class-use/BusInfo.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/class-use/BusInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/DateS.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/DateS.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/Day.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/Day.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/TimeS.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/TimeS.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/class-use/DevicesToggleButton.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/class-use/DevicesToggleButton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/class-use/RSSMarqueeMessage.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/class-use/RSSMarqueeMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/class-use/Greetings.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/class-use/Greetings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItAction.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItAction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItNote.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItNote.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/class-use/ShoppingList.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/class-use/ShoppingList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/class-use/Weather.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/class-use/Weather.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-use.html" afterPath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/mainViews/MainInterface.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/mainViews/MainInterface.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/busTimetableWidget/BusTimetable.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/deviceStatusWidget/DeviceView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/greetingsWidget/GreetingsView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/postItWidget/PostitView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/qrCode/QRCodeView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/qrCode/QRCodeView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/shoppingListWidget/ShoppingListView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/timeDateWidget/TimeDate.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/weatherWidget/WeatherView.fxml" afterPath="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/weatherWidget/WeatherView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/DeviceTest.java" afterPath="$PROJECT_DIR$/src/test/DeviceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Preftest.java" afterPath="$PROJECT_DIR$/src/test/Preftest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/ShReg.java" afterPath="$PROJECT_DIR$/src/test/ShReg.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -348,7 +134,7 @@
         </entry>
       </file>
       <file leaf-file-name="CommunicationManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/componentsCommunication/CommunicationManager.java">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="226">
               <caret line="61" column="24" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="24" />
@@ -593,32 +379,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smartMirror" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataHandlers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1244,13 +1004,6 @@
       <workItem from="1479380389901" duration="7865000" />
       <workItem from="1479720868693" duration="4974000" />
     </task>
-    <task id="LOCAL-00004" summary="Commit Changes">
-      <created>1477905050414</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1477905050414</updated>
-    </task>
     <task id="LOCAL-00005" summary="Commit Changes">
       <created>1477905140723</created>
       <option name="number" value="00005" />
@@ -1587,7 +1340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481296974101</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Update">
+      <created>1481378029454</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1481378029455</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1604,7 +1364,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="1618" height="1248" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1618,7 +1378,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.4922179" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1919585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1919585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871652" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1983,8 +1743,8 @@
         <state relative-caret-position="225">
           <caret line="207" column="23" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
           <folding>
-            <element signature="e#8121#8122#0" expanded="true" />
-            <element signature="e#8159#8160#0" expanded="true" />
+            <element signature="e#8121#8122#0" expanded="false" />
+            <element signature="e#8159#8160#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2034,7 +1794,7 @@
         <state relative-caret-position="482">
           <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2044,7 +1804,7 @@
         <state relative-caret-position="368">
           <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2106,7 +1866,7 @@
         <state relative-caret-position="440">
           <caret line="63" column="74" selection-start-line="63" selection-start-column="74" selection-end-line="63" selection-end-column="74" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2116,7 +1876,7 @@
         <state relative-caret-position="330">
           <caret line="63" column="74" selection-start-line="63" selection-start-column="74" selection-end-line="63" selection-end-column="74" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2129,7 +1889,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/componentsCommunication/CommunicationManager.java">
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="61" column="24" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="24" />

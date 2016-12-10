@@ -22,7 +22,7 @@
  *     Free Documentation License".
  */
 
-package smartMirror.controllers.dataHandlers.componentsCommunication;
+package smartMirror.controllers.communications;
 
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.controllers.interfaceControllers.mainController.MainController;
