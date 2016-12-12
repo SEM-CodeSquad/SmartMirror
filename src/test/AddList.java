@@ -24,16 +24,12 @@
 
 package test;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import java.util.Scanner;
 
 /**
- * @author Pucci on 09/12/2016.
+ * @author Pucci on 12/12/2016.
  */
-@SuppressWarnings("unchecked")
-public class ActionTest
+public class AddList
 {
     public static void main(String[] args)
     {
@@ -43,30 +39,14 @@ public class ActionTest
             Scanner scan = new Scanner(System.in);  // Reading from System.in
             System.out.println("Enter the id: ");
             String i = scan.nextLine();
-            String topic = "dit029/SmartMirror/" + i + "/postit";
-
-            JSONObject sendThis = new JSONObject();
-            sendThis.put("messageFrom", "test");
-            sendThis.put("timestamp", "12");
+            String topic = "Gro/" + i;
 
 
-            JSONObject item = new JSONObject();
-            sendThis.put("contentType", "postIt action");
-            System.out.println("Enter the id: ");
-            String id = scan.nextLine();
-            item.put("postItID", id);
-            System.out.println("Enter the action: ");
-            String ac = scan.nextLine();
-            item.put("action", ac);
-            System.out.println("Enter the text: ");
-            String t = scan.nextLine();
-            item.put("modification", t);
+            String messageString = "{\"client_id\":\"" + i + "@smartmirror.com\"," +
+                    "\"request\":" + "\"add-list\"," +
+                    "\"list\":\"SmartMirror Shopping list\"}";
+            System.out.println(messageString);
 
-            JSONArray jArray = new JSONArray();
-            jArray.add(0, item);
-
-            sendThis.put("content", jArray);
-            String messageString = sendThis.toJSONString();
             //54.154.153.243
             //codehigh.ddns.me
             HttpRequestSender post = new HttpRequestSender("54.154.153.243", topic, messageString, "0", "false");

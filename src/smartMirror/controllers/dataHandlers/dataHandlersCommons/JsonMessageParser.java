@@ -203,6 +203,34 @@ public class JsonMessageParser
     }
 
     /**
+     * Method identifies if the message was a indoors temperature sensor message, parses the data and return it
+     *
+     * @return indoors temperature data
+     * @see Settings
+     */
+    public String parseIndoorsTemp()
+    {
+        try
+        {
+            if (getContentType().equals("indoorsTemp"))
+            {
+                JSONParser parser = new JSONParser();
+                JSONArray jsonArray = (JSONArray) parser.parse(this.content);
+                String s = jsonArray.get(0).toString();
+                JSONObject jso = (JSONObject) parser.parse(s);
+
+                return jso.get("indoors").toString();
+            }
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /**
      * Method identifies if the message was a preferences message, parses the preferences list and return it
      *
      * @return Preferences list

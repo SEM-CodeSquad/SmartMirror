@@ -61,7 +61,7 @@ public class BusTest
             String messageString = sendThis.toJSONString();
             //54.154.153.243
             //codehigh.ddns.me
-            HttpRequestSender post = new HttpRequestSender("codehigh.ddns.me", topic, messageString, "0", "false");
+            HttpRequestSender post = new HttpRequestSender("54.154.153.243", topic, messageString, "0", "false");
 
             String testUrl = "http://localhost:8080/";
             String myUrl = "http://codehigh.ddns.me:8080/";

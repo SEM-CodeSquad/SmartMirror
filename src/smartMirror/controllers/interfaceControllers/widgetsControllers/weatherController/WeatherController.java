@@ -154,11 +154,15 @@ public class WeatherController extends Observable implements Observer
         });
     }
 
-    // TODO: 06/12/2016
-//    public synchronized void setInTemp(String temp)
-//    {
-//        this.inTemp.setText(temp + "°");
-//    }
+    /**
+     * Method that sets the indoors temperature value in the interface
+     *
+     * @param temp the data value coming from a sensor
+     */
+    private synchronized void setInTemp(String temp)
+    {
+        Platform.runLater(() -> this.inTemp.setText(temp + "°"));
+    }
 
     /**
      * Method responsible for setting the widget holder visible
@@ -254,25 +258,35 @@ public class WeatherController extends Observable implements Observer
                 JsonMessageParser parser = new JsonMessageParser();
                 parser.parseMessage(arg.toString());
 
-                if (parser.getContentType().equals("settings"))
+                switch (parser.getContentType())
                 {
+                    case "settings":
 
-                    Settings settings = parser.parseSettings();
-                    if (settings.getObject() instanceof Town)
-                    {
-                        setParentVisible();
-                        enforceView();
-                        updateWeather(((Town) settings.getObject()).getTown());
-                        publisher.echo("Town name for the weather received");
-                    }
-                }
-                else if (parser.getContentType().equals("preferences"))
-                {
-                    LinkedList<Preferences> list = parser.parsePreferenceList();
+                        Settings settings = parser.parseSettings();
+                        if (settings.getObject() instanceof Town)
+                        {
+                            setParentVisible();
+                            enforceView();
+                            updateWeather(((Town) settings.getObject()).getTown());
+                            publisher.echo("Town name for the weather received");
+                        }
+                        break;
+                    case "preferences":
+                        LinkedList<Preferences> list = parser.parsePreferenceList();
 
-                    list.stream().filter(pref -> pref.getName().equals("weather")).forEach(pref ->
-                            setVisible(pref.getValue().equals("true")));
-                    publisher.echo("Weather preference changed");
+                        list.stream().filter(pref -> pref.getName().equals("weather")).forEach(pref ->
+                                setVisible(pref.getValue().equals("true")));
+                        publisher.echo("Weather preference changed");
+                        break;
+                    case "indoorsTemp":
+                        if (visible)
+                        {
+                            setInTemp(parser.parseIndoorsTemp());
+                            publisher.echo("Got indoors sensor data");
+                        }
+                        break;
+                    default:
+                        break;
                 }
             });
             thread.start();

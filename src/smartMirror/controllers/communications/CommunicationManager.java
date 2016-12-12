@@ -24,9 +24,10 @@
 
 package smartMirror.controllers.communications;
 
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import smartMirror.controllers.interfaceControllers.mainController.MainController;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
+import smartMirror.controllers.interfaceControllers.mainController.MainController;
 import smartMirror.dataModels.modelCommons.MQTTClient;
 import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.dataModels.modelCommons.SmartMirror_Subscriber;
@@ -49,6 +50,8 @@ public class CommunicationManager extends Observable implements Observer
     private MQTTClient mqttClient;
     private SmartMirror_Publisher publisher;
     private boolean clientPaired;
+    private boolean listAdded;
+    private int listRegistered;
 
     /**
      * Constructor method, it takes the client Id and use it as the Id to connect in the broker, then it publishes a presence
@@ -58,6 +61,8 @@ public class CommunicationManager extends Observable implements Observer
      */
     public CommunicationManager(String clientId)
     {
+        listAdded = false;
+        listRegistered = 0;
         this.clientId = clientId;
         //54.154.153.243
         //codehigh.ddns.me
@@ -121,6 +126,7 @@ public class CommunicationManager extends Observable implements Observer
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/device");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/preferences");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/shoppingList");
+        listenSubscription("dit029/SmartMirror/" + this.clientId + "/indoorsTemp");
         registerOnShoppingListServer();
     }
 
@@ -134,11 +140,11 @@ public class CommunicationManager extends Observable implements Observer
         {
             try
             {
-//                String topic = "Gro/#";
-//                SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
-//                subscriber.addObserver(this);
-//
-//                System.out.println("Listening to: " + topic);
+                String topic = "Gro/#";
+                SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
+                subscriber.addObserver(this);
+
+                System.out.println("Listening to: " + topic);
 
                 String messageString = "{\"request\":\"register\"," +
                         "\"data\":{\"email\":\"" + this.clientId + "@smartmirror.com\"," +
@@ -146,6 +152,7 @@ public class CommunicationManager extends Observable implements Observer
                         "\"name\":\"" + this.clientId + "\"}}";
 
                 this.publisher.publish("Gro/", messageString);
+
             }
             catch (Exception e)
             {
@@ -153,6 +160,27 @@ public class CommunicationManager extends Observable implements Observer
             }
         });
         thread.start();
+    }
+
+    /**
+     * Method responsible for adding the common shopping list for the smartMirror
+     */
+    private synchronized void addList()
+    {
+        try
+        {
+            String addList = "{\"client_id\":\"" + this.clientId + "@smartmirror.com\"," +
+                    "\"request\":" + "\"add-list\"," +
+                    "\"list\":\"SmartMirror Shopping list\"}";
+
+            this.mqttClient.getClient().publish("Gro/" + this.clientId + "@smartmirror.com", addList.getBytes(),
+                    1, false);
+
+        }
+        catch (MqttException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -200,13 +228,37 @@ public class CommunicationManager extends Observable implements Observer
             Thread thread = new Thread(() ->
             {
                 System.out.println("Msg: " + arg.toString());
-                notifyMessageReceived((MqttMessage) arg);
-                JsonMessageParser parser = new JsonMessageParser();
-                parser.parseMessage(arg.toString());
-                if (parser.parsePairing() && !isClientPaired())
+                if (arg.toString().equals("{\"reply\":\"done\"}") && listRegistered <= 1)
                 {
-                    paired();
-                    setClientPaired(true);
+                    try
+                    {
+                        if (!listAdded)
+                        {
+                            addList();
+                            listAdded = true;
+                        }
+                        else if (listRegistered == 1)
+                        {
+                            this.mqttClient.getClient().unsubscribe("Gro/#");
+                            this.publisher.echo("Shopping List to the ID: " + this.clientId + "Added");
+                        }
+                        listRegistered++;
+                    }
+                    catch (MqttException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    notifyMessageReceived((MqttMessage) arg);
+                    JsonMessageParser parser = new JsonMessageParser();
+                    parser.parseMessage(arg.toString());
+                    if (parser.parsePairing() && !isClientPaired())
+                    {
+                        paired();
+                        setClientPaired(true);
+                    }
                 }
             });
             thread.start();
