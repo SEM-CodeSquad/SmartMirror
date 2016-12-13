@@ -52,7 +52,7 @@ public class NewsTest
 
             JSONObject item = new JSONObject();
             sendThis.put("contentType", "settings");
-            item.put("news", "CNN");
+            item.put("news", "SVT");
 
             JSONArray jArray = new JSONArray();
             jArray.add(0, item);

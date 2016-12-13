@@ -140,7 +140,7 @@ public class CommunicationManager extends Observable implements Observer
         {
             try
             {
-                String topic = "Gro/#";
+                String topic = "Gro/" + this.clientId + "@smartmirror.com/#";
                 SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
                 subscriber.addObserver(this);
 
@@ -151,7 +151,7 @@ public class CommunicationManager extends Observable implements Observer
                         "\"password\":\"" + this.clientId + "\"," +
                         "\"name\":\"" + this.clientId + "\"}}";
 
-                this.publisher.publish("Gro/", messageString);
+                this.publisher.publish("Gro/" + this.clientId + "@smartmirror.com", messageString);
 
             }
             catch (Exception e)
@@ -239,7 +239,7 @@ public class CommunicationManager extends Observable implements Observer
                         }
                         else if (listRegistered == 1)
                         {
-                            this.mqttClient.getClient().unsubscribe("Gro/#");
+                            this.mqttClient.getClient().unsubscribe("Gro/" + this.clientId + "@smartmirror.com/#");
                             this.publisher.echo("Shopping List to the ID: " + this.clientId + "Added");
                         }
                         listRegistered++;

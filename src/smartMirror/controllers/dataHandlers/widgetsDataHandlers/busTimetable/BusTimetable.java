@@ -33,6 +33,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -78,7 +79,7 @@ public class BusTimetable extends Observable implements Observer
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization", "Bearer " + code);
-            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
             String line;
             while ((line = rd.readLine()) != null)
             {
@@ -86,14 +87,13 @@ public class BusTimetable extends Observable implements Observer
             }
             rd.close();
 
+
+            bdp.busJsonParser(result.toString());
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-
-        bdp.busJsonParser(result.toString());
-
     }
 
     /**

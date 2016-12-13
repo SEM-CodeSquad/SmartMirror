@@ -138,6 +138,8 @@ public class BusTimetableController implements Observer
 
     private boolean visible = false;
 
+    private TimeNotificationControl notificationControl;
+
     /**
      * Constructor responsible for initiating a BusTimeTable instance and adding this class as observer
      *
@@ -176,9 +178,28 @@ public class BusTimetableController implements Observer
             timetableInfos = new GridPane[]{busTimetable1, busTimetable2, busTimetable3, busTimetable4, busTimetable5, busTimetable6,
                     busTimetable7, busTimetable8, busTimetable9, busTimetable10};
         });
-        TimeNotificationControl notificationControl = new TimeNotificationControl();
+    }
+
+    /**
+     * Method responsible for starting the timetable auto update
+     */
+    private synchronized void autoUpdateTimetable()
+    {
+        notificationControl = new TimeNotificationControl();
         notificationControl.addObserver(this);
         notificationControl.bind("HH:mm:ss", 1, "timetable");
+    }
+
+    /**
+     * Method responsible for stopping the timetable update
+     */
+    private synchronized void stopAutoUpdate()
+    {
+        if (notificationControl != null)
+        {
+            notificationControl.deleteObservers();
+            notificationControl = null;
+        }
     }
 
     /**
@@ -397,6 +418,7 @@ public class BusTimetableController implements Observer
                     }
                 }
                 processing = false;
+                autoUpdateTimetable();
             });
             thread.start();
         }
@@ -419,6 +441,7 @@ public class BusTimetableController implements Observer
                     Settings settings = parser.parseSettings();
                     if (settings.getObject() instanceof BusStop)
                     {
+                        stopAutoUpdate();
                         setParentVisible();
                         enforceView();
                         setBusStopName(((BusStop) settings.getObject()).getBusStop());

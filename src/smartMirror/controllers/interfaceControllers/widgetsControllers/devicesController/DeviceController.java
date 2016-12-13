@@ -363,7 +363,7 @@ public class DeviceController implements Observer
                     setParentVisible();
                     for (int i = 0; i < labels.length; i++)
                     {
-                        if (list.size() > 0)
+                        if (list.size() >= 1)
                         {
                             setInfo(labels[i], list.peek().getDeviceName());
                             setStatus(switchButtons[i], list.remove().getStatus());
