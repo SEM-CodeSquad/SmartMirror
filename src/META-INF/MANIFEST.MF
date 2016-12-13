@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: SmartMirror.jar
+Main-Class: smartMirror.main.Main
+Created-By: 1.0.0_00 (CodeHigh Corporation)
+
