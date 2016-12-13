@@ -24,15 +24,6 @@
 
 package smartMirror.controllers.interfaceControllers.widgetsControllers.weatherController;
 
-import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
-import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
-import smartMirror.controllers.dataHandlers.dataHandlersCommons.TimeNotificationControl;
-import smartMirror.dataModels.modelCommons.MQTTClient;
-import smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
-import smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
-import smartMirror.dataModels.applicationModels.Preferences;
-import smartMirror.dataModels.applicationModels.Settings;
-import smartMirror.dataModels.widgetsModels.weatherModels.Town;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -43,6 +34,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
+import smartMirror.controllers.dataHandlers.dataHandlersCommons.TimeNotificationControl;
+import smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather.JSONWeatherParser;
+import smartMirror.controllers.dataHandlers.widgetsDataHandlers.weather.WeatherFetcher;
+import smartMirror.dataModels.applicationModels.Preferences;
+import smartMirror.dataModels.applicationModels.Settings;
+import smartMirror.dataModels.modelCommons.MQTTClient;
+import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
+import smartMirror.dataModels.widgetsModels.weatherModels.Town;
+
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
@@ -89,6 +90,7 @@ public class WeatherController extends Observable implements Observer
 
     /**
      * Constructor initializes the WeatherFetcher and the WeatherParser, then it starts the time monitoring
+     *
      * @see WeatherFetcher
      * @see JSONWeatherParser
      * @see TimeNotificationControl
@@ -109,6 +111,7 @@ public class WeatherController extends Observable implements Observer
 
     /**
      * Method responsible for updating the weather for the desired town
+     *
      * @param town the name of the tow to fetch the weather
      * @see WeatherFetcher
      * @see JSONWeatherParser
@@ -209,8 +212,8 @@ public class WeatherController extends Observable implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b boolean
-     * @param gridPane  parent parent component
+     * @param b        boolean
+     * @param gridPane parent parent component
      */
     private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
     {
@@ -275,8 +278,11 @@ public class WeatherController extends Observable implements Observer
                         LinkedList<Preferences> list = parser.parsePreferenceList();
 
                         list.stream().filter(pref -> pref.getName().equals("weather")).forEach(pref ->
-                                setVisible(pref.getValue().equals("true")));
-                        publisher.echo("Weather preference changed");
+                        {
+                            setVisible(pref.getValue().equals("true"));
+                            publisher.echo("Weather preference changed");
+                        });
+
                         break;
                     case "indoorsTemp":
                         if (visible)

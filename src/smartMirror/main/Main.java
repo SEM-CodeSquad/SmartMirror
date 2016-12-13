@@ -63,6 +63,7 @@ public class Main extends Application
         primaryStage.show();
         //primaryStage.setFullScreen(true);
         primaryStage.setMaximized(true);
+        primaryStage.setAlwaysOnTop(true);
 
 
         primaryStage.setOnCloseRequest(event -> System.exit(0));

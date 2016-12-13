@@ -35,9 +35,9 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
+import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.modelCommons.MQTTClient;
 import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
-import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
 
 import java.io.IOException;
@@ -129,8 +129,8 @@ public class ShoppingListViewController extends Observable implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b boolean
-     * @param gridPane  parent parent component
+     * @param b        boolean
+     * @param gridPane parent parent component
      */
     private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
     {
@@ -178,6 +178,7 @@ public class ShoppingListViewController extends Observable implements Observer
 
     /**
      * Method that sends the echo message
+     *
      * @param msg message to be send
      */
     private synchronized void publishEcho(String msg)
@@ -216,8 +217,10 @@ public class ShoppingListViewController extends Observable implements Observer
                     LinkedList<Preferences> list = parser.parsePreferenceList();
 
                     list.stream().filter(pref -> pref.getName().equals("shoppinglist")).forEach(pref ->
-                            setVisible(pref.getValue().equals("true")));
-                    publisher.echo("Shopping list preference changed");
+                    {
+                        setVisible(pref.getValue().equals("true"));
+                        publisher.echo("Shopping list preference changed");
+                    });
                 }
             });
             thread.start();

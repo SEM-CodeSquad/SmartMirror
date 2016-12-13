@@ -35,11 +35,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import smartMirror.dataModels.animations.TransitionAnimation;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
+import smartMirror.dataModels.animations.TransitionAnimation;
+import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.modelCommons.MQTTClient;
 import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
-import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.widgetsModels.devicesModels.Device;
 import smartMirror.dataModels.widgetsModels.devicesModels.DevicesToggleButton;
 
@@ -237,8 +237,8 @@ public class DeviceController implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b boolean
-     * @param gridPane  parent parent component
+     * @param b        boolean
+     * @param gridPane parent parent component
      */
     private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
     {
@@ -383,8 +383,12 @@ public class DeviceController implements Observer
                     LinkedList<Preferences> list = parser.parsePreferenceList();
 
                     list.stream().filter(pref -> pref.getName().equals("device")).forEach(pref ->
-                            setVisible(pref.getValue().equals("true")));
-                    publisher.echo("Device list preference changed");
+                            {
+                                setVisible(pref.getValue().equals("true"));
+                                publisher.echo("Device list preference changed");
+                            }
+                    );
+
                 }
             });
             thread.start();

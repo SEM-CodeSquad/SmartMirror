@@ -34,13 +34,13 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
-import smartMirror.dataModels.modelCommons.MQTTClient;
-import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.TimeNotificationControl;
 import smartMirror.controllers.dataHandlers.widgetsDataHandlers.feed.MarqueePane;
 import smartMirror.controllers.dataHandlers.widgetsDataHandlers.feed.RSSStAXParser;
 import smartMirror.dataModels.applicationModels.Preferences;
 import smartMirror.dataModels.applicationModels.Settings;
+import smartMirror.dataModels.modelCommons.MQTTClient;
+import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.dataModels.widgetsModels.feedModels.NewsSource;
 import smartMirror.dataModels.widgetsModels.feedModels.RSSMarqueeMessage;
 
@@ -97,8 +97,8 @@ public class FeedController implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b boolean
-     * @param gridPane  parent parent component
+     * @param b        boolean
+     * @param gridPane parent parent component
      */
     private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
     {
@@ -223,8 +223,11 @@ public class FeedController implements Observer
                     LinkedList<Preferences> list = parser.parsePreferenceList();
 
                     list.stream().filter(pref -> pref.getName().equals("news")).forEach(pref ->
-                            setVisible(pref.getValue().equals("true")));
-                    publisher.echo("News feed preference changed");
+                    {
+                        setVisible(pref.getValue().equals("true"));
+                        publisher.echo("News feed preference changed");
+                    });
+
                 }
             });
             thread.start();
