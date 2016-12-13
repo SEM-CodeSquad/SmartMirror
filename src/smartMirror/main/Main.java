@@ -61,9 +61,21 @@ public class Main extends Application
         primaryStage.setTitle("SmartMirror");
         primaryStage.setScene(scene);
         primaryStage.show();
+        //primaryStage.setFullScreen(true);
         primaryStage.setMaximized(true);
 
 
         primaryStage.setOnCloseRequest(event -> System.exit(0));
+        scene.setOnKeyPressed(event ->
+        {
+            switch (event.getCode())
+            {
+                case X:
+                    System.exit(0);
+                    break;
+                default:
+                    break;
+            }
+        });
     }
 }
