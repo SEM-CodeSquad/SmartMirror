@@ -204,7 +204,7 @@ public class ShoppingListViewController extends Observable implements Observer
                 String msg = null;
                 try
                 {
-                    msg = new String(arg.toString().getBytes("ISO-8859-1"), "ISO-8859-1");
+                    msg = new String(arg.toString().getBytes("ISO-8859-1"), "UTF-8");
 
                 }
                 catch (UnsupportedEncodingException e)

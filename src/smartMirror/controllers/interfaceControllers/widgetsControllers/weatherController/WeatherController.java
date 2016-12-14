@@ -262,7 +262,7 @@ public class WeatherController extends Observable implements Observer
                 String msg = null;
                 try
                 {
-                    msg = new String(arg.toString().getBytes("UTF-8"), "UTF-8");
+                    msg = new String(arg.toString().getBytes("ISO-8859-1"), "UTF-8");
                 }
                 catch (UnsupportedEncodingException e)
                 {
