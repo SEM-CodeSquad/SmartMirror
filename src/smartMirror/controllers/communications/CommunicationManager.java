@@ -32,9 +32,7 @@ import smartMirror.dataModels.modelCommons.MQTTClient;
 import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.dataModels.modelCommons.SmartMirror_Subscriber;
 
-import java.util.Date;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -52,6 +50,7 @@ public class CommunicationManager extends Observable implements Observer
     private boolean clientPaired;
     private boolean listAdded;
     private int listRegistered;
+    private Timer timer;
 
     /**
      * Constructor method, it takes the client Id and use it as the Id to connect in the broker, then it publishes a presence
@@ -148,8 +147,8 @@ public class CommunicationManager extends Observable implements Observer
 
                 String messageString = "{\"request\":\"register\"," +
                         "\"data\":{\"email\":\"" + this.clientId + "@smartmirror.com\"," +
-                        "\"password\":\"" + this.clientId + "\"," +
-                        "\"name\":\"" + this.clientId + "\"}}";
+                        "\"password\":\"smartMirror\"," +
+                        "\"name\":\"smartMirror\"}}";
 
                 this.publisher.publish("Gro/" + this.clientId + "@smartmirror.com", messageString);
 
@@ -176,6 +175,35 @@ public class CommunicationManager extends Observable implements Observer
             this.mqttClient.getClient().publish("Gro/" + this.clientId + "@smartmirror.com", addList.getBytes(),
                     1, false);
 
+            listAdded = true;
+            timer = new Timer();
+            timer.schedule(new TimerTask()
+            {
+
+                @Override
+                public void run()
+                {
+                    addList();
+                }
+            }, 1000);
+
+        }
+        catch (MqttException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Method responsible for stop listing in the Gro/ topic
+     */
+    private synchronized void unsubscribeToShoppingList()
+    {
+        try
+        {
+            timer.cancel();
+            this.mqttClient.getClient().unsubscribe("Gro/" + this.clientId + "@smartmirror.com/#");
+            this.publisher.echo("Shopping List to the ID: " + this.clientId + "Added");
         }
         catch (MqttException e)
         {
@@ -230,24 +258,21 @@ public class CommunicationManager extends Observable implements Observer
                 System.out.println("Msg: " + arg.toString());
                 if (arg.toString().equals("{\"reply\":\"done\"}") && listRegistered <= 1)
                 {
-                    try
+
+                    if (!listAdded)
                     {
-                        if (!listAdded)
-                        {
-                            addList();
-                            listAdded = true;
-                        }
-                        else if (listRegistered == 1)
-                        {
-                            this.mqttClient.getClient().unsubscribe("Gro/" + this.clientId + "@smartmirror.com/#");
-                            this.publisher.echo("Shopping List to the ID: " + this.clientId + "Added");
-                        }
-                        listRegistered++;
+                        addList();
                     }
-                    catch (MqttException e)
+                    else if (listRegistered == 1)
                     {
-                        e.printStackTrace();
+                        unsubscribeToShoppingList();
                     }
+                    listRegistered++;
+
+                }
+                else if (arg.toString().equals("{\"reply\":\"list_already_exists\"}"))
+                {
+                    unsubscribeToShoppingList();
                 }
                 else
                 {
@@ -258,6 +283,19 @@ public class CommunicationManager extends Observable implements Observer
                     {
                         paired();
                         setClientPaired(true);
+                    }
+                    else if (parser.getContentType().equals("Create list")
+                            && parser.getContent().equals("Create new list " + this.clientId))
+                    {
+                        String topic = "Gro/" + this.clientId + "@smartmirror.com/#";
+                        SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
+                        subscriber.addObserver(this);
+
+                        System.out.println("Listening to: " + topic);
+                        listRegistered = 0;
+                        listAdded = false;
+                        this.publisher.publish("dit029/SmartMirror/" + this.clientId + "/shoppingList",
+                                "{\"reply\":\"done\"}");
                     }
                 }
             });

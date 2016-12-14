@@ -274,10 +274,19 @@ class PostItsController extends Observable implements Observer, Initializable
             }
             else if (postItAction.isActionModify())
             {
-                this.postItManager.setPostMessage(index, postItAction.getModification());
-                this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
-                setChanged();
-                notifyObservers("Post-it successfully updated int the table " + getTableColor());
+                if (postItAction.getModification().length() <= 90)
+                {
+                    this.postItManager.setPostMessage(index, postItAction.getModification());
+                    this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
+                    setChanged();
+                    notifyObservers("Post-it successfully updated int the table " + getTableColor());
+                }
+                else
+                {
+                    setChanged();
+                    notifyObservers("A post-it should not contain more than 90 characters");
+                }
+
             }
         }
     }

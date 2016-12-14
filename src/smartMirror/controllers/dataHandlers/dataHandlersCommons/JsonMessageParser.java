@@ -257,7 +257,7 @@ public class JsonMessageParser
      */
     public ShoppingList parseShoppingList()
     {
-        if (getContentType().equals("shoppinglist"))
+        if (getContentType().equals("shoppingList"))
         {
             this.shoppingList = new ShoppingList();
             parseArray(null, getContentType());
@@ -305,7 +305,7 @@ public class JsonMessageParser
                         preferences = new Preferences(anArrayList, value);
                         linkedList.add(preferences);
                         break;
-                    case "shoppinglist":
+                    case "shoppingList":
                         this.shoppingList.setItemList(value);
                         break;
                     default:

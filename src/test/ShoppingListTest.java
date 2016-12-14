@@ -27,7 +27,7 @@ public class ShoppingListTest
 
 
             JSONObject item = new JSONObject();
-            sendThis.put("contentType", "shoppinglist");
+            sendThis.put("contentType", "shoppingList");
 
             System.out.println("Enter the numeber of list: ");
             String listNum = scan.nextLine();

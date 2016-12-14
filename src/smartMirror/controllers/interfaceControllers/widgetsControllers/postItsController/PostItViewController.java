@@ -45,6 +45,7 @@ import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.*;
@@ -383,8 +384,17 @@ public class PostItViewController extends Observable implements Observer
         {
             Thread thread = new Thread(() ->
             {
+                String msg = null;
+                try
+                {
+                    msg = new String(arg.toString().getBytes("UTF-8"), "UTF-8");
+                }
+                catch (UnsupportedEncodingException e)
+                {
+                    e.printStackTrace();
+                }
                 JsonMessageParser parser = new JsonMessageParser();
-                parser.parseMessage(arg.toString());
+                parser.parseMessage(msg);
 
                 switch (parser.getContentType())
                 {

@@ -41,6 +41,7 @@ import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.dataModels.widgetsModels.shoppingListModels.ShoppingList;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
@@ -200,10 +201,20 @@ public class ShoppingListViewController extends Observable implements Observer
         {
             Thread thread = new Thread(() ->
             {
-                JsonMessageParser parser = new JsonMessageParser();
-                parser.parseMessage(arg.toString());
+                String msg = null;
+                try
+                {
+                    msg = new String(arg.toString().getBytes("ISO-8859-1"), "ISO-8859-1");
 
-                if (parser.getContentType().equals("shoppinglist"))
+                }
+                catch (UnsupportedEncodingException e)
+                {
+                    e.printStackTrace();
+                }
+                JsonMessageParser parser = new JsonMessageParser();
+                parser.parseMessage(msg);
+
+                if (parser.getContentType().equals("shoppingList"))
                 {
                     setParentVisible();
                     enforceView();
