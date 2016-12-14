@@ -28,7 +28,6 @@ import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -55,7 +54,6 @@ import java.util.Observer;
 public class FeedController implements Observer
 {
     public GridPane feedPane;
-    public Label notification;
     private MarqueePane marqueePane;
     private String newsSource;
 
