@@ -43,7 +43,6 @@ import smartMirror.dataModels.modelCommons.SmartMirror_Publisher;
 import smartMirror.dataModels.modelCommons.Timestamp;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;

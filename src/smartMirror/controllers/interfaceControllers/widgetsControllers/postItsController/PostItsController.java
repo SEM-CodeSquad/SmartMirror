@@ -24,15 +24,16 @@
 
 package smartMirror.controllers.interfaceControllers.widgetsControllers.postItsController;
 
+import com.vdurmont.emoji.EmojiParser;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import smartMirror.dataModels.modelCommons.Timestamp;
 import smartMirror.controllers.dataHandlers.widgetsDataHandlers.postIts.PostItManager;
 import smartMirror.dataModels.applicationModels.ChainedMap;
+import smartMirror.dataModels.modelCommons.Timestamp;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItAction;
 import smartMirror.dataModels.widgetsModels.postItsModels.PostItNote;
 
@@ -235,7 +236,9 @@ class PostItsController extends Observable implements Observer, Initializable
                     postItNotes.add(postItNote.getPostItId(), postItNote);
                     booleanArray[index] = true;
                     this.postItManager.setImage(index, postItNote.getSenderId());
-                    this.postItManager.generateGraphicalNote(index, postItNote.getBodyText());
+                    String text = EmojiParser.parseToUnicode(postItNote.getBodyText());
+                    System.out.println(text);
+                    this.postItManager.generateGraphicalNote(index, text);
                     setChanged();
                     notifyObservers("Post-it successfully added to the table " + getTableColor());
                 }
@@ -276,8 +279,9 @@ class PostItsController extends Observable implements Observer, Initializable
             {
                 if (postItAction.getModification().length() <= 90)
                 {
-                    this.postItManager.setPostMessage(index, postItAction.getModification());
-                    this.postItNotes.get(postItAction.getPostItId()).setBodyText(postItAction.getModification());
+                    String text = EmojiParser.parseToUnicode(postItAction.getModification());
+                    this.postItManager.setPostMessage(index, text);
+                    this.postItNotes.get(postItAction.getPostItId()).setBodyText(text);
                     setChanged();
                     notifyObservers("Post-it successfully updated int the table " + getTableColor());
                 }
