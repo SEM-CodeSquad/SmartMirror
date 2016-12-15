@@ -6,132 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="Update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/allclasses-noframe.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/constant-values.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/deprecated-list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/help-doc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-10.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-11.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-12.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-13.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-14.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-15.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-16.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-17.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-18.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-19.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-20.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-21.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-22.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-23.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-24.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-4.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-5.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-6.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-7.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-8.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index-files/index-9.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/overview-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/package-list" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/ChainedMap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/Preferences.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/Settings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/UUID_Generator.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/ChainedMap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/Preferences.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/Settings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/class-use/UUID_Generator.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/applicationModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/BusInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/BusStop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/class-use/BusInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/class-use/BusStop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/busTimetableModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/DateS.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/Day.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/TimeS.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/DateS.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/Day.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/class-use/TimeS.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/dateTimeModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/Device.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/DevicesToggleButton.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/class-use/Device.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/class-use/DevicesToggleButton.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/devicesModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/NewsSource.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/RSSMarqueeMessage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/class-use/NewsSource.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/class-use/RSSMarqueeMessage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/feedModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/Greetings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/class-use/Greetings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/greetingsModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/PostItAction.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/PostItNote.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItAction.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/class-use/PostItNote.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/postItsModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/QRCode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/class-use/QRCode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/qrCodeModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/Item.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/ShoppingList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/class-use/Item.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/class-use/ShoppingList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/shoppingListModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/Town.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/Weather.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/class-use/Town.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/class-use/Weather.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/dataModels/widgetsModels/weatherModels/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/Main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/class-use/Main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/package-frame.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/package-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/package-tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/smartMirror/main/package-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SmartMirror_Documentation/stylesheet.css" afterPath="" />
+    <list default="true" id="6a5d9bd6-c72a-44f6-aaa6-b8c438b4697c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" afterPath="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/smartMirror/main/Main.java" afterPath="$PROJECT_DIR$/src/smartMirror/main/Main.java" />
     </list>
     <list id="bd627ba3-3c8a-4039-9897-432de1ff2619" name="Failed commit: Default" comment="Commit changes and add gitignore" />
     <ignored path="ProjectWMirror.iws" />
@@ -190,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostItsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostItsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
@@ -200,14 +80,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommunicationManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommunicationManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-439">
-              <caret line="219" column="5" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
+            <state relative-caret-position="488">
+              <caret line="279" column="71" selection-start-line="279" selection-start-column="71" selection-end-line="279" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SmartMirror_Publisher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/SmartMirror_Publisher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1679">
+              <caret line="312" column="13" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/smartMirror/main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -274,15 +184,12 @@
         <option value="$PROJECT_DIR$/src/test/AddList.java" />
         <option value="$PROJECT_DIR$/src/test/NewsTest.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/widgetsDataHandlers/busTimetable/BusTimetable.java" />
-        <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" />
-        <option value="$PROJECT_DIR$/src/smartMirror/main/Main.java" />
         <option value="$PROJECT_DIR$/src/test/Echo.java" />
         <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/smartMirror/Views/mainViews/MainInterface.fxml" />
         <option value="$PROJECT_DIR$/src/smartMirror/Views/widgetsViews/feedsWidget/FeedsViews.fxml" />
         <option value="$PROJECT_DIR$/src/test/ShoppingListTest.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/dataHandlers/dataHandlersCommons/JsonMessageParser.java" />
-        <option value="$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/shoppingListController/ShoppingListViewController.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/weatherController/WeatherController.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/busTimetableController/BusTimetableController.java" />
@@ -290,6 +197,9 @@
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/feedController/FeedController.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItViewController.java" />
         <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItsController.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java" />
+        <option value="$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java" />
       </list>
     </option>
   </component>
@@ -355,6 +265,108 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smartMirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelCommons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -971,13 +983,6 @@
       <workItem from="1479380389901" duration="7865000" />
       <workItem from="1479720868693" duration="4974000" />
     </task>
-    <task id="LOCAL-00017" summary="Commit changes and add gitignore">
-      <created>1479115023875</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1479115023875</updated>
-    </task>
     <task id="LOCAL-00018" summary="Commit changes">
       <created>1479115173078</created>
       <option name="number" value="00018" />
@@ -1314,7 +1319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481795489491</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Update">
+      <created>1481796357440</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1481796357440</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1331,7 +1343,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1340,12 +1352,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.50590765" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31030577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31030577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32334384" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.4922179" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871652" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1358,7 +1371,6 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871652" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1374,18 +1386,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39704525" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39637598" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3193658" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3176362" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16989844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31030577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32334384" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.4922179" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19001298" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871652" sideWeight="0.49409238" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1637,20 +1649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/ActionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -1662,14 +1660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/SmartMirror_Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1695,6 +1685,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1760,6 +1751,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="206" column="85" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1774,13 +1766,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="264" column="85" selection-start-line="264" selection-start-column="85" selection-end-line="264" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/busTimetableController/BusTimetableController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="438" column="85" selection-start-line="438" selection-start-column="85" selection-end-line="438" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1827,16 +1813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-439">
-          <caret line="219" column="5" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
@@ -1855,11 +1831,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/busTimetableController/BusTimetableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="438" column="85" selection-start-line="438" selection-start-column="85" selection-end-line="438" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/widgetsControllers/postItsController/PostItsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="281" column="93" selection-start-line="281" selection-start-column="93" selection-end-line="281" selection-end-column="93" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/interfaceControllers/mainController/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1679">
+          <caret line="312" column="13" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/dataModels/modelCommons/SmartMirror_Publisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smartMirror/controllers/communications/CommunicationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="279" column="71" selection-start-line="279" selection-start-column="71" selection-end-line="279" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -61,7 +61,7 @@ public class Main extends Application
         primaryStage.setTitle("SmartMirror");
         primaryStage.setScene(scene);
         primaryStage.show();
-        //primaryStage.setFullScreen(true);
+//        primaryStage.setFullScreen(true);
         primaryStage.setMaximized(true);
         primaryStage.setAlwaysOnTop(true);
 

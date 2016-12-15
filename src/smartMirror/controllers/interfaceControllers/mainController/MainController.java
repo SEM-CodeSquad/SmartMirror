@@ -309,19 +309,22 @@ public class MainController extends Observable implements Observer
     {
         Thread thread = new Thread(() ->
         {
-            while (systemRunning)
+            try
             {
-                try
+                Robot robotStart = new Robot();
+                robotStart.mouseMove(0, 0);
+                while (systemRunning)
                 {
+
                     Thread.sleep(80000);//this is how long before it moves
                     Point point = MouseInfo.getPointerInfo().getLocation();
                     Robot robot = new Robot();
                     robot.mouseMove(point.x, point.y);
                 }
-                catch (InterruptedException | AWTException e)
-                {
-                    e.printStackTrace();
-                }
+            }
+            catch (InterruptedException | AWTException e)
+            {
+                e.printStackTrace();
             }
         });
         thread.start();

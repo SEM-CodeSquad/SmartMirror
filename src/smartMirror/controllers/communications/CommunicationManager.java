@@ -71,6 +71,7 @@ public class CommunicationManager extends Observable implements Observer
 
         setClientPaired(false);
         listenPairing();
+        registerOnShoppingListServer();
 
         final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
         service.scheduleWithFixedDelay(() ->
@@ -126,7 +127,6 @@ public class CommunicationManager extends Observable implements Observer
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/preferences");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/shoppingList");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/indoorsTemp");
-        registerOnShoppingListServer();
     }
 
     /**
@@ -279,10 +279,14 @@ public class CommunicationManager extends Observable implements Observer
                     notifyMessageReceived((MqttMessage) arg);
                     JsonMessageParser parser = new JsonMessageParser();
                     parser.parseMessage(arg.toString());
-                    if (parser.parsePairing() && !isClientPaired())
+                    if (parser.parsePairing())
                     {
-                        paired();
-                        setClientPaired(true);
+                        this.publisher.echo("Paired to: " + this.clientId);
+                        if (!isClientPaired())
+                        {
+                            paired();
+                            setClientPaired(true);
+                        }
                     }
                     else if (parser.getContentType().equals("Create list")
                             && parser.getContent().equals("Create new list " + this.clientId))
