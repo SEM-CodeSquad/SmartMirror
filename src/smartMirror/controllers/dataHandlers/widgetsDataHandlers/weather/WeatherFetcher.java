@@ -31,6 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Observable;
 
 /**
@@ -59,8 +60,9 @@ public class WeatherFetcher extends Observable
 
         try
         {
+            String town = URLEncoder.encode(cityName, "UTF-8");
             String BASE_URL = "http://api.openweathermap.org/data/2.5/" + query + "?q=";
-            connection = (HttpURLConnection) (new URL(BASE_URL + cityName + "&type=accurate&units=metric&cnt=3" +
+            connection = (HttpURLConnection) (new URL(BASE_URL + town + "&type=accurate&units=metric&cnt=3" +
                     "&lang=en&APPID=47d83bc50f7e59413e487108ded5c729")).openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
