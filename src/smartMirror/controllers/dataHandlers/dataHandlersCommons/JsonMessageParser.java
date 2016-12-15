@@ -142,7 +142,7 @@ public class JsonMessageParser
     {
         try
         {
-            if (getContentType().equals("postIt action"))
+            if (getContentType().equals("post-it action"))
             {
                 JSONParser parser = new JSONParser();
                 JSONArray jsonArray;
@@ -173,7 +173,7 @@ public class JsonMessageParser
      */
     public LinkedList parseDeviceList()
     {
-        if (getContentType().equals("device"))
+        if (getContentType().equals("devices"))
         {
             LinkedList<Device> deviceList = new LinkedList<>();
             parseArray(deviceList, getContentType());

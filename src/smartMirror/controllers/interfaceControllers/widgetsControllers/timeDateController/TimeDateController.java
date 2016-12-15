@@ -25,6 +25,7 @@
 package smartMirror.controllers.interfaceControllers.widgetsControllers.timeDateController;
 
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -36,6 +37,7 @@ import smartMirror.dataModels.widgetsModels.dateTimeModels.Day;
 import smartMirror.dataModels.widgetsModels.dateTimeModels.TimeS;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Observer;
 
 /**
@@ -62,7 +64,7 @@ public class TimeDateController implements Observer
             StackPane parentPane = (StackPane) this.dateTime.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
 
-            monitorWidgetVisibility(b, parentGrid);
+            monitorWidgetVisibility(parentGrid, parentPane);
         });
     }
 
@@ -70,12 +72,19 @@ public class TimeDateController implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b        boolean
+     * @param stackPane parent component
      * @param gridPane parent parent component
      */
-    private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
+    private synchronized void monitorWidgetVisibility(GridPane gridPane, StackPane stackPane)
     {
-        gridPane.setVisible(b);
+        boolean showing = false;
+        List<Node> widgets = stackPane.getChildren();
+        for (Node widget : widgets)
+        {
+            showing = widget.isVisible();
+        }
+
+        gridPane.setVisible(showing);
     }
 
     /**

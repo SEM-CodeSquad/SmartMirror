@@ -225,7 +225,7 @@ public class PostItViewController extends Observable implements Observer
             StackPane parentPane = (StackPane) this.postPanes.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
 
-            monitorWidgetVisibility(b, parentGrid);
+            monitorWidgetVisibility(parentGrid, parentPane);
         });
 
     }
@@ -234,12 +234,19 @@ public class PostItViewController extends Observable implements Observer
      * Method responsible for setting the parent visibility. In case of all the widgets in the parent are not visible
      * the parent also shall be not visible and vice-versa
      *
-     * @param b boolean
-     * @param gridPane  parent parent component
+     * @param stackPane parent component
+     * @param gridPane parent parent component
      */
-    private synchronized void monitorWidgetVisibility(boolean b, GridPane gridPane)
+    private synchronized void monitorWidgetVisibility(GridPane gridPane, StackPane stackPane)
     {
-        gridPane.setVisible(b);
+        boolean showing = false;
+        List<Node> widgets = stackPane.getChildren();
+        for (Node widget : widgets)
+        {
+            showing = widget.isVisible();
+        }
+
+        gridPane.setVisible(showing);
     }
 
     /**
@@ -269,9 +276,9 @@ public class PostItViewController extends Observable implements Observer
         Platform.runLater(() ->
         {
             GridPane gridPane = (GridPane) this.postPanes.getParent().getParent();
+            gridPane.setVisible(true);
             if (gridPane.getOpacity() != 1)
             {
-                gridPane.setVisible(true);
                 FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), gridPane);
 
                 fadeIn.setFromValue(0);
@@ -404,7 +411,7 @@ public class PostItViewController extends Observable implements Observer
                         enforceView();
                         notifyObs(postItNote);
                         break;
-                    case "postIt action":
+                    case "post-it action":
 
                         PostItAction postItAction = parser.parsePostItAction();
                         notifyObs(postItAction);

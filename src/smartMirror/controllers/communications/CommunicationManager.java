@@ -123,7 +123,7 @@ public class CommunicationManager extends Observable implements Observer
     {
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/postit");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/settings");
-        listenSubscription("dit029/SmartMirror/" + this.clientId + "/device");
+        listenSubscription("dit029/SmartMirror/" + this.clientId + "/deviceStatus");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/preferences");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/shoppingList");
         listenSubscription("dit029/SmartMirror/" + this.clientId + "/indoorsTemp");
