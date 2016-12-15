@@ -214,6 +214,7 @@ public class BusTimetableController implements Observer
         Platform.runLater(() ->
         {
 
+            this.busTimetables.setVisible(b);
             StackPane parentPane = (StackPane) this.busTimetables.getParent();
             GridPane parentGrid = (GridPane) parentPane.getParent();
 
