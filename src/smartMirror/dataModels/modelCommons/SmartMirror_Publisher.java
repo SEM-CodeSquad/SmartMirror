@@ -133,7 +133,7 @@ public class SmartMirror_Publisher extends Observable
         jsonObject.put("content", msg);
 
         String echoMessage = jsonObject.toString();
-
+        System.err.println("Sending Echo");
         publish(echoTopic, echoMessage);
 
 

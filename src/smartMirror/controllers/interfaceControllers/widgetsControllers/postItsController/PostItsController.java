@@ -236,7 +236,15 @@ class PostItsController extends Observable implements Observer, Initializable
                     postItNotes.add(postItNote.getPostItId(), postItNote);
                     booleanArray[index] = true;
                     this.postItManager.setImage(index, postItNote.getSenderId());
-                    String text = EmojiParser.parseToUnicode(postItNote.getBodyText());
+                    String text = null;
+                    try
+                    {
+                        text = EmojiParser.parseToUnicode(postItNote.getBodyText());
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                     System.out.println(text);
                     this.postItManager.generateGraphicalNote(index, text);
                     setChanged();
@@ -251,7 +259,7 @@ class PostItsController extends Observable implements Observer, Initializable
             else
             {
                 setChanged();
-                notifyObservers("Post-it successfully could not be added the table " + getTableColor() + " is full delete " +
+                notifyObservers("Post-it could not be added the table " + getTableColor() + " is full delete " +
                         "a post-it in order to add a new one");
             }
         }

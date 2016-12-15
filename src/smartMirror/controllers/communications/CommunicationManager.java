@@ -26,6 +26,7 @@ package smartMirror.controllers.communications;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.json.simple.JSONObject;
 import smartMirror.controllers.dataHandlers.dataHandlersCommons.JsonMessageParser;
 import smartMirror.controllers.interfaceControllers.mainController.MainController;
 import smartMirror.dataModels.modelCommons.MQTTClient;
@@ -243,6 +244,34 @@ public class CommunicationManager extends Observable implements Observer
     }
 
     /**
+     * Method responsible for creating a new shopping list after the user have deleted it
+     */
+    private synchronized void createNewListAfterDeleted()
+    {
+        String topic = "Gro/" + this.clientId + "@smartmirror.com/#";
+        SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
+        subscriber.addObserver(this);
+
+        System.out.println("Listening to: " + topic);
+        listRegistered = 0;
+        listAdded = false;
+        this.publisher.publish("dit029/SmartMirror/" + this.clientId + "/shoppingList",
+                "{\"reply\":\"done\"}");
+    }
+
+    /**
+     * Method responsible for echoing back to the shopping list
+     */
+    @SuppressWarnings("unchecked")
+    private synchronized void echoAlive()
+    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("reply", "alive");
+        String echo = jsonObject.toJSONString();
+        this.publisher.echo(echo);
+    }
+
+    /**
      * Update method where the observable classes sends notifications messages
      *
      * @param o   observable object
@@ -291,15 +320,12 @@ public class CommunicationManager extends Observable implements Observer
                     else if (parser.getContentType().equals("Create list")
                             && parser.getContent().equals("Create new list " + this.clientId))
                     {
-                        String topic = "Gro/" + this.clientId + "@smartmirror.com/#";
-                        SmartMirror_Subscriber subscriber = new SmartMirror_Subscriber(this.mqttClient, topic);
-                        subscriber.addObserver(this);
-
-                        System.out.println("Listening to: " + topic);
-                        listRegistered = 0;
-                        listAdded = false;
-                        this.publisher.publish("dit029/SmartMirror/" + this.clientId + "/shoppingList",
-                                "{\"reply\":\"done\"}");
+                        createNewListAfterDeleted();
+                    }
+                    else if (parser.getContentType().equals("echo")
+                            && parser.getContent().equals("alive"))
+                    {
+                        echoAlive();
                     }
                 }
             });
