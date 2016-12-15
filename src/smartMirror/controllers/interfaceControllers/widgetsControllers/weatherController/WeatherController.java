@@ -223,7 +223,10 @@ public class WeatherController extends Observable implements Observer
         List<Node> widgets = stackPane.getChildren();
         for (Node widget : widgets)
         {
-            showing = widget.isVisible();
+            if (widget.isVisible())
+            {
+                showing = widget.isVisible();
+            }
         }
 
         gridPane.setVisible(showing);

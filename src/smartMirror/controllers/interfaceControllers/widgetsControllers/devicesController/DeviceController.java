@@ -240,7 +240,7 @@ public class DeviceController implements Observer
      * the parent also shall be not visible and vice-versa
      *
      * @param stackPane parent component
-     * @param gridPane parent parent component
+     * @param gridPane  parent parent component
      */
     private synchronized void monitorWidgetVisibility(GridPane gridPane, StackPane stackPane)
     {
@@ -248,7 +248,10 @@ public class DeviceController implements Observer
         List<Node> widgets = stackPane.getChildren();
         for (Node widget : widgets)
         {
-            showing = widget.isVisible();
+            if (widget.isVisible())
+            {
+                showing = widget.isVisible();
+            }
         }
 
         gridPane.setVisible(showing);

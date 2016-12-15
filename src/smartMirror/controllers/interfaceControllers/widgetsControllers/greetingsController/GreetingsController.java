@@ -81,7 +81,10 @@ public class GreetingsController implements Observer
         ObservableList<Node> list = stackPane.getChildren();
         for (Node node : list)
         {
-            visible = node.isVisible();
+            if (node.isVisible())
+            {
+                visible = node.isVisible();
+            }
         }
         gridPane.setVisible(visible);
     }
