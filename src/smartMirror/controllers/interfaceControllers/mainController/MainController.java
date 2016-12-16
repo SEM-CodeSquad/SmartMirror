@@ -391,6 +391,7 @@ public class MainController extends Observable implements Observer
      */
     public void forceShutdown(KeyEvent event)
     {
+        System.out.println(event.getCode());
         switch (event.getCode())
         {
             case X:

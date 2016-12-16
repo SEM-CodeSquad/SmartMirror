@@ -24,19 +24,13 @@
 
 package smartMirror.controllers.dataHandlers.widgetsDataHandlers.postIts;
 
-import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
-import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.paint.Color;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author CodeHigh @copyright on 07/12/2016.
@@ -45,8 +39,7 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public class PostItManager
 {
-    private GraphicsContext gc;
-    private List<Pixel>[] pixelsList = new List[12];
+    private GraphicsContext[] gcs = new GraphicsContext[12];
     private Image[] images = new Image[12];
 
     private Canvas[] canvases;
@@ -97,14 +90,12 @@ public class PostItManager
         {
             try
             {
-
-                gc = canvases[i].getGraphicsContext2D();
-
-
-                gc.drawImage(images[i], 0, 0);
+                GraphicsContext gc = canvases[i].getGraphicsContext2D();
+                gcs[i] = gc;
 
 
-                readPixels(this.images[i], i);
+                gcs[i].drawImage(images[i], 0, 0);
+
                 setPostMessage(i, msg);
             }
             catch (Exception e)
@@ -134,68 +125,7 @@ public class PostItManager
      */
     public void deleteGraphicalNote(int i)
     {
-        AnimationTimer animationTimer = new AnimationTimer()
-        {
-            @Override
-            public void handle(long now)
-            {
-                update(i);
-            }
-        };
-        animationTimer.start();
         textAreas[i].setText("");
-    }
-
-    /**
-     * Method that reads and store each pixel for the post-it image
-     *
-     * @param image post-it image
-     * @param i     index of post-it
-     * @see Pixel
-     */
-    private void readPixels(Image image, int i)
-    {
-        PixelReader pixelReader = image.getPixelReader();
-        List<Pixel> pixelArrayList = new ArrayList<>();
-        for (int y = 0; y < image.getHeight(); y++)
-        {
-            for (int x = 0; x < image.getWidth(); x++)
-            {
-                Color color = pixelReader.getColor(x, y);
-
-                if (!color.equals(Color.TRANSPARENT))
-                {
-                    Pixel p = new Pixel(x, y, color);
-                    pixelArrayList.add(p);
-                    pixelsList[i] = pixelArrayList;
-                }
-            }
-        }
-    }
-
-    /**
-     * Method called by the delete graphical post-it function it is responsible for apply the nice delete effect for the
-     * post-it using the Pixel class to give the impression that the post-it is disintegrating
-     *
-     * @param i post-it index
-     * @see Pixel
-     */
-    private void update(int i)
-    {
-        gc = canvases[i].getGraphicsContext2D();
-
-        gc.clearRect(0, 0, images[i].getWidth(), images[i].getHeight());
-
-        pixelsList[i].removeIf(Pixel::isDead);
-
-        pixelsList[i].parallelStream()
-                .filter(p -> !p.isActive())
-                .forEach(p -> p.activate(new Point2D(-Math.random() * 19, -Math.random() * 15)));
-
-        pixelsList[i].forEach(p ->
-        {
-            p.update();
-            p.draw(gc);
-        });
+        gcs[i].clearRect(0, 0, images[i].getWidth(), images[i].getHeight());
     }
 }
