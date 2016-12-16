@@ -62,13 +62,17 @@ public class JsonMessageParser
         {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(message);
-            if (json.get("messageFrom") != null)
+            if (json.containsKey("messageFrom") && json.containsKey("contentType") && json.containsKey("content")
+                    && json.containsKey("timestamp"))
             {
                 this.timestamp = json.get("timestamp").toString();
                 this.contentType = json.get("contentType").toString();
                 this.content = json.get("content").toString();
             }
-            else this.contentType = "external";
+            else
+            {
+                this.contentType = "external";
+            }
         }
         catch (ParseException e)
         {

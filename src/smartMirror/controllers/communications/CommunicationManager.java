@@ -154,8 +154,6 @@ public class CommunicationManager extends Observable implements Observer
                         "\"password\":\"smartMirror\"," +
                         "\"name\":\"smartMirror\"}}";
 
-                this.publisher.publish("Gro/" + this.clientId + "@smartmirror.com", messageString);
-
                 timerRegList = new Timer();
                 timerRegList.scheduleAtFixedRate(new TimerTask()
                 {
@@ -165,7 +163,7 @@ public class CommunicationManager extends Observable implements Observer
                         timerHasStarted = true;
                         publisher.publish("Gro/" + clientId + "@smartmirror.com", messageString);
                     }
-                }, 0, 1000);
+                }, 0, 5000);
 
             }
             catch (Exception e)
@@ -197,16 +195,6 @@ public class CommunicationManager extends Observable implements Observer
                     1, false);
 
             listAdded = true;
-            timerAddList = new Timer();
-            timerAddList.scheduleAtFixedRate(new TimerTask()
-            {
-
-                @Override
-                public void run()
-                {
-                    addList();
-                }
-            }, 0, 1000);
 
         }
         catch (MqttException e)
@@ -309,7 +297,17 @@ public class CommunicationManager extends Observable implements Observer
                 {
                     if (!listAdded)
                     {
-                        addList();
+                        timerAddList = new Timer();
+                        timerAddList.scheduleAtFixedRate(new TimerTask()
+                        {
+
+                            @Override
+                            public void run()
+                            {
+                                addList();
+                            }
+                        }, 0, 5000);
+
                     }
                     else if (listRegistered == 1)
                     {
