@@ -51,7 +51,7 @@ public class ActionTest
 
 
             JSONObject item = new JSONObject();
-            sendThis.put("contentType", "postIt action");
+            sendThis.put("contentType", "post-it action");
             System.out.println("Enter the id: ");
             String id = scan.nextLine();
             item.put("postItID", id);

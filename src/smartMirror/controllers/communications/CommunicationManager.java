@@ -51,7 +51,9 @@ public class CommunicationManager extends Observable implements Observer
     private boolean clientPaired;
     private boolean listAdded;
     private int listRegistered;
-    private Timer timer;
+    private Timer timerAddList;
+    private Timer timerRegList;
+    private boolean timerHasStarted;
 
     /**
      * Constructor method, it takes the client Id and use it as the Id to connect in the broker, then it publishes a presence
@@ -61,6 +63,7 @@ public class CommunicationManager extends Observable implements Observer
      */
     public CommunicationManager(String clientId)
     {
+        timerHasStarted = false;
         listAdded = false;
         listRegistered = 0;
         this.clientId = clientId;
@@ -153,6 +156,17 @@ public class CommunicationManager extends Observable implements Observer
 
                 this.publisher.publish("Gro/" + this.clientId + "@smartmirror.com", messageString);
 
+                timerRegList = new Timer();
+                timerRegList.scheduleAtFixedRate(new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        timerHasStarted = true;
+                        publisher.publish("Gro/" + clientId + "@smartmirror.com", messageString);
+                    }
+                }, 0, 1000);
+
             }
             catch (Exception e)
             {
@@ -169,6 +183,12 @@ public class CommunicationManager extends Observable implements Observer
     {
         try
         {
+            if (timerHasStarted)
+            {
+                timerRegList.cancel();
+                timerHasStarted = false;
+            }
+
             String addList = "{\"client_id\":\"" + this.clientId + "@smartmirror.com\"," +
                     "\"request\":" + "\"add-list\"," +
                     "\"list\":\"SmartMirror Shopping list\"}";
@@ -177,8 +197,8 @@ public class CommunicationManager extends Observable implements Observer
                     1, false);
 
             listAdded = true;
-            timer = new Timer();
-            timer.schedule(new TimerTask()
+            timerAddList = new Timer();
+            timerAddList.scheduleAtFixedRate(new TimerTask()
             {
 
                 @Override
@@ -186,7 +206,7 @@ public class CommunicationManager extends Observable implements Observer
                 {
                     addList();
                 }
-            }, 1000);
+            }, 0, 1000);
 
         }
         catch (MqttException e)
@@ -202,7 +222,7 @@ public class CommunicationManager extends Observable implements Observer
     {
         try
         {
-            timer.cancel();
+            timerAddList.cancel();
             this.mqttClient.getClient().unsubscribe("Gro/" + this.clientId + "@smartmirror.com/#");
             this.publisher.echo("Shopping List to the ID: " + this.clientId + "Added");
         }
@@ -287,7 +307,6 @@ public class CommunicationManager extends Observable implements Observer
                 System.out.println("Msg: " + arg.toString());
                 if (arg.toString().equals("{\"reply\":\"done\"}") && listRegistered <= 1)
                 {
-
                     if (!listAdded)
                     {
                         addList();
@@ -297,7 +316,6 @@ public class CommunicationManager extends Observable implements Observer
                         unsubscribeToShoppingList();
                     }
                     listRegistered++;
-
                 }
                 else if (arg.toString().equals("{\"reply\":\"list_already_exists\"}"))
                 {

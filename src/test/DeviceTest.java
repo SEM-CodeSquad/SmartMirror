@@ -15,7 +15,7 @@ public class DeviceTest {
         Scanner scan = new Scanner(System.in);  // Reading from System.in
         System.out.println("Enter the id: ");
         String i = scan.nextLine();
-        String topic = "dit029/SmartMirror/" + i + "/device";
+        String topic = "dit029/SmartMirror/" + i + "/deviceStatus";
 
         DeviceTest deviceTest = new DeviceTest();
 
@@ -34,7 +34,7 @@ public class DeviceTest {
             JSONObject sendThis = new JSONObject();
             sendThis.put("messageFrom", "test");
             sendThis.put("timestamp", "12");
-            sendThis.put("contentType", "device");
+            sendThis.put("contentType", "devices");
 
             JSONObject item = new JSONObject();
             item.put("Living room lamp", "true");

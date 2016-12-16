@@ -26,6 +26,8 @@ package smartMirror.controllers.interfaceControllers.mainController;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
@@ -297,6 +299,10 @@ public class MainController extends Observable implements Observer
 
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
+            fadeIn.setOnFinished(event ->
+            {
+                if (gridPane.getOpacity() != 1) fadeIn.playFromStart();
+            });
             fadeIn.play();
         });
     }
@@ -311,8 +317,6 @@ public class MainController extends Observable implements Observer
         {
             try
             {
-                Robot robotStart = new Robot();
-                robotStart.mouseMove(0, 0);
                 while (systemRunning)
                 {
 

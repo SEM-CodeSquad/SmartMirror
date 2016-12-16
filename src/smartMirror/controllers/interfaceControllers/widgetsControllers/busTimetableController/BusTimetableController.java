@@ -199,7 +199,7 @@ public class BusTimetableController implements Observer
     {
         if (notificationControl != null)
         {
-            notificationControl.deleteObservers();
+            notificationControl.stopTimeline();
             notificationControl = null;
         }
     }

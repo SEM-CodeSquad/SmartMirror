@@ -42,6 +42,7 @@ public class TimeNotificationControl extends Observable
 {
     private DateTimeFormatter SHORT_TIME_FORMATTER;
     private String widgetName;
+    private Timeline timeline;
 
     /**
      * This method loops once every certain time (to be specified) and notifies its observer about the time change
@@ -54,7 +55,7 @@ public class TimeNotificationControl extends Observable
     {
         this.SHORT_TIME_FORMATTER = DateTimeFormatter.ofPattern(SHORT_TIME_FORMATTER);
         this.widgetName = widgetName;
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0),
+        timeline = new Timeline(new KeyFrame(Duration.seconds(0),
                 event -> this.notifyTimeChanged()),
                 new KeyFrame(Duration.seconds(duration)));
 
@@ -71,8 +72,17 @@ public class TimeNotificationControl extends Observable
         switch (widgetName)
         {
             case "timetable":
-                if (LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("10") || LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("30")
-                        || LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("50"))
+                if (LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("10"))
+                {
+                    setChanged();
+                    notifyObservers("Update Timetable");
+                }
+                else if (LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("30"))
+                {
+                    setChanged();
+                    notifyObservers("Update Timetable");
+                }
+                else if (LocalTime.now().format(SHORT_TIME_FORMATTER).endsWith("50"))
                 {
                     setChanged();
                     notifyObservers("Update Timetable");
@@ -99,5 +109,16 @@ public class TimeNotificationControl extends Observable
             default:
                 break;
         }
+    }
+
+    /**
+     * Method used to enforce that the timeline will not be sending updates
+     */
+    public void stopTimeline()
+    {
+        this.deleteObservers();
+        this.timeline.stop();
+        this.timeline.getKeyFrames().clear();
+        this.timeline = null;
     }
 }

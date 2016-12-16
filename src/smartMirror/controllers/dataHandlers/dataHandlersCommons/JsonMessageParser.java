@@ -291,7 +291,7 @@ public class JsonMessageParser
                 String value = jso.get(anArrayList).toString();
                 switch (type)
                 {
-                    case "device":
+                    case "devices":
                         if (value.equals("true") || value.equals("false"))
                         {
                             device = new Device(anArrayList, value);

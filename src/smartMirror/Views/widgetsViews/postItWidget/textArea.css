@@ -1,5 +1,6 @@
 .text-area {
     -fx-background-color: transparent;
+    -fx-display-caret: false ;
 }
 
 .text-area .scroll-pane {
@@ -13,6 +14,7 @@
 
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
+    -fx-cursor: none ;
 }
 
 .text-area *.text {

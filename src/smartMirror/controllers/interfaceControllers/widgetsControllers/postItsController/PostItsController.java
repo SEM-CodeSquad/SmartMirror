@@ -230,22 +230,15 @@ class PostItsController extends Observable implements Observer, Initializable
             int index = freePostIndex();
             if (index != -1)
             {
-                if (postItNote.getBodyText().length() <= 90)
+                //The length of the text here is set to 100 because of the way the emojis are sent. As in
+                // :relaxed: means a smile face.
+                if (postItNote.getBodyText().length() <= 100)
                 {
                     postItNote.setPostItIndex(index);
                     postItNotes.add(postItNote.getPostItId(), postItNote);
                     booleanArray[index] = true;
                     this.postItManager.setImage(index, postItNote.getSenderId());
-                    String text = null;
-                    try
-                    {
-                        text = EmojiParser.parseToUnicode(postItNote.getBodyText());
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(text);
+                    String text = EmojiParser.parseToUnicode(postItNote.getBodyText());
                     this.postItManager.generateGraphicalNote(index, text);
                     setChanged();
                     notifyObservers("Post-it successfully added to the table " + getTableColor());
@@ -253,7 +246,8 @@ class PostItsController extends Observable implements Observer, Initializable
                 else
                 {
                     setChanged();
-                    notifyObservers("A post-it should not contain more than 90 characters");
+                    notifyObservers("A post-it should not contain more than 80 characters (think that emojis " +
+                            "count as around 6 characters)");
                 }
             }
             else
