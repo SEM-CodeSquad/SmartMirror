@@ -64,7 +64,7 @@
             </center>
         </BorderPane>
         <AnchorPane fx:id="mainPane" opacity="0.0" prefHeight="1157.0" prefWidth="1312.0"
-                    style="-fx-background-color: #000000;">
+                    style="-fx-background-color: #000000;" onKeyPressed="#forceShutdown">
             <children>
                 <GridPane fx:id="widget1" layoutX="14.0" layoutY="14.0" opacity="0.0" prefHeight="108.0"
                           prefWidth="234.0" style="-fx-background-color: #000000;" visible="false"

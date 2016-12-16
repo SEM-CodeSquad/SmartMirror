@@ -26,10 +26,9 @@ package smartMirror.controllers.interfaceControllers.mainController;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -51,6 +50,7 @@ import smartMirror.controllers.interfaceControllers.widgetsControllers.weatherCo
 import smartMirror.dataModels.applicationModels.UUID_Generator;
 import smartMirror.dataModels.widgetsModels.qrCodeModels.QRCode;
 import smartMirror.dataModels.widgetsModels.weatherModels.Weather;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -382,6 +382,23 @@ public class MainController extends Observable implements Observer
             System.err.println(e.getMessage());
         }
         return myLoader;
+    }
+
+    /**
+     * Method responsible to force the application to exit
+     *
+     * @param event key listener event that listen to the key X
+     */
+    public void forceShutdown(KeyEvent event)
+    {
+        switch (event.getCode())
+        {
+            case X:
+                System.exit(0);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
